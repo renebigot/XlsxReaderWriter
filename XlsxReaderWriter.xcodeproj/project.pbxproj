@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45B6E23E1A148F7500288A78 /* XlsxReaderWriter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */; };
+		45B6E2401A148F7500288A78 /* XlsxReaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */; };
+		45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45B6E2471A148F7500288A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B6E2321A148F7500288A78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45B6E2391A148F7500288A78;
+			remoteInfo = XlsxReaderWriter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45B6E2381A148F7500288A78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				45B6E23E1A148F7500288A78 /* XlsxReaderWriter.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXlsxReaderWriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
+		45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XlsxReaderWriter.m; sourceTree = "<group>"; };
+		45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XlsxReaderWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B6E24B1A148F7500288A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45B6E2371A148F7500288A78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B6E2421A148F7500288A78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45B6E2311A148F7500288A78 = {
+			isa = PBXGroup;
+			children = (
+				45B6E23C1A148F7500288A78 /* XlsxReaderWriter */,
+				45B6E2491A148F7500288A78 /* XlsxReaderWriterTests */,
+				45B6E23B1A148F7500288A78 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45B6E23B1A148F7500288A78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */,
+				45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45B6E23C1A148F7500288A78 /* XlsxReaderWriter */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */,
+				45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */,
+			);
+			path = XlsxReaderWriter;
+			sourceTree = "<group>";
+		};
+		45B6E2491A148F7500288A78 /* XlsxReaderWriterTests */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E24A1A148F7500288A78 /* Supporting Files */,
+			);
+			path = XlsxReaderWriterTests;
+			sourceTree = "<group>";
+		};
+		45B6E24A1A148F7500288A78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E24B1A148F7500288A78 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45B6E2391A148F7500288A78 /* XlsxReaderWriter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45B6E24E1A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter" */;
+			buildPhases = (
+				45B6E2361A148F7500288A78 /* Sources */,
+				45B6E2371A148F7500288A78 /* Frameworks */,
+				45B6E2381A148F7500288A78 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XlsxReaderWriter;
+			productName = XlsxReaderWriter;
+			productReference = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		45B6E2441A148F7500288A78 /* XlsxReaderWriterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */;
+			buildPhases = (
+				45B6E2411A148F7500288A78 /* Sources */,
+				45B6E2421A148F7500288A78 /* Frameworks */,
+				45B6E2431A148F7500288A78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45B6E2481A148F7500288A78 /* PBXTargetDependency */,
+			);
+			name = XlsxReaderWriterTests;
+			productName = XlsxReaderWriterTests;
+			productReference = 45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45B6E2321A148F7500288A78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = BRAE;
+				TargetAttributes = {
+					45B6E2391A148F7500288A78 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					45B6E2441A148F7500288A78 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 45B6E2351A148F7500288A78 /* Build configuration list for PBXProject "XlsxReaderWriter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 45B6E2311A148F7500288A78;
+			productRefGroup = 45B6E23B1A148F7500288A78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45B6E2391A148F7500288A78 /* XlsxReaderWriter */,
+				45B6E2441A148F7500288A78 /* XlsxReaderWriterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45B6E2431A148F7500288A78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45B6E2361A148F7500288A78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45B6E2401A148F7500288A78 /* XlsxReaderWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45B6E2411A148F7500288A78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45B6E2481A148F7500288A78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45B6E2391A148F7500288A78 /* XlsxReaderWriter */;
+			targetProxy = 45B6E2471A148F7500288A78 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		45B6E24C1A148F7500288A78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		45B6E24D1A148F7500288A78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45B6E24F1A148F7500288A78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		45B6E2501A148F7500288A78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		45B6E2521A148F7500288A78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45B6E2531A148F7500288A78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45B6E2351A148F7500288A78 /* Build configuration list for PBXProject "XlsxReaderWriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B6E24C1A148F7500288A78 /* Debug */,
+				45B6E24D1A148F7500288A78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45B6E24E1A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B6E24F1A148F7500288A78 /* Debug */,
+				45B6E2501A148F7500288A78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B6E2521A148F7500288A78 /* Debug */,
+				45B6E2531A148F7500288A78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45B6E2321A148F7500288A78 /* Project object */;
+}
