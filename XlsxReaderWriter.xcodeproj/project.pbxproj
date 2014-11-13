@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		45B6E23E1A148F7500288A78 /* XlsxReaderWriter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */; };
-		45B6E2401A148F7500288A78 /* XlsxReaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */; };
 		45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */; };
+		45B6E25F1A14901E00288A78 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E25E1A14901E00288A78 /* XMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +19,20 @@
 			remoteGlobalIDString = 45B6E2391A148F7500288A78;
 			remoteInfo = XlsxReaderWriter;
 		};
+		45B6E2591A148FFC00288A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B6E2541A148FFB00288A78 /* SSZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7A000671845716F00DA4DA2;
+			remoteInfo = SSZipArchive;
+		};
+		45B6E25B1A148FFC00288A78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45B6E2541A148FFB00288A78 /* SSZipArchive.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7A000741845716F00DA4DA2;
+			remoteInfo = SSZipArchiveTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +42,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				45B6E23E1A148F7500288A78 /* XlsxReaderWriter.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,10 +49,11 @@
 
 /* Begin PBXFileReference section */
 		45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXlsxReaderWriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
-		45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XlsxReaderWriter.m; sourceTree = "<group>"; };
 		45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XlsxReaderWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B6E24B1A148F7500288A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45B6E2541A148FFB00288A78 /* SSZipArchive.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSZipArchive.xcodeproj; path = ThirdParties/SSZipArchive/SSZipArchive.xcodeproj; sourceTree = SOURCE_ROOT; };
+		45B6E25D1A14901E00288A78 /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDictionary.h; path = ThirdParties/XMLDictionary/XMLDictionary/XMLDictionary.h; sourceTree = SOURCE_ROOT; };
+		45B6E25E1A14901E00288A78 /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDictionary.m; path = ThirdParties/XMLDictionary/XMLDictionary/XMLDictionary.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +96,8 @@
 		45B6E23C1A148F7500288A78 /* XlsxReaderWriter */ = {
 			isa = PBXGroup;
 			children = (
-				45B6E23D1A148F7500288A78 /* XlsxReaderWriter.h */,
-				45B6E23F1A148F7500288A78 /* XlsxReaderWriter.m */,
+				45B6E2601A14902600288A78 /* XMLDictionary */,
+				45B6E2541A148FFB00288A78 /* SSZipArchive.xcodeproj */,
 			);
 			path = XlsxReaderWriter;
 			sourceTree = "<group>";
@@ -103,6 +116,24 @@
 				45B6E24B1A148F7500288A78 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45B6E2551A148FFB00288A78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E25A1A148FFC00288A78 /* libSSZipArchive.a */,
+				45B6E25C1A148FFC00288A78 /* SSZipArchiveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45B6E2601A14902600288A78 /* XMLDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E25D1A14901E00288A78 /* XMLDictionary.h */,
+				45B6E25E1A14901E00288A78 /* XMLDictionary.m */,
+			);
+			name = XMLDictionary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +201,12 @@
 			mainGroup = 45B6E2311A148F7500288A78;
 			productRefGroup = 45B6E23B1A148F7500288A78 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 45B6E2551A148FFB00288A78 /* Products */;
+					ProjectRef = 45B6E2541A148FFB00288A78 /* SSZipArchive.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				45B6E2391A148F7500288A78 /* XlsxReaderWriter */,
@@ -177,6 +214,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		45B6E25A1A148FFC00288A78 /* libSSZipArchive.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSSZipArchive.a;
+			remoteRef = 45B6E2591A148FFC00288A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		45B6E25C1A148FFC00288A78 /* SSZipArchiveTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SSZipArchiveTests.xctest;
+			remoteRef = 45B6E25B1A148FFC00288A78 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		45B6E2431A148F7500288A78 /* Resources */ = {
@@ -193,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B6E2401A148F7500288A78 /* XlsxReaderWriter.m in Sources */,
+				45B6E25F1A14901E00288A78 /* XMLDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +410,7 @@
 				45B6E2501A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */ = {
 			isa = XCConfigurationList;
@@ -364,6 +419,7 @@
 				45B6E2531A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
