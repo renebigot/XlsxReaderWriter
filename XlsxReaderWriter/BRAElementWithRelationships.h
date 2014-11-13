@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BRAOpenXmlElement.h"
 
 @class BRARelationships;
 

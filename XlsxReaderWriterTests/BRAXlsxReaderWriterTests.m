@@ -20,7 +20,8 @@
 #import "BRACell.h"
 
 #define NUMBER_FORMAT(X) [[BRANumberFormat alloc] initWithOpenXmlAttributes:@{@"_formatCode": X} inStyles:_spreadsheet.workbook.styles]
-extern void __gcov_flush();
+
+//extern void __gcov_flush();
 
 @interface BRAXlsxReaderWriterTests : XCTestCase {
     BRAOfficeDocumentPackage *_spreadsheet;
@@ -46,7 +47,7 @@ extern void __gcov_flush();
     
     [super tearDown];
     
-    __gcov_flush();
+//    __gcov_flush();
 }
 
 - (void)testReadSpreadsheetDocument {
