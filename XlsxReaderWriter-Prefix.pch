@@ -1,0 +1,24 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+    #define TRUNCATE(X) floor(X)
+
+    #define NOT_IMPLEMENTED NSAssert2(NO, @"%s is not implemented in %@", __PRETTY_FUNCTION__, [super class]);
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
+    #import "UIColor+HTML.h"
+    #import "UIColor+OpenXml.h"
+    #import "UIFont+BoldItalic.h"
+    #import "NSDictionary+OpenXmlString.h"
+
+    #import "BRAOpenXmlElement.h"
+    #import "XMLDictionary.h"
+    #import "NSDictionary+OpenXmlDictionaryParser.h"
+    #import "NSDictionary+DeepCopy.h"
+#endif
