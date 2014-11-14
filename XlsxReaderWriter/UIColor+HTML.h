@@ -3,7 +3,7 @@
 //  FasciaLib
 //
 //  Created by René Bigot on 26/01/2014.
-//  Copyright (c) 2014 SNCF PSIGT.TL. All rights reserved.
+//  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
