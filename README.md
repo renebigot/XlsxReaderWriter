@@ -1,6 +1,6 @@
 #XlsxReaderWriter
 
-XlsxReaderWriter is an Objective-C library for iPhone / iPad. It parses and writes MS Excel XLSX files.
+XlsxReaderWriter is an Objective-C library for iPhone / iPad. It parses and writes Excel OpenXml files (XLSX).
 
 ##Features
 
@@ -35,6 +35,8 @@ Todo:
 XlsxReaderWriter can't create a SpreadsheetML (XLSX) file from scratch. You have to open an existing file and modify it before saving it. Not really a problem : You create your file with Excel or Numbers with all the needed formatting (fills, borders, etc.) then include the file as a resource of your project.
 
 ##Third parties
+
+Third parties are included in this repository, not linked as git submodules.
 
 * SSZipArchive: Compression/decompression library
 * XMLDictionary: Converts XML to NSDictionary and NSDictionary to XML
@@ -199,7 +201,15 @@ XLSX files are OPC packages (see ECMA-376 for more information). Below is a simp
 
 ![](OfficeDocumentHierarchy.png)
 
-Files have relationships, files are relationships... 
+Files have relationships, files are relationships... Have a look at this picture each time you want to change something in the library.
+
+##Tests coverage
+
+A test coverage script run at the end of tests. You need to install LCOV via Macports to run coverage report generation.
+
+Reports will be put in /Users/Shared/Coverage.
+
+I use a custom CSS for LCOV. Put yours at this path : /Users/Shared/Coverage/gcov.css
 
 ##License	
 
