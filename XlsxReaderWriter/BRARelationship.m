@@ -11,9 +11,9 @@
 
 @implementation BRARelationship
 
-- (instancetype)initWithId:(NSString *)relationId type:(NSString *)relationshipType andTarget:(NSString *)relationTarget inParentDirectory:(NSString *)parentDirectory {
+- (instancetype)initWithId:(NSString *)identifier type:(NSString *)relationshipType andTarget:(NSString *)relationTarget inParentDirectory:(NSString *)parentDirectory {
     if (self = [super initWithContentsOfTarget:relationTarget inParentDirectory:parentDirectory]) {
-        self.identifier = relationId;
+        self.identifier = identifier;
         self.type = relationshipType;
         self.target = relationTarget;
     }
@@ -21,11 +21,11 @@
     return self;
 }
 
-- (instancetype)initWithXmlRepresentation:(NSString *)xmlRepresentation forRelationId:(NSString *)relationId inParentDirectory:(NSString *)parentDirectory {
+- (instancetype)initWithXmlRepresentation:(NSString *)xmlRepresentation forRelationId:(NSString *)identifier inParentDirectory:(NSString *)parentDirectory {
     Class relationshipClass = [self class];
     
     if (self = [super init]) {
-        self.identifier = relationId;
+        self.identifier = identifier;
         self.type = [relationshipClass fullRelationshipType];
         self.target = nil;
         self.parentDirectory = parentDirectory;
@@ -37,11 +37,11 @@
     return self;
 }
 
-- (instancetype)initWithDataRepresentation:(NSData *)dataRepresentation forRelationId:(NSString *)relationId inParentDirectory:(NSString *)parentDirectory {
+- (instancetype)initWithDataRepresentation:(NSData *)dataRepresentation forRelationId:(NSString *)identifier inParentDirectory:(NSString *)parentDirectory {
     Class relationshipClass = [self class];
     
     if (self = [super init]) {
-        self.identifier = relationId;
+        self.identifier = identifier;
         self.type = [relationshipClass fullRelationshipType];
         self.target = nil;
         self.parentDirectory = parentDirectory;
@@ -95,7 +95,11 @@
 - (void)setParentDirectory:(NSString *)parentDirectory {
     [super setParentDirectory:parentDirectory];
     
-    parentDirectory = [parentDirectory stringByAppendingPathComponent:[self.target stringByDeletingLastPathComponent]];
+    NSString *target = self.target;
+    if (target == nil) {
+        target = [self targetFormat];
+    }
+    parentDirectory = [parentDirectory stringByAppendingPathComponent:[target stringByDeletingLastPathComponent]];
     
     [self.relationships setParentDirectory:parentDirectory];
 }
@@ -107,6 +111,7 @@
     newRelationship.xmlRepresentation = self.xmlRepresentation;
     newRelationship.dataRepresentation = self.dataRepresentation;
     newRelationship.type = self.type;
+    newRelationship.target = nil;
     newRelationship.identifier = self.identifier;
     newRelationship.relationships = [self.relationships copy];
     
