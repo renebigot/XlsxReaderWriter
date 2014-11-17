@@ -88,11 +88,11 @@
 }
 
 - (BRAWorksheet *)createWorksheetNamed:(NSString *)worksheetName byCopyingWorksheet:(BRAWorksheet *)worksheet {
-    NSString *relationId = [self.relationships relationshipIdForNewRelationship];
+    NSString *identifier = [self.relationships relationshipIdForNewRelationship];
 
     //Create the relation (sheetX.xml file)
     BRAWorksheet *newWorksheet = [worksheet copy];
-    newWorksheet.identifier = relationId;
+    newWorksheet.identifier = identifier;
 
     [self.relationships addRelationship:newWorksheet];
     
@@ -100,7 +100,7 @@
     BRASheet *newSheet = [[BRASheet alloc] initWithOpenXmlAttributes:@{
                                                                        @"_name": worksheetName,
                                                                        @"_sheetId": [self sheetIdForNewSheet],
-                                                                       @"_r:id": relationId
+                                                                       @"_r:id": identifier
                                                                        }];
     NSMutableArray *sheets = _sheets.mutableCopy;
     [sheets addObject:newSheet];
