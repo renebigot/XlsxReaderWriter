@@ -333,7 +333,7 @@
     
     _drawings = [[BRADrawing alloc] initWithXmlRepresentation:@"<xdr:wsDr xmlns:xdr=\"http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing\" xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\"></xdr:wsDr>"
                                                                 forRelationId:relationId
-                                                            inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl"]];
+                                                            inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl/worksheets"]];
     
     [self.relationships addRelationship:_drawings];
     
