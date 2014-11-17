@@ -213,4 +213,20 @@
     return _xmlRepresentation;
 }
 
+- (instancetype)copy {
+    BRADrawing *copy = [super copy];
+    
+    copy.worksheetDrawings = @[].mutableCopy;
+    copy.relationships.relationshipsArray = @[].mutableCopy;
+    
+    for (BRAWorksheetDrawing *wsDr in self.worksheetDrawings) {
+        BRAImage *imageCopy = [[self.relationships relationshipWithId:wsDr.identifier] copy];
+        imageCopy.identifier = [copy.relationships relationshipIdForNewRelationship];
+        
+        [copy addDrawingForImage:imageCopy withAnchor:wsDr.anchor];
+    }
+
+    return copy;
+}
+
 @end
