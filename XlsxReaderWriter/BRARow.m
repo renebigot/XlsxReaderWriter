@@ -107,7 +107,7 @@
     
     //Sort cells by reference
     [_cells sortUsingComparator:^NSComparisonResult(BRACell *obj1, BRACell *obj2) {
-        return [BRAColumn columnIndexForCellReference:obj1.reference] > [BRAColumn columnIndexForCellReference:obj1.reference]
+        return [BRAColumn columnIndexForCellReference:obj1.reference] < [BRAColumn columnIndexForCellReference:obj2.reference]
         ? NSOrderedAscending : NSOrderedDescending;
     }];
     
