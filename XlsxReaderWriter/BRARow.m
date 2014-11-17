@@ -10,6 +10,7 @@
 #import "BRACell.h"
 #import "BRAMergeCell.h"
 #import "BRAWorksheet.h"
+#import "BRAColumn.h"
 
 @implementation BRARow
 
@@ -106,7 +107,8 @@
     
     //Sort cells by reference
     [_cells sortUsingComparator:^NSComparisonResult(BRACell *obj1, BRACell *obj2) {
-        return [obj1.reference compare:obj2.reference];
+        return [BRAColumn columnIndexForCellReference:obj1.reference] > [BRAColumn columnIndexForCellReference:obj1.reference]
+        ? NSOrderedAscending : NSOrderedDescending;
     }];
     
     

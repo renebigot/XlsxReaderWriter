@@ -41,6 +41,12 @@ Third parties are included in this repository, not linked as git submodules.
 * SSZipArchive: Compression/decompression library
 * XMLDictionary: Converts XML to NSDictionary and NSDictionary to XML
 
+##Linking
+
+To include the library to your Xcode project, insert XlsxReaderWriter.xcodeproj as a sub project of your project. In your target "Build phases" insert XlsxReaderWriter as a target dependecy and add libXlsxReaderWriter.a in "Link binary with Libraries".
+
+Now, you can import BRAOfficeDocumentPackage.h in your code.
+
 ##How to 
 
 ###Read a spreadsheet document (XLSX file)

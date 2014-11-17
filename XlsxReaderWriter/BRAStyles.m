@@ -30,16 +30,15 @@
     NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
     //Read indexed colors
-    NSMutableArray *indexedColors = @[].mutableCopy;
+    NSMutableArray *indexedColors = [UIColor defaultIndexedColors].mutableCopy;
     
     NSArray *colorsArray = [attributes arrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
     if (colorsArray) {
+        NSInteger index = 0;
         for (NSDictionary *indexedColorDict in colorsArray) {
             UIColor *indexedColor = [self colorWithOpenXmlAttributes:indexedColorDict];
-            [indexedColors addObject:indexedColor];
+            indexedColors[index++] = indexedColor;
         }
-    } else {
-        indexedColors = [UIColor defaultIndexedColors].mutableCopy;
     }
     _indexedColors = indexedColors;
     
