@@ -97,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		4580C6711A15155B00790ED5 /* XlsxReaderWriter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "XlsxReaderWriter-Prefix.pch"; path = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch"; sourceTree = "<group>"; };
 		4580C6731A15157100790ED5 /* BRARelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationship.h; sourceTree = "<group>"; };
 		4580C6741A15157100790ED5 /* BRARelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRARelationship.m; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		45B6E23C1A148F7500288A78 /* XlsxReaderWriter */ = {
 			isa = PBXGroup;
 			children = (
+				4523D5A11A19CDB9008A0738 /* README.md */,
 				45B6E2701A15067C00288A78 /* Third Parties */,
 				45B6E2711A15068500288A78 /* Additions */,
 				45B6E2871A1506EA00288A78 /* Document */,
