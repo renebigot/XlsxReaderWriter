@@ -253,7 +253,7 @@
     NSMutableDictionary *dictionaryRepresentation = [super dictionaryRepresentation].mutableDeepCopy;
     
     if (self.name.length == 0) {
-        self.name = [self.image.target lastPathComponent];
+        self.name = [NSString stringWithFormat:@"Image %@", self.drawingIdentifier];
     }
     
     [dictionaryRepresentation setValue:self.drawingIdentifier forKeyPath:@"xdr:pic.xdr:nvPicPr.xdr:cNvPr._id"];

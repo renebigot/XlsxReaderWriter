@@ -44,7 +44,7 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *drawingIdentifier;
-@property (nonatomic, weak) BRAImage *image;
+@property (nonatomic, strong) BRAImage *image;
 
 - (instancetype)initWithImage:(BRAImage *)image andAnchor:(BRAAnchor *)anchor;
 
