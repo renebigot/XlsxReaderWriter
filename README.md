@@ -49,12 +49,12 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
 
 ##How to 
 
-###Read a spreadsheet document (XLSX file)
+####Read a spreadsheet document (XLSX file)
 
     NSString *documentPath = [[NSBundle mainBundle] pathForResource:@"testWorkbook" ofType:@"xlsx"];
 	BRAOfficeDocumentPackage *spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
 
-###Save a spreadsheet document
+####Save a spreadsheet document
 
 	//Save
 	[spreasheet save];
@@ -63,7 +63,7 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
     NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"workbookCopy.xlsx"];
     [spreadsheet saveAs:fullPath];
 
-###Get a worksheet
+####Get a worksheet
 
 	//First worksheet in the workbook
 	BRAWorksheet *firsWorksheet = spreadsheet.workbook.worksheets[0];
@@ -71,27 +71,27 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
 	//Worksheet named "Foo"
 	BRAWorksheet *fooWorksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo"];
 
-###Read cells content: Formula
+####Read cells content: Formula
 
 	NSString *formula = [[worksheet cellForCellReference:@"B4"] formulaString]
 
-###Read cells content: error
+####Read cells content: error
 
 	NSString *errorValue = nil;
 	if ([[worksheet cellForCellReference:@"B2"] hasError]) {
 		errorValue = [[worksheet cellForCellReference:@"B2"] stringValue];
 	}
 	
-###Read cells content: string
+####Read cells content: string
 
 	NSString *string = [[worksheet cellForCellReference:@"B6"] stringValue];
 
-###Read cells content: attributed string
+####Read cells content: attributed string
 
 	//Cell style is applied to the cell content
 	NSAttributedString *attributedString = [[worksheet cellForCellReference:@"B5"] attributedStringValue];
 
-###Read cells content: formatted number
+####Read cells content: formatted number
 
 	//Integer cell value
 	NSInteger cellIntValue = [[worksheet cellForCellReference:@"B5"] integerValue];
@@ -102,57 +102,57 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
 	//Formatted number cell value
 	CGFloat cellFloatValue = [[worksheet cellForCellReference:@"B5"] stringValue];
 
-###Read cells content: boolean
+####Read cells content: boolean
 
 	BOOL cellTruth = [[worksheet cellForCellReference:@"B5"] boolValue];
 	
-###Write cells content: Formula
+####Write cells content: Formula
 
     [[worksheet cellForCellReference:@"Y26" shouldCreate:YES] setFormulaString:@"TODAY()"];
 
-###Write cells content: error
+####Write cells content: error
 
     [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setError:@"#DIV/0!"];
 
-###Write cells content: string
+####Write cells content: string
 
     [[worksheet cellForCellReference:@"Y24" shouldCreate:YES] setStringValue:@"FOO / BAR"];
 
-###Write cells content: attributed string
+####Write cells content: attributed string
 
     [[worksheet cellForCellReference:@"Z24" shouldCreate:YES]
      setAttributedStringValue:[[NSAttributedString alloc] initWithString:@"RED is not GREEN" attributes:@{NSForegroundColorAttributeName: [UIColor greenColor]}]];
 
-###Write cells content: formatted number
+####Write cells content: formatted number
 
     [[worksheet cellForCellReference:@"Z23" shouldCreate:YES] setFloatValue:12.3];
     [[worksheet cellForCellReference:@"Z23"] setNumberFormat:@"0.000"];
 
-###Write cells content: boolean
+####Write cells content: boolean
 
     [[worksheet cellForCellReference:@"Z21" shouldCreate:YES] setBoolValue:NO];
 
-###Write cells content: date
+####Write cells content: date
 
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"MM/dd/yyyy";
     [[worksheet cellForCellReference:@"Y25" shouldCreate:YES] setDateValue:[df dateFromString:@"10/07/1982"]];
     [[worksheet cellForCellReference:@"Y25"] setNumberFormat:@"m/d/yyyy"];
 
-###Get cell fill as a UIColor
+####Get cell fill as a UIColor
 
 	UIColor *cellFillColor = [[worksheet cellForCellReference:@"A35"] cellFillColor];
 
-###Change cell fill
+####Change cell fill
 
 	[[worksheet cellForCellReference:@"A36" shouldCreate:YES] setCellFillWithForegroundColor:[UIColor yellowColor] backgroundColor:[UIColor blackColor] andPatternType:kBRACellFillPatternTypeDarkTrellis];
 	
-###Get images
+####Get images
 
 	//Works with oneCellAnchor or twoCellAnchored image
 	UIImage *image = [worksheet imageForCellReference:@"G8"].uiImage;
 
-###Add images (JPEG or PNG)
+####Add images (JPEG or PNG)
 
 	UIImage *image = [UIImage imageNamed:@"Kitten.jpeg"];
 	//preserveTransparency force JPEG (NO) or PNG (YES)
@@ -162,7 +162,7 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
     drawing.insets = UIEdgeInsetsMake(0., 0., .5, .5);
 
 
-###Add/remove rows in sheets
+####Add/remove rows in sheets
 
 	//Insert one row before 18th row
     [worksheet addRowsAt:18];
@@ -174,30 +174,30 @@ Now, you can import BRAOfficeDocumentPackage.h in your code.
 	//Remove them
 	[worksheet removeRow:18 count:10];
 
-###Add/remove columns in sheets
+####Add/remove columns in sheets
 
 	TODO
 	
-###Change number formatting
+####Change number formatting
 
 	[[worksheet cellForCellReference:@"Y25"] setNumberFormat:@"_(0.00_);(0.00)"];
 	
-###Read content from merge cells
+####Read content from merge cells
 
 	//Get the cell at C10 or the upper-left cell if C10 belongs to a merge cell
 	BRACell *cell = [worksheet cellOrFirstCellInMergeCellForCellReference:@"C10"]
 
-###Create worksheet
+####Create worksheet
 
 	BRAWorksheet *worksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo"];
 
-###Copy worksheet
+####Copy worksheet
 
 	BRAWorksheet *worksheetToCopy = spreadsheet.workbook.worksheets[0];
     BRAWorksheet *worksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo" byCopyingWorksheet:worksheetToCopy];
 
 
-###Remove worksheet
+####Remove worksheet
 	
 	[_spreadsheet.workbook removeWorksheetNamed:@"Foo"];
 
