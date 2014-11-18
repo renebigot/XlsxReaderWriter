@@ -10,11 +10,11 @@
 #import "BRACell.h"
 #import "BRACellRange.h"
 #import "BRAMergeCell.h"
-#import "BRASharedStrings.h"
 #import "BRAStyles.h"
 #import "BRADrawing.h"
 #import "BRAImage.h"
 #import "BRACalcChain.h"
+#import "BRASharedStrings.h"
 
 @interface BRAWorksheet : BRARelationship {
     BRACellRange *_dimension;
@@ -45,8 +45,8 @@
 @property (nonatomic, strong) NSMutableArray *columns;
 @property (nonatomic, strong) BRACellRange *dimension;
 @property (nonatomic, strong) BRADrawing *drawings;
-@property (nonatomic, weak) BRAStyles *styles;
-@property (nonatomic, weak) BRASharedStrings *sharedStrings;
-@property (nonatomic, weak) BRACalcChain *calcChain;
+@property (nonatomic, strong) BRASharedStrings *sharedStrings;
+@property (nonatomic, strong) BRAStyles *styles;
+@property (nonatomic, strong) BRACalcChain *calcChain;
 
 @end
