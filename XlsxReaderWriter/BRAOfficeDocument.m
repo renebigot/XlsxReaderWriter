@@ -68,11 +68,15 @@
     //Create the relation (sheetX.xml file)
     NSString *relationId = [self.relationships relationshipIdForNewRelationship];
     
-    BRAWorksheet *worksheet = [[BRAWorksheet alloc] initWithXmlRepresentation:@"<worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"><sheetData /></worksheet>"
+    BRAWorksheet *newWorksheet = [[BRAWorksheet alloc] initWithXmlRepresentation:@"<worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"><sheetData /></worksheet>"
                                                                 forRelationId:relationId
                                                             inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl"]];
     
-    [self.relationships addRelationship:worksheet];
+    newWorksheet.styles = _styles;
+    newWorksheet.sharedStrings = _sharedStrings;
+    newWorksheet.calcChain = _calcChain;
+    
+    [self.relationships addRelationship:newWorksheet];
     
     //Create sheet (OpenXmlSubElement)
     BRASheet *newSheet = [[BRASheet alloc] initWithOpenXmlAttributes:@{
@@ -84,7 +88,7 @@
     [sheets addObject:newSheet];
     _sheets = sheets;
     
-    return worksheet;
+    return newWorksheet;
 }
 
 - (BRAWorksheet *)createWorksheetNamed:(NSString *)worksheetName byCopyingWorksheet:(BRAWorksheet *)worksheet {
@@ -93,6 +97,10 @@
     //Create the relation (sheetX.xml file)
     BRAWorksheet *newWorksheet = [worksheet copy];
     newWorksheet.identifier = identifier;
+
+    newWorksheet.styles = _styles;
+    newWorksheet.sharedStrings = _sharedStrings;
+    newWorksheet.calcChain = _calcChain;
 
     [self.relationships addRelationship:newWorksheet];
     
