@@ -192,7 +192,7 @@
     
     if (runHasProperties) {
         dictionaryRepresentation[@"r"] = attributesArray;
-    } else {
+    } else if (attributesArray.count > 0) {
         dictionaryRepresentation = attributesArray[0];
     }
 
