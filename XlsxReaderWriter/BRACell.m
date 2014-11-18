@@ -176,6 +176,10 @@
 }
 
 - (void)setStringValue:(NSString *)stringValue {
+    if (stringValue == nil) {
+        return;
+    }
+    
     BRASharedString *sharedString = [[BRASharedString alloc] initWithAttributedString:[[NSAttributedString alloc] initWithString:stringValue]
                                                                              inStyles:_worksheet.styles];
     [_worksheet.sharedStrings addSharedString:sharedString];
@@ -187,6 +191,10 @@
 }
 
 - (void)setAttributedStringValue:(NSAttributedString *)attributedStringValue {
+    if (attributedStringValue == nil) {
+        return;
+    }
+    
     BRASharedString *sharedString = [[BRASharedString alloc] initWithAttributedString:attributedStringValue
                                                                              inStyles:_worksheet.styles];
     [_worksheet.sharedStrings addSharedString:sharedString];
@@ -198,6 +206,10 @@
 }
 
 - (void)setDateValue:(NSDate *)date {
+    if (date == nil) {
+        return;
+    }
+    
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss";
     _type = BRACellContentTypeDate;
@@ -208,11 +220,19 @@
 }
 
 - (void)setFormulaString:(NSString *)formulaString {
+    if (formulaString == nil) {
+        return;
+    }
+    
     _type = BRACellContentTypeString;
     _formulaString = formulaString;
 }
 
 - (void)setErrorValue:(NSString *)errorValue {
+    if (errorValue == nil) {
+        return;
+    }
+    
     _error = YES;
     _type = BRACellContentTypeError;
     _value = errorValue;
