@@ -151,23 +151,17 @@
     if (color == nil || [color isEqual:[[UIColor blackColor] colorWithAlphaComponent:0]]) {
         return nil;
     }
-    NSInteger colorIndex = [_indexedColors indexOfObject:color];
-    if (colorIndex != NSNotFound) {
-        return @{
-                 @"_indexed": [NSString stringWithFormat:@"%ld", (long)colorIndex]
-                 };
-    } else {
-        CGFloat red = 1., green = 1., blue = 1., alpha = 1.;
-        [color getRed:&red green:&green blue:&blue alpha:&alpha];
-        
-        return @{
-                 @"_rgb": [NSString stringWithFormat:@"%.2X%.2X%.2X%.2X",
-                           (int)(alpha * 255),
-                           (int)(red * 255),
-                           (int)(green * 255),
-                           (int)(blue * 255)]
-                 };
-    }
+
+    CGFloat red = 1., green = 1., blue = 1., alpha = 1.;
+    [color getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    return @{
+             @"_rgb": [NSString stringWithFormat:@"%.2X%.2X%.2X%.2X",
+                       (int)(alpha * 255),
+                       (int)(red * 255),
+                       (int)(green * 255),
+                       (int)(blue * 255)]
+             };
 }
 
 #pragma mark - Property setter
