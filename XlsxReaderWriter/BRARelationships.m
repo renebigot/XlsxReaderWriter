@@ -9,6 +9,7 @@
 #import "BRARelationships.h"
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRAContentTypesOverride.h"
+#import "BRADrawing.h"
 
 @implementation BRARelationships
 
@@ -60,7 +61,19 @@
 - (void)setParentDirectory:(NSString *)parentDirectory {
     [super setParentDirectory:parentDirectory];
     
+    parentDirectory = [[parentDirectory stringByReplacingOccurrencesOfString:@"_rels" withString:@""] stringByStandardizingPath];
+
     for (BRARelationship *relationship in _relationshipsArray) {
+        NSString *target = self.target;
+        
+        if (target == nil) {
+            //we need a last path component
+            target = @".rels";
+        }
+        
+        parentDirectory = [[[[parentDirectory stringByAppendingPathComponent:target] stringByStandardizingPath]
+                            stringByReplacingOccurrencesOfString:@"_rels" withString:@""] stringByDeletingLastPathComponent];
+        
         [relationship setParentDirectory:parentDirectory];
     }
 }
@@ -183,7 +196,6 @@
 - (instancetype)copy {
     BRARelationships *newRelationships = [[BRARelationships alloc] init];
     newRelationships.parentDirectory = self.parentDirectory;
-//    newRelationships.target = self.target;
     newRelationships.xmlRepresentation = _xmlRepresentation;
     
     newRelationships.relationshipsArray = @[].mutableCopy;
