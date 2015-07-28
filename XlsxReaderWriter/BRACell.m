@@ -130,7 +130,7 @@
     BRANumberFormat *numberFormat = [[BRANumberFormat alloc] initWithFormatCode:numberFormatCode andId:NSNotFound inStyles:_worksheet.styles];
     
     _styleId = [_worksheet.styles addStyleByCopyingStyleWithId:_styleId];
-    [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setNumberFormat:numberFormat];
+    [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setNumberFormat:numberFormat];    
 }
 
 - (void)setCellFillWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType {
@@ -140,8 +140,18 @@
     [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setCellFill:cellFill];
 }
 
+- (void)setCellFill:(BRACellFill *)cellFill {
+    _styleId = [_worksheet.styles addStyleByCopyingStyleWithId:_styleId];
+    [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setCellFill:cellFill];
+}
+
 - (UIColor *)cellFillColor {
-    return [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] cellFill].patternedColor;
+    UIColor *cellFillColor = [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] cellFill].patternedColor;
+    return cellFillColor ? cellFillColor : [UIColor clearColor];
+}
+
+- (BRACellFill *)cellFill {
+    return [_worksheet.styles.cellFormats[_styleId] cellFill];
 }
 
 - (NSString *)numberFormatCode {
@@ -173,6 +183,11 @@
     _sharedStringIndex = 0;
     _dateValue = nil;
     _error = NO;
+    
+    BRACellFormat *cellFormat = _worksheet.styles.cellFormats[_styleId];
+    if (!cellFormat.numberFormat) {
+        [self setNumberFormat:@"0.000"];
+    }
 }
 
 - (void)setStringValue:(NSString *)stringValue {
@@ -298,15 +313,45 @@
         
     } else if (_type == BRACellContentTypeNumber || _type == BRACellContentTypeUnknown) {
         BRACellFormat *cellFormat = _worksheet.styles.cellFormats[_styleId];
-        NSMutableAttributedString *attributedString = [cellFormat.numberFormat formatNumber:[_value floatValue]].mutableCopy;
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@""];
+        if (_value != nil) {
+            attributedString = [cellFormat.numberFormat formatNumber:[_value floatValue]].mutableCopy;
+        }
         [attributedString addAttributes:attributedTextAttributes range:NSMakeRange(0, attributedString.length)];
         return attributedString;
         
     } else if (_type == BRACellContentTypeSharedString) {
-        BRASharedString *sharedString = _worksheet.sharedStrings.sharedStrings[_sharedStringIndex];
-        NSMutableAttributedString *attributedString = [sharedString attributedString].mutableCopy;
-        [attributedString addAttributes:attributedTextAttributes range:NSMakeRange(0, attributedString.length)];
-        
+        NSMutableAttributedString *attributedString = [_worksheet.sharedStrings.sharedStrings[_sharedStringIndex] attributedString].mutableCopy;
+
+        [attributedString beginEditing];
+
+        [attributedString enumerateAttributesInRange:NSMakeRange(0, attributedString.length)
+                                             options:0
+                                          usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+                                              if (attributedTextAttributes[NSForegroundColorAttributeName] && !attrs[NSForegroundColorAttributeName]) {
+                                                  [attributedString addAttributes:@{NSForegroundColorAttributeName: attributedTextAttributes[NSForegroundColorAttributeName]}
+                                                                            range:range];
+                                              }
+                                              
+                                              if (attributedTextAttributes[NSFontAttributeName] && !attrs[NSFontAttributeName]) {
+                                                  [attributedString addAttributes:@{NSFontAttributeName: attributedTextAttributes[NSFontAttributeName]}
+                                                                            range:range];
+                                              }
+                                              
+                                              if (attributedTextAttributes[NSUnderlineStyleAttributeName] && !attrs[NSUnderlineStyleAttributeName]) {
+                                                  [attributedString addAttributes:@{NSUnderlineStyleAttributeName: attributedTextAttributes[NSUnderlineStyleAttributeName]}
+                                                                            range:range];
+                                              }
+                                              
+                                              if (attributedTextAttributes[NSParagraphStyleAttributeName] && !attrs[NSParagraphStyleAttributeName]) {
+                                                  [attributedString addAttributes:@{NSParagraphStyleAttributeName: attributedTextAttributes[NSParagraphStyleAttributeName]}
+                                                                            range:range];
+                                              }
+                                              
+                                          }];
+         
+        [attributedString endEditing];
+
         return attributedString;
     }
     

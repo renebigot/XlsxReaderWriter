@@ -42,9 +42,10 @@
     }
     _indexedColors = indexedColors;
     
+    
     //Read number formats
     NSMutableDictionary *numberFormats = [self defaultNumberFormats].mutableCopy;
-
+    
     NSArray *numFmtArray = [attributes arrayValueForKeyPath:@"numFmts.numFmt"];
     if (numFmtArray) {
         for (NSDictionary *formatCodeDict in numFmtArray) {
@@ -53,16 +54,7 @@
     }
     _numberFormats = numberFormats;
     
-    //Read Fonts
-    NSArray *fontsArray = [attributes arrayValueForKeyPath:@"fonts.font"];
-    NSMutableArray *textsAttributes = @[].mutableCopy;
-    if (fontsArray) {
-        for (NSDictionary *fontDict in fontsArray) {
-            [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
-        }
-    }
-    _textsAttributes = textsAttributes;
-    
+
     //Read Fills
     NSArray *fillsArray = [attributes arrayValueForKeyPath:@"fills.fill"];
     NSMutableArray *cellFills = @[].mutableCopy;
@@ -74,6 +66,7 @@
     }
     _cellFills = cellFills;
     
+    
     //Read cell style formatting records (cellStyleXfs) /!\ Must be read before cellXfs
     NSMutableArray *cellStyleFormats = @[].mutableCopy;
     NSArray *cellStyleXfArray = [attributes arrayValueForKeyPath:@"cellStyleXfs.xf"];
@@ -84,7 +77,8 @@
         }
     }
     _cellStyleFormats = cellStyleFormats;
-
+    
+    
     //Read cell formatting records (cellXfs)
     NSMutableArray *cellFormats = @[].mutableCopy;
     NSArray *cellXfArray = [attributes arrayValueForKeyPath:@"cellXfs.xf"];
@@ -96,6 +90,28 @@
     }
     _cellFormats = cellFormats;
 }
+
+- (NSArray *)textsAttributes {
+    // Texts attributes must be initialized when all relationships are loaded
+    // Theme colors are not already loaded at this time
+
+    if (!_textsAttributes) {
+        NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
+        
+        //Read Fonts
+        NSArray *fontsArray = [attributes arrayValueForKeyPath:@"fonts.font"];
+        NSMutableArray *textsAttributes = @[].mutableCopy;
+        if (fontsArray) {
+            for (NSDictionary *fontDict in fontsArray) {
+                [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
+            }
+        }
+        _textsAttributes = textsAttributes;
+    }
+    
+    return _textsAttributes;
+}
+
 
 - (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes {
     if (!attributes) {
@@ -126,9 +142,9 @@
     NSString *fontSize = [attributes valueForKeyPath:@"sz._val"];
     
     UIFont *font = [UIFont iosFontWithName:fontName
-                                          size:[fontSize floatValue]
-                                          bold:attributes[@"b"] && ![attributes[@"b"] isEqual:@"0"]
-                                        italic:attributes[@"i"] && ![attributes[@"i"] isEqual:@"0"]];
+                                      size:[fontSize floatValue]
+                                      bold:attributes[@"b"] && ![attributes[@"b"] isEqual:@"0"]
+                                    italic:attributes[@"i"] && ![attributes[@"i"] isEqual:@"0"]];
     
     if (font) {
         attributedStringAttributes[NSFontAttributeName] = font;
@@ -140,6 +156,10 @@
 - (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes {
     if (attributes[@"_indexed"]) {
         return self.indexedColors[[attributes[@"_indexed"] integerValue]];
+        
+    } else if (_theme && attributes[@"_theme"]) {
+        return [_theme colors][[attributes[@"_theme"] integerValue]];
+        
     } else if (attributes[@"_rgb"]) {
         return [UIColor colorWithHexString:attributes[@"_rgb"]];
     }
@@ -150,6 +170,20 @@
 - (NSDictionary *)openXmlAttributesWithColor:(UIColor *)color {
     if (color == nil || [color isEqual:[[UIColor blackColor] colorWithAlphaComponent:0]]) {
         return nil;
+    }
+    
+    NSInteger index = [self.indexedColors indexOfObject:color];
+    if (index != NSNotFound) {
+        return @{
+                 @"_indexed": [NSString stringWithFormat:@"%ld", (long)index]
+                 };
+    }
+
+    index = [_theme.colors indexOfObject:color];
+    if (index != NSNotFound) {
+        return @{
+                 @"_theme": [NSString stringWithFormat:@"%ld", (long)index]
+                 };
     }
 
     CGFloat red = 1., green = 1., blue = 1., alpha = 1.;
@@ -164,11 +198,12 @@
              };
 }
 
+
 #pragma mark - Property setter
 
 - (NSInteger)addStyleByCopyingStyleWithId:(NSInteger)styleId {
     BRACellFormat *cellFormat = _cellFormats[styleId];
-
+    
     NSMutableArray *cellFormats = _cellFormats.mutableCopy;
     [cellFormats addObject:[[BRACellFormat alloc] initWithOpenXmlAttributes:[cellFormat dictionaryRepresentation] inStyles:self]];
     
@@ -179,7 +214,7 @@
 
 - (NSString *)addNumberFormat:(BRANumberFormat *)numberFormat {
     NSInteger formatId = 100;
-
+    
     while (_numberFormats[[NSString stringWithFormat:@"%ld", (long)formatId]] != nil) {
         ++formatId;
     }
@@ -200,7 +235,7 @@
     static NSDictionary *defaultNumberFormats = nil;
     dispatch_once(&pred, ^{
         defaultNumberFormats = @{
-                                 @"0":  NUMBER_FORMAT(@"0.0"),
+                                 @"0":  NUMBER_FORMAT(@"0.000"),
                                  @"1":	NUMBER_FORMAT(@"0"),
                                  @"2":	NUMBER_FORMAT(@"0.00"),
                                  @"3":	NUMBER_FORMAT(@"#,##0"),
@@ -275,7 +310,7 @@
             [numFormatsArray addObject:[_numberFormats[key] dictionaryRepresentation]];
         }
     }
-//    [dictionaryRepresentation setValue:numFormatsArray forKeyPath:@"numFmts.numFmt"];
+    //    [dictionaryRepresentation setValue:numFormatsArray forKeyPath:@"numFmts.numFmt"];
     dictionaryRepresentation[@"numFmts"] = @{@"numFmt": numFormatsArray}.mutableCopy;
     
     if ([dictionaryRepresentation[@"numFmts"] count] == 0) {
@@ -336,16 +371,21 @@
     }
     
     //Fills
-    NSMutableArray *cellFillsArray = @[].mutableCopy;
-    for (BRACellFill *cellFill in _cellFills) {
-        [cellFillsArray addObject:[cellFill dictionaryRepresentation]];
+    //We won't change old fills to preserve full properties
+    //So we just add the new ones
+    NSMutableArray *fillsArray = [dictionaryRepresentation arrayValueForKeyPath:@"fills.fill"].mutableCopy;
+    NSInteger oldFillsCount = [fillsArray count];
+    
+    for (NSInteger i = oldFillsCount; i < _cellFills.count; i++) {
+        BRACellFill *cellFill = _cellFills[i];
+        [fillsArray addObject:[cellFill dictionaryRepresentation]];
     }
-    if (cellFillsArray.count > 0) {
-        [dictionaryRepresentation setValue:cellFillsArray forKeyPath:@"fills.fill"];
-        [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (unsigned long)cellFillsArray.count] forKeyPath:@"fills._count"];
-    } else {
-        [dictionaryRepresentation removeObjectForKey:@"fills"];
+    
+    if (fillsArray.count > oldFillsCount) {
+        [dictionaryRepresentation setValue:fillsArray forKeyPath:@"fills.fill"];
+        [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (unsigned long)fillsArray.count] forKeyPath:@"fills._count"];
     }
+
     
     //Read cell style formatting records (cellStyleXfs)
     //We won't change old styles formatting records to preserve full properties
@@ -353,8 +393,8 @@
     NSMutableArray *stylesFormattingRecordsArray = [dictionaryRepresentation arrayValueForKeyPath:@"cellStyleXfs.xf"].mutableCopy;
     NSInteger oldStylesFormattingRecordsCount = [stylesFormattingRecordsArray count];
     
-    for (NSInteger i = oldStylesFormattingRecordsCount; i < _cellFormats.count; i++) {
-        [stylesFormattingRecordsArray addObject:[_cellFormats[i] dictionaryRepresentation]];
+    for (NSInteger i = oldStylesFormattingRecordsCount; i < _cellStyleFormats.count; i++) {
+        [stylesFormattingRecordsArray addObject:[_cellStyleFormats[i] dictionaryRepresentation]];
     }
     
     if (stylesFormattingRecordsArray.count > oldStylesFormattingRecordsCount) {

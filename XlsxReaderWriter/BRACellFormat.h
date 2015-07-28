@@ -13,15 +13,23 @@
 
 @interface BRACellFormat : BRAOpenXmlSubElementWithStyle {
     BOOL _isCellStyleXf;
+    NSDictionary *_stylesTextsAttributes;
+    BRACellFill *_cellFill;
+    BRANumberFormat *_numberFormat;
 }
 
 @property (nonatomic, getter=isProtected) BOOL protected;
 @property (nonatomic) NSTextAlignment textAlignment;
-@property (nonatomic, strong) BRACellFill *cellFill;
 @property (nonatomic, strong) NSDictionary *textAttributes;
-@property (nonatomic, strong) BRANumberFormat *numberFormat;
 
 //Cell format (cellXfs) may have a reference to a cell style format (cellStyleXfs)
 @property (nonatomic, weak) BRACellFormat *cellStyleFormat;
+
+- (void)setCellFill:(BRACellFill *)cellFill;
+- (BRACellFill *)cellFill;
+
+- (void)setNumberFormat:(BRANumberFormat *)numberFormat;
+- (BRANumberFormat *)numberFormat;
+
 
 @end

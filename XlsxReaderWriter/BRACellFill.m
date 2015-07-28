@@ -21,7 +21,6 @@
                                                };
     
     if (self = [super initWithOpenXmlAttributes:dictionaryRepresentation inStyles:styles]) {
-    
     }
     
     return self;
@@ -42,7 +41,7 @@
 
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dictionaryRepresentation = [super dictionaryRepresentation].mutableDeepCopy;
-
+        
     [dictionaryRepresentation setValue:_patternType forKeyPath:@"patternFill._patternType"];
     [dictionaryRepresentation setValue:[_styles openXmlAttributesWithColor:_backgroundColor] forKeyPath:@"patternFill.bgColor"];
     [dictionaryRepresentation setValue:[_styles openXmlAttributesWithColor:_foregroundColor] forKeyPath:@"patternFill.fgColor"];
@@ -101,7 +100,7 @@
 #pragma mark - Patterned color makers
 
 - (UIColor *)_solidPatternedColor {
-    return _foregroundColor;
+    return _foregroundColor ? _foregroundColor : [UIColor clearColor];
 }
 
 - (UIColor *)_darkGrayPatternedColor {

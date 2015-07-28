@@ -71,7 +71,7 @@
 
 - (instancetype)initWithFormatCode:(NSString *)formatCode andId:(NSInteger)formatId inStyles:(BRAStyles *)styles {
     if (self = [super initWithOpenXmlAttributes:@{@"_formatCode": formatCode, @"_numFmtId": [NSString stringWithFormat:@"%ld", (long)formatId]}]) {
-        
+        _styles = styles;
     }
     
     return self;

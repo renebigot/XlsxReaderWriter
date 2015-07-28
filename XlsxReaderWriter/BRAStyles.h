@@ -10,6 +10,7 @@
 #import "BRACellFill.h"
 #import "BRACellFormat.h"
 #import "BRANumberFormat.h"
+#import "BRATheme.h"
 
 @interface BRAStyles : BRARelationship
 
@@ -19,10 +20,12 @@
 @property (nonatomic, strong) NSArray *cellStyleFormats;
 @property (nonatomic, strong) NSArray *cellFills;
 @property (nonatomic, strong) NSDictionary *numberFormats;
+@property (nonatomic, weak) BRATheme *theme;
 
+- (NSDictionary *)defaultNumberFormats;
+- (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes;
 - (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes;
 - (NSDictionary *)openXmlAttributesWithColor:(UIColor *)color;
-- (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes;
 - (NSString *)addNumberFormat:(BRANumberFormat *)numberFormat;
 - (NSInteger)addStyleByCopyingStyleWithId:(NSInteger)styleId;
 

@@ -8,6 +8,7 @@
 
 #import "BRACellFormat.h"
 #import "BRAStyles.h"
+#import "BRACellFill.h"
 
 @implementation BRACellFormat
 
@@ -45,16 +46,19 @@
     NSMutableDictionary *attributedStringAttributes = nil;
     
     if (dictionaryRepresentation.attributes[@"fontId"] != nil && [dictionaryRepresentation.attributes[@"fontId"] integerValue] != NSNotFound) {
+        _stylesTextsAttributes = _styles.textsAttributes[[dictionaryRepresentation.attributes[@"fontId"] integerValue]];
+
         attributedStringAttributes = @{
                                        NSParagraphStyleAttributeName: paragraphStyle
                                        }.mutableCopy;
-        [attributedStringAttributes addEntriesFromDictionary:_styles.textsAttributes[[dictionaryRepresentation.attributes[@"fontId"] integerValue]]];
+        [attributedStringAttributes addEntriesFromDictionary:_stylesTextsAttributes];
+        
         _textAttributes = attributedStringAttributes;
     }
     
     //Number format
     if (dictionaryRepresentation.attributes[@"applyNumberFormat"] && ![dictionaryRepresentation.attributes[@"applyNumberFormat"] isEqual:@"0"]) {
-        _numberFormat = _styles.numberFormats[[NSString stringWithFormat:@"%ld", (long)dictionaryRepresentation.attributes[@"numFmtId"]]];
+        _numberFormat = _styles.numberFormats[dictionaryRepresentation.attributes[@"numFmtId"]];
     } else {
         //General format
         _numberFormat = _styles.numberFormats[@"0"];
@@ -98,21 +102,19 @@
     }
     
     //Fill
-    if (_isCellStyleXf) {
-        if (_cellFill == nil) {
-            [dictionaryRepresentation setValue:@"0" forKey:@"_applyFill"];
-            [dictionaryRepresentation setValue:@"0" forKey:@"_fillId"];
-        } else {
-            [dictionaryRepresentation setValue:@"1" forKey:@"_applyFill"];
-            [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)[_styles.cellFills indexOfObject:_cellFill]] forKey:@"_fillId"];
-        }
+    if (_cellFill == nil) {
+        [dictionaryRepresentation setValue:@"0" forKey:@"_applyFill"];
+        [dictionaryRepresentation setValue:@"0" forKey:@"_fillId"];
+    } else {
+        [dictionaryRepresentation setValue:@"1" forKey:@"_applyFill"];
+        [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)[_styles.cellFills indexOfObject:_cellFill]] forKey:@"_fillId"];
     }
     
     //String attributes
     if (_textAttributes == nil) {
         [dictionaryRepresentation setValue:@"0" forKey:@"_fontId"];
     } else {
-        [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)[_styles.textsAttributes indexOfObject:_textAttributes]] forKey:@"_fontId"];
+        [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)[_styles.textsAttributes indexOfObject:_stylesTextsAttributes]] forKey:@"_fontId"];
     }
 
     //Number format
@@ -136,8 +138,6 @@
         [dictionaryRepresentation setValue:self.isProtected ? @"1" : @"0" forKey:@"_applyProtection"];
     }
     
-    [super setDictionaryRepresentation:dictionaryRepresentation];
-    
     //Cell style format
     NSInteger cellStyleFormatId = [_styles.cellStyleFormats indexOfObject:_cellStyleFormat];
     if (cellStyleFormatId == NSNotFound) {
@@ -145,6 +145,8 @@
     }
     [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)cellStyleFormatId] forKey:@"_xfId"];
     
+    [super setDictionaryRepresentation:dictionaryRepresentation];
+
     return dictionaryRepresentation;
 }
 
@@ -188,6 +190,52 @@
     } else {
         return _numberFormat;
     }
+}
+
+#pragma mark - Setters
+
+- (void)setCellFill:(BRACellFill *)cellFill {
+    if (cellFill) {
+        NSInteger index = [_styles.cellFills indexOfObject:_stylesTextsAttributes];
+        
+        if (index == NSNotFound) {
+            NSMutableArray *cellFills = _styles.cellFills.mutableCopy;
+            [cellFills addObject:cellFill];
+            _styles.cellFills = cellFills;
+        }
+    }
+
+    _cellFill = cellFill;
+}
+
+- (void)setNumberFormat:(BRANumberFormat *)numberFormat {
+    if (numberFormat) {
+        NSString *key = [[_styles.numberFormats keysOfEntriesPassingTest:^BOOL(id key, BRANumberFormat *obj, BOOL *stop) {
+            if ([obj.formatCode isEqual:numberFormat.formatCode]) {
+                *stop = YES;
+                return YES;
+            }
+            
+            return NO;
+        }] anyObject];
+        
+        if (key) {
+            numberFormat.formatId = key;
+            
+        } else {
+            NSInteger tmpId = 100;
+            NSString *formatId = [NSString stringWithFormat:@"%ld", (long)tmpId];
+            while (_styles.numberFormats[formatId]) {
+                formatId = [NSString stringWithFormat:@"%ld", (long)++tmpId];
+            }
+            
+            numberFormat.formatId = formatId;
+            NSMutableDictionary *numberFormats = _styles.numberFormats.mutableCopy;
+            numberFormats[formatId] = numberFormat;
+            _styles.numberFormats = numberFormats;
+        }
+    }
+    _numberFormat = numberFormat;
 }
 
 #pragma mark - NSObject

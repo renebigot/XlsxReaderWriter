@@ -11,6 +11,9 @@
 #import "BRAOfficeDocument.h"
 #import "BRAContentTypes.h"
 #import "BRAWorksheet.h"
+#import "BRARow.h"
+#import "BRAColumn.h"
+#import "BRACell.h"
 
 @interface BRAOfficeDocumentPackage : BRAElementWithRelationships
 

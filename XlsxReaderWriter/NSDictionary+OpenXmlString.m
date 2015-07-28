@@ -23,7 +23,10 @@
                                  @"name", @"sheetId", @"state", @"r:id"
                                  ],
                          @"styleSheet": @[
-                                 @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
+                                 ],
+                         @"fonts": @[
+                                 @"count", @"x14ac:knownFonts"
                                  ],
                          @"font": @[
                                  @"b", @"i", @"strike", @"condense", @"extend", @"outline", @"shadow", @"u", @"vertAlign", @"sz", @"color", @"name", @"family", @"charset", @"scheme"
@@ -36,6 +39,9 @@
                                  ],
                          @"cellStyle": @[
                                  @"name", @"xfId", @"builtinId", @"hidden"
+                                 ],
+                         @"tableStyles": @[
+                                 @"count", @"defaultTableStyle", @"defaultPivotStyle"
                                  ],
                          @"dxf": @[
                                  @"font", @"numFmt", @"fill", @"alignment", @"border", @"protection", @"extLst"
@@ -186,6 +192,9 @@
                                  ],
                          @"xdr:xfrm": @[
                                  @"a:off", @"a:ext"
+                                 ],
+                         @"ext": @[
+                                 @"uri", @"xmlns:x14"
                                  ]
                          };
     });

@@ -38,6 +38,8 @@ typedef enum : NSUInteger {
 //Styles
 - (void)setNumberFormat:(NSString *)numberFormat;
 - (void)setCellFillWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType;
+- (void)setCellFill:(BRACellFill *)cellFill;
+- (BRACellFill *)cellFill;
 - (UIColor *)cellFillColor;
 - (NSString *)numberFormatCode;
 

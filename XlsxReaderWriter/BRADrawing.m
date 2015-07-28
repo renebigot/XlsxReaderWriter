@@ -32,7 +32,7 @@
 - (void)loadXmlContents {
     [super loadXmlContents];
     
-    _worksheetDrawings = @[].mutableCopy;
+    _worksheetDrawings = @[];
     
     [self addWorksheetDrawingsForAnchorType:ONE_CELL_ANCHOR];
     [self addWorksheetDrawingsForAnchorType:TWO_CELL_ANCHOR];
