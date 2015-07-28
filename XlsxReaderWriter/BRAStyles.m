@@ -353,8 +353,8 @@
     NSMutableArray *stylesFormattingRecordsArray = [dictionaryRepresentation arrayValueForKeyPath:@"cellStyleXfs.xf"].mutableCopy;
     NSInteger oldStylesFormattingRecordsCount = [stylesFormattingRecordsArray count];
     
-    for (NSInteger i = oldStylesFormattingRecordsCount; i < _cellFormats.count; i++) {
-        [stylesFormattingRecordsArray addObject:[_cellFormats[i] dictionaryRepresentation]];
+    for (NSInteger i = oldStylesFormattingRecordsCount; i < _cellStyleFormats.count; i++) {
+        [stylesFormattingRecordsArray addObject:[_cellStyleFormats[i] dictionaryRepresentation]];
     }
     
     if (stylesFormattingRecordsArray.count > oldStylesFormattingRecordsCount) {
