@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0610"
-   version = "1.7">
+   version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -41,24 +41,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Coverage">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "source /tmp/${EXECUTABLE_NAME}.sh&#10;&#10;/opt/local/bin/lcov --capture --directory ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH} --output-file ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/coverage.info&#10;&#10;/opt/local/bin/genhtml ${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}/coverage.info --output-directory /Users/Shared/Coverage/${EXECUTABLE_NAME}/ --css-file /Users/Shared/Coverage/gcov.css">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "45B6E2391A148F7500288A78"
-                     BuildableName = "libXlsxReaderWriter.a"
-                     BlueprintName = "XlsxReaderWriter"
-                     ReferencedContainer = "container:XlsxReaderWriter.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <Testables>
          <TestableReference
             skipped = "NO">
