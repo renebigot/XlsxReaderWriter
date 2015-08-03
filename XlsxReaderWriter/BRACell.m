@@ -185,7 +185,7 @@
     _error = NO;
     
     BRACellFormat *cellFormat = _worksheet.styles.cellFormats[_styleId];
-    if (!cellFormat.numberFormat) {
+    if (!cellFormat.numberFormat || [cellFormat.numberFormat.formatCode isEqual:@"@"]) {
         [self setNumberFormat:@"0.000"];
     }
 }
