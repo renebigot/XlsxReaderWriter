@@ -376,6 +376,8 @@
                                                           inWorksheet:self];
                 
                 [newRow addCell:newCell];
+
+                [newCell setCellFill:nil];
             }
             
             [_rows insertObject:newRow atIndex:i];
