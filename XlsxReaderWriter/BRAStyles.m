@@ -186,6 +186,10 @@
                  };
     }
 
+    return [self rgbColorValueForColor:color];
+}
+
+- (NSDictionary *)rgbColorValueForColor:(UIColor *)color {
     CGFloat red = 1., green = 1., blue = 1., alpha = 1.;
     [color getRed:&red green:&green blue:&blue alpha:&alpha];
     
@@ -288,7 +292,7 @@
         NSMutableArray *indexedColorsArray = @[].mutableCopy;
         
         for (UIColor *color in _indexedColors) {
-            [indexedColorsArray addObject:[self openXmlAttributesWithColor:color]];
+            [indexedColorsArray addObject:[self rgbColorValueForColor:color]];
         }
         
         [dictionaryRepresentation setValue:indexedColorsArray forKeyPath:@"colors.indexedColors.rgbColor"];
