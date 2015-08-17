@@ -11,6 +11,14 @@
 #import "BRARow.h"
 #import "BRARelationships.h"
 
+#define START_TIME_DIFF         NSDate *methodStart = [NSDate date];
+
+#define STOP_TIME_DIFF          NSDate *methodFinish = [NSDate date]; \
+                                NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart]; \
+                                NSLog(@"executionTime = %f", executionTime);
+
+
+
 @implementation BRAWorksheet
 
 + (NSString *)fullRelationshipType {
@@ -432,11 +440,13 @@
     NSMutableOrderedSet *newRows = [_rows mutableCopy];
     NSMutableSet *modifiedRows = [[NSMutableSet alloc] init];
     
+    //i must start at 0 since rows count isn't equal to last row index
     for (NSInteger i = 0; i < [_rows count]; i++) {
         BRARow *currentRow = _rows[i];
         
         if (currentRow.rowIndex == rowIndex) {
             indexOfRowToRemove = i;
+            
         } else if (currentRow.rowIndex > rowIndex) {
             //don't change row index now
             [modifiedRows addObject:currentRow];
