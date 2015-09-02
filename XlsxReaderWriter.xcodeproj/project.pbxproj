@@ -98,6 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-swift-bridge.h"; sourceTree = "<group>"; };
 		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
@@ -343,6 +344,7 @@
 		45B6E2871A1506EA00288A78 /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */,
 				45B6E29E1A1507E900288A78 /* OPC Package */,
 				45B6E2881A1506FB00288A78 /* Shared */,
 			);
@@ -897,6 +899,7 @@
 		45B0658F1A1519F600996E5E /* Coverage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
@@ -1014,6 +1017,7 @@
 		45B6E24F1A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1028,6 +1032,7 @@
 		45B6E2501A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
