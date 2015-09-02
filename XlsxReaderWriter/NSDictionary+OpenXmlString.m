@@ -17,7 +17,16 @@
     dispatch_once(&pred, ^{
         _orderedKeys = @{
                          @"workbook": @[
-                                 @"fileVersion", @"fileSharing", @"workbookPr", @"workbookProtection", @"bookViews", @"sheets", @"functionGroups", @"externalReferences", @"definedNames", @"calcPr", @"oleSize", @"customWorkbookViews", @"pivotCaches", @"smartTagPr", @"smartTagTypes", @"webPublishing", @"fileRecoveryPr", @"webPublishObjects", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"fileVersion", @"fileSharing", @"workbookPr", @"workbookProtection", @"mc:AlternateContent", @"bookViews", @"sheets", @"functionGroups", @"externalReferences", @"definedNames", @"calcPr", @"oleSize", @"customWorkbookViews", @"pivotCaches", @"smartTagPr", @"smartTagTypes", @"webPublishing", @"fileRecoveryPr", @"webPublishObjects", @"extLst"
+                                 ],
+                         @"workbookView": @[
+                                 @"xWindow", @"yWindow", @"windowWidth", @"windowHeight", @"tabRatio"
+                                 ],
+                         @"fileVersion": @[
+                                 @"appName", @"lastEdited", @"lowestEdited", @"rupBuild"
+                                 ],
+                         @"workbookPr": @[
+                                 @"showInkAnnotation", @"autoCompressPictures"
                                  ],
                          @"sheet": @[
                                  @"name", @"sheetId", @"state", @"r:id"
@@ -83,7 +92,7 @@
                                  @"numFmtId", @"fontId", @"fillId", @"borderId", @"xfId", @"applyNumberFormat", @"applyFont", @"applyFill", @"applyBorder", @"applyAlignment", @"applyProtection", @"Alignment", @"Protection", @"ExtensionList"
                                  ],
                          @"col": @[
-                                 @"min", @"max", @"width", @"style", @"customWidth"
+                                 @"min", @"max", @"width", @"bestFit", @"style", @"customWidth"
                                  ],
                          @"row": @[
                                  @"r", @"ht", @"customHeight"
@@ -92,13 +101,13 @@
                                  @"horizontal", @"vertical", @"wrapText"
                                  ],
                          @"sheetView": @[
-                                 @"workbookViewId", @"showGridLines", @"defaultGridColor"
+                                 @"tabSelected", @"topLeftCell", @"workbookViewId", @"showGridLines", @"defaultGridColor"
                                  ],
                          @"pageMargins": @[
                                  @"left", @"right", @"top", @"bottom", @"header", @"footer"
                                  ],
                          @"pageSetup": @[
-                                 @"firstPageNumber", @"fitToHeight", @"fitToWidth", @"scale", @"useFirstPageNumber", @"orientation", @"pageOrder"
+                                 @"firstPageNumber", @"fitToHeight", @"fitToWidth", @"scale", @"useFirstPageNumber", @"paperSize", @"orientation", @"pageOrder"
                                  ],
                          @"sheetFormatPr": @[
                                  @"baseColWidth", @"defaultColWidth", @"defaultRowHeight", @"customHeight", @"outlineLevelRow", @"outlineLevelCol"
@@ -193,8 +202,14 @@
                          @"xdr:xfrm": @[
                                  @"a:off", @"a:ext"
                                  ],
+                         @"a:ext": @[
+                                 @"cx", @"cy"
+                                 ],
                          @"ext": @[
                                  @"uri", @"xmlns:x14"
+                                 ],
+                         @"x15ac:absPath": @[
+                                 @"url", @"xmlns:x15ac"
                                  ]
                          };
     });
