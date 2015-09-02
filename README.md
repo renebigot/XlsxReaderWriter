@@ -47,6 +47,11 @@ To include the library to your Xcode project, insert XlsxReaderWriter.xcodeproj 
 
 Now, you can import BRAOfficeDocumentPackage.h in your code.
 
+##Swift bridging
+
+If you want to use this library from some Swift code, you should use the *XlsxReaderWriter-swift-bridge.h* as a bridge header file or import it from your bridge header file. 
+More info about this could be find [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
+
 ##How to 
 
 ###Read a spreadsheet document (XLSX file)
