@@ -77,110 +77,118 @@
     return [NSString stringWithFormat:@"%ld", (long)drawingId];
 }
 
-- (void)didAddRowAtIndex:(NSInteger)index {
-    for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
-
-        //Change top left reference if necessary
-        if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
+- (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
             
-            NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
-            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:topLeftCellReference];
-            
-            if (cellRowIndex >= index) {
-                ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:topLeftCellReference]
-                                                                                                              andRowIndex:cellRowIndex + 1];
+            //Change top left reference if necessary
+            if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
                 
-                //Change bottom right reference if necessary
-                if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
+                NSInteger cellRowIndex = [BRARow rowIndexForCellReference:topLeftCellReference];
+                
+                if (cellRowIndex >= index) {
+                    ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:topLeftCellReference]
+                                                                                                                  andRowIndex:cellRowIndex + 1];
                     
-                    NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
-                    cellRowIndex = [BRARow rowIndexForCellReference:bottomRightCellReference];
-                    ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:bottomRightCellReference]
-                                                                                                                      andRowIndex:cellRowIndex + 1];
+                    //Change bottom right reference if necessary
+                    if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                        
+                        NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
+                        cellRowIndex = [BRARow rowIndexForCellReference:bottomRightCellReference];
+                        ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:bottomRightCellReference]
+                                                                                                                          andRowIndex:cellRowIndex + 1];
+                    }
                 }
             }
         }
-    }
+    }];
 }
 
-- (void)didRemoveRowAtIndex:(NSInteger)index {
-    for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
-        
-        //Change top left reference if necessary
-        if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
+- (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
             
-            NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
-            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:topLeftCellReference];
-            
-            if (cellRowIndex >= index) {
-                ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:topLeftCellReference]
-                                                                                                              andRowIndex:cellRowIndex - 1];
+            //Change top left reference if necessary
+            if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
                 
-                //Change bottom right reference if necessary
-                if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
+                NSInteger cellRowIndex = [BRARow rowIndexForCellReference:topLeftCellReference];
+                
+                if (cellRowIndex >= index) {
+                    ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:topLeftCellReference]
+                                                                                                                  andRowIndex:cellRowIndex - 1];
                     
-                    NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
-                    cellRowIndex = [BRARow rowIndexForCellReference:bottomRightCellReference];
-                    ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:bottomRightCellReference]
-                                                                                                                      andRowIndex:cellRowIndex - 1];
+                    //Change bottom right reference if necessary
+                    if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                        
+                        NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
+                        cellRowIndex = [BRARow rowIndexForCellReference:bottomRightCellReference];
+                        ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:bottomRightCellReference]
+                                                                                                                          andRowIndex:cellRowIndex - 1];
+                    }
                 }
             }
         }
-    }
+    }];
 }
 
-- (void)didAddColumnAtIndex:(NSInteger)index {
-    for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
-        
-        //Change top left reference if necessary
-        if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
+- (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
             
-            NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
-            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:topLeftCellReference];
-            
-            if (cellColumnIndex >= index) {
-                ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex + 1
-                                                                                                              andRowIndex:[BRARow rowIndexForCellReference:topLeftCellReference]];
+            //Change top left reference if necessary
+            if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
                 
-                //Change bottom right reference if necessary
-                if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
+                NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:topLeftCellReference];
+                
+                if (cellColumnIndex >= index) {
+                    ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex + 1
+                                                                                                                  andRowIndex:[BRARow rowIndexForCellReference:topLeftCellReference]];
                     
-                    NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
-                    cellColumnIndex = [BRAColumn columnIndexForCellReference:bottomRightCellReference];
-                    
-                    ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex + 1
-                                                                                                                      andRowIndex:[BRARow rowIndexForCellReference:bottomRightCellReference]];
+                    //Change bottom right reference if necessary
+                    if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                        
+                        NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
+                        cellColumnIndex = [BRAColumn columnIndexForCellReference:bottomRightCellReference];
+                        
+                        ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex + 1
+                                                                                                                          andRowIndex:[BRARow rowIndexForCellReference:bottomRightCellReference]];
+                    }
                 }
             }
         }
-    }
+    }];
 }
 
-- (void)didRemoveColumnAtIndex:(NSInteger)index {
-    for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
-        
-        //Change top left reference if necessary
-        if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
+- (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
             
-            NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
-            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:topLeftCellReference];
-            
-            if (cellColumnIndex >= index) {
-                ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex - 1
-                                                                                                              andRowIndex:[BRARow rowIndexForCellReference:topLeftCellReference]];
+            //Change top left reference if necessary
+            if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
                 
-                //Change bottom right reference if necessary
-                if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                NSString *topLeftCellReference = [(BRAOneCellAnchor *)worksheetDrawing.anchor topLeftCellReference];
+                NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:topLeftCellReference];
+                
+                if (cellColumnIndex >= index) {
+                    ((BRAOneCellAnchor *)worksheetDrawing.anchor).topLeftCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex - 1
+                                                                                                                  andRowIndex:[BRARow rowIndexForCellReference:topLeftCellReference]];
                     
-                    NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
-                    cellColumnIndex = [BRAColumn columnIndexForCellReference:bottomRightCellReference];
-                    
-                    ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex - 1
-                                                                                                                      andRowIndex:[BRARow rowIndexForCellReference:bottomRightCellReference]];
+                    //Change bottom right reference if necessary
+                    if ([worksheetDrawing.anchor respondsToSelector:@selector(bottomRightCellReference)]) {
+                        
+                        NSString *bottomRightCellReference = [(BRATwoCellAnchor *)worksheetDrawing.anchor bottomRightCellReference];
+                        cellColumnIndex = [BRAColumn columnIndexForCellReference:bottomRightCellReference];
+                        
+                        ((BRATwoCellAnchor *)worksheetDrawing.anchor).bottomRightCellReference = [BRACell cellReferenceForColumnIndex:cellColumnIndex - 1
+                                                                                                                          andRowIndex:[BRARow rowIndexForCellReference:bottomRightCellReference]];
+                    }
                 }
             }
         }
-    }
+    }];
 }
 
 #pragma mark -

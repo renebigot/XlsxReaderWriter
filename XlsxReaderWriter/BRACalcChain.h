@@ -17,10 +17,10 @@
 
 @interface BRACalcChain : BRARelationship
 
-- (void)didAddRowAtIndex:(NSInteger)index;
-- (void)didRemoveRowAtIndex:(NSInteger)index;
-- (void)didAddColumnAtIndex:(NSInteger)index;
-- (void)didRemoveColumnAtIndex:(NSInteger)index;
+- (void)didAddRowsAtIndexes:(NSIndexSet *)indexes;
+- (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes;
+- (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes;
+- (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes;
 
 @property (nonatomic, strong) NSArray *cells;
 

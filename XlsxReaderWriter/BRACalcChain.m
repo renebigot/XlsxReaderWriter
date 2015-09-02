@@ -65,52 +65,61 @@
     _cells = cells;
 }
 
-- (void)didAddRowAtIndex:(NSInteger)index {
-    for (BRACalcChainCell *cell in _cells) {
-        
-        NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
-        
-        if (cellRowIndex >= index) {
-            cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
-                                                      andRowIndex:cellRowIndex + 1];
+- (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRACalcChainCell *cell in _cells) {
+            
+            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
+            
+            if (cellRowIndex >= index) {
+                cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
+                                                          andRowIndex:cellRowIndex + 1];
+            }
         }
-    }
+    }];
 }
 
-- (void)didRemoveRowAtIndex:(NSInteger)index {
-    for (BRACalcChainCell *cell in _cells) {
-        
-        NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
-        
-        if (cellRowIndex >= index) {
-            cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
-                                                      andRowIndex:cellRowIndex - 1];
+- (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRACalcChainCell *cell in _cells) {
+            
+            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
+            
+            if (cellRowIndex >= index) {
+                cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
+                                                          andRowIndex:cellRowIndex - 1];
+            }
         }
-    }
+    }];
 }
 
-- (void)didAddColumnAtIndex:(NSInteger)index {
-    for (BRACalcChainCell *cell in _cells) {
-        
-        NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
-        
-        if (cellColumnIndex >= index) {
-            cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
-                                                      andRowIndex:cellColumnIndex + 1];
+- (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRACalcChainCell *cell in _cells) {
+            
+            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
+            
+            if (cellColumnIndex >= index) {
+                cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
+                                                          andRowIndex:cellColumnIndex + 1];
+            }
         }
-    }
+    }];
 }
 
-- (void)didRemoveColumnAtIndex:(NSInteger)index {
-    for (BRACalcChainCell *cell in _cells) {
-        
-        NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
-        
-        if (cellColumnIndex >= index) {
-            cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
-                                                      andRowIndex:cellColumnIndex - 1];
+- (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes {
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        for (BRACalcChainCell *cell in _cells) {
+            
+            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
+            
+            if (cellColumnIndex >= index) {
+                cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
+                                                          andRowIndex:cellColumnIndex - 1];
+            }
         }
-    }
+    }];
+    
 }
 
 - (NSString *)xmlRepresentation {
