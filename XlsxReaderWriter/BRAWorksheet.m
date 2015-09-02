@@ -11,14 +11,6 @@
 #import "BRARow.h"
 #import "BRARelationships.h"
 
-#define START_TIME_DIFF         NSDate *methodStart = [NSDate date];
-
-#define STOP_TIME_DIFF          NSDate *methodFinish = [NSDate date]; \
-                                NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart]; \
-                                NSLog(@"executionTime = %f", executionTime);
-
-
-
 @implementation BRAWorksheet
 
 + (NSString *)fullRelationshipType {
@@ -351,84 +343,111 @@
 #pragma mark -
 
 - (void)addRowAt:(NSInteger)rowIndex {
+    [self addRowsAt:rowIndex count:1];
+}
+
+- (void)addRowsAt:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToAdd {
     //-----Adjust worksheet dimension
-    ++_dimension.bottomRowIndex;
+    _dimension.bottomRowIndex += numberOfRowsToAdd;
     
     //-----Adjust mergeCells
     for (BRAMergeCell *mergeCell in _mergeCells) {
         //If rowIndex is above top mergeCell, change top index
         if (rowIndex <= mergeCell.topRowIndex) {
-            ++mergeCell.topRowIndex;
+            mergeCell.topRowIndex += numberOfRowsToAdd;
         }
         
         //If rowIndex is above bottom mergeCell, change bottom index
         if (rowIndex <= mergeCell.bottomRowIndex) {
-            ++mergeCell.bottomRowIndex;
+            mergeCell.bottomRowIndex += numberOfRowsToAdd;
         }
     }
     
     //-----Add cells and rows
+    BRARow *currentRow = nil;
+    NSArray *currentRowCells = nil;
+    NSMutableArray *newRows = @[].mutableCopy;
+    BRARow *newRow = nil;
+    BRACell *newCell = nil;
+    
     for (NSInteger i = 0; i < [_rows count]; i++) {
-        BRARow *currentRow = _rows[i];
+        currentRow = _rows[i];
         
         if (currentRow.rowIndex == rowIndex) {
-            NSArray *currentRowCells = currentRow.cells;
+            currentRowCells = currentRow.cells;
             
-            BRARow *newRow = [[BRARow alloc] initWithRowIndex:rowIndex inWorksheet:self];
-            
-            for (NSInteger ii = 0; ii < [currentRowCells count]; ii++) {
-                NSInteger columnIndex = [BRAColumn columnIndexForCellReference:[currentRowCells[ii] reference]];
+            for (NSInteger jj = 0; jj < numberOfRowsToAdd; jj++) {
+                newRow = [[BRARow alloc] initWithRowIndex:rowIndex + jj inWorksheet:self];
                 
-                BRACell *newCell = [[BRACell alloc] initWithReference:[BRACell cellReferenceForColumnIndex:columnIndex andRowIndex:rowIndex]
-                                                           andStyleId:[currentRowCells[ii] styleId]
-                                                          inWorksheet:self];
+                for (NSInteger ii = 0; ii < [currentRowCells count]; ii++) {
+                    NSInteger columnIndex = [BRAColumn columnIndexForCellReference:[currentRowCells[ii] reference]];
+                    
+                    newCell = [[BRACell alloc] initWithReference:[BRACell cellReferenceForColumnIndex:columnIndex andRowIndex:rowIndex + jj]
+                                                      andStyleId:[currentRowCells[ii] styleId]
+                                                     inWorksheet:self];
+                    
+                    [newRow addCell:newCell];
+                    
+                    [newCell setCellFill:nil];
+                }
                 
-                [newRow addCell:newCell];
-
-                [newCell setCellFill:nil];
+                [newRows addObject:newRow];
+                
             }
+
+            currentRow.rowIndex += numberOfRowsToAdd;
             
-            [_rows insertObject:newRow atIndex:i];
-            [_calcChain didAddRowAtIndex:rowIndex];
-            [_drawings didAddRowAtIndex:rowIndex];
-            
-            ++i;
-            ++currentRow.rowIndex;
         } else if (currentRow.rowIndex > rowIndex) {
-            ++currentRow.rowIndex;
+            currentRow.rowIndex += numberOfRowsToAdd;
         }
     }
-}
-
-- (void)addRowsAt:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToAdd {
-    for (NSInteger i = 0; i < numberOfRowsToAdd; i++) {
-        [self addRowAt:rowIndex];
+    
+    if (newRows.count > 0) {
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(rowIndex, numberOfRowsToAdd)];
+        [_rows insertObjects:newRows atIndexes:indexSet];
+       
+        [_calcChain didAddRowsAtIndexes:indexSet];
+        [_drawings didAddRowsAtIndexes:indexSet];
     }
 }
 
 
 - (void)removeRow:(NSInteger)rowIndex {
+    [self removeRow:rowIndex count:1];
+}
+
+- (void)removeRow:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToRemove {
     //-----Adjust worksheet dimension
-    --_dimension.bottomRowIndex;
+    _dimension.bottomRowIndex -= numberOfRowsToRemove;
     
     NSMutableArray *mergeCellsToBeRemoved = @[].mutableCopy;
-
+    
     //-----Adjust mergeCells
     for (BRAMergeCell *mergeCell in _mergeCells) {
         //if horizontal mergeCell -> remove mergeCell
         if (mergeCell.topRowIndex == rowIndex
             && mergeCell.bottomRowIndex == rowIndex) {
+            
             [mergeCellsToBeRemoved addObject:mergeCell];
+            
         } else {
+            
             //If rowIndex is above top mergeCell, change top index
             //strictly lower than !
-            if (rowIndex < mergeCell.topRowIndex) {
-                --mergeCell.topRowIndex;
+            if (rowIndex < mergeCell.topRowIndex - numberOfRowsToRemove + 1) {
+                mergeCell.topRowIndex -= numberOfRowsToRemove;
+                
+                //strictly lower than !
+            } else if (rowIndex < mergeCell.topRowIndex) {
+                mergeCell.topRowIndex -= mergeCell.topRowIndex - rowIndex;
             }
             
             //If rowIndex is above bottom mergeCell, change bottom index
-            if (rowIndex <= mergeCell.bottomRowIndex) {
-                --mergeCell.bottomRowIndex;
+            if (rowIndex <= mergeCell.bottomRowIndex - numberOfRowsToRemove + 1) {
+                mergeCell.bottomRowIndex -= numberOfRowsToRemove;
+
+            } else if (rowIndex <= mergeCell.bottomRowIndex) {
+                mergeCell.bottomRowIndex -= mergeCell.bottomRowIndex - rowIndex;
             }
         }
     }
@@ -436,16 +455,20 @@
     [_mergeCells removeObjectsInArray:mergeCellsToBeRemoved];
     
     //-----Remove cells and rows
-    NSInteger indexOfRowToRemove = NSNotFound;
-    NSMutableOrderedSet *newRows = [_rows mutableCopy];
-    NSMutableSet *modifiedRows = [[NSMutableSet alloc] init];
+    NSMutableIndexSet *indexesOfRowToRemove = [[NSMutableIndexSet alloc] init];
+    
+    NSMutableArray *newRows = [_rows mutableCopy];
+    NSMutableArray *modifiedRows = [[NSMutableArray alloc] initWithCapacity:[_rows count]];
+    
+    BRARow *currentRow = nil;
+    BRACell *currentCell = nil;
     
     //i must start at 0 since rows count isn't equal to last row index
     for (NSInteger i = 0; i < [_rows count]; i++) {
-        BRARow *currentRow = _rows[i];
+        currentRow = _rows[i];
         
-        if (currentRow.rowIndex == rowIndex) {
-            indexOfRowToRemove = i;
+        if (currentRow.rowIndex >= rowIndex && currentRow.rowIndex < rowIndex + numberOfRowsToRemove) {
+            [indexesOfRowToRemove addIndex:i];
             
         } else if (currentRow.rowIndex > rowIndex) {
             //don't change row index now
@@ -453,13 +476,14 @@
             
             //modify cells in row
             for (NSInteger j = 0; j < [currentRow.cells count]; j++) {
-                BRACell *currentCell = currentRow.cells[j];
+                currentCell = currentRow.cells[j];
                 
+                //If mergeCells firstCell is deleted, we put its value in the new firstCell
                 //get row index from rowIndexForCellReference instead of .rowIndex since .rowIndex could have be modified
                 if (currentCell.mergeCell
                     && currentCell.columnIndex == currentCell.mergeCell.leffColumnIndex
                     && [BRARow rowIndexForCellReference:currentCell.mergeCell.firstCellReference] == rowIndex
-                    && [BRARow rowIndexForCellReference:currentCell.reference] == rowIndex + 1) {
+                    && [BRARow rowIndexForCellReference:currentCell.reference] == rowIndex + numberOfRowsToRemove) {
                     
                     currentRow.cells[j] = [self cellForCellReference:currentCell.mergeCell.firstCellReference];
                 }
@@ -467,26 +491,20 @@
         }
     }
     
-    [_calcChain didRemoveRowAtIndex:rowIndex];
-    [_drawings didRemoveRowAtIndex:rowIndex];
-
+    [_calcChain didRemoveRowsAtIndexes:indexesOfRowToRemove];
+    [_drawings didRemoveRowsAtIndexes:indexesOfRowToRemove];
+    
     
     //change rows indexes
     for (BRARow *row in modifiedRows) {
-        --row.rowIndex;
+        row.rowIndex -= numberOfRowsToRemove;
     }
     
     //Remove row
-    if (indexOfRowToRemove != NSNotFound) {
-        [newRows removeObjectAtIndex:indexOfRowToRemove];
+    if ([indexesOfRowToRemove count] > 0) {
+        [newRows removeObjectsAtIndexes:indexesOfRowToRemove];
     }
     _rows = newRows.mutableCopy;
-}
-
-- (void)removeRow:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToRemove {
-    for (NSInteger i = 0; i < numberOfRowsToRemove; i++) {
-        [self removeRow:rowIndex];
-    }
 }
 
 //- (void)removeColumn:(NSString *)columnName {
