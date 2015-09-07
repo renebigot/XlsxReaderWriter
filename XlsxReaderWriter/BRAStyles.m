@@ -27,12 +27,12 @@
 - (void)loadXmlContents {
     [super loadXmlContents];
     
-    NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
+    _attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
     //Read indexed colors
     NSMutableArray *indexedColors = [UIColor defaultIndexedColors].mutableCopy;
     
-    NSArray *colorsArray = [attributes arrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
+    NSArray *colorsArray = [_attributes arrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
     if (colorsArray) {
         NSInteger index = 0;
         for (NSDictionary *indexedColorDict in colorsArray) {
@@ -46,17 +46,28 @@
     //Read number formats
     NSMutableDictionary *numberFormats = [self defaultNumberFormats].mutableCopy;
     
-    NSArray *numFmtArray = [attributes arrayValueForKeyPath:@"numFmts.numFmt"];
+    NSArray *numFmtArray = [_attributes arrayValueForKeyPath:@"numFmts.numFmt"];
     if (numFmtArray) {
         for (NSDictionary *formatCodeDict in numFmtArray) {
             numberFormats[formatCodeDict.attributes[@"numFmtId"]] = [[BRANumberFormat alloc] initWithOpenXmlAttributes:formatCodeDict inStyles:self];
         }
     }
     _numberFormats = numberFormats;
-    
+}
 
+- (void)loadThemableContent {
+    [self loadTextsAttributes];
+    [self loadCellFills];
+    [self loadCellStyleFormats];
+    [self loadCellFormats];
+}
+
+- (void)loadCellFills {
+    // cellFills must be initialized when all relationships are loaded
+    // Theme colors are not already loaded when loadXmlContents is executed
+    
     //Read Fills
-    NSArray *fillsArray = [attributes arrayValueForKeyPath:@"fills.fill"];
+    NSArray *fillsArray = [_attributes arrayValueForKeyPath:@"fills.fill"];
     NSMutableArray *cellFills = @[].mutableCopy;
     if (fillsArray) {
         for (NSDictionary *fillDict in fillsArray) {
@@ -65,11 +76,15 @@
         }
     }
     _cellFills = cellFills;
-    
+}
+
+- (void)loadCellStyleFormats {
+    // cellStyleFormats must be initialized when all relationships are loaded
+    // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell style formatting records (cellStyleXfs) /!\ Must be read before cellXfs
     NSMutableArray *cellStyleFormats = @[].mutableCopy;
-    NSArray *cellStyleXfArray = [attributes arrayValueForKeyPath:@"cellStyleXfs.xf"];
+    NSArray *cellStyleXfArray = [_attributes arrayValueForKeyPath:@"cellStyleXfs.xf"];
     
     if (cellStyleXfArray) {
         for (NSDictionary *formattingRecord in cellStyleXfArray) {
@@ -77,11 +92,15 @@
         }
     }
     _cellStyleFormats = cellStyleFormats;
-    
+}
+
+- (void)loadCellFormats {
+    // cellFormats must be initialized when all relationships are loaded
+    // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell formatting records (cellXfs)
     NSMutableArray *cellFormats = @[].mutableCopy;
-    NSArray *cellXfArray = [attributes arrayValueForKeyPath:@"cellXfs.xf"];
+    NSArray *cellXfArray = [_attributes arrayValueForKeyPath:@"cellXfs.xf"];
     
     if (cellXfArray) {
         for (NSDictionary *formattingRecord in cellXfArray) {
@@ -91,25 +110,19 @@
     _cellFormats = cellFormats;
 }
 
-- (NSArray *)textsAttributes {
+- (void)loadTextsAttributes {
     // Texts attributes must be initialized when all relationships are loaded
-    // Theme colors are not already loaded at this time
-
-    if (!_textsAttributes) {
-        NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
-        
-        //Read Fonts
-        NSArray *fontsArray = [attributes arrayValueForKeyPath:@"fonts.font"];
-        NSMutableArray *textsAttributes = @[].mutableCopy;
-        if (fontsArray) {
-            for (NSDictionary *fontDict in fontsArray) {
-                [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
-            }
-        }
-        _textsAttributes = textsAttributes;
-    }
+    // Theme colors are not already loaded when loadXmlContents is executed
     
-    return _textsAttributes;
+    //Read Fonts
+    NSArray *fontsArray = [_attributes arrayValueForKeyPath:@"fonts.font"];
+    NSMutableArray *textsAttributes = @[].mutableCopy;
+    if (fontsArray) {
+        for (NSDictionary *fontDict in fontsArray) {
+            [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
+        }
+    }
+    _textsAttributes = textsAttributes;
 }
 
 
@@ -134,6 +147,11 @@
         attributedStringAttributes[NSStrikethroughStyleAttributeName] = @(NSUnderlineStyleSingle);
     }
     
+    if (attributes[@"dstrike"] && ![attributes[@"dstrike"] isEqual:@"0"]) {
+        attributedStringAttributes[NSStrikethroughColorAttributeName] = strikeColor;
+        attributedStringAttributes[NSStrikethroughStyleAttributeName] = @(NSUnderlineStyleDouble);
+    }
+
     if (attributes[@"u"] && ![attributes[@"u"] isEqual:@"0"]) {
         attributedStringAttributes[NSUnderlineColorAttributeName] = strikeColor;
     }

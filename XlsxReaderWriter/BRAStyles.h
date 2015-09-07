@@ -12,7 +12,9 @@
 #import "BRANumberFormat.h"
 #import "BRATheme.h"
 
-@interface BRAStyles : BRARelationship
+@interface BRAStyles : BRARelationship {
+    NSDictionary *_attributes;
+}
 
 @property (nonatomic, strong) NSArray *indexedColors;
 @property (nonatomic, strong) NSArray *textsAttributes;
@@ -22,6 +24,7 @@
 @property (nonatomic, strong) NSDictionary *numberFormats;
 @property (nonatomic, weak) BRATheme *theme;
 
+- (void)loadThemableContent;
 - (NSDictionary *)defaultNumberFormats;
 - (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes;
 - (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes;
