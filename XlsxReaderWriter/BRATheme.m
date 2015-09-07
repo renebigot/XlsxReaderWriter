@@ -9,10 +9,10 @@
 #import "BRATheme.h"
 #import "UIColor+HTML.h"
 
-// S01 & S00 seems to be inverted compared to IEC 29500-1.
+// It seems thats S01 & S00 have been switched compared to IEC 29500-1.
 // Don't know why !!!
-#define S00     @"a:dk1"
-#define S01     @"a:lt1"
+#define S01     @"a:dk1"
+#define S00     @"a:lt1"
 #define S02     @"a:dk2"
 #define S03     @"a:lt2"
 #define S04     @"a:accent1"
