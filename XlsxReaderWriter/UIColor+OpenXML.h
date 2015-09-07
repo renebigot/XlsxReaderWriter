@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+HTML.h"
 
 @interface UIColor (OpenXml)
 
