@@ -32,6 +32,7 @@
    //Styles
     _styles = [self.relationships anyRelationshipWithType:[BRAStyles fullRelationshipType]];
     _styles.theme = [self.relationships anyRelationshipWithType:[BRATheme fullRelationshipType]];
+    [_styles loadThemableContent];
     
     //Shared strings
     _sharedStrings = [self.relationships anyRelationshipWithType:[BRASharedStrings fullRelationshipType]];
