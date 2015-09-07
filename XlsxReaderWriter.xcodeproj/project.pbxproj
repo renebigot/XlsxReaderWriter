@@ -102,7 +102,6 @@
 		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
-		4580C6711A15155B00790ED5 /* XlsxReaderWriter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "XlsxReaderWriter-Prefix.pch"; path = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch"; sourceTree = "<group>"; };
 		4580C6731A15157100790ED5 /* BRARelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationship.h; sourceTree = "<group>"; };
 		4580C6741A15157100790ED5 /* BRARelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRARelationship.m; sourceTree = "<group>"; };
 		4580C6751A15157100790ED5 /* BRARelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationships.h; sourceTree = "<group>"; };
@@ -246,7 +245,6 @@
 				45B6E2701A15067C00288A78 /* Third Parties */,
 				45B6E2711A15068500288A78 /* Additions */,
 				45B6E2871A1506EA00288A78 /* Document */,
-				45B6E3001A1510D100288A78 /* Supporting Files */,
 			);
 			path = XlsxReaderWriter;
 			sourceTree = "<group>";
@@ -421,15 +419,15 @@
 			children = (
 				4580C6D61A15176A00790ED5 /* BRAOfficeDocumentPackage.h */,
 				4580C6D71A15176A00790ED5 /* BRAOfficeDocumentPackage.m */,
+				45B6E2AE1A15083C00288A78 /* Calc chain */,
 				45B6E2F21A15092C00288A78 /* Content types */,
-				45B6E2E71A15091000288A78 /* Workbook */,
+				45B6E2A31A15081000288A78 /* Drawing */,
+				45B6E29F1A1507F700288A78 /* Image */,
 				45B6E2D91A1508E600288A78 /* Shared strings */,
 				45B6E2C81A1508AA00288A78 /* Styles */,
-				45B6E2B21A15084F00288A78 /* Worksheet */,
-				45B6E2AE1A15083C00288A78 /* Calc chain */,
-				45B6E2A31A15081000288A78 /* Drawing */,
 				454D49FF1B4B27F20053CD86 /* Theme */,
-				45B6E29F1A1507F700288A78 /* Image */,
+				45B6E2E71A15091000288A78 /* Workbook */,
+				45B6E2B21A15084F00288A78 /* Worksheet */,
 			);
 			name = "OPC Package";
 			sourceTree = "<group>";
@@ -658,15 +656,6 @@
 				45B6E2F41A15093E00288A78 /* Default extension */,
 			);
 			name = "Sub Elements";
-			sourceTree = "<group>";
-		};
-		45B6E3001A1510D100288A78 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4580C6711A15155B00790ED5 /* XlsxReaderWriter-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			path = ..;
 			sourceTree = "<group>";
 		};
 		45B6E3081A15125300288A78 /* Frameworks */ = {
@@ -899,17 +888,17 @@
 		45B0658F1A1519F600996E5E /* Coverage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = " \"$(SRCROOT)/ThirdParties/SSZipArchive/\"/** \"$(SRCROOT)/ThirdParties/XMLDictionary/XMLDictionary/\"/**";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParties/**";
 			};
 			name = Coverage;
 		};
@@ -922,7 +911,6 @@
 				);
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1017,30 +1005,30 @@
 		45B6E24F1A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = " \"$(SRCROOT)/ThirdParties/SSZipArchive/\"/** \"$(SRCROOT)/ThirdParties/XMLDictionary/XMLDictionary/\"/**";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParties/**";
 			};
 			name = Debug;
 		};
 		45B6E2501A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = " \"$(SRCROOT)/ThirdParties/SSZipArchive/\"/** \"$(SRCROOT)/ThirdParties/XMLDictionary/XMLDictionary/\"/**";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParties/**";
 			};
 			name = Release;
 		};
@@ -1052,7 +1040,6 @@
 					"$(inherited)",
 				);
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1077,7 +1064,6 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				GCC_PREFIX_HEADER = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch";
 				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = "XlsxReaderWriter"
-  s.version            = "1.0.1"
+  s.version            = "1.0.3"
   s.summary            = "XlsxReaderWriter is an Objective-C library for iPhone / iPad. It parses and writes Excel OpenXml files (XLSX)."
   s.homepage           = "https://github.com/renebigot/XlsxReaderWriter"
   s.license            = "MIT"
