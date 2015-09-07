@@ -38,7 +38,7 @@
         //Run (r)
         for (NSDictionary *textDict in runs) {
             NSAttributedString *attributedSubstring = [[NSAttributedString alloc] initWithString:[self stringFromTextDictionary:textDict]
-                                                                                      attributes:[self attributedStringAttributesFromOpenXmlAttributes:textDict[@"rPr"]]];
+                                                                                      attributes:[_styles attributedStringAttributesFromOpenXmlAttributes:textDict[@"rPr"]]];
             [_attributedString appendAttributedString:attributedSubstring];
         }
         
@@ -48,51 +48,6 @@
         [_attributedString appendAttributedString:[[NSAttributedString alloc] initWithString:[self stringFromTextDictionary:dictionaryRepresentation]]];
         
     }
-}
-
-- (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes {
-    if (!attributes) {
-        return nil;
-    }
-    
-    NSMutableDictionary *attributedStringAttributes = [[NSMutableDictionary alloc] init];
-    
-    NSDictionary *colorDict = [attributes valueForKeyPath:@"color"];
-    
-    UIColor *foregroundColor = colorDict == nil ? nil : [_styles colorWithOpenXmlAttributes:colorDict];
-    UIColor *strikeColor = foregroundColor == nil ? [UIColor blackColor] : foregroundColor;
-    
-    if (foregroundColor) {
-        attributedStringAttributes[NSForegroundColorAttributeName] = foregroundColor;
-    }
-    
-    if (attributes[@"strike"] && ![attributes[@"strike"] isEqual:@"0"]) {
-        attributedStringAttributes[NSStrikethroughColorAttributeName] = strikeColor;
-        attributedStringAttributes[NSStrikethroughStyleAttributeName] = @(NSUnderlineStyleSingle);
-    }
-    
-    if (attributes[@"dstrike"] && ![attributes[@"dstrike"] isEqual:@"0"]) {
-        attributedStringAttributes[NSStrikethroughColorAttributeName] = strikeColor;
-        attributedStringAttributes[NSStrikethroughStyleAttributeName] = @(NSUnderlineStyleDouble);
-    }
-    
-    if (attributes[@"u"] && ![attributes[@"u"] isEqual:@"0"]) {
-        attributedStringAttributes[NSUnderlineColorAttributeName] = strikeColor;
-    }
-    
-    NSString *fontName = [attributes valueForKeyPath:@"rFont._val"];
-    NSString *fontSize = [attributes valueForKeyPath:@"sz._val"];
-    
-    UIFont *font = [UIFont iosFontWithName:fontName
-                                      size:[fontSize floatValue]
-                                      bold:attributes[@"b"] && ![attributes[@"b"] isEqual:@"0"]
-                                    italic:attributes[@"i"] && ![attributes[@"i"] isEqual:@"0"]];
-    
-    if (font) {
-        attributedStringAttributes[NSFontAttributeName] = font;
-    }
-    
-    return attributedStringAttributes;
 }
 
 - (NSString *)stringFromTextDictionary:(NSDictionary *)dictionary {
