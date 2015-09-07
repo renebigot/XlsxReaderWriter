@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
+#import "XMLDictionary.h"
+
 @interface NSDictionary (OpenXmlDictionaryParser)
 
 + (NSDictionary *)dictionaryWithOpenXmlParser:(NSXMLParser *)parser;
