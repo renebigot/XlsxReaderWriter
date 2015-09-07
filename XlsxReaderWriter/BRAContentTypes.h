@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BRAOpenXmlSubElement.h"
+#import "BRAOpenXmlElement.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRAContentTypesOverride.h"
 
