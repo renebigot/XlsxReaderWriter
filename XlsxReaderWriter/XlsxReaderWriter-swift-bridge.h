@@ -10,6 +10,7 @@
 #import "UIFont+BoldItalic.h"
 #import "UIColor+OpenXML.h"
 #import "UIColor+HTML.h"
+#import "XMLDictionary.h"
 #import "NSDictionary+OpenXmlString.h"
 #import "NSDictionary+OpenXMLDictionaryParser.h"
 #import "NSDictionary+DeepCopy.h"
