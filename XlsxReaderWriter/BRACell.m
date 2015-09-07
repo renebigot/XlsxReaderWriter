@@ -291,6 +291,9 @@
 
 - (NSAttributedString *)attributedStringValue {
     NSMutableDictionary *attributedTextAttributes = [_worksheet.styles.cellFormats[_styleId] textAttributes].mutableCopy;
+    if (attributedTextAttributes == nil) {
+        attributedTextAttributes = @{}.mutableCopy;
+    }
     
     if (_type == BRACellContentTypeBoolean) {
         return [[NSAttributedString alloc] initWithString:[_value boolValue] ? @"TRUE" : @"FALSE" attributes:attributedTextAttributes];
