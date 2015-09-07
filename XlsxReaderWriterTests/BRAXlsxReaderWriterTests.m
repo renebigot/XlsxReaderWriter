@@ -151,6 +151,12 @@ extern void __gcov_flush();
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B4"] formulaString], @"CONCATENATE(\"concatenated\",\" \",\"string\")", @"B4 does not contain the expected formula");
 }
 
+- (void)testThemeColor {
+    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"F3"] cellFillColor], [UIColor colorWithRed:247./255. green:150./255. blue:70./255. alpha:1]);
+}
+
 - (void)testNumberFormats {
 //@"# ??/??"
 //@"m/d/yy"
