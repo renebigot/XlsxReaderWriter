@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDictionary+OpenXMLDictionaryParser.h"
+
+#define NOT_IMPLEMENTED NSAssert2(NO, @"%s is not implemented in %@", __PRETTY_FUNCTION__, [super class]);
 
 @interface BRAOpenXmlElement : NSObject {
     NSString *_xmlRepresentation;

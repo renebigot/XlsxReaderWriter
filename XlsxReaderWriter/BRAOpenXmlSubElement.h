@@ -7,6 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIColor+HTML.h"
+#import "UIFont+BoldItalic.h"
+#import "XMLDictionary.h"
+#import "NSDictionary+DeepCopy.h"
+#import "NSDictionary+OpenXmlString.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
 
 @class BRAStyles, BRAWorksheet;
 
