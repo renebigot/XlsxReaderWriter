@@ -8,6 +8,8 @@
 
 #import "BRAColumn.h"
 
+#define TRUNCATE(X) floor(X)
+
 @implementation BRAColumn
 
 + (NSInteger)columnIndexForCellReference:(NSString *)cellReference {
