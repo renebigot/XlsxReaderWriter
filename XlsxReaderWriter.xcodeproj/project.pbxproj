@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
+		457B68821B9DE8FC0096E1D1 /* SwiftTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */; };
 		4580C6771A15157100790ED5 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
 		4580C6781A15157100790ED5 /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6761A15157100790ED5 /* BRARelationships.m */; };
 		4580C67B1A1515AB00790ED5 /* BRAElementWithRelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67A1A1515AB00790ED5 /* BRAElementWithRelationships.m */; };
@@ -102,6 +103,8 @@
 		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
+		457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriterTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestCase.swift; sourceTree = "<group>"; };
 		4580C6731A15157100790ED5 /* BRARelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationship.h; sourceTree = "<group>"; };
 		4580C6741A15157100790ED5 /* BRARelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRARelationship.m; sourceTree = "<group>"; };
 		4580C6751A15157100790ED5 /* BRARelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationships.h; sourceTree = "<group>"; };
@@ -255,7 +258,9 @@
 				45B6E2F91A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg */,
 				45B6E2FA1A15099000288A78 /* testWorkbook.xlsx */,
 				45B6E2FB1A15099000288A78 /* BRAXlsxReaderWriterTests.m */,
+				457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */,
 				45B6E24A1A148F7500288A78 /* Supporting Files */,
+				457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */,
 			);
 			path = XlsxReaderWriterTests;
 			sourceTree = "<group>";
@@ -826,6 +831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B6E2FE1A15099000288A78 /* BRAXlsxReaderWriterTests.m in Sources */,
+				457B68821B9DE8FC0096E1D1 /* SwiftTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +911,7 @@
 		45B065901A1519F600996E5E /* Coverage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -925,6 +932,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Coverage;
 		};
@@ -1035,6 +1044,7 @@
 		45B6E2521A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1054,12 +1064,15 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		45B6E2531A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1074,6 +1087,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name               = "XlsxReaderWriter"
-  s.version            = "1.0.3"
+  s.version            = "1.0.4"
   s.summary            = "XlsxReaderWriter is an Objective-C library for iPhone / iPad. It parses and writes Excel OpenXml files (XLSX)."
   s.homepage           = "https://github.com/renebigot/XlsxReaderWriter"
   s.license            = "MIT"
@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.exclude_files      = "ThirdParties"
   s.frameworks         = "Foundation", "UIKit"
   s.requires_arc       = true
-  s.prefix_header_file = "XlsxReaderWriter/XlsxReaderWriter-Prefix.pch"
 
   s.dependency "SSZipArchive", "~> 0.3"
   s.dependency "XMLDictionary", "~> 1.4"
