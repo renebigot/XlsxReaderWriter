@@ -68,12 +68,17 @@ extern void __gcov_flush();
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
 
+    NSDictionary *defaultAttributes = @{
+                                        NSForegroundColorAttributeName: [UIColor colorWithRed:0 green:0 blue:0 alpha:1],
+                                        NSParagraphStyleAttributeName: paragraphStyle
+                                        };
+    
     //B1 : TRUE
     XCTAssert([[worksheet cellForCellReference:@"B1"] boolValue], @"B1 bool value should TRUE");
     XCTAssertEqual([[worksheet cellForCellReference:@"B1"] integerValue], 1, @"B1 integer value should 1");
     XCTAssertEqual([[worksheet cellForCellReference:@"B1"] floatValue], 1., @"B1 float value should 1.");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B1"] stringValue], @"TRUE", @"B1 string value should @\"TRUE\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B1"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"TRUE" attributes:@{NSParagraphStyleAttributeName: paragraphStyle}], @"B1 attributed string value should @\"TRUE\" without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B1"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"TRUE" attributes:defaultAttributes], @"B1 attributed string value should @\"TRUE\" without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"B1"] dateValue], @"B1 date value should nil");
     
     //C1 : FALSE
@@ -81,7 +86,7 @@ extern void __gcov_flush();
     XCTAssertEqual([[worksheet cellForCellReference:@"C1"] integerValue], 0, @"C1 integer value should 0");
     XCTAssertEqual([[worksheet cellForCellReference:@"C1"] floatValue], 0., @"C1 float value should 0.");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"C1"] stringValue], @"FALSE", @"C1 string value should @\"FALSE\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C1"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"FALSE" attributes:@{NSParagraphStyleAttributeName: paragraphStyle}], @"C1 attributed string value should @\"FALSE\" without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C1"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"FALSE" attributes:defaultAttributes], @"C1 attributed string value should @\"FALSE\" without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"C1"] dateValue], @"C1 date value should nil");
 }
 
@@ -90,12 +95,17 @@ extern void __gcov_flush();
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
     
+    NSDictionary *defaultAttributes = @{
+                                        NSForegroundColorAttributeName: [UIColor colorWithRed:0 green:0 blue:0 alpha:1],
+                                        NSParagraphStyleAttributeName: paragraphStyle
+                                        };
+    
     //B5 : 0.2
     XCTAssert([[worksheet cellForCellReference:@"B5"] boolValue], @"B5 bool value should TRUE");
     XCTAssertEqual([[worksheet cellForCellReference:@"B5"] integerValue], 0, @"B5 integer value should 0");
     XCTAssertEqual([[worksheet cellForCellReference:@"B5"] floatValue], .2f, @"B5 float value should 0.2"); //Use .2f => float precision problem if .2
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] stringValue], @"0.200", @"B5 string value should @\"0.200\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.200" attributes:@{NSParagraphStyleAttributeName: paragraphStyle}], @"B5 attributed string value should @\"0.2\" without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.200" attributes:defaultAttributes], @"B5 attributed string value should @\"0.2\" without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"B5"] dateValue], @"B5 date value should nil");
     
     //C5 : 0
@@ -103,7 +113,7 @@ extern void __gcov_flush();
     XCTAssertEqual([[worksheet cellForCellReference:@"C5"] integerValue], 0, @"C5 integer value should 0");
     XCTAssertEqual([[worksheet cellForCellReference:@"C5"] floatValue], 0., @"C5 float value should 0.");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] stringValue], @"0.000", @"C5 string value should @\"0.000\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.000" attributes:@{NSParagraphStyleAttributeName: paragraphStyle}], @"C5 attributed string value should @\"0.0\" with without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.000" attributes:defaultAttributes], @"C5 attributed string value should @\"0.0\" with without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"C5"] dateValue], @"C5 date value should nil");
 }
 
@@ -120,16 +130,23 @@ extern void __gcov_flush();
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
-    NSMutableAttributedString *resultAttributedString = [[NSAttributedString alloc] initWithString:@"shared string" attributes:@{NSParagraphStyleAttributeName: paragraphStyle}].mutableCopy;
+
+    NSDictionary *defaultAttributes = @{
+                                        NSForegroundColorAttributeName: [UIColor colorWithRed:0 green:0 blue:0 alpha:1],
+                                        NSParagraphStyleAttributeName: paragraphStyle
+                                        };
+
+    NSMutableAttributedString *resultAttributedString = [[NSAttributedString alloc] initWithString:@"shared string" attributes:defaultAttributes].mutableCopy;
 
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B6"] attributedStringValue], resultAttributedString, @"Bad content for B6");
     
-    resultAttributedString = [[NSAttributedString alloc] initWithString:@"shared string with " attributes:@{NSParagraphStyleAttributeName: paragraphStyle}].mutableCopy;
+    resultAttributedString = [[NSAttributedString alloc] initWithString:@"shared string with " attributes:defaultAttributes].mutableCopy;
     [resultAttributedString appendAttributedString:[[NSAttributedString alloc] initWithString:@"color"
                                                                                    attributes:@{
-                                                                                                NSParagraphStyleAttributeName: paragraphStyle,
-                                                                                                NSForegroundColorAttributeName: [UIColor colorWithHexString:@"FC0507"]
+                                                                                                NSForegroundColorAttributeName: [UIColor colorWithHexString:@"FC0507"],
+                                                                                                NSParagraphStyleAttributeName: paragraphStyle
                                                                                                 }]];
+    
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"C6"] attributedStringValue], resultAttributedString, @"Bad content for C6");
 }
 
