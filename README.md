@@ -41,15 +41,27 @@ Third parties are included in this repository, not linked as git submodules.
 * SSZipArchive: Compression/decompression library
 * XMLDictionary: Converts XML to NSDictionary and NSDictionary to XML
 
-##Linking
+##Linking (Objective-C)
 
-To include the library to your Xcode project, insert XlsxReaderWriter.xcodeproj as a sub project of your project. In your target "Build phases" insert XlsxReaderWriter as a target dependecy and add libXlsxReaderWriter.a in "Link binary with Libraries".
+To include the library to your Xcode project:
+
+* Create a new project or open an existing project
+* Insert **XlsxReaderWriter.xcodeproj** as a sub project of your project
+* In your target **Build phases** insert **XlsxReaderWriter** as a target dependency
+* Add **libXlsxReaderWriter.a** in **Link binary with Libraries**.
+* Add **-all_load** in **Linking / Other Linker Flags** in your project settings
+* Add the XlsxReaderWriter root directory path to **User Header Search Paths** and set it as recursive. For example, set the path to *"$(SRCROOT)/XlsxReaderWriter/"*, not *"$(SRCROOT)/XlsxReaderWriter/XlsxReaderWriter/"*.
 
 Now, you can import BRAOfficeDocumentPackage.h in your code.
 
-##Swift bridging
+##Linking (Swift bridging)
 
-If you want to use this library from some Swift code, you should use the *XlsxReaderWriter-swift-bridge.h* as a bridge header file or import it from your bridge header file. 
+If you want to use this library from some Swift code, be sure to follow the same steps as in the Objective-C linking, then:
+
+* you should **#import "XlsxReaderWriter-swift-bridge.h"** in your bridge header file
+* if you don't have any bridge header file, create a new .h file, and **#import "XlsxReaderWriter-swift-bridge.h"**
+* Set the path to your bridge file in your project settings : **Swift Compiler - Code Generation / Objective-C Bridging Header**. 
+
 More info about this could be find [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
 
 ##How to 
@@ -205,6 +217,21 @@ More info about this could be find [here](https://developer.apple.com/library/io
 ###Remove worksheet
 	
 	[_spreadsheet.workbook removeWorksheetNamed:@"Foo"];
+
+###Do some simple operation from Swift
+
+
+        let documentPath = NSBundle.mainBundle().pathForResource("testWorkbook", ofType: "xlsx")
+        
+        let odp = BRAOfficeDocumentPackage.open(documentPath)
+        let worksheet: BRAWorksheet = odp!.workbook.worksheets[0] as! BRAWorksheet;
+        
+        NSLog("%@", worksheet.cellForCellReference("A1").attributedStringValue())
+        
+        let paths: Array = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as Array
+        let fullPath: String = (paths[0] as! String).stringByAppendingString("testSaveAs.xlsx")
+        odp!.saveAs(fullPath)
+
 
 ##A word about XLSX files
 
