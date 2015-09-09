@@ -48,7 +48,7 @@ To include the library to your Xcode project:
 * Create a new project or open an existing project
 * Insert **XlsxReaderWriter.xcodeproj** as a sub project of your project
 * In your target **Build phases** insert **XlsxReaderWriter** as a target dependency
-* Add **libXlsxReaderWriter.a** in **Link binary with Libraries**.
+* Add **libXlsxReaderWriter.a** and **libz.dylib** in **Link binary with Libraries**.
 * Add **-all_load** in **Linking / Other Linker Flags** in your project settings
 * Add the XlsxReaderWriter root directory path to **User Header Search Paths** and set it as recursive. For example, set the path to *"$(SRCROOT)/XlsxReaderWriter/"*, not *"$(SRCROOT)/XlsxReaderWriter/XlsxReaderWriter/"*.
 
