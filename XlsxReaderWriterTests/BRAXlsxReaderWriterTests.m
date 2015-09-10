@@ -104,16 +104,16 @@ extern void __gcov_flush();
     XCTAssert([[worksheet cellForCellReference:@"B5"] boolValue], @"B5 bool value should TRUE");
     XCTAssertEqual([[worksheet cellForCellReference:@"B5"] integerValue], 0, @"B5 integer value should 0");
     XCTAssertEqual([[worksheet cellForCellReference:@"B5"] floatValue], .2f, @"B5 float value should 0.2"); //Use .2f => float precision problem if .2
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] stringValue], @"0.200", @"B5 string value should @\"0.200\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.200" attributes:defaultAttributes], @"B5 attributed string value should @\"0.2\" without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] stringValue], @"0.2", @"B5 string value should @\"0.2\"");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"B5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.2" attributes:defaultAttributes], @"B5 attributed string value should @\"0.2\" without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"B5"] dateValue], @"B5 date value should nil");
     
     //C5 : 0
     XCTAssert(![[worksheet cellForCellReference:@"C5"] boolValue], @"C5 bool value should FALSE");
     XCTAssertEqual([[worksheet cellForCellReference:@"C5"] integerValue], 0, @"C5 integer value should 0");
     XCTAssertEqual([[worksheet cellForCellReference:@"C5"] floatValue], 0., @"C5 float value should 0.");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] stringValue], @"0.000", @"C5 string value should @\"0.000\"");
-    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0.000" attributes:defaultAttributes], @"C5 attributed string value should @\"0.0\" with without attributes");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] stringValue], @"0", @"C5 string value should @\"0.000\"");
+    XCTAssertEqualObjects([[worksheet cellForCellReference:@"C5"] attributedStringValue], [[NSAttributedString alloc] initWithString:@"0" attributes:defaultAttributes], @"C5 attributed string value should @\"0.0\" with without attributes");
     XCTAssertNil([[worksheet cellForCellReference:@"C5"] dateValue], @"C5 date value should nil");
 }
 
@@ -422,7 +422,7 @@ extern void __gcov_flush();
     
     [[worksheet cellForCellReference:@"Y24" shouldCreate:YES] setStringValue:@"FOO / BAR"];
     [[worksheet cellForCellReference:@"Z24" shouldCreate:YES]
-     setAttributedStringValue:[[NSAttributedString alloc] initWithString:@"RED is not GREEN" attributes:@{NSForegroundColorAttributeName: [UIColor greenColor]}]];
+     setAttributedStringValue:[[NSAttributedString alloc] initWithString:@"GREEN" attributes:@{NSForegroundColorAttributeName: [UIColor greenColor]}]];
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"MM/dd/yyyy";
@@ -447,7 +447,7 @@ extern void __gcov_flush();
 
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"Y24"] stringValue], @"FOO / BAR", @"Y24 should be \"FOO / BAR\"");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"Z24"] attributedStringValue],
-                          [[NSAttributedString alloc] initWithString:@"RED is not GREEN" attributes:stringAttributes], @"Z24 should be \"RED is not GREEN\" with red color");
+                          [[NSAttributedString alloc] initWithString:@"GREEN" attributes:stringAttributes], @"Z24 should be \"GREEN\" with green color");
     
     [_spreadsheet saveAs:savePath];
     _spreadsheet = nil;
