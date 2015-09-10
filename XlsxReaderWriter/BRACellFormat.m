@@ -118,12 +118,12 @@
     }
 
     //Number format
-    if (_numberFormat == nil || [_numberFormat isEqual:_styles.numberFormats[@"0"]]) {
+    if (_numberFormat == nil || [_numberFormat isEqual:_styles.numberFormats[@"@"]]) {
         [dictionaryRepresentation setValue:@"0" forKey:@"_applyNumberFormat"];
         [dictionaryRepresentation setValue:@"0" forKey:@"_numFmtId"];
     } else {
         [dictionaryRepresentation setValue:@"1" forKey:@"_applyNumberFormat"];
-        NSString __block *numFmtId = @"0";
+        NSString __block *numFmtId = @"@";
         [_styles.numberFormats enumerateKeysAndObjectsUsingBlock:^(NSString *key, BRANumberFormat *obj, BOOL *stop) {
             if ([obj isEqual:_numberFormat]) {
                 numFmtId = key;
