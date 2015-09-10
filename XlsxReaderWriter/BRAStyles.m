@@ -257,7 +257,7 @@
     static NSDictionary *defaultNumberFormats = nil;
     dispatch_once(&pred, ^{
         defaultNumberFormats = @{
-                                 @"0":  NUMBER_FORMAT(@"0.000"),
+                                 @"0":  NUMBER_FORMAT(@"@"),
                                  @"1":	NUMBER_FORMAT(@"0"),
                                  @"2":	NUMBER_FORMAT(@"0.00"),
                                  @"3":	NUMBER_FORMAT(@"#,##0"),
