@@ -124,7 +124,7 @@
 
 - (void)setNumberFormat:(NSString *)numberFormatCode {
     if (numberFormatCode == nil) {
-        numberFormatCode = @"0";
+        numberFormatCode = @"@";
     }
 
     BRANumberFormat *numberFormat = [[BRANumberFormat alloc] initWithFormatCode:numberFormatCode andId:NSNotFound inStyles:_worksheet.styles];
@@ -186,7 +186,7 @@
     
     BRACellFormat *cellFormat = _worksheet.styles.cellFormats[_styleId];
     if (!cellFormat.numberFormat || [cellFormat.numberFormat.formatCode isEqual:@"@"]) {
-        [self setNumberFormat:@"0.000"];
+        [self setNumberFormat:@"0"];
     }
 }
 
