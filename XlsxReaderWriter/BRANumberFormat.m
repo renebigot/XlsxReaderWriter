@@ -80,8 +80,11 @@
 - (void)loadAttributes {
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
     
-    _formatCode = dictionaryRepresentation[@"_formatCode"];
     _formatId = dictionaryRepresentation[@"_numFmtId"];
+    _formatCode = dictionaryRepresentation[@"_formatCode"];
+    if ([_formatCode isEqual:@"@"]) {
+//        _formatCode = GENERAL_NUMBER_FORMAT_CODE;
+    }
     
     NSMutableArray *numberFormats = @[].mutableCopy;
     
@@ -442,167 +445,173 @@
  * @brief This method takes a SpreadsheetML number and convert it to a NSAttributedString by keeping its formatting. This method is based on the PHP spreadsheet-reader library FormatValue function. https://github.com/nuovo/spreadsheet-reader/blob/master/SpreadsheetReader_XLSX.php
  */
 - (NSAttributedString *)formatNumber:(CGFloat)number {
-    if (_numberFormatParts.count == 0) return nil;
-    
-    BRANumberFormatData *formatData = _numberFormatParts[0];
-
-    BOOL shouldAppendMinus = YES;
-    
-    switch (_numberFormatParts.count) {
-        case 2:
-            if (number < 0) {
-                shouldAppendMinus = NO;
-                formatData = _numberFormatParts[1];
-            }
-            break;
-            
-        case 3:
-        case 4:
-            if (number < 0) {
-                shouldAppendMinus = NO;
-                formatData = _numberFormatParts[1];
-            } else if (number == 0) {
-                formatData = _numberFormatParts[2];
-            }
-            break;
-    }
-    
-    // Applying format to value
-
     NSString *stringToFormat = @"";
     NSMutableDictionary *attributedStringAttributes = @{}.mutableCopy;
-    
-    if (formatData.color) {
-        attributedStringAttributes[NSForegroundColorAttributeName] = formatData.color;
-    }
-    
-    if (formatData.type == kBRAFormatCodeTypePercentage) {
+
+    if ([_formatCode isEqual:@"@"]) {
+        // If general formating (code "@") we display the shortest possible decimal value
+        stringToFormat = [NSString stringWithFormat:@"%g", number];
+
+    } else {
+        
+        BRANumberFormatData *formatData = _numberFormatParts[0];
+        
+        BOOL shouldAppendMinus = YES;
+        
+        switch (_numberFormatParts.count) {
+            case 2:
+                if (number < 0) {
+                    shouldAppendMinus = NO;
+                    formatData = _numberFormatParts[1];
+                }
+                break;
+                
+            case 3:
+            case 4:
+                if (number < 0) {
+                    shouldAppendMinus = NO;
+                    formatData = _numberFormatParts[1];
+                } else if (number == 0) {
+                    formatData = _numberFormatParts[2];
+                }
+                break;
+        }
+        
+        // Applying format to value
+        
+        if (formatData.color) {
+            attributedStringAttributes[NSForegroundColorAttributeName] = formatData.color;
+        }
+        
+        if (formatData.type == kBRAFormatCodeTypePercentage) {
             if ([formatData.code isEqual:@"0%"]) {
                 stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:[NSString stringWithFormat:@"%ld", (long)floor(100. * number + 0.5)]];
             } else {
                 stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:[NSString stringWithFormat:@"%.2f", 100. * number]];
             }
-        
-    } else if (formatData.type == kBRAFormatCodeTypeDateTime) {
-        NSInteger days = (NSInteger)number;
-        //Correcting for Feb 29, 1900
-        if (days > 60) {
-            --days;
-        }
-        
-        //At this time, time is a fraction of a day
-        CGFloat time = number - (NSInteger)number;
-        NSInteger seconds = 0;
-        if (time) {
-            //Here time is converted to seconds
-            //some loss of precision will occur
-            seconds = (NSInteger)(time * 86400);
-        }
-
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"d/M/yyyy";
-        NSDate *baseDate = [dateFormatter dateFromString:@"1/1/1900"];
-        
-        dateFormatter.dateFormat = formatData.code;
-        stringToFormat = [dateFormatter stringFromDate:[baseDate dateByAddingTimeInterval:days * 86400 + seconds]];
-        
-    } else if (formatData.type == kBRAFormatCodeTypeFraction && number != (NSInteger)number) {
-        NSInteger integer = (NSInteger)(ABS(number));
-        NSInteger denominatorStartPosition = [formatData.code rangeOfString:@"/"].location;
-        NSInteger denominatorLength = 1;
-        
-        if (denominatorStartPosition != NSNotFound) {
-            for (NSInteger i = denominatorStartPosition + 2; i < formatData.code.length; i++) {
-                if ([formatData.code characterAtIndex:i] == '?') {
-                    ++denominatorLength;
-                } else {
-                    break;
-                }
-            }
-        }
-        BRAFraction fraction = [self convertToFraction:fmod(ABS(number), 1) withDenominatorLength:denominatorLength];
-        
-        if ([formatData.code rangeOfString:@"0"].location != NSNotFound ||
-            [formatData.code rangeOfString:@"#"].location != NSNotFound ||
-            [[formatData.code substringWithRange:NSMakeRange(0, 3)] isEqual:@"? ?"]) {
             
-            //The integer part is shown separately apart from the fraction
-            stringToFormat = [NSString stringWithFormat:@"%@%ld/%ld",
-                              integer ? [NSString stringWithFormat:@"%ld ", (long)integer] : @"",
-                              (long)fraction.numerator,
-                              (long)fraction.denominator];
-        } else {
-            stringToFormat = [NSString stringWithFormat:@"%ld/%ld",
-                              (long)(integer + fraction.numerator),
-                              (long)fraction.denominator];
-        }
-        
-        stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:stringToFormat];
-
-    } else {
-        //Scaling
-        number = number / formatData.scale;
-        
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        
-        [formatter setMinimumFractionDigits:formatData.precision];
-        [formatter setMaximumFractionDigits:formatData.precision];
-        [formatter setAlwaysShowsDecimalSeparator:formatData.precision > 0];
-
-        NSNumberFormatterStyle numberStyle = NSNumberFormatterNoStyle;
-        if (formatData.isScientific) {
-            numberStyle = NSNumberFormatterScientificStyle;
-            formatter.exponentSymbol = _cacheData.exponentSymbol;
-
-            //For some strange reason, NSNumberFormatter format 12345 to 1.20E4
-            [formatter setMinimumFractionDigits:formatData.precision + 1];
-            [formatter setMaximumFractionDigits:formatData.precision + 1];
-        } else if (formatData.precision > 0) {
-            numberStyle = NSNumberFormatterDecimalStyle;
-        }
-        
-        [formatter setNumberStyle:numberStyle];
-
-        //Thousands -> use group
-        if (formatData.hasThousands) {
-            NSString *groupingSeparator = [[NSLocale currentLocale] objectForKey:NSLocaleGroupingSeparator];
-            [formatter setGroupingSeparator:groupingSeparator];
-            [formatter setGroupingSize:3];
-            [formatter setUsesGroupingSeparator:YES];
-        }
-        
-        if (!shouldAppendMinus) {
-            number = ABS(number);
-        }
-        
-        NSString *formattedNumber = [formatter stringFromNumber:@(number)];
-        
-        //if scientific format, reformat exponent
-        NSInteger exponentLength = 0;
-        if (formatData.isScientific) {
-            if ([formattedNumber rangeOfString:@"0e-"].location != NSNotFound || [formattedNumber rangeOfString:@"0E-"].location != NSNotFound) {
-                formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e-" withString:@"e-"];
-                formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E-" withString:@"E-"];
-                
-                exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"-"].location - 1;
-                while (exponentLength < formatData.exponentLength) {
-                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"-" withString:@"-0"];
-                    ++exponentLength;
-                }
-            } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
-                formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e+"];
-                formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E+"];
-
-                exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
-                
-                while (exponentLength < formatData.exponentLength) {
-                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
-                    ++exponentLength;
+        } else if (formatData.type == kBRAFormatCodeTypeDateTime) {
+            NSInteger days = (NSInteger)number;
+            //Correcting for Feb 29, 1900
+            if (days > 60) {
+                --days;
+            }
+            
+            //At this time, time is a fraction of a day
+            CGFloat time = number - (NSInteger)number;
+            NSInteger seconds = 0;
+            if (time) {
+                //Here time is converted to seconds
+                //some loss of precision will occur
+                seconds = (NSInteger)(time * 86400);
+            }
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"d/M/yyyy";
+            NSDate *baseDate = [dateFormatter dateFromString:@"1/1/1900"];
+            
+            dateFormatter.dateFormat = formatData.code;
+            stringToFormat = [dateFormatter stringFromDate:[baseDate dateByAddingTimeInterval:days * 86400 + seconds]];
+            
+        } else if (formatData.type == kBRAFormatCodeTypeFraction && number != (NSInteger)number) {
+            NSInteger integer = (NSInteger)(ABS(number));
+            NSInteger denominatorStartPosition = [formatData.code rangeOfString:@"/"].location;
+            NSInteger denominatorLength = 1;
+            
+            if (denominatorStartPosition != NSNotFound) {
+                for (NSInteger i = denominatorStartPosition + 2; i < formatData.code.length; i++) {
+                    if ([formatData.code characterAtIndex:i] == '?') {
+                        ++denominatorLength;
+                    } else {
+                        break;
+                    }
                 }
             }
+            BRAFraction fraction = [self convertToFraction:fmod(ABS(number), 1) withDenominatorLength:denominatorLength];
+            
+            if ([formatData.code rangeOfString:@"0"].location != NSNotFound ||
+                [formatData.code rangeOfString:@"#"].location != NSNotFound ||
+                [[formatData.code substringWithRange:NSMakeRange(0, 3)] isEqual:@"? ?"]) {
+                
+                //The integer part is shown separately apart from the fraction
+                stringToFormat = [NSString stringWithFormat:@"%@%ld/%ld",
+                                  integer ? [NSString stringWithFormat:@"%ld ", (long)integer] : @"",
+                                  (long)fraction.numerator,
+                                  (long)fraction.denominator];
+            } else {
+                stringToFormat = [NSString stringWithFormat:@"%ld/%ld",
+                                  (long)(integer + fraction.numerator),
+                                  (long)fraction.denominator];
+            }
+            
+            stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:stringToFormat];
+            
+        } else {
+            //Scaling
+            number = number / formatData.scale;
+            
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            
+            [formatter setMinimumFractionDigits:formatData.precision];
+            [formatter setMaximumFractionDigits:formatData.precision];
+            [formatter setAlwaysShowsDecimalSeparator:formatData.precision > 0];
+            
+            NSNumberFormatterStyle numberStyle = NSNumberFormatterNoStyle;
+            if (formatData.isScientific) {
+                numberStyle = NSNumberFormatterScientificStyle;
+                formatter.exponentSymbol = _cacheData.exponentSymbol;
+                
+                //For some strange reason, NSNumberFormatter format 12345 to 1.20E4
+                [formatter setMinimumFractionDigits:formatData.precision + 1];
+                [formatter setMaximumFractionDigits:formatData.precision + 1];
+            } else if (formatData.precision > 0) {
+                numberStyle = NSNumberFormatterDecimalStyle;
+            }
+            
+            [formatter setNumberStyle:numberStyle];
+            
+            //Thousands -> use group
+            if (formatData.hasThousands) {
+                NSString *groupingSeparator = [[NSLocale currentLocale] objectForKey:NSLocaleGroupingSeparator];
+                [formatter setGroupingSeparator:groupingSeparator];
+                [formatter setGroupingSize:3];
+                [formatter setUsesGroupingSeparator:YES];
+            }
+            
+            if (!shouldAppendMinus) {
+                number = ABS(number);
+            }
+            
+            NSString *formattedNumber = [formatter stringFromNumber:@(number)];
+            
+            //if scientific format, reformat exponent
+            NSInteger exponentLength = 0;
+            if (formatData.isScientific) {
+                if ([formattedNumber rangeOfString:@"0e-"].location != NSNotFound || [formattedNumber rangeOfString:@"0E-"].location != NSNotFound) {
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e-" withString:@"e-"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E-" withString:@"E-"];
+                    
+                    exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"-"].location - 1;
+                    while (exponentLength < formatData.exponentLength) {
+                        formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"-" withString:@"-0"];
+                        ++exponentLength;
+                    }
+                } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e+"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E+"];
+                    
+                    exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
+                    
+                    while (exponentLength < formatData.exponentLength) {
+                        formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
+                        ++exponentLength;
+                    }
+                }
+            }
+            
+            stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:formattedNumber];
         }
         
-        stringToFormat = [[self formatOutputCode:formatData.code] stringByReplacingOccurrencesOfString:@"0" withString:formattedNumber];
     }
     
     return [[NSAttributedString alloc] initWithString:stringToFormat attributes:attributedStringAttributes];
@@ -610,41 +619,47 @@
 
 - (NSString *)formatOutputCode:(NSString *)code {
     NSMutableString *outputCode = @"".mutableCopy;
+    NSCharacterSet *zeroCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@".,0#?/"];
+    
     BOOL escaped = NO;
     BOOL spaceEscaped = NO;
     BOOL hasZero = NO;
     
     code = [code stringByReplacingOccurrencesOfString:@" ?" withString:@"?"];
-    const char *outputCodeCString = [code cStringUsingEncoding:NSUTF8StringEncoding];
     
-    for (NSInteger i = 0; i < strlen(outputCodeCString); i++) {
-        const char currentChar = outputCodeCString[i];
+        for (NSInteger i = 0; i < code.length; i++) {
+        NSString *currentChar = [code substringWithRange:NSMakeRange(i, 1)];
+        
         if (escaped) {
-            [outputCode appendFormat:@"%c", currentChar];
+            [outputCode appendString:currentChar];
             escaped = NO;
             continue;
         }
         
         if (spaceEscaped) {
-            [outputCode appendFormat:@"%c", ' '];
+            [outputCode appendString:@" "];
             spaceEscaped = NO;
             continue;
         }
         
-        if (currentChar == '\\') {
+        if ([currentChar isEqual:@"\\"]) {
             escaped = YES;
             continue;
-        } else if (currentChar == '_') {
+        
+        } else if ([currentChar isEqual:@"_"]) {
             spaceEscaped = YES;
             continue;
-        } else if (currentChar == '.' || currentChar == ',' || currentChar == '0' || currentChar == '#' || currentChar == '?' || currentChar == '/') {
+        
+        } else if ([currentChar rangeOfCharacterFromSet:zeroCharacterSet].location != NSNotFound) {
             if (hasZero) {
                 continue;
             }
-            [outputCode appendFormat:@"%c", '0'];
+            
+            [outputCode appendString:@"0"];
             hasZero = YES;
+
         } else {
-            [outputCode appendFormat:@"%c", currentChar];
+            [outputCode appendString:currentChar];
         }
     }
     
