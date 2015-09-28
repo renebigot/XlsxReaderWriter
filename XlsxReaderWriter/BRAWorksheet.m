@@ -92,6 +92,7 @@
     }
     
     _drawings = [self.relationships anyRelationshipWithType:[BRADrawing fullRelationshipType]];
+    _comments = [self.relationships anyRelationshipWithType:[BRAComments fullRelationshipType]];
 }
 
 #pragma mark - 
@@ -101,6 +102,10 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
 
+    //Tab selected
+    [dictionaryRepresentation setValue:[self isTabSelected] ? @"1" : @"0"
+                            forKeyPath:@"sheetViews.sheetView._tabSelected"];
+    
     //Dimension
     dictionaryRepresentation[@"dimension"] = [self.dimension dictionaryRepresentation];
 
@@ -332,12 +337,28 @@
     NSString *relationId = [self.relationships relationshipIdForNewRelationship];
     
     _drawings = [[BRADrawing alloc] initWithXmlRepresentation:@"<xdr:wsDr xmlns:xdr=\"http://schemas.openxmlformats.org/drawingml/2006/spreadsheetDrawing\" xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\"></xdr:wsDr>"
-                                                                forRelationId:relationId
-                                                            inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl/worksheets"]];
+                                                forRelationId:relationId
+                                            inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl/worksheets"]];
     
     [self.relationships addRelationship:_drawings];
     
     return _drawings;
+}
+
+- (BRAComments *)comments {
+    if (_comments) {
+        return _comments;
+    }
+    
+    NSString *relationId = [self.relationships relationshipIdForNewRelationship];
+    
+    _comments = [[BRAComments alloc] initWithXmlRepresentation:@"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><comments xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"></comments>"
+                                                forRelationId:relationId
+                                            inParentDirectory:[self.parentDirectory stringByAppendingPathComponent:@"xl/worksheets"]];
+    
+    [self.relationships addRelationship:_comments];
+    
+    return _comments;
 }
 
 #pragma mark -
@@ -408,6 +429,7 @@
        
         [_calcChain didAddRowsAtIndexes:indexSet];
         [_drawings didAddRowsAtIndexes:indexSet];
+        [_comments didAddRowsAtIndexes:indexSet];
     }
 }
 
@@ -493,6 +515,7 @@
     
     [_calcChain didRemoveRowsAtIndexes:indexesOfRowToRemove];
     [_drawings didRemoveRowsAtIndexes:indexesOfRowToRemove];
+    [_comments didRemoveRowsAtIndexes:indexesOfRowToRemove];
     
     
     //change rows indexes

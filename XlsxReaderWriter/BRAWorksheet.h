@@ -15,6 +15,7 @@
 #import "BRAImage.h"
 #import "BRACalcChain.h"
 #import "BRASharedStrings.h"
+#import "BRAComments.h"
 
 @interface BRAWorksheet : BRARelationship {
     BRACellRange *_dimension;
@@ -39,12 +40,14 @@
 - (void)removeRow:(NSInteger)rowIndex;
 - (void)removeRow:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToRemove;
 
+@property (nonatomic, getter=isTabSelected) BOOL tabSelected;
 @property (nonatomic, strong) NSMutableArray *cells;
 @property (nonatomic, strong) NSMutableArray *mergeCells;
 @property (nonatomic, strong) NSMutableArray *rows;
 @property (nonatomic, strong) NSMutableArray *columns;
 @property (nonatomic, strong) BRACellRange *dimension;
 @property (nonatomic, strong) BRADrawing *drawings;
+@property (nonatomic, strong) BRAComments *comments;
 @property (nonatomic, strong) BRASharedStrings *sharedStrings;
 @property (nonatomic, strong) BRAStyles *styles;
 @property (nonatomic, strong) BRACalcChain *calcChain;
