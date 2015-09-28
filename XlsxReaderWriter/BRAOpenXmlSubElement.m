@@ -22,7 +22,7 @@
 }
 
 - (void)loadAttributes {
-    //loadAttributes must be implemented by children
+    //loadAttributes must be implemented by sub-class
     NOT_IMPLEMENTED
 }
 
