@@ -35,7 +35,7 @@ class SwiftTestCase: XCTestCase {
         XCTAssertNotNil(worksheet, "Worksheet should not be nil")
 
         let paths: Array = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as Array
-        let fullPath: String = (paths[0] as! String).stringByAppendingPathComponent("testSwiftOpenClose.xlsx")
+        let fullPath: String = paths[0].stringByAppendingString("/testSwiftOpenClose.xlsx")
         odp.saveAs(fullPath)
         XCTAssert(NSFileManager.defaultManager().fileExistsAtPath(fullPath), "No file exists at %@", file: fullPath)
     }
