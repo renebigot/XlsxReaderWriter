@@ -8,15 +8,12 @@
 
 #import "BRARelationship.h"
 #import "BRARelationships.h"
+#import "BRARelatedToColumnAndRowProtocol.h"
 #import "BRAWorksheetDrawing.h"
 #import "BRAImage.h"
 
-@interface BRADrawing : BRARelationship
+@interface BRADrawing : BRARelationship <BRARelatedToColumnAndRowProtocol>
 
-- (void)didAddRowsAtIndexes:(NSIndexSet *)indexes;
-- (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes;
-- (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes;
-- (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes;
 - (BRAWorksheetDrawing *)addDrawingForImage:(BRAImage *)image withAnchor:(BRAAnchor *)anchor;
 
 @property (nonatomic, strong) NSArray *worksheetDrawings;
