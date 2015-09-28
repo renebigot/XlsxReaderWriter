@@ -54,19 +54,19 @@
 }
 
 + (NSString *)fullRelationshipType {
-    //Must be implemented by children
+    //Must be implemented by sub-class
     NOT_IMPLEMENTED
     return nil;
 }
 
 - (NSString *)contentType {
-    //Must be implemented by children
+    //Must be implemented by sub-class
     NOT_IMPLEMENTED
     return nil;
 }
 
 - (NSString *)targetFormat {
-    //Must be implemented by children
+    //Must be implemented by sub-class
     NOT_IMPLEMENTED
     return nil;
 }
@@ -94,11 +94,12 @@
 
 - (void)setParentDirectory:(NSString *)parentDirectory {
     [super setParentDirectory:parentDirectory];
-    
+        
     NSString *target = self.target;
     if (target == nil) {
         target = [self targetFormat];
     }
+    
     parentDirectory = [parentDirectory stringByAppendingPathComponent:[target stringByDeletingLastPathComponent]];
     
     [self.relationships setParentDirectory:parentDirectory];
