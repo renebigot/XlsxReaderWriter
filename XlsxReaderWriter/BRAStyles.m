@@ -173,7 +173,15 @@
 
 - (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes {
     if (attributes[@"_indexed"]) {
-        return self.indexedColors[[attributes[@"_indexed"] integerValue]];
+        
+        if ([attributes[@"_indexed"] integerValue] == 81) {
+            //81 is used by Excel for comments text colors
+            return [UIColor blackColor];
+            
+        } else {
+            return self.indexedColors[[attributes[@"_indexed"] integerValue]];
+            
+        }
         
     } else if (_theme && attributes[@"_theme"]) {
         return [_theme colors][[attributes[@"_theme"] integerValue]];
