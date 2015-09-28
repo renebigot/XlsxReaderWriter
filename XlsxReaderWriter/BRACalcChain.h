@@ -7,20 +7,10 @@
 //
 
 #import "BRARelationship.h"
-#import "BRAOpenXmlSubElement.h"
+#import "BRARelatedToColumnAndRowProtocol.h"
+#import "BRACalcChainCell.h"
 
-@interface BRACalcChainCell : BRAOpenXmlSubElement
-
-@property (nonatomic, strong) NSString *reference;
-
-@end
-
-@interface BRACalcChain : BRARelationship
-
-- (void)didAddRowsAtIndexes:(NSIndexSet *)indexes;
-- (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes;
-- (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes;
-- (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes;
+@interface BRACalcChain : BRARelationship <BRARelatedToColumnAndRowProtocol>
 
 @property (nonatomic, strong) NSArray *cells;
 

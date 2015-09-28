@@ -11,30 +11,6 @@
 #import "BRACell.h"
 #import "BRAColumn.h"
 
-@implementation BRACalcChainCell
-
-- (void)loadAttributes {
-    NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
-    
-    _reference = dictionaryRepresentation[@"_r"];
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-    NSMutableDictionary *dictionaryRepresentation = [super dictionaryRepresentation].mutableCopy;
-    
-    dictionaryRepresentation[@"_r"] = _reference;
-
-    [super setDictionaryRepresentation:dictionaryRepresentation];
-    
-    return dictionaryRepresentation;
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p> : %@", [self class], self, _reference];
-}
-
-@end
-
 @implementation BRACalcChain
 
 + (NSString *)fullRelationshipType {
@@ -66,59 +42,88 @@
 }
 
 - (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
-    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-        for (BRACalcChainCell *cell in _cells) {
-            
-            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
-            
-            if (cellRowIndex >= index) {
-                cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
-                                                          andRowIndex:cellRowIndex + 1];
+    @synchronized(_cells) {
+        [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            for (BRACalcChainCell *cell in _cells) {
+                
+                NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
+                
+                if (cellRowIndex >= index) {
+                    cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
+                                                              andRowIndex:cellRowIndex + 1];
+                }
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (void)didRemoveRowsAtIndexes:(NSIndexSet *)indexes {
-    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-        for (BRACalcChainCell *cell in _cells) {
-            
-            NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
-            
-            if (cellRowIndex >= index) {
-                cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
-                                                          andRowIndex:cellRowIndex - 1];
+    NSMutableIndexSet *indexesToBeRemoved = [[NSMutableIndexSet alloc] init];
+    
+    @synchronized(_cells) {
+        [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            for (BRACalcChainCell *cell in _cells) {
+                
+                NSInteger cellRowIndex = [BRARow rowIndexForCellReference:cell.reference];
+                
+                if (cellRowIndex > index) {
+                    cell.reference = [BRACell cellReferenceForColumnIndex:[BRAColumn columnIndexForCellReference:cell.reference]
+                                                              andRowIndex:cellRowIndex - 1];
+                } else if (cellRowIndex == index) {
+                    [indexesToBeRemoved addIndex:index];
+                }
             }
+        }];
+        
+        if (indexesToBeRemoved.count > 0) {
+            NSMutableArray *cells = _cells.mutableCopy;
+            [cells removeObjectsAtIndexes:indexesToBeRemoved];
+            _cells = cells;
         }
-    }];
+    }
 }
 
 - (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
-    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-        for (BRACalcChainCell *cell in _cells) {
-            
-            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
-            
-            if (cellColumnIndex >= index) {
-                cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
-                                                          andRowIndex:cellColumnIndex + 1];
+    @synchronized(_cells) {
+        [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            for (BRACalcChainCell *cell in _cells) {
+                
+                NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
+                
+                if (cellColumnIndex >= index) {
+                    cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
+                                                              andRowIndex:cellColumnIndex + 1];
+                }
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (void)didRemoveColumnsAtIndexes:(NSIndexSet *)indexes {
-    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-        for (BRACalcChainCell *cell in _cells) {
-            
-            NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
-            
-            if (cellColumnIndex >= index) {
-                cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
-                                                          andRowIndex:cellColumnIndex - 1];
+    NSMutableIndexSet *indexesToBeRemoved = [[NSMutableIndexSet alloc] init];
+    
+    @synchronized(_cells) {
+        [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+            for (BRACalcChainCell *cell in _cells) {
+                
+                NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
+                
+                if (cellColumnIndex > index) {
+                    cell.reference = [BRACell cellReferenceForColumnIndex:[BRARow rowIndexForCellReference:cell.reference]
+                                                              andRowIndex:cellColumnIndex - 1];
+                    
+                } else if (cellColumnIndex == index) {
+                    [indexesToBeRemoved addIndex:index];
+                }
             }
+        }];
+        
+        if (indexesToBeRemoved.count > 0) {
+            NSMutableArray *cells = _cells.mutableCopy;
+            [cells removeObjectsAtIndexes:indexesToBeRemoved];
+            _cells = cells;
         }
-    }];
+    }
     
 }
 
@@ -137,7 +142,7 @@
     
     //Return xmlRepresentation
     _xmlRepresentation = [xmlHeader stringByAppendingString:[dictionaryRepresentation openXmlStringInNodeNamed:@"calcChain"]];
-
+    
     return _xmlRepresentation;
 }
 
