@@ -20,7 +20,6 @@
 #import "BRACell.h"
 
 #define NUMBER_FORMAT(X) [[BRANumberFormat alloc] initWithOpenXmlAttributes:@{@"_formatCode": X} inStyles:_spreadsheet.workbook.styles]
-extern void __gcov_flush();
 
 @interface BRAXlsxReaderWriterTests : XCTestCase {
     BRAOfficeDocumentPackage *_spreadsheet;
@@ -45,8 +44,6 @@ extern void __gcov_flush();
     NSLog(@"------ WORKING DIRECTORY : %@", [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]);
     
     [super tearDown];
-    
-    __gcov_flush();
 }
 
 - (void)testReadSpreadsheetDocument {
@@ -468,7 +465,7 @@ extern void __gcov_flush();
     
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"Y24"] stringValue], @"FOO / BAR", @"Y24 should be \"FOO / BAR\"");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"Z24"] attributedStringValue],
-                          [[NSAttributedString alloc] initWithString:@"RED is not GREEN" attributes:stringAttributes], @"Z24 should be \"RED is not GREEN\" with red color");
+                          [[NSAttributedString alloc] initWithString:@"GREEN" attributes:stringAttributes], @"Z24 should be \"RED is not GREEN\" with red color");
 }
 
 - (void)testColumnName {
