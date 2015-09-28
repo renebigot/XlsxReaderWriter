@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
+		455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */; };
 		457B68821B9DE8FC0096E1D1 /* SwiftTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */; };
 		4580C6771A15157100790ED5 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
 		4580C6781A15157100790ED5 /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6761A15157100790ED5 /* BRARelationships.m */; };
@@ -53,6 +54,9 @@
 		45B6E30C1A1512E700288A78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E30B1A1512E700288A78 /* CoreGraphics.framework */; };
 		45B6E30D1A1512F700288A78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E3091A1512DD00288A78 /* Foundation.framework */; };
 		45B6E30F1A15132200288A78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E30E1A15132200288A78 /* UIKit.framework */; };
+		45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBCA1BB212A2002ACC9C /* BRAComments.m */; };
+		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
+		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,8 @@
 		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
+		455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAVmlDrawing.m; sourceTree = "<group>"; };
+		455C23B71BB908DF00CEE3A2 /* BRAVmlDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAVmlDrawing.h; sourceTree = "<group>"; };
 		457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriterTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestCase.swift; sourceTree = "<group>"; };
 		4580C6731A15157100790ED5 /* BRARelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationship.h; sourceTree = "<group>"; };
@@ -184,6 +190,13 @@
 		45B6E3091A1512DD00288A78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45B6E30B1A1512E700288A78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		45B6E30E1A15132200288A78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45D6FBCA1BB212A2002ACC9C /* BRAComments.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRAComments.m; sourceTree = "<group>"; };
+		45D6FBCE1BB275F3002ACC9C /* BRARelatedToColumnAndRowProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRARelatedToColumnAndRowProtocol.h; sourceTree = "<group>"; };
+		45D6FBD01BB2777C002ACC9C /* BRAComments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAComments.h; sourceTree = "<group>"; };
+		45D6FBD21BB27801002ACC9C /* BRACalcChainCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRACalcChainCell.h; sourceTree = "<group>"; };
+		45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRACalcChainCell.m; sourceTree = "<group>"; };
+		45D6FBD61BB27970002ACC9C /* BRAComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAComment.h; sourceTree = "<group>"; };
+		45D6FBD71BB279A5002ACC9C /* BRAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAComment.m; sourceTree = "<group>"; };
 		45E356EA1B681849009A7260 /* XlsxReaderWriter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XlsxReaderWriter.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -219,6 +232,15 @@
 				454D49FC1B4B27E40053CD86 /* BRATheme.m */,
 			);
 			name = Theme;
+			sourceTree = "<group>";
+		};
+		455C23B31BB908BB00CEE3A2 /* VML Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				455C23B71BB908DF00CEE3A2 /* BRAVmlDrawing.h */,
+				455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */,
+			);
+			name = "VML Drawing";
 			sourceTree = "<group>";
 		};
 		45B6E2311A148F7500288A78 = {
@@ -357,6 +379,7 @@
 		45B6E2881A1506FB00288A78 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				45D6FBCB1BB2757B002ACC9C /* Protocol */,
 				45B6E2891A15070F00288A78 /* Abstract classes */,
 			);
 			name = Shared;
@@ -425,12 +448,14 @@
 				4580C6D61A15176A00790ED5 /* BRAOfficeDocumentPackage.h */,
 				4580C6D71A15176A00790ED5 /* BRAOfficeDocumentPackage.m */,
 				45B6E2AE1A15083C00288A78 /* Calc chain */,
+				45D6FBC61BB2122D002ACC9C /* Comments */,
 				45B6E2F21A15092C00288A78 /* Content types */,
 				45B6E2A31A15081000288A78 /* Drawing */,
 				45B6E29F1A1507F700288A78 /* Image */,
 				45B6E2D91A1508E600288A78 /* Shared strings */,
 				45B6E2C81A1508AA00288A78 /* Styles */,
 				454D49FF1B4B27F20053CD86 /* Theme */,
+				455C23B31BB908BB00CEE3A2 /* VML Drawing */,
 				45B6E2E71A15091000288A78 /* Workbook */,
 				45B6E2B21A15084F00288A78 /* Worksheet */,
 			);
@@ -468,6 +493,7 @@
 		45B6E2AE1A15083C00288A78 /* Calc chain */ = {
 			isa = PBXGroup;
 			children = (
+				45D6FBD11BB277F0002ACC9C /* Sub Elements */,
 				4580C68B1A15160C00790ED5 /* BRACalcChain.h */,
 				4580C68C1A15160C00790ED5 /* BRACalcChain.m */,
 			);
@@ -674,6 +700,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		45D6FBC61BB2122D002ACC9C /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				45D6FBD51BB2795C002ACC9C /* Sub Elements */,
+				45D6FBD01BB2777C002ACC9C /* BRAComments.h */,
+				45D6FBCA1BB212A2002ACC9C /* BRAComments.m */,
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
+		45D6FBCB1BB2757B002ACC9C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				45D6FBCE1BB275F3002ACC9C /* BRARelatedToColumnAndRowProtocol.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		45D6FBD11BB277F0002ACC9C /* Sub Elements */ = {
+			isa = PBXGroup;
+			children = (
+				45D6FBD21BB27801002ACC9C /* BRACalcChainCell.h */,
+				45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */,
+			);
+			name = "Sub Elements";
+			sourceTree = "<group>";
+		};
+		45D6FBD51BB2795C002ACC9C /* Sub Elements */ = {
+			isa = PBXGroup;
+			children = (
+				45D6FBD61BB27970002ACC9C /* BRAComment.h */,
+				45D6FBD71BB279A5002ACC9C /* BRAComment.m */,
+			);
+			name = "Sub Elements";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -719,6 +781,7 @@
 		45B6E2321A148F7500288A78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = BRAE;
 				TargetAttributes = {
@@ -811,8 +874,11 @@
 				4580C6B71A1516BF00790ED5 /* BRAOfficeDocument.m in Sources */,
 				454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */,
 				4580C69C1A15165100790ED5 /* BRARow.m in Sources */,
+				455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */,
+				45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */,
 				4580C6C81A15170900790ED5 /* UIColor+HTML.m in Sources */,
 				4580C6811A1515CB00790ED5 /* BRAOpenXmlSubElement.m in Sources */,
+				45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */,
 				4580C6D41A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */,
 				4580C68A1A1515F700790ED5 /* BRAWorksheetDrawing.m in Sources */,
 				4580C6B01A1516A500790ED5 /* BRASharedString.m in Sources */,
@@ -820,6 +886,7 @@
 				4580C6C01A1516EA00790ED5 /* BRAContentTypesOverride.m in Sources */,
 				4580C67B1A1515AB00790ED5 /* BRAElementWithRelationships.m in Sources */,
 				4580C6AB1A15169100790ED5 /* BRAStyles.m in Sources */,
+				45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */,
 				4580C6871A1515EE00790ED5 /* BRADrawing.m in Sources */,
 				4580C6901A15161A00790ED5 /* BRAWorksheet.m in Sources */,
 				45B6E26D1A15063800288A78 /* XMLDictionary.m in Sources */,
@@ -851,92 +918,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		45B0658E1A1519F600996E5E /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Coverage;
-		};
-		45B0658F1A1519F600996E5E /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/ThirdParties/**";
-			};
-			name = Coverage;
-		};
-		45B065901A1519F600996E5E /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-ObjC",
-					"-all_load",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Coverage;
-		};
 		45B6E24C1A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -954,7 +935,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -994,7 +974,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1049,11 +1028,6 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1098,7 +1072,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B6E24C1A148F7500288A78 /* Debug */,
-				45B0658E1A1519F600996E5E /* Coverage */,
 				45B6E24D1A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1108,7 +1081,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B6E24F1A148F7500288A78 /* Debug */,
-				45B0658F1A1519F600996E5E /* Coverage */,
 				45B6E2501A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1118,7 +1090,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B6E2521A148F7500288A78 /* Debug */,
-				45B065901A1519F600996E5E /* Coverage */,
 				45B6E2531A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
