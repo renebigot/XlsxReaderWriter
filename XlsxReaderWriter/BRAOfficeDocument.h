@@ -10,6 +10,7 @@
 #import "BRARelationship.h"
 #import "BRAStyles.h"
 #import "BRACalcChain.h"
+#import "BRAComments.h"
 #import "BRAOpenXmlSubElement.h"
 
 @class BRASharedStrings;

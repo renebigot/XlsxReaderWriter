@@ -90,6 +90,8 @@
     [sheets addObject:newSheet];
     _sheets = sheets;
     
+    [newWorksheet setTabSelected:NO];
+
     return newWorksheet;
 }
 
@@ -115,6 +117,8 @@
     NSMutableArray *sheets = _sheets.mutableCopy;
     [sheets addObject:newSheet];
     _sheets = sheets;
+    
+    [newWorksheet setTabSelected:NO];
     
     return newWorksheet;
 }
