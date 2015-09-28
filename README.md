@@ -29,10 +29,11 @@ Todo:
 * Create spreadsheet document from scratch
 * Improve number formatting
 * Borders
+* Add better support for comments (add, remove, read)
 
 ##Limitation
 
-XlsxReaderWriter can't create a SpreadsheetML (XLSX) file from scratch. You have to open an existing file and modify it before saving it. Not really a problem : You create your file with Excel or Numbers with all the needed formatting (fills, borders, etc.) then include the file as a resource of your project.
+XlsxReaderWriter can't create a SpreadsheetML (XLSX) file from scratch. You have to open an existing file and modify it before saving it. Not really a problem: Create your file with Excel or Numbers with all the needed formatting (fills, borders, etc.) then include the file as a resource of your project.
 
 ##Third parties
 
