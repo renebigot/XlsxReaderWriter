@@ -79,15 +79,13 @@
 }
 
 - (id)relationshipWithId:(NSString *)rId {
-    NSMutableArray *relationships = @[].mutableCopy;
-    
     for (BRARelationship *relationship in _relationshipsArray) {
         if ([relationship.identifier isEqual:rId]) {
             return relationship;
         }
     }
     
-    return relationships;
+    return nil;
 }
 
 - (id)anyRelationshipWithType:(NSString *)relationshipType {
