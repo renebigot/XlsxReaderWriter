@@ -118,7 +118,7 @@
                          @"wdr:wsDr": @[
                                  @"TwoCellAnchor", @"OneCellAnchor", @"AbsoluteAnchor"
                                  ],
-                         @"xdr:TwoCellAnchor": @[
+                         @"xdr:twoCellAnchor": @[
                                  @"xdr:from", @"xdr:to", @"xdr:sp", @"xdr:grpSp", @"xdr:graphicFrame", @"xdr:cxnSp", @"xdr:pic", @"xdr:contentPart", @"xdr:clientData"
                                  ],
                          @"xdr:from": @[
@@ -210,6 +210,9 @@
                                  ],
                          @"x15ac:absPath": @[
                                  @"url", @"xmlns:x15ac"
+                                 ],
+                         @"a:ln": @[
+                                 @"w", @"cap", @"a:solidFill", @"a:prstDash", @"a:miter", @"a:headEnd", @"a:tailEnd"
                                  ]
                          };
     });
