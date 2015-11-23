@@ -35,7 +35,7 @@
 }
 
 - (NSString *)targetFormat {
-    return @"../theme/theme%ld.xml";
+    return @"theme/theme%ld.xml";
 }
 
 - (void)loadXmlContents {
