@@ -369,7 +369,7 @@
 
 - (void)addRowsAt:(NSInteger)rowIndex count:(NSInteger)numberOfRowsToAdd {
     //-----Adjust worksheet dimension
-    _dimension.bottomRowIndex += numberOfRowsToAdd;
+    _dimension.bottomRowIndex = MAX(numberOfRowsToAdd + _dimension.bottomRowIndex, rowIndex + numberOfRowsToAdd - 1);
     
     //-----Adjust mergeCells
     for (BRAMergeCell *mergeCell in _mergeCells) {
@@ -390,9 +390,11 @@
     NSMutableArray *newRows = @[].mutableCopy;
     BRARow *newRow = nil;
     BRACell *newCell = nil;
+    NSInteger maxRowIndex = 0;
     
     for (NSInteger i = 0; i < [_rows count]; i++) {
         currentRow = _rows[i];
+        maxRowIndex = MAX(maxRowIndex, currentRow.rowIndex);
         
         if (currentRow.rowIndex == rowIndex) {
             currentRowCells = currentRow.cells;
@@ -423,9 +425,36 @@
         }
     }
     
+    if (rowIndex > maxRowIndex) {
+        currentRowCells = currentRow.cells;
+        
+        for (NSInteger jj = 0; jj < numberOfRowsToAdd; jj++) {
+            newRow = [[BRARow alloc] initWithRowIndex:rowIndex + jj inWorksheet:self];
+            
+            for (NSInteger ii = 0; ii < [currentRowCells count]; ii++) {
+                NSInteger columnIndex = [BRAColumn columnIndexForCellReference:[currentRowCells[ii] reference]];
+                
+                newCell = [[BRACell alloc] initWithReference:[BRACell cellReferenceForColumnIndex:columnIndex andRowIndex:rowIndex + jj]
+                                                  andStyleId:[currentRowCells[ii] styleId]
+                                                 inWorksheet:self];
+                
+                [newRow addCell:newCell];
+                
+                [newCell setCellFill:nil];
+            }
+            
+            [newRows addObject:newRow];
+        }
+        
+    }
+    
     if (newRows.count > 0) {
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(rowIndex, numberOfRowsToAdd)];
-        [_rows insertObjects:newRows atIndexes:indexSet];
+        if (rowIndex > maxRowIndex) {
+            [_rows addObjectsFromArray:newRows];
+        } else {
+            [_rows insertObjects:newRows atIndexes:indexSet];
+        }
        
         [_calcChain didAddRowsAtIndexes:indexSet];
         [_drawings didAddRowsAtIndexes:indexSet];
