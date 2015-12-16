@@ -39,9 +39,11 @@ typedef enum : NSUInteger {
 - (void)setNumberFormat:(NSString *)numberFormat;
 - (void)setCellFillWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType;
 - (void)setCellFill:(BRACellFill *)cellFill;
+- (void)setTextAlignment:(NSTextAlignment)alignment;
 - (BRACellFill *)cellFill;
 - (UIColor *)cellFillColor;
 - (NSString *)numberFormatCode;
+- (NSTextAlignment)textAlignment;
 
 //Cell content setters
 - (void)setBoolValue:(BOOL)boolValue;

@@ -145,6 +145,11 @@
     [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setCellFill:cellFill];
 }
 
+- (void)setTextAlignment:(NSTextAlignment)alignment {
+    _styleId = [_worksheet.styles addStyleByCopyingStyleWithId:_styleId];
+    [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setTextAlignment:alignment];
+}
+
 - (UIColor *)cellFillColor {
     UIColor *cellFillColor = [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] cellFill].patternedColor;
     return cellFillColor ? cellFillColor : [UIColor clearColor];
@@ -158,6 +163,9 @@
     return [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] numberFormat].formatCode;
 }
 
+- (NSTextAlignment)textAlignment {
+    return [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] textAlignment];
+}
 
 #pragma mark - Cell content setters
 
