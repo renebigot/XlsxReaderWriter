@@ -335,7 +335,7 @@
         XCTAssertEqual([[worksheet cellForCellReference:@"D19"] integerValue], 18, @"D19 should be contain 18 (D18 old value)");
         XCTAssertEqual([[worksheet cellForCellReference:@"D20"] integerValue], 19, @"D20 should be contain 19 (D19 old value)");
     }];
-
+    
     [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1Row.xlsx"]];
 }
 
@@ -351,8 +351,8 @@
         
         XCTAssertEqual(rowsCount, worksheet.rows.count - 1000, @"Worksheet should contain 1000 more rows");
         XCTAssertEqualObjects([[worksheet cellForCellReference:@"D18"] stringValue], @"", @"D18 should be empty");
-        XCTAssertEqual([[worksheet cellForCellReference:@"D1018"] integerValue], 18, @"D19 should be contain 18 (D18 old value)");
-        XCTAssertEqual([[worksheet cellForCellReference:@"D1019"] integerValue], 19, @"D20 should be contain 19 (D19 old value)");
+        XCTAssertEqual([[worksheet cellForCellReference:@"D1018"] integerValue], 18, @"D1018 should be contain 18 (D18 old value)");
+        XCTAssertEqual([[worksheet cellForCellReference:@"D1019"] integerValue], 19, @"D1019 should be contain 19 (D19 old value)");
     }];
 
     [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1000Rows.xlsx"]];
@@ -368,13 +368,32 @@
         BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
         NSInteger rowsCount = worksheet.rows.count;
         
+        [worksheet removeRow:18];
+        
+        XCTAssertEqual(rowsCount, worksheet.rows.count + 1, @"Worksheet should contain 1 less row");
+        XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A17"], @"The new A17 should have the same content as the old one");
+    }];
+    
+    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1Row.xlsx"]];
+}
+
+- (void)testRemove1RowAndKeepMergeCellContent {
+    NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
+    
+    [self measureBlock:^{
+        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        
+        BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
+        NSInteger rowsCount = worksheet.rows.count;
+        
         [worksheet removeRow:17];
         
         XCTAssertEqual(rowsCount, worksheet.rows.count + 1, @"Worksheet should contain 1 less row");
         XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A17"], @"The new A17 should have the same content as the old one");
     }];
-
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1Row.xlsx"]];
+    
+    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAndKeepMergeCellContent.xlsx"]];
 }
 
 - (void)testRemove4Rows {
@@ -452,7 +471,7 @@
     //Reopen the saved workbook
     _spreadsheet = [BRAOfficeDocumentPackage open:savePath];
     worksheet = _spreadsheet.workbook.worksheets[0];
-    
+
     //Try to read (again) the values
     XCTAssertEqual([[worksheet cellForCellReference:@"Y21"] boolValue], YES, @"Y21 should be TRUE");
     XCTAssertEqual([[worksheet cellForCellReference:@"Z21"] boolValue], NO, @"Z21 should be FALSE");
