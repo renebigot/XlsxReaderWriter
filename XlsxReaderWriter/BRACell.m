@@ -58,7 +58,7 @@
         else if ([cellType isEqual:@"d"]) {
             _type = BRACellContentTypeDate;
             _formulaString = dictionaryRepresentation[@"f"];
-#warning TODO
+// TODO
         }
         
         //Error
@@ -73,7 +73,7 @@
         else if ([cellType isEqual:@"inlineStr"]) {
             _type = BRACellContentTypeInlineString;
             _formulaString = dictionaryRepresentation[@"f"];
-#warning TODO
+// TODO
         }
         
         //Number
@@ -319,7 +319,7 @@
         return [[NSAttributedString alloc] initWithString:_value attributes:attributedTextAttributes];
         
     } else if (_type == BRACellContentTypeInlineString) {
-#warning TODO : Not Implemented
+// TODO : Not Implemented
         NOT_IMPLEMENTED
         
     } else if (_type == BRACellContentTypeNumber || _type == BRACellContentTypeUnknown) {
@@ -446,7 +446,7 @@
             [dictionaryRepresentation removeObjectForKey:@"f"];
         }
 
-#warning TODO : inlineStr
+// TODO : inlineStr
         
     } else if (_type == BRACellContentTypeNumber) {
         dictionaryRepresentation[@"_t"] = @"n";
