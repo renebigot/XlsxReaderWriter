@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author             = "René Bigot"
   s.social_media_url   = "https://twitter.com/renebigot"
   s.platform           = :ios, "7.0"
-  s.source             = { :git => "https://github.com/renebigot/XlsxReaderWriter.git" }
+  s.source             = { :git => "https://github.com/renebigot/XlsxReaderWriter.git", :tag => s.version.to_s }
   s.source_files       = "XlsxReaderWriter/*.{h,m}"
   s.exclude_files      = "ThirdParties"
   s.frameworks         = "Foundation", "UIKit"
