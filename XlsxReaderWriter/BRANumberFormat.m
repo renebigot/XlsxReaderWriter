@@ -110,7 +110,7 @@
             //----Date time
             _cacheData.type = kBRAFormatCodeTypeDateTime;
             _cacheData.code = [[[_cacheData.code stringByReplacingOccurrencesOfString:[self nonDateTimeFormatStringInCode:_cacheData.code] withString:@""] lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" \t"]];
-#warning TODO : [S] [M] [H]
+// TODO : [S] [M] [H]
             _cacheData.code = [self replaceOpenXmlFormatCodesWithNSFormatterCodesInString:_cacheData.code];
         } else {
             //Removing skipped characters
@@ -266,7 +266,7 @@
         _cacheData.minWidth = integerPart.length + decimalPoint.length + decimalPart.length;
         _cacheData.decimals = [decimalPart integerValue];
         _cacheData.precision = decimalPart.length;
-        _cacheData.pattern = [NSString stringWithFormat:@"%%0%ld.%ldf", _cacheData.minWidth, _cacheData.precision];
+        _cacheData.pattern = [NSString stringWithFormat:@"%%0%ld.%ldf", (long)_cacheData.minWidth, (long)_cacheData.precision];
 
         if ([results[0] rangeAtIndex:5].location != NSNotFound) {
             NSString *exponentPart = [formatCode substringWithRange:[results[0] rangeAtIndex:5]];

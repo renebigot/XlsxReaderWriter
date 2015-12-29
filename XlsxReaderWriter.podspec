@@ -12,4 +12,8 @@ Pod::Spec.new do |s|
   s.exclude_files      = "ThirdParties"
   s.frameworks         = "Foundation", "UIKit"
   s.requires_arc       = true
+
+  s.dependency "SSZipArchive", "~> 0.4"
+  s.dependency "XMLDictionary", "~> 1.4"
+
 end
