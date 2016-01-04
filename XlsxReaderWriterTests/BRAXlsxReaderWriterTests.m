@@ -387,13 +387,31 @@
         BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
         NSInteger rowsCount = worksheet.rows.count;
         
-        [worksheet removeRow:17];
+        [worksheet removeRow:16];
         
         XCTAssertEqual(rowsCount, worksheet.rows.count + 1, @"Worksheet should contain 1 less row");
-        XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A17"], @"The new A17 should have the same content as the old one");
+        XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A16"], @"The new A16 should have the same content as the old A17");
     }];
     
     [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAndKeepMergeCellContent.xlsx"]];
+}
+
+- (void)testRemove1RowAboveAMergedCellAndKeepMergeCellContent {
+    NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
+    
+    [self measureBlock:^{
+        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        
+        NSInteger rowsCount = worksheet.rows.count;
+        
+        [worksheet removeRow:16];
+        
+        XCTAssertEqual(rowsCount, worksheet.rows.count + 1, @"Worksheet should contain 1 less row");
+        XCTAssertEqualObjects([[worksheet cellForCellReference:@"A16"] stringValue], @"Merged cell 2", @"The new A16 should contain \"Grouped cell\"");
+    }];
+    
+    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAboveAMergedCellAndKeepMergeCellContent.xlsx"]];
 }
 
 - (void)testRemove4Rows {

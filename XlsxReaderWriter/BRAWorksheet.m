@@ -519,6 +519,11 @@
         currentRow = _rows[i];
         
         if (currentRow.rowIndex >= rowIndex && currentRow.rowIndex < rowIndex + numberOfRowsToRemove) {
+            [currentRow.cells enumerateObjectsUsingBlock:^(BRACell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                //Fix a bug : If we delete row 16 and there's a merged cell starting at A17
+                //            The new A16 will have the old A16 value
+                [obj setReference:@"-1"];
+            }];
             [indexesOfRowToRemove addIndex:i];
             
         } else if (currentRow.rowIndex > rowIndex) {
@@ -536,7 +541,11 @@
                     && [BRARow rowIndexForCellReference:currentCell.mergeCell.firstCellReference] == rowIndex
                     && [BRARow rowIndexForCellReference:currentCell.reference] == rowIndex + numberOfRowsToRemove) {
                     
-                    currentRow.cells[j] = [self cellForCellReference:currentCell.mergeCell.firstCellReference];
+                    BRACell *cell = [self cellForCellReference:currentCell.mergeCell.firstCellReference];
+                    
+                    if (cell) {
+                        currentRow.cells[j] = cell;
+                    }
                 }
             }
         }
