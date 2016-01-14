@@ -7,7 +7,7 @@
 //
 
 
-#import "UIFont+BoldItalic.h"
+#import "NativeFont+BoldItalic.h"
 #import "NativeColor+OpenXML.h"
 #import "NativeColor+HTML.h"
 #import "XMLDictionary.h"

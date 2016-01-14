@@ -8,7 +8,6 @@
 #define BRANativeFont NSFont
 #define BRANativeFontDescriptor NSFontDescriptor
 #define BRANativeFontDescriptorSizeAttribute NSFontSizeAttribute
-#define BRANativeScreen NSScreen
 #define BRANativeEdgeInsets NSEdgeInsets
 #define BRANativeEdgeInsetsMake NSEdgeInsetsMake
 #define BRANativeEdgeInsetsZero NSEdgeInsetsZero

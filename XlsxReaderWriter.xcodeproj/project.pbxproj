@@ -50,7 +50,7 @@
 		22156D881C46B62900BB5779 /* NSDictionary+DeepCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CD1A15171B00790ED5 /* NSDictionary+DeepCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22156D891C46B62900BB5779 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CF1A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22156D8A1C46B62900BB5779 /* NSDictionary+OpenXmlString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6D11A15171B00790ED5 /* NSDictionary+OpenXmlString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22156D8B1C46B62900BB5779 /* UIFont+BoldItalic.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CA1A15171100790ED5 /* UIFont+BoldItalic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22156D8B1C46B62900BB5779 /* NativeFont+BoldItalic.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CA1A15171100790ED5 /* NativeFont+BoldItalic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22156D8C1C46B62900BB5779 /* NativeColor+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6C41A15170900790ED5 /* NativeColor+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22156D8D1C46B62900BB5779 /* NativeColor+OpenXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6C61A15170900790ED5 /* NativeColor+OpenXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22156D8E1C46B62900BB5779 /* XlsxReaderWriter-swift-bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +91,7 @@
 		22225F231C47EC4B00256993 /* libSSZipArchive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22225F201C47EC3B00256993 /* libSSZipArchive.a */; };
 		22225F2E1C47F60600256993 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22225F2D1C47F60600256993 /* libz.1.dylib */; };
 		22225F301C47F75000256993 /* XlsxReaderWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22225F351C481E2500256993 /* NativeFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */; };
 		454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
 		455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */; };
 		457B68821B9DE8FC0096E1D1 /* SwiftTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B68811B9DE8FC0096E1D1 /* SwiftTestCase.swift */; };
@@ -122,7 +123,7 @@
 		4580C6C01A1516EA00790ED5 /* BRAContentTypesOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6BF1A1516EA00790ED5 /* BRAContentTypesOverride.m */; };
 		4580C6C81A15170900790ED5 /* NativeColor+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6C51A15170900790ED5 /* NativeColor+HTML.m */; };
 		4580C6C91A15170900790ED5 /* NativeColor+OpenXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6C71A15170900790ED5 /* NativeColor+OpenXML.m */; };
-		4580C6CC1A15171100790ED5 /* UIFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CB1A15171100790ED5 /* UIFont+BoldItalic.m */; };
+		4580C6CC1A15171100790ED5 /* NativeFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */; };
 		4580C6D31A15171B00790ED5 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */; };
 		4580C6D41A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
 		4580C6D51A15171B00790ED5 /* NSDictionary+OpenXmlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D21A15171B00790ED5 /* NSDictionary+OpenXmlString.m */; };
@@ -272,8 +273,8 @@
 		4580C6C51A15170900790ED5 /* NativeColor+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NativeColor+HTML.m"; path = "XlsxReaderWriter/NativeColor+HTML.m"; sourceTree = "<group>"; };
 		4580C6C61A15170900790ED5 /* NativeColor+OpenXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NativeColor+OpenXML.h"; path = "XlsxReaderWriter/NativeColor+OpenXML.h"; sourceTree = "<group>"; };
 		4580C6C71A15170900790ED5 /* NativeColor+OpenXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NativeColor+OpenXML.m"; path = "XlsxReaderWriter/NativeColor+OpenXML.m"; sourceTree = "<group>"; };
-		4580C6CA1A15171100790ED5 /* UIFont+BoldItalic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+BoldItalic.h"; path = "XlsxReaderWriter/UIFont+BoldItalic.h"; sourceTree = "<group>"; };
-		4580C6CB1A15171100790ED5 /* UIFont+BoldItalic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+BoldItalic.m"; path = "XlsxReaderWriter/UIFont+BoldItalic.m"; sourceTree = "<group>"; };
+		4580C6CA1A15171100790ED5 /* NativeFont+BoldItalic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NativeFont+BoldItalic.h"; path = "XlsxReaderWriter/NativeFont+BoldItalic.h"; sourceTree = "<group>"; };
+		4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NativeFont+BoldItalic.m"; path = "XlsxReaderWriter/NativeFont+BoldItalic.m"; sourceTree = "<group>"; };
 		4580C6CD1A15171B00790ED5 /* NSDictionary+DeepCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+DeepCopy.h"; path = "XlsxReaderWriter/NSDictionary+DeepCopy.h"; sourceTree = "<group>"; };
 		4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DeepCopy.m"; path = "XlsxReaderWriter/NSDictionary+DeepCopy.m"; sourceTree = "<group>"; };
 		4580C6CF1A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+OpenXMLDictionaryParser.h"; path = "XlsxReaderWriter/NSDictionary+OpenXMLDictionaryParser.h"; sourceTree = "<group>"; };
@@ -489,14 +490,14 @@
 			isa = PBXGroup;
 			children = (
 				45B6E2741A1506A300288A78 /* NSDictionary */,
-				45B6E2731A15069C00288A78 /* UIFont */,
-				45B6E2721A15069300288A78 /* UIColor */,
+				45B6E2731A15069C00288A78 /* NativeFont */,
+				45B6E2721A15069300288A78 /* NativeColor */,
 			);
 			name = Additions;
 			path = ..;
 			sourceTree = "<group>";
 		};
-		45B6E2721A15069300288A78 /* UIColor */ = {
+		45B6E2721A15069300288A78 /* NativeColor */ = {
 			isa = PBXGroup;
 			children = (
 				4580C6C41A15170900790ED5 /* NativeColor+HTML.h */,
@@ -504,16 +505,16 @@
 				4580C6C61A15170900790ED5 /* NativeColor+OpenXML.h */,
 				4580C6C71A15170900790ED5 /* NativeColor+OpenXML.m */,
 			);
-			name = UIColor;
+			name = NativeColor;
 			sourceTree = "<group>";
 		};
-		45B6E2731A15069C00288A78 /* UIFont */ = {
+		45B6E2731A15069C00288A78 /* NativeFont */ = {
 			isa = PBXGroup;
 			children = (
-				4580C6CA1A15171100790ED5 /* UIFont+BoldItalic.h */,
-				4580C6CB1A15171100790ED5 /* UIFont+BoldItalic.m */,
+				4580C6CA1A15171100790ED5 /* NativeFont+BoldItalic.h */,
+				4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */,
 			);
-			name = UIFont;
+			name = NativeFont;
 			sourceTree = "<group>";
 		};
 		45B6E2741A1506A300288A78 /* NSDictionary */ = {
@@ -911,7 +912,7 @@
 				22156D881C46B62900BB5779 /* NSDictionary+DeepCopy.h in Headers */,
 				22156D891C46B62900BB5779 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */,
 				22156D8A1C46B62900BB5779 /* NSDictionary+OpenXmlString.h in Headers */,
-				22156D8B1C46B62900BB5779 /* UIFont+BoldItalic.h in Headers */,
+				22156D8B1C46B62900BB5779 /* NativeFont+BoldItalic.h in Headers */,
 				22156D8C1C46B62900BB5779 /* NativeColor+HTML.h in Headers */,
 				22156D8D1C46B62900BB5779 /* NativeColor+OpenXML.h in Headers */,
 				22156D8E1C46B62900BB5779 /* XlsxReaderWriter-swift-bridge.h in Headers */,
@@ -1139,6 +1140,7 @@
 				22156D801C46B5DC00BB5779 /* BRAWorksheet.m in Sources */,
 				22156D811C46B5DC00BB5779 /* BRAOpenXmlSubElement.m in Sources */,
 				22156D821C46B5DC00BB5779 /* BRAOpenXmlElement.m in Sources */,
+				22225F351C481E2500256993 /* NativeFont+BoldItalic.m in Sources */,
 				22156D831C46B5DC00BB5779 /* BRAElementWithRelationships.m in Sources */,
 				22156D841C46B5DC00BB5779 /* BRARelationship.m in Sources */,
 				22156D851C46B5DC00BB5779 /* BRARelationships.m in Sources */,
@@ -1154,7 +1156,7 @@
 				4580C6BD1A1516E200790ED5 /* BRAContentTypesDefaultExtension.m in Sources */,
 				4580C6D51A15171B00790ED5 /* NSDictionary+OpenXmlString.m in Sources */,
 				4580C6C91A15170900790ED5 /* NativeColor+OpenXML.m in Sources */,
-				4580C6CC1A15171100790ED5 /* UIFont+BoldItalic.m in Sources */,
+				4580C6CC1A15171100790ED5 /* NativeFont+BoldItalic.m in Sources */,
 				4580C68D1A15160C00790ED5 /* BRACalcChain.m in Sources */,
 				4580C6A81A15168A00790ED5 /* BRANumberFormat.m in Sources */,
 				4580C6931A15162D00790ED5 /* BRACellRange.m in Sources */,
@@ -1245,6 +1247,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
@@ -1277,6 +1280,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;

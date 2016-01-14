@@ -1,17 +1,17 @@
 //
-//  UIFont+BoldItalic.m
+//  NativeFont+BoldItalic.m
 //  BRAXlsxReaderWriter
 //
 //  Created by René BIGOT on 22/04/2014.
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import "UIFont+BoldItalic.h"
+#import "NativeFont+BoldItalic.h"
 
-@implementation UIFont (BoldItalic)
+@implementation BRANativeFont (BoldItalic)
 
-+ (UIFont *)iosFontWithName:(NSString *)windowsFontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic {
-    if (windowsFontName == nil) {
++ (BRANativeFont *)nativeFontWithName:(NSString *)fontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic {
+    if (fontName == nil) {
         return nil;
     }
 
@@ -52,15 +52,15 @@
         fontNameType = (NSString *)kBRAFontNameRegular;
     }
     
-    if (!windowsFontName || !_openXml2IOsFonts[windowsFontName]) {
+    if (!fontName || !_openXml2IOsFonts[fontName]) {
         return nil;
 //        windowsFontName = @"Verdana";
     }
     
-    if (_openXml2IOsFonts[windowsFontName][fontNameType]) {
-        return [UIFont fontWithName:_openXml2IOsFonts[windowsFontName][fontNameType] size:size];
+    if (_openXml2IOsFonts[fontName][fontNameType]) {
+      return [BRANativeFont fontWithName:_openXml2IOsFonts[fontName][fontNameType] size:size];
     } else {
-        return [UIFont fontWithName:_openXml2IOsFonts[windowsFontName][kBRAFontNameRegular] size:size];
+        return [BRANativeFont fontWithName:_openXml2IOsFonts[fontName][kBRAFontNameRegular] size:size];
     }
 }
 

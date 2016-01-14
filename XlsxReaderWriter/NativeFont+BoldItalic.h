@@ -1,5 +1,5 @@
 //
-//  UIFont+BoldItalic.h
+//  NativeFont+BoldItalic.h
 //  BRAXlsxReaderWriter
 //
 //  Created by René BIGOT on 22/04/2014.
@@ -16,7 +16,7 @@ static const NSString *kBRAFontNameWindows = @"windows";
 
 @interface BRANativeFont (BoldItalic)
 
-+ (BRANativeFont *)nativeFontWithName:(NSString *)iOsFontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic;
++ (BRANativeFont *)nativeFontWithName:(NSString *)fontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic;
 - (NSDictionary *)windowsFontProperties;
 
 @end

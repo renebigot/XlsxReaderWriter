@@ -1,17 +1,16 @@
 #ifndef BRAPlatformSpecificDefines_h
 #define BRAPlatformSpecificDefines_h
 
-#define BRANativeColor NSColor
-#define BRANativeImage NSImage
-#define BRANativeFont NSFont
-#define BRANativeFontDescriptor NSFontDescriptor
-#define BRANativeFontDescriptorSizeAttribute NSFontSizeAttribute
-#define BRANativeScreen NSScreen
-#define BRANativeEdgeInsets NSEdgeInsets
-#define BRANativeEdgeInsetsMake NSEdgeInsetsMake
-#define BRANativeEdgeInsetsZero NSEdgeInsetsZero
+#define BRANativeColor UIColor
+#define BRANativeImage UIImage
+#define BRANativeFont UIFont
+#define BRANativeFontDescriptor UIFontDescriptor
+#define BRANativeFontDescriptorSizeAttribute UIFontSizeAttribute
+#define BRANativeEdgeInsets UIEdgeInsets
+#define BRANativeEdgeInsetsMake UIEdgeInsetsMake
+#define BRANativeEdgeInsetsZero UIEdgeInsetsZero
 #define BRANativeEdgeInsetsEqualToEdgeInsets UIEdgeInsetsEqualToEdgeInsets
 #define BRANativeImagePNGRepresentation UIImagePNGRepresentation
-#define BRANativeImageJPEGRepresentation BRANativeImageJPEGRepresentation
+#define BRANativeImageJPEGRepresentation UIImageJPEGRepresentation
 
 #endif /* BRAPlatformSpecificDefines_h */
