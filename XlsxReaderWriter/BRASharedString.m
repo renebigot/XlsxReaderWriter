@@ -105,18 +105,18 @@
                                              
                                              //Font color
                                              if (value[NSForegroundColorAttributeName]) {
-                                                 UIColor *color = value[NSForegroundColorAttributeName];
+                                                 BRANativeColor *color = value[NSForegroundColorAttributeName];
                                                  
                                                  [runPropertiesDictionary setValue:[_styles openXmlAttributesWithColor:color] forKeyPath:@"color"];
                                              }
                                              
                                              //Font name & size
                                              if (value[NSFontAttributeName]) {
-                                                 UIFont *font = value[NSFontAttributeName];
-                                                 UIFontDescriptor *fontProperties = font.fontDescriptor;
+                                                 BRANativeFont *font = value[NSFontAttributeName];
+                                                 BRANativeFontDescriptor *fontProperties = font.fontDescriptor;
                                                  
-                                                 if (fontProperties.fontAttributes[UIFontDescriptorSizeAttribute]) {
-                                                     NSNumber *sizeNumber = fontProperties.fontAttributes[UIFontDescriptorSizeAttribute];
+                                                 if (fontProperties.fontAttributes[BRANativeFontDescriptorSizeAttribute]) {
+                                                     NSNumber *sizeNumber = fontProperties.fontAttributes[BRANativeFontDescriptorSizeAttribute];
                                                      
                                                      [runPropertiesDictionary setValue:@{@"_val": [NSString stringWithFormat:@"%ld", [sizeNumber longValue]]} forKeyPath:@"sz"];
                                                  }

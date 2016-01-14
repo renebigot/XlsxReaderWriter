@@ -133,7 +133,7 @@
     [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setNumberFormat:numberFormat];    
 }
 
-- (void)setCellFillWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType {
+- (void)setCellFillWithForegroundColor:(BRANativeColor *)foregroundColor backgroundColor:(BRANativeColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType {
     BRACellFill *cellFill = [[BRACellFill alloc] initWithForegroundColor:foregroundColor backgroundColor:backgroundColor andPatternType:patternType inStyles:_worksheet.styles];
     
     _styleId = [_worksheet.styles addStyleByCopyingStyleWithId:_styleId];
@@ -150,9 +150,9 @@
     [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] setTextAlignment:alignment];
 }
 
-- (UIColor *)cellFillColor {
-    UIColor *cellFillColor = [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] cellFill].patternedColor;
-    return cellFillColor ? cellFillColor : [UIColor clearColor];
+- (BRANativeColor *)cellFillColor {
+    BRANativeColor *cellFillColor = [(BRACellFormat *)_worksheet.styles.cellFormats[_styleId] cellFill].patternedColor;
+    return cellFillColor ? cellFillColor : [BRANativeColor clearColor];
 }
 
 - (BRACellFill *)cellFill {

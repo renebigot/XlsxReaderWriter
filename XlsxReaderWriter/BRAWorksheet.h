@@ -28,9 +28,9 @@
 
 //Image
 - (BRAImage *)imageForCellReference:(NSString *)cellReference;
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image betweenCellsReferenced:(NSString *)firstCellReference and:(NSString *)secondCellReference withInsets:(UIEdgeInsets)insets preserveTransparency:(BOOL)transparency;
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image inCellReferenced:(NSString *)cellReference withOffset:(CGPoint)offset size:(CGSize)size preserveTransparency:(BOOL)transparency;
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image inFrame:(CGRect)frame preserveTransparency:(BOOL)transparency;
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image betweenCellsReferenced:(NSString *)firstCellReference and:(NSString *)secondCellReference withInsets:(BRANativeEdgeInsets)insets preserveTransparency:(BOOL)transparency;
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image inCellReferenced:(NSString *)cellReference withOffset:(CGPoint)offset size:(CGSize)size preserveTransparency:(BOOL)transparency;
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image inFrame:(CGRect)frame preserveTransparency:(BOOL)transparency;
 
 //Column
 

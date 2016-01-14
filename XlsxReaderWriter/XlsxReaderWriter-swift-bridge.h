@@ -8,8 +8,8 @@
 
 
 #import "UIFont+BoldItalic.h"
-#import "UIColor+OpenXML.h"
-#import "UIColor+HTML.h"
+#import "NativeColor+OpenXML.h"
+#import "NativeColor+HTML.h"
 #import "XMLDictionary.h"
 #import "NSDictionary+OpenXmlString.h"
 #import "NSDictionary+OpenXMLDictionaryParser.h"

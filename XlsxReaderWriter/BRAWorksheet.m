@@ -10,6 +10,7 @@
 #import "BRAColumn.h"
 #import "BRARow.h"
 #import "BRARelationships.h"
+#import "BRAPlatformSpecificDefines.h"
 
 @implementation BRAWorksheet
 
@@ -277,10 +278,10 @@
     return nil;
 }
 
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image betweenCellsReferenced:(NSString *)firstCellReference and:(NSString *)secondCellReference
-      withInsets:(UIEdgeInsets)insets preserveTransparency:(BOOL)transparency {
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image betweenCellsReferenced:(NSString *)firstCellReference and:(NSString *)secondCellReference
+      withInsets:(BRANativeEdgeInsets)insets preserveTransparency:(BOOL)transparency {
     
-    NSData *dataRepresentation = transparency ? UIImagePNGRepresentation(image) : UIImageJPEGRepresentation(image, .9);
+    NSData *dataRepresentation = transparency ? BRANativeImagePNGRepresentation(image) : BRANativeImageJPEGRepresentation(image, .9);
     
     BRAImage *newImage = [[BRAImage alloc] initWithDataRepresentation:dataRepresentation
                                                         forRelationId:[_drawings.relationships relationshipIdForNewRelationship]
@@ -297,8 +298,8 @@
     return [self.drawings addDrawingForImage:newImage withAnchor:anchor];
 }
 
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image inCellReferenced:(NSString *)cellReference withOffset:(CGPoint)offset size:(CGSize)size preserveTransparency:(BOOL)transparency {
-    NSData *dataRepresentation = transparency ? UIImagePNGRepresentation(image) : UIImageJPEGRepresentation(image, .9);
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image inCellReferenced:(NSString *)cellReference withOffset:(CGPoint)offset size:(CGSize)size preserveTransparency:(BOOL)transparency {
+    NSData *dataRepresentation = transparency ? BRANativeImagePNGRepresentation(image) : BRANativeImageJPEGRepresentation(image, .9);
     
     BRAImage *newImage = [[BRAImage alloc] initWithDataRepresentation:dataRepresentation
                                                         forRelationId:[_drawings.relationships relationshipIdForNewRelationship]
@@ -314,8 +315,8 @@
     return [self.drawings addDrawingForImage:newImage withAnchor:anchor];
 }
 
-- (BRAWorksheetDrawing *)addImage:(UIImage *)image inFrame:(CGRect)frame preserveTransparency:(BOOL)transparency {
-    NSData *dataRepresentation = transparency ? UIImagePNGRepresentation(image) : UIImageJPEGRepresentation(image, .9);
+- (BRAWorksheetDrawing *)addImage:(BRANativeImage *)image inFrame:(CGRect)frame preserveTransparency:(BOOL)transparency {
+    NSData *dataRepresentation = transparency ? BRANativeImagePNGRepresentation(image) : BRANativeImageJPEGRepresentation(image, .9);
     
     BRAImage *newImage = [[BRAImage alloc] initWithDataRepresentation:dataRepresentation
                                                         forRelationId:[_drawings.relationships relationshipIdForNewRelationship]

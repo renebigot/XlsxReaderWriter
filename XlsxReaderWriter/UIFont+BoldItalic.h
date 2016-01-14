@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BRAPlatformSpecificDefines.h"
 
 static const NSString *kBRAFontNameRegular = @"regular";
 static const NSString *kBRAFontNameItalic = @"italic";
@@ -14,9 +14,9 @@ static const NSString *kBRAFontNameBold = @"bold";
 static const NSString *kBRAFontNameBoldItalic = @"bold-italic";
 static const NSString *kBRAFontNameWindows = @"windows";
 
-@interface UIFont (BoldItalic)
+@interface BRANativeFont (BoldItalic)
 
-+ (UIFont *)iosFontWithName:(NSString *)iOsFontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic;
++ (BRANativeFont *)nativeFontWithName:(NSString *)iOsFontName size:(CGFloat)size bold:(BOOL)isBold italic:(BOOL)isItalic;
 - (NSDictionary *)windowsFontProperties;
 
 @end

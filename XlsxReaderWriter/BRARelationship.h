@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMLDictionary.h"
-#import "UIColor+OpenXML.h"
+#import "NativeColor+OpenXML.h"
 #import "BRAElementWithRelationships.h"
 
 @interface BRARelationship : BRAElementWithRelationships

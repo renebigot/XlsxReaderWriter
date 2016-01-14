@@ -7,7 +7,7 @@
 //
 
 #import "BRATheme.h"
-#import "UIColor+HTML.h"
+#import "NativeColor+HTML.h"
 
 // It seems thats S01 & S00 have been switched compared to IEC 29500-1.
 // Don't know why !!!
@@ -59,7 +59,7 @@
                 ];
 }
 
-- (UIColor *)colorNamed:(NSString *)colorName inColorScheme:(NSDictionary *)colorsScheme {
+- (BRANativeColor *)colorNamed:(NSString *)colorName inColorScheme:(NSDictionary *)colorsScheme {
     NSString *colorValue = [colorsScheme dictionaryValueForKeyPath:[colorName stringByAppendingString:@".a:sysClr"]][@"_lastClr"];
     
     if (!colorValue) {
@@ -68,10 +68,10 @@
     
     //Do not replace this 'if' with an 'else' or 'else if' !!!
     if (colorValue) {
-        return [UIColor colorWithHexString:colorValue];
+        return [BRANativeColor colorWithHexString:colorValue];
     }
     
-    return [UIColor blackColor];
+    return [BRANativeColor blackColor];
 }
 
 #pragma mark -

@@ -181,7 +181,7 @@
     
 }
 
-- (UIColor *)colorFromColorString:(NSString *)colorString {
+- (BRANativeColor *)colorFromColorString:(NSString *)colorString {
     if (colorString.length < 5) {
         return nil;
     }
@@ -189,21 +189,21 @@
     colorString = [colorString uppercaseString];
     
     if ([colorString isEqual:@"[BLACK]"]) {
-        return [UIColor blackColor];
+        return [BRANativeColor blackColor];
     } else if ([colorString isEqual:@"[BLUE]"]) {
-        return [UIColor blueColor];
+        return [BRANativeColor blueColor];
     } else if ([colorString isEqual:@"[CYAN]"]) {
-        return [UIColor cyanColor];
+        return [BRANativeColor cyanColor];
     } else if ([colorString isEqual:@"[GREEN]"]) {
-        return [UIColor greenColor];
+        return [BRANativeColor greenColor];
     } else if ([colorString isEqual:@"[MAGENTA]"]) {
-        return [UIColor magentaColor];
+        return [BRANativeColor magentaColor];
     } else if ([colorString isEqual:@"[RED]"]) {
-        return [UIColor redColor];
+        return [BRANativeColor redColor];
     } else if ([colorString isEqual:@"[WHITE]"]) {
-        return [UIColor whiteColor];
+        return [BRANativeColor whiteColor];
     } else if ([colorString isEqual:@"[YELLOW]"]) {
-        return [UIColor yellowColor];
+        return [BRANativeColor yellowColor];
     } else if ([[colorString substringToIndex:5] isEqual:@"[COLOR"]) {
         NSInteger colorIndex = [[[colorString stringByReplacingOccurrencesOfString:@"[COLOR" withString:@""]
                                  stringByReplacingOccurrencesOfString:@"]" withString:@""] integerValue] + 8; //+8 described in 18.8.31

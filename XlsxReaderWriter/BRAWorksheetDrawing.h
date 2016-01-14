@@ -5,7 +5,7 @@
 //  Created by René BIGOT on 22/10/2014.
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
-
+#import "BRAPlatformSpecificDefines.h"
 #import "BRAOpenXmlSubElement.h"
 #import "BRAImage.h"
 
@@ -39,7 +39,7 @@
 @interface BRAWorksheetDrawing : BRAOpenXmlSubElement
 
 @property (nonatomic, getter=shouldKeepAspectRatio) BOOL keepAspectRatio;
-@property (nonatomic) UIEdgeInsets insets;
+@property (nonatomic) BRANativeEdgeInsets insets;
 @property (nonatomic, strong) BRAAnchor *anchor;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *identifier;

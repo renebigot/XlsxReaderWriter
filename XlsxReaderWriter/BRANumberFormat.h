@@ -43,7 +43,7 @@ typedef struct {
 @property (nonatomic, strong) NSString *code;
 @property (nonatomic, strong) NSString *currency;
 @property (nonatomic, strong) NSString *pattern;
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) BRANativeColor *color;
 
 @end
 

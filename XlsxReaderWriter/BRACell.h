@@ -37,11 +37,11 @@ typedef enum : NSUInteger {
 
 //Styles
 - (void)setNumberFormat:(NSString *)numberFormat;
-- (void)setCellFillWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType;
+- (void)setCellFillWithForegroundColor:(BRANativeColor *)foregroundColor backgroundColor:(BRANativeColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType;
 - (void)setCellFill:(BRACellFill *)cellFill;
 - (void)setTextAlignment:(NSTextAlignment)alignment;
 - (BRACellFill *)cellFill;
-- (UIColor *)cellFillColor;
+- (BRANativeColor *)cellFillColor;
 - (NSString *)numberFormatCode;
 - (NSTextAlignment)textAlignment;
 

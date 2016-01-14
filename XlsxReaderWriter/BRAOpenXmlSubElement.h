@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIColor+HTML.h"
+#import "NativeColor+HTML.h"
 #import "UIFont+BoldItalic.h"
 #import "XMLDictionary.h"
 #import "NSDictionary+DeepCopy.h"

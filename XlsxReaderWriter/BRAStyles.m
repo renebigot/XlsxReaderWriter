@@ -30,13 +30,13 @@
     _attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
     //Read indexed colors
-    NSMutableArray *indexedColors = [UIColor defaultIndexedColors].mutableCopy;
+    NSMutableArray *indexedColors = [BRANativeColor defaultIndexedColors].mutableCopy;
     
     NSArray *colorsArray = [_attributes arrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
     if (colorsArray) {
         NSInteger index = 0;
         for (NSDictionary *indexedColorDict in colorsArray) {
-            UIColor *indexedColor = [self colorWithOpenXmlAttributes:indexedColorDict];
+            BRANativeColor *indexedColor = [self colorWithOpenXmlAttributes:indexedColorDict];
             indexedColors[index++] = indexedColor;
         }
     }
@@ -135,9 +135,9 @@
     
     NSDictionary *colorDict = [attributes valueForKeyPath:@"color"];
     
-    UIColor *foregroundColor = colorDict == nil ? nil : [self colorWithOpenXmlAttributes:colorDict];
-    UIColor *strikeColor = foregroundColor == nil ? [UIColor blackColor] : foregroundColor;
-    
+    BRANativeColor *foregroundColor = colorDict == nil ? nil : [self colorWithOpenXmlAttributes:colorDict];
+    BRANativeColor *strikeColor = foregroundColor == nil ? [BRANativeColor blackColor] : foregroundColor;
+  
     if (foregroundColor) {
         attributedStringAttributes[NSForegroundColorAttributeName] = foregroundColor;
     }
@@ -159,7 +159,7 @@
     NSString *fontName = [attributes valueForKeyPath:@"name._val"];
     NSString *fontSize = [attributes valueForKeyPath:@"sz._val"];
     
-    UIFont *font = [UIFont iosFontWithName:fontName
+    BRANativeFont *font = [BRANativeFont nativeFontWithName:fontName
                                       size:[fontSize floatValue]
                                       bold:attributes[@"b"] && ![attributes[@"b"] isEqual:@"0"]
                                     italic:attributes[@"i"] && ![attributes[@"i"] isEqual:@"0"]];
@@ -171,12 +171,12 @@
     return attributedStringAttributes;
 }
 
-- (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes {
+- (BRANativeColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes {
     if (attributes[@"_indexed"]) {
         
         if ([attributes[@"_indexed"] integerValue] == 81) {
             //81 is used by Excel for comments text colors
-            return [UIColor blackColor];
+            return [BRANativeColor blackColor];
             
         } else {
             return self.indexedColors[[attributes[@"_indexed"] integerValue]];
@@ -187,14 +187,14 @@
         return [_theme colors][[attributes[@"_theme"] integerValue]];
         
     } else if (attributes[@"_rgb"]) {
-        return [UIColor colorWithHexString:attributes[@"_rgb"]];
+        return [BRANativeColor colorWithHexString:attributes[@"_rgb"]];
     }
     
     return nil;
 }
 
-- (NSDictionary *)openXmlAttributesWithColor:(UIColor *)color {
-    if (color == nil || [color isEqual:[[UIColor blackColor] colorWithAlphaComponent:0]]) {
+- (NSDictionary *)openXmlAttributesWithColor:(BRANativeColor *)color {
+    if (color == nil || [color isEqual:[[BRANativeColor blackColor] colorWithAlphaComponent:0]]) {
         return nil;
     }
     
@@ -215,7 +215,7 @@
     return [self rgbColorValueForColor:color];
 }
 
-- (NSDictionary *)rgbColorValueForColor:(UIColor *)color {
+- (NSDictionary *)rgbColorValueForColor:(BRANativeColor *)color {
     CGFloat red = 1., green = 1., blue = 1., alpha = 1.;
     [color getRed:&red green:&green blue:&blue alpha:&alpha];
     
@@ -314,10 +314,10 @@
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
     
     //Indexed colors
-    if (![_indexedColors isEqual:[UIColor defaultIndexedColors]]) {
+    if (![_indexedColors isEqual:[BRANativeColor defaultIndexedColors]]) {
         NSMutableArray *indexedColorsArray = @[].mutableCopy;
         
-        for (UIColor *color in _indexedColors) {
+        for (BRANativeColor *color in _indexedColors) {
             [indexedColorsArray addObject:[self rgbColorValueForColor:color]];
         }
         

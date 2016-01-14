@@ -11,6 +11,6 @@
 @interface BRAImage : BRARelationship
 
 @property (nonatomic, getter=isJpeg) BOOL jpeg;
-@property (nonatomic, strong) UIImage *uiImage;
+@property (nonatomic, strong) BRANativeImage *uiImage;
 
 @end
