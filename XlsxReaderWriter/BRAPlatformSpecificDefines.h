@@ -1,8 +1,31 @@
-#ifndef BRAPlatformSpecificDefines_h
-#define BRAPlatformSpecificDefines_h
+#import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
+
+#import <UIKit/UIKit.h>
+
+#define BRANativeMakeSize CGSizeMake
+#define BRANativeColor UIColor
+#define BRANativeImage UIImage
+#define BRANativeFont UIFont
+#define BRANativeFontDescriptor UIFontDescriptor
+#define BRANativeFontDescriptorSizeAttribute UIFontDescriptorSizeAttribute
+#define BRANativeEdgeInsets UIEdgeInsets
+#define BRANativeEdgeInsetsMake UIEdgeInsetsMake
+#define BRANativeEdgeInsetsZero UIEdgeInsetsZero
+#define BRANativeEdgeInsetsEqualToEdgeInsets UIEdgeInsetsEqualToEdgeInsets
+#define BRANativeImagePNGRepresentation UIImagePNGRepresentation
+#define BRANativeImageJPEGRepresentation UIImageJPEGRepresentation
+#define BRANativeGraphicsGetImageFromCurrentImageContext(X) UIGraphicsGetImageFromCurrentImageContext()
+
+
+
+#else
+
 
 #import <Cocoa/Cocoa.h>
 
+#define BRANativeMakeSize NSMakeSize
 #define BRANativeColor NSColor
 #define BRANativeImage NSImage
 #define BRANativeFont NSFont
@@ -40,5 +63,10 @@ NS_INLINE NSData* BRANativeImageJPEGRepresentation(NSImage *image, CGFloat quali
     return [bitmapRep representationUsingType:NSJPEGFileType properties:@{NSImageCompressionFactor:@(quality)}];
 }
 
+
+NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromCurrentImageContext(CGContextRef context) {
+    return [[BRANativeImage alloc] initWithCGImage:imageRef
+                                              size:CGSizeMake(CGBitmapContextGetWidth(context), CGBitmapContextGetHeight(context))];
+}
 
 #endif /* BRAPlatformSpecificDefines_h */
