@@ -65,8 +65,11 @@ NS_INLINE NSData* BRANativeImageJPEGRepresentation(NSImage *image, CGFloat quali
 
 
 NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromCurrentImageContext(CGContextRef context) {
-    return [[BRANativeImage alloc] initWithCGImage:imageRef
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    BRANativeImage *img = [[BRANativeImage alloc] initWithCGImage:imageRef
                                               size:CGSizeMake(CGBitmapContextGetWidth(context), CGBitmapContextGetHeight(context))];
+    CGImageRelease(imageRef);
+    return img;
 }
 
 #endif /* BRAPlatformSpecificDefines_h */

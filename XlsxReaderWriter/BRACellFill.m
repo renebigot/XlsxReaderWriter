@@ -128,11 +128,9 @@
     CGContextRef context = CGBitmapContextCreate(NULL, drawingSize.width, drawingSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
     
     drawingOps(context);
-    
-    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+        
     BRANativeImage *patternImage = BRANativeGraphicsGetImageFromCurrentImageContext(context);
     
-    CGImageRelease(imageRef);
     CGContextRelease(context);
     CGColorSpaceRelease(colorSpace);
     
