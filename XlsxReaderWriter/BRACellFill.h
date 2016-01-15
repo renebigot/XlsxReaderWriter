@@ -35,11 +35,11 @@ static BRACellFillPatternType kBRACellFillPatternTypeLightTrellis      = @"light
 
 @interface BRACellFill : BRAOpenXmlSubElementWithStyle
 
-- (instancetype)initWithForegroundColor:(UIColor *)foregroundColor backgroundColor:(UIColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType inStyles:(BRAStyles *)styles;
-- (UIColor *)patternedColor;
+- (instancetype)initWithForegroundColor:(BRANativeColor *)foregroundColor backgroundColor:(BRANativeColor *)backgroundColor andPatternType:(BRACellFillPatternType)patternType inStyles:(BRAStyles *)styles;
+- (BRANativeColor *)patternedColor;
 
-@property (nonatomic, strong) UIColor *backgroundColor;
-@property (nonatomic, strong) UIColor *foregroundColor;
+@property (nonatomic, strong) BRANativeColor *backgroundColor;
+@property (nonatomic, strong) BRANativeColor *foregroundColor;
 @property (nonatomic, strong) BRACellFillPatternType patternType;
 
 @end

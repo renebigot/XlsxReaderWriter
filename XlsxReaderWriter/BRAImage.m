@@ -23,9 +23,9 @@
 
     if (_dataRepresentation == nil && self.target != nil) {
         NSString *fullFilePath = [[self.parentDirectory stringByAppendingPathComponent:self.target] stringByStandardizingPath];
-        _uiImage = [UIImage imageWithContentsOfFile:fullFilePath];
+        _uiImage = [[BRANativeImage alloc] initWithContentsOfFile:fullFilePath];
     } else if (_dataRepresentation != nil) {
-        _uiImage = [UIImage imageWithData:_dataRepresentation];
+        _uiImage = [[BRANativeImage alloc] initWithData:_dataRepresentation];
     }
 }
 

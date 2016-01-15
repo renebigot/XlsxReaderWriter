@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+
 #import "BRAOfficeDocument.h"
 #import "BRAOpenXmlSubElement.h"
 

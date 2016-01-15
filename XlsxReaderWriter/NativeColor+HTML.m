@@ -1,16 +1,16 @@
 //
-//  UIColor+HTML.m
+//  NativeColor+HTML.m
 //  FasciaLib
 //
 //  Created by René Bigot on 26/01/2014.
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import "UIColor+HTML.h"
+#import "NativeColor+HTML.h"
 
-@implementation UIColor (HTML)
+@implementation BRANativeColor (HTML)
 
-+ (UIColor *)colorWithHexString:(NSString *)hexString {
++ (BRANativeColor *)colorWithHexString:(NSString *)hexString {
     NSString *colorString = [[hexString stringByReplacingOccurrencesOfString:@"#" withString:@""] uppercaseString];
     CGFloat alpha, red, blue, green;
     switch ([colorString length]) {
@@ -42,7 +42,7 @@
             [NSException raise:@"Invalid color value" format: @"Color value %@ is invalid.  It should be a hex value of the form #RBG, #ARGB, #RRGGBB, or #AARRGGBB", hexString];
             break;
     }
-    return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+    return [BRANativeColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 + (CGFloat)colorComponentFrom:(NSString *)string start:(NSUInteger)start length:(NSUInteger)length {

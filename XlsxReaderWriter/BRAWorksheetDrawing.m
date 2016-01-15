@@ -239,7 +239,7 @@
     }
     
     self.keepAspectRatio = [[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:nvPicPr.xdr:cNvPicPr.a:picLocks._noChangeAspect"] boolValue];
-    self.insets = UIEdgeInsetsMake([[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:blipFill.a:srcRect._t"] floatValue] / 100000.,
+    self.insets = BRANativeEdgeInsetsMake([[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:blipFill.a:srcRect._t"] floatValue] / 100000.,
                                    [[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:blipFill.a:srcRect._l"] floatValue] / 100000.,
                                    [[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:blipFill.a:srcRect._b"] floatValue] / 100000.,
                                    [[dictionaryRepresentation valueForKeyPath:@"xdr:pic.xdr:blipFill.a:srcRect._r"] floatValue] / 100000.);
@@ -261,7 +261,7 @@
     [dictionaryRepresentation setValue:self.identifier forKeyPath:@"xdr:pic.xdr:blipFill.a:blip._r:embed"];
     [dictionaryRepresentation setValue:[NSString stringWithFormat:@"%ld", (long)self.keepAspectRatio] forKeyPath:@"xdr:pic.xdr:nvPicPr.xdr:cNvPicPr.a:picLocks._noChangeAspect"];
 
-    if (UIEdgeInsetsEqualToEdgeInsets(self.insets, UIEdgeInsetsZero)) {
+    if (BRANativeEdgeInsetsEqualToEdgeInsets(self.insets, BRANativeEdgeInsetsZero)) {
         [dictionaryRepresentation setValue:@{@"a:fillRect": @""} forKeyPath:@"xdr:pic.xdr:blipFill.a:stretch"];
         [dictionaryRepresentation[@"xdr:pic"][@"xdr:blipFill"] removeObjectForKey:@"a:srcRect"];
     } else {

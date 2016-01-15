@@ -11,6 +11,7 @@
 #import "BRACellFormat.h"
 #import "BRANumberFormat.h"
 #import "BRATheme.h"
+#import "BRAPlatformSpecificDefines.h"
 
 @interface BRAStyles : BRARelationship {
     NSDictionary *_attributes;
@@ -27,8 +28,8 @@
 - (void)loadThemableContent;
 - (NSDictionary *)defaultNumberFormats;
 - (NSDictionary *)attributedStringAttributesFromOpenXmlAttributes:(NSDictionary *)attributes;
-- (UIColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes;
-- (NSDictionary *)openXmlAttributesWithColor:(UIColor *)color;
+- (BRANativeColor *)colorWithOpenXmlAttributes:(NSDictionary *)attributes;
+- (NSDictionary *)openXmlAttributesWithColor:(BRANativeColor *)color;
 - (NSString *)addNumberFormat:(BRANumberFormat *)numberFormat;
 - (NSInteger)addStyleByCopyingStyleWithId:(NSInteger)styleId;
 
