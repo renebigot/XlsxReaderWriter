@@ -210,7 +210,6 @@
 		22225F2D1C47F60600256993 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
 		450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-swift-bridge.h"; sourceTree = "<group>"; };
-		4523D5A11A19CDB9008A0738 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
 		455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAVmlDrawing.m; sourceTree = "<group>"; };
@@ -303,7 +302,6 @@
 		45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRACalcChainCell.m; sourceTree = "<group>"; };
 		45D6FBD61BB27970002ACC9C /* BRAComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAComment.h; sourceTree = "<group>"; };
 		45D6FBD71BB279A5002ACC9C /* BRAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAComment.m; sourceTree = "<group>"; };
-		45E356EA1B681849009A7260 /* XlsxReaderWriter.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = XlsxReaderWriter.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -428,8 +426,6 @@
 		45B6E23C1A148F7500288A78 /* XlsxReaderWriter */ = {
 			isa = PBXGroup;
 			children = (
-				45E356EA1B681849009A7260 /* XlsxReaderWriter.podspec */,
-				4523D5A11A19CDB9008A0738 /* README.md */,
 				45B6E2701A15067C00288A78 /* Third Parties */,
 				45B6E2711A15068500288A78 /* Additions */,
 				45B6E2871A1506EA00288A78 /* Document */,
