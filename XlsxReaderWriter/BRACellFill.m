@@ -123,21 +123,20 @@
     return [self __grayPatternedColorWithGrayLevel:.0625];
 }
 
-- (BRANativeColor *)nativeColorWithSize:(CGSize)drawingSize drawingOperations:(void (^)(CGContextRef context))drawingOps
-{
-  CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-  CGContextRef context = CGBitmapContextCreate(NULL, drawingSize.width, drawingSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
-  
-  drawingOps(context);
-  
-  CGImageRef imageRef = CGBitmapContextCreateImage(context);
-  BRANativeImage* patternImage = [[BRANativeImage alloc] initWithCGImage:imageRef size:NSMakeSize( CGBitmapContextGetWidth(context), CGBitmapContextGetHeight(context))];
-  
-  CGImageRelease(imageRef);
-  CGContextRelease(context);
-  CGColorSpaceRelease(colorSpace);
-  
-  return [BRANativeColor colorWithPatternImage:patternImage];
+- (BRANativeColor *)nativeColorWithSize:(CGSize)drawingSize drawingOperations:(void (^)(CGContextRef context))drawingOps {
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(NULL, drawingSize.width, drawingSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
+    
+    drawingOps(context);
+    
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    BRANativeImage *patternImage = BRANativeGraphicsGetImageFromCurrentImageContext(context);
+    
+    CGImageRelease(imageRef);
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    
+    return [BRANativeColor colorWithPatternImage:patternImage];
 }
 
 - (BRANativeColor *)_darkHorizontalPatternedColor {
