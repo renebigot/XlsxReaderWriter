@@ -95,7 +95,7 @@
                                  @"min", @"max", @"width", @"bestFit", @"style", @"customWidth"
                                  ],
                          @"row": @[
-                                 @"r", @"ht", @"customHeight"
+                                 @"r", @"ht", @"customHeight", @"customFormat", @"x14ac:dyDescent", @"spans", @"thickTop", @"s"
                                  ],
                          @"alignment": @[
                                  @"horizontal", @"vertical", @"wrapText"
@@ -213,6 +213,15 @@
                                  ],
                          @"a:ln": @[
                                  @"w", @"cap", @"a:solidFill", @"a:prstDash", @"a:miter", @"a:headEnd", @"a:tailEnd"
+                                 ],
+                         @"definedName": @[
+                                 @"name", @"localSheetId"
+                                 ],
+                         @"selection": @[
+                                 @"activeCell", @"sqref"
+                                 ],
+                         @"headerFooter": @[
+                                 @"oddHeader", @"oddFooter"
                                  ]
                          };
     });
