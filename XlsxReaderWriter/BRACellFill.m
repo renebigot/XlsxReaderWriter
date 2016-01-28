@@ -129,7 +129,7 @@
     
     drawingOps(context);
         
-    BRANativeImage *patternImage = BRANativeGraphicsGetImageFromCurrentImageContext(context);
+    BRANativeImage *patternImage = BRANativeGraphicsGetImageFromContext(context);
     
     CGContextRelease(context);
     CGColorSpaceRelease(colorSpace);
