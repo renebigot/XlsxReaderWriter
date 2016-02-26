@@ -16,7 +16,13 @@
 #define BRANativeEdgeInsetsEqualToEdgeInsets UIEdgeInsetsEqualToEdgeInsets
 #define BRANativeImagePNGRepresentation UIImagePNGRepresentation
 #define BRANativeImageJPEGRepresentation UIImageJPEGRepresentation
-#define BRANativeGraphicsGetImageFromCurrentImageContext(X) UIGraphicsGetImageFromCurrentImageContext()
+NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromContext(CGContextRef context) {
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    BRANativeImage *img = [[BRANativeImage alloc] initWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    return img;
+}
+
 
 
 
@@ -64,7 +70,7 @@ NS_INLINE NSData* BRANativeImageJPEGRepresentation(NSImage *image, CGFloat quali
 }
 
 
-NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromCurrentImageContext(CGContextRef context) {
+NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromContext(CGContextRef context) {
     CGImageRef imageRef = CGBitmapContextCreateImage(context);
     BRANativeImage *img = [[BRANativeImage alloc] initWithCGImage:imageRef
                                               size:CGSizeMake(CGBitmapContextGetWidth(context), CGBitmapContextGetHeight(context))];
