@@ -39,7 +39,7 @@ NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromContext(CGContextRef cont
 #define BRANativeFontDescriptorSizeAttribute NSFontSizeAttribute
 #define BRANativeEdgeInsets NSEdgeInsets
 #define BRANativeEdgeInsetsMake NSEdgeInsetsMake
-#define BRANativeEdgeInsetsZero NSEdgeInsetsZero
+#define BRANativeEdgeInsetsZero NSEdgeInsetsMake(0, 0, 0, 0)
 
 NS_INLINE BOOL BRANativeEdgeInsetsEqualToEdgeInsets(NSEdgeInsets a, NSEdgeInsets b) {
     return ((fabs(a.left - b.left) < 0.01f) &&
