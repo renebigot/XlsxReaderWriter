@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage           = "https://github.com/renebigot/XlsxReaderWriter"
   s.license            = "MIT"
   s.author             = "René Bigot"
-  s.social_media_url   = "https://twitter.com/renebigot"
+  s.social_media_url   = "https://www.linkedin.com/in/renebigot"
   s.platform           = :ios, "7.0"
   s.source             = { :git => "https://github.com/renebigot/XlsxReaderWriter.git", :tag => s.version.to_s }
   s.source_files       = "XlsxReaderWriter/*.{h,m}"
@@ -17,3 +17,4 @@ Pod::Spec.new do |s|
   s.dependency "XMLDictionary", "~> 1.4"
 
 end
+
