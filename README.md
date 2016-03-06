@@ -406,14 +406,6 @@ XLSX files are OPC packages (see ECMA-376 for more information). Below is a simp
 
 Files have relationships, files are relationships... Have a look at this picture each time you want to change something in the library.
 
-##Tests coverage
-
-A test coverage script run at the end of tests. You need to install LCOV via Macports to run coverage report generation.
-
-Reports will be put in /Users/Shared/Coverage.
-
-I use a custom CSS for LCOV. Put yours at this path : /Users/Shared/Coverage/gcov.css
-
 ##License	
 
 Copyright (c) 2014-2016 Ren&eacute; BIGOT.
