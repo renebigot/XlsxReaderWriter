@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.frameworks         = "Foundation", "UIKit"
   s.requires_arc       = true
 
-  s.dependency "SSZipArchive", "~> 0.4"
+  s.dependency "SSZipArchive", "~> 1.1"
   s.dependency "XMLDictionary", "~> 1.4"
 
 end
