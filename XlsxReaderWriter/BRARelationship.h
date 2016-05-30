@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMLDictionary.h"
+#import <XMLDictionary/XMLDictionary.h>
 #import "NativeColor+OpenXML.h"
 #import "BRAElementWithRelationships.h"
 
