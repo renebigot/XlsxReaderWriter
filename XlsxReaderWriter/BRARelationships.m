@@ -10,6 +10,7 @@
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRAContentTypesOverride.h"
 #import "BRADrawing.h"
+@import XMLDictionary;
 
 @implementation BRARelationships
 

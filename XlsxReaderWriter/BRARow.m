@@ -11,6 +11,7 @@
 #import "BRAMergeCell.h"
 #import "BRAWorksheet.h"
 #import "BRAColumn.h"
+@import XMLDictionary;
 
 @implementation BRARow
 

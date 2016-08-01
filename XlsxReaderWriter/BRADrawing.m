@@ -10,6 +10,7 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
+@import XMLDictionary;
 
 #define ONE_CELL_ANCHOR @"xdr:oneCellAnchor"
 #define TWO_CELL_ANCHOR @"xdr:twoCellAnchor"

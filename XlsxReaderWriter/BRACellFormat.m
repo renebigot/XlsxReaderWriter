@@ -9,6 +9,7 @@
 #import "BRACellFormat.h"
 #import "BRAStyles.h"
 #import "BRACellFill.h"
+@import XMLDictionary;
 
 @implementation BRACellFormat
 

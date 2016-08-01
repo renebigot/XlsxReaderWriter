@@ -11,6 +11,7 @@
 #import "BRASharedStrings.h"
 #import "BRAWorksheet.h"
 #import "BRASheet.h"
+@import XMLDictionary;
 
 @implementation BRAOfficeDocument
 

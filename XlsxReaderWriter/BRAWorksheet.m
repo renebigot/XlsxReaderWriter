@@ -11,6 +11,7 @@
 #import "BRARow.h"
 #import "BRARelationships.h"
 #import "BRAPlatformSpecificDefines.h"
+@import XMLDictionary;
 
 @implementation BRAWorksheet
 

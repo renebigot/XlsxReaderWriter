@@ -13,6 +13,7 @@
 #import "BRAWorksheet.h"
 #import "BRADrawing.h"
 #import "BRACellFormat.h"
+@import XMLDictionary;
 
 @implementation BRACell
 

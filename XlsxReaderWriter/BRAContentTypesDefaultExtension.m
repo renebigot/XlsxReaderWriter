@@ -8,6 +8,7 @@
 
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRARelationship.h"
+@import XMLDictionary;
 
 @implementation BRAContentTypesDefaultExtension
 

@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+OpenXmlDictionaryParser.h"
+@import XMLDictionary;
 
 @implementation NSDictionary (OpenXmlDictionaryParser)
 

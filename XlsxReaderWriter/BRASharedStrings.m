@@ -9,6 +9,7 @@
 #import "BRASharedStrings.h"
 #import "BRAStyles.h"
 #import "BRASharedString.h"
+@import XMLDictionary;
 
 @implementation BRASharedStrings
 

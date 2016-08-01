@@ -7,7 +7,7 @@
 //
 
 #import "BRAOfficeDocumentPackage.h"
-#import "SSZipArchive.h"
+@import SSZipArchive;
 #import "BRAContentTypes.h"
 #import "BRARelationships.h"
 

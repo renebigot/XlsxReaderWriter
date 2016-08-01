@@ -8,6 +8,7 @@
 
 #import "BRAOpenXmlSubElement.h"
 #import "BRAStyles.h"
+@import XMLDictionary;
 
 @implementation BRAOpenXmlSubElement
 

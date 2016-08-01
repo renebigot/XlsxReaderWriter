@@ -7,6 +7,7 @@
 //
 
 #import "BRAColumn.h"
+@import XMLDictionary;
 
 #define TRUNCATE(X) floor(X)
 

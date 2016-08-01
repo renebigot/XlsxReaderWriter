@@ -10,6 +10,7 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
+@import XMLDictionary;
 
 @implementation BRAComments
 

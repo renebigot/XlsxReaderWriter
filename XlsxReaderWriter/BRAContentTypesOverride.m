@@ -8,6 +8,7 @@
 
 #import "BRAContentTypesOverride.h"
 #import "BRARelationship.h"
+@import XMLDictionary;
 
 @implementation BRAContentTypesOverride
 

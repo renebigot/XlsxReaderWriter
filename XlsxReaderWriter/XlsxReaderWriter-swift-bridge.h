@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 René Bigot. All rights reserved.
 //
 
+@import XMLDictionary;
 
 #import "NativeFont+BoldItalic.h"
 #import "NativeColor+OpenXML.h"
 #import "NativeColor+HTML.h"
-#import "XMLDictionary.h"
 #import "NSDictionary+OpenXmlString.h"
 #import "NSDictionary+OpenXMLDictionaryParser.h"
 #import "NSDictionary+DeepCopy.h"

@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+OpenXmlString.h"
+@import XMLDictionary;
 
 @implementation NSDictionary (OpenXmlString)
 
