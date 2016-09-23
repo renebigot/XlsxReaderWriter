@@ -90,7 +90,7 @@
                                  @"numFmtId", @"formatCode"
                                  ],
                          @"xf": @[
-                                 @"numFmtId", @"fontId", @"fillId", @"borderId", @"xfId", @"applyNumberFormat", @"applyFont", @"applyFill", @"applyBorder", @"applyAlignment", @"applyProtection", @"Alignment", @"Protection", @"ExtensionList"
+                                 @"numFmtId", @"fontId", @"fillId", @"borderId", @"xfId", @"applyNumberFormat", @"applyFont", @"applyFill", @"applyBorder", @"applyAlignment", @"applyProtection", @"alignment", @"protection", @"ExtensionList"
                                  ],
                          @"col": @[
                                  @"min", @"max", @"width", @"bestFit", @"style", @"customWidth"
