@@ -1,8 +1,8 @@
-#XlsxReaderWriter
+# XlsxReaderWriter
 
 XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses and writes Excel OpenXml files (XLSX).
 
-##Features
+## Features
 
 XlsxReaderWriter is able to:
 
@@ -31,18 +31,18 @@ Todo:
 * Borders
 * Add better support for comments (add, remove, read)
 
-##Limitation
+## Limitation
 
 XlsxReaderWriter can't create a SpreadsheetML (XLSX) file from scratch. You have to open an existing file and modify it before saving it. Not really a problem: Create your file with Excel or Numbers with all the needed formatting (fills, borders, etc.) then include the file as a resource of your project.
 
-##Third parties
+## Third parties
 
 Third parties are included in this repository, not linked as git submodules.
 
 * SSZipArchive: Compression/decompression library
 * XMLDictionary: Converts XML to NSDictionary and NSDictionary to XML
 
-##Linking (Objective-C)
+## Linking (Objective-C)
 
 To include the library to your Xcode project:
 
@@ -55,39 +55,39 @@ To include the library to your Xcode project:
 
 Now, you can import BRAOfficeDocumentPackage.h in your code.
 
-##Linking (Swift bridging)
+## Linking (Swift bridging)
 
 If you want to use this library from some Swift code, be sure to follow the same steps as in the Objective-C linking, then:
 
-* you should **#import "XlsxReaderWriter-swift-bridge.h"** in your bridge header file
-* if you don't have any bridge header file, create a new .h file, and **#import "XlsxReaderWriter-swift-bridge.h"**
+* you should **# import "XlsxReaderWriter-swift-bridge.h"** in your bridge header file
+* if you don't have any bridge header file, create a new .h file, and **# import "XlsxReaderWriter-swift-bridge.h"**
 * Set the path to your bridge file in your project settings : **Swift Compiler - Code Generation / Objective-C Bridging Header**. 
 
 More info about this could be find [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
 
-##How to 
-####Read a spreadsheet document (XLSX file)
-#####Objective-C
+## How to 
+#### Read a spreadsheet document (XLSX file)
+##### Objective-C
 ```objective-c
 NSString *documentPath = [[NSBundle mainBundle] pathForResource:@"testWorkbook" ofType:@"xlsx"];
 BRAOfficeDocumentPackage *spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-```	
-#####Swift
+``` 
+##### Swift
 ```swift
 var documentPath: String = NSBundle.mainBundle().pathForResource("testWorkbook", ofType: "xlsx")
 var spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(documentPath)
 ```
-####Save a spreadsheet document
-#####Objective-C
+#### Save a spreadsheet document
+##### Objective-C
 ```objective-c
 //Save
 [spreadsheet save];
-	
+    
 //Save a copy
 NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"workbookCopy.xlsx"];
 [spreadsheet saveAs:fullPath];
 ```
-#####Swift
+##### Swift
 ```swift
 //Save
 spreadsheet.save()
@@ -96,69 +96,69 @@ spreadsheet.save()
 var fullPath: String = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true).lastObject().stringByAppendingPathComponent("workbookCopy.xlsx")
 spreadsheet.saveAs(fullPath)
 ```
-####Get a worksheet
-#####Objective-C
+#### Get a worksheet
+##### Objective-C
 ```objective-c
 //First worksheet in the workbook
 BRAWorksheet *firstWorksheet = spreadsheet.workbook.worksheets[0];
-	
+    
 //Worksheet named "Foo"
 BRAWorksheet *fooWorksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo"];
-```	
-#####Swift
+``` 
+##### Swift
 ```swift
 //First worksheet in the workbook
 var firstWorksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0]
-	
+    
 //Worksheet named "Foo"
 var fooWorksheet: BRAWorksheet = spreadsheet.workbook.createWorksheetNamed("Foo")
 ```
-####Read cells content: Formula
-#####Objective-C
+#### Read cells content: Formula
+##### Objective-C
 ```objective-c
 NSString *formula = [[worksheet cellForCellReference:@"B4"] formulaString]
 ```
-#####Swift
+##### Swift
 ```swift
 var formula: String = worksheet.cellForCellReference("B4").formulaString()
 ```
-####Read cells content: error
-#####Objective-C
+#### Read cells content: error
+##### Objective-C
 ```objective-c
 NSString *errorValue = nil;
 if ([[worksheet cellForCellReference:@"B2"] hasError]) {
-	errorValue = [[worksheet cellForCellReference:@"B2"] stringValue];
+    errorValue = [[worksheet cellForCellReference:@"B2"] stringValue];
 }
-```	
-#####Swift
+``` 
+##### Swift
 ```swift
 var errorValue: String? = nil
 if worksheet.cellForCellReference("B2").hasError() {
-	errorValue = worksheet.cellForCellReference("B2").stringValue()
+    errorValue = worksheet.cellForCellReference("B2").stringValue()
 }
 ```
-####Read cells content: string
-#####Objective-C
+#### Read cells content: string
+##### Objective-C
 ```objective-c
 NSString *string = [[worksheet cellForCellReference:@"B6"] stringValue];
 ```
-#####Swift
+##### Swift
 ```swift
 var string: String = worksheet.cellForCellReference("B6").stringValue()
 ```
-####Read cells content: attributed string
-#####Objective-C
+#### Read cells content: attributed string
+##### Objective-C
 ```objective-c
 //Cell style is applied to the cell content
 NSAttributedString *attributedString = [[worksheet cellForCellReference:@"B5"] attributedStringValue];
 ```
-#####Swift
+##### Swift
 ```swift
 //Cell style is applied to the cell content
 var attributedString: NSAttributedString = worksheet.cellForCellReference("B5").attributedStringValue()
 ```
-####Read cells content: formatted number
-#####Objective-C
+#### Read cells content: formatted number
+##### Objective-C
 ```objective-c
 //Integer cell value
 NSInteger cellIntValue = [[worksheet cellForCellReference:@"B5"] integerValue];
@@ -168,130 +168,130 @@ CGFloat cellFloatValue = [[worksheet cellForCellReference:@"B5"] floatValue];
 
 //Formatted number cell value
 CGFloat cellFloatValue = [[worksheet cellForCellReference:@"B5"] stringValue];
-```	
-#####Swift
+``` 
+##### Swift
 ```swift
 //Integer cell value
 var cellIntValue: Int = CInteger(worksheet.cellForCellReference("B5"))!
-	
+    
 //Float cell value
 var cellFloatValue: CGFloat = CFloat(worksheet.cellForCellReference("B5"))!
-	
+    
 //Formatted number cell value
 var cellFloatValue: CGFloat = worksheet.cellForCellReference("B5").stringValue()
 ```
-####Read cells content: boolean
-#####Objective-C
+#### Read cells content: boolean
+##### Objective-C
 ```objective-c
 BOOL cellTruth = [[worksheet cellForCellReference:@"B5"] boolValue];
 ```
-#####Swift
+##### Swift
 ```swift
 var cellTruth: Bool = CBool(worksheet.cellForCellReference("B5"))!
 ```
-####Write cells content: Formula
-#####Objective-C
+#### Write cells content: Formula
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Y26" shouldCreate:YES] setFormulaString:@"TODAY()"];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Y26", shouldCreate: true).formulaString = "TODAY()"
 ```
-####Write cells content: error
-#####Objective-C
+#### Write cells content: error
+##### Objective-C
 ```objective-c
-[[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setError:@"#DIV/0!"];
+[[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setError:@"# DIV/0!"];
 ```
-#####Swift
+##### Swift
 ```swift
-worksheet.cellForCellReference("Y27", shouldCreate: true).error = "#DIV/0!"
+worksheet.cellForCellReference("Y27", shouldCreate: true).error = "# DIV/0!"
 ```
-####Write cells content: string
-#####Objective-C
+#### Write cells content: string
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Y24" shouldCreate:YES] setStringValue:@"FOO / BAR"];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Y24", shouldCreate: true).stringValue = "FOO / BAR"
 ```
-####Write cells content: attributed string
-#####Objective-C
+#### Write cells content: attributed string
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Z24" shouldCreate:YES]
 setAttributedStringValue:[[NSAttributedString alloc] initWithString:@"RED is not GREEN" attributes:@{NSForegroundColorAttributeName: [UIColor greenColor]}]];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Z24", shouldCreate: true).attributedStringValue = NSAttributedString(string: "RED is not GREEN", attributes: [NSForegroundColorAttributeName: UIColor.greenColor()])
 ```
-####Write cells content: formatted number
-#####Objective-C
+#### Write cells content: formatted number
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Z23" shouldCreate:YES] setFloatValue:12.3];
 [[worksheet cellForCellReference:@"Z23"] setNumberFormat:@"0.000"];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Z23", shouldCreate: true).floatValue = 12.3
 worksheet.cellForCellReference("Z23").numberFormat = "0.000"
 ```
-####Write cells content: boolean
-#####Objective-C
+#### Write cells content: boolean
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Z21" shouldCreate:YES] setBoolValue:NO];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Z21", shouldCreate: true).boolValue = false
 ```
-####Write cells content: date
-#####Objective-C
+#### Write cells content: date
+##### Objective-C
 ```objective-c
 NSDateFormatter *df = [[NSDateFormatter alloc] init];
 df.dateFormat = @"MM/dd/yyyy";
 [[worksheet cellForCellReference:@"Y25" shouldCreate:YES] setDateValue:[df dateFromString:@"10/07/1982"]];
 [[worksheet cellForCellReference:@"Y25"] setNumberFormat:@"m/d/yyyy"];
 ```
-#####Swift
+##### Swift
 ```swift
 var df: NSDateFormatter = NSDateFormatter()
 df.dateFormat = "MM/dd/yyyy"
 worksheet.cellForCellReference("Y25", shouldCreate: true).dateValue = df.dateFromString("10/07/1982")
 worksheet.cellForCellReference("Y25").numberFormat = "m/d/yyyy"
 ```
-####Get cell fill as a UIColor
-#####Objective-C
+#### Get cell fill as a UIColor
+##### Objective-C
 ```objective-c
 UIColor *cellFillColor = [[worksheet cellForCellReference:@"A35"] cellFillColor];
 ```
-#####Swift
+##### Swift
 ```swift
 var cellFillColor: UIColor = worksheet.cellForCellReference("A35").cellFillColor()
 ```
-####Change cell fill
-#####Objective-C
+#### Change cell fill
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"A36" shouldCreate:YES] setCellFillWithForegroundColor:[UIColor yellowColor] backgroundColor:[UIColor blackColor] andPatternType:kBRACellFillPatternTypeDarkTrellis];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("A36", shouldCreate: true).setCellFillWithForegroundColor(UIColor.yellowColor(), backgroundColor: UIColor.blackColor(), andPatternType: kBRACellFillPatternTypeDarkTrellis)
 ```
-####Get images
-#####Objective-C
+#### Get images
+##### Objective-C
 ```objective-c
 //Works with oneCellAnchor or twoCellAnchored image
 UIImage *image = [worksheet imageForCellReference:@"G8"].uiImage;
 ```
-#####Swift
+##### Swift
 ```swift
 //Works with oneCellAnchor or twoCellAnchored image
 var image: UIImage = worksheet.imageForCellReference("G8").uiImage
 ```
-####Add images (JPEG or PNG)
-#####Objective-C
+#### Add images (JPEG or PNG)
+##### Objective-C
 ```objective-c
 UIImage *image = [UIImage imageNamed:@"Kitten.jpeg"];
 //preserveTransparency force JPEG (NO) or PNG (YES)
@@ -299,7 +299,7 @@ BRAWorksheetDrawing *drawing = [worksheet addImage:image betweenCellsReferenced:
 //Set drawing insets (percentage)
 drawing.insets = UIEdgeInsetsMake(0., 0., .5, .5);
 ```
-#####Swift
+##### Swift
 ```swift
 var image: UIImage = UIImage(named: "Kitten.jpeg")
 //preserveTransparency force JPEG (NO) or PNG (YES)
@@ -307,8 +307,8 @@ var drawing: BRAWorksheetDrawing = worksheet.addImage(image, betweenCellsReferen
 //Set drawing insets (percentage)
 drawing.insets = UIEdgeInsetsMake(0.0, 0.0, 0.5, 0.5)
 ```
-####Add/remove rows in sheets
-#####Objective-C
+#### Add/remove rows in sheets
+##### Objective-C
 ```objective-c
 //Insert one row before 18th row
 [worksheet addRowsAt:18];
@@ -320,7 +320,7 @@ drawing.insets = UIEdgeInsetsMake(0.0, 0.0, 0.5, 0.5)
 //Remove them
 [worksheet removeRow:18 count:10];
 ```
-#####Swift
+##### Swift
 ```swift
 //Insert one row before 18th row
 worksheet.addRowsAt(18)
@@ -332,60 +332,60 @@ worksheet.addRowsAt(18, count: 10)
 //Remove them
 worksheet.removeRow(18, count: 10)
 ```
-####Add/remove columns in sheets
+#### Add/remove columns in sheets
 
-	TODO
-	
-####Change number formatting
-#####Objective-C
+    TODO
+    
+#### Change number formatting
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Y25"] setNumberFormat:@"_(0.00_);(0.00)"];
 ```
-#####Swift
+##### Swift
 ```swift
 worksheet.cellForCellReference("Y25").numberFormat = "_(0.00_);(0.00)"
 ```
-####Read content from merge cells
-#####Objective-C
+#### Read content from merge cells
+##### Objective-C
 ```objective-c
 //Get the cell at C10 or the upper-left cell if C10 belongs to a merge cell
 BRACell *cell = [worksheet cellOrFirstCellInMergeCellForCellReference:@"C10"]
 ```
-#####Swift
+##### Swift
 ```swift
 //Get the cell at C10 or the upper-left cell if C10 belongs to a merge cell
 var cell: BRACell = worksheet.cellOrFirstCellInMergeCellForCellReference("C10")
 ```
-####Create worksheet
-#####Objective-C
+#### Create worksheet
+##### Objective-C
 ```objective-c
 BRAWorksheet *worksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo"];
 ```
-#####Swift
+##### Swift
 ```swift
 var worksheet: BRAWorksheet = spreadsheet.workbook.createWorksheetNamed("Foo")
 ```
-####Copy worksheet
-#####Objective-C
+#### Copy worksheet
+##### Objective-C
 ```objective-c
 BRAWorksheet *worksheetToCopy = spreadsheet.workbook.worksheets[0];
 BRAWorksheet *worksheet = [spreadsheet.workbook createWorksheetNamed:@"Foo" byCopyingWorksheet:worksheetToCopy];
 ```
-#####Swift
+##### Swift
 ```swift
 var worksheetToCopy: BRAWorksheet = spreadsheet.workbook.worksheets[0]
 var worksheet: BRAWorksheet = spreadsheet.workbook.createWorksheetNamed("Foo", byCopyingWorksheet: worksheetToCopy)
 ```
-####Remove worksheet
-#####Objective-C
+#### Remove worksheet
+##### Objective-C
 ```objective-c
 [_spreadsheet.workbook removeWorksheetNamed:@"Foo"];
 ```
-#####Swift
+##### Swift
 ```swift
 spreadsheet.workbook.removeWorksheetNamed("Foo")
 ```
-####Do some simple operation from Swift
+#### Do some simple operation from Swift
 ```swift
 let documentPath = NSBundle.mainBundle().pathForResource("testWorkbook", ofType: "xlsx")
         
@@ -398,7 +398,7 @@ let paths: Array = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.Doc
 let fullPath: String = (paths[0] as! String).stringByAppendingString("testSaveAs.xlsx")
 odp!.saveAs(fullPath)
 ```
-##A word about XLSX files
+## A word about XLSX files
 
 XLSX files are OPC packages (see ECMA-376 for more information). Below is a simplified hierarchical representation of the package contents.
 
@@ -406,7 +406,7 @@ XLSX files are OPC packages (see ECMA-376 for more information). Below is a simp
 
 Files have relationships, files are relationships... Have a look at this picture each time you want to change something in the library.
 
-##License	
+## License   
 
 Copyright (c) 2014-2016 Ren&eacute; BIGOT.
 
