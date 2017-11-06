@@ -7,7 +7,11 @@
 //
 
 #import "NSDictionary+OpenXmlString.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
 #import "XMLDictionary.h"
+#endif
 
 @implementation NSDictionary (OpenXmlString)
 

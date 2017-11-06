@@ -10,7 +10,11 @@
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRAContentTypesOverride.h"
 #import "BRADrawing.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
 #import "XMLDictionary.h"
+#endif
 
 @implementation BRARelationships
 

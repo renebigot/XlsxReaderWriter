@@ -9,7 +9,11 @@
 #import "BRAStyles.h"
 #import "BRACellFill.h"
 #import "BRACellFormat.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
 #import "XMLDictionary.h"
+#endif
 
 @implementation BRAStyles
 

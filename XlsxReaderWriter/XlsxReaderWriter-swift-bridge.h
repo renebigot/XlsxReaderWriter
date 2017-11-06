@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 René Bigot. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
 #import "XMLDictionary.h"
+#endif
 
 #import "NativeFont+BoldItalic.h"
 #import "NativeColor+OpenXML.h"
