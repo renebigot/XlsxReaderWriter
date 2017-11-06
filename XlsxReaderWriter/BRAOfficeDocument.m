@@ -11,11 +11,7 @@
 #import "BRASharedStrings.h"
 #import "BRAWorksheet.h"
 #import "BRASheet.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
 #import "XMLDictionary.h"
-#endif
 
 @implementation BRAOfficeDocument
 

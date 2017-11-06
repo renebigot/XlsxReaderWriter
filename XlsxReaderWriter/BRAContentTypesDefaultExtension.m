@@ -8,11 +8,7 @@
 
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRARelationship.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
 #import "XMLDictionary.h"
-#endif
 
 @implementation BRAContentTypesDefaultExtension
 

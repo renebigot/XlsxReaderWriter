@@ -21,4 +21,5 @@ end
 target 'XlsxReaderWriter Mac' do
     platform :osx, '10.8'
     thridparty
+    use_frameworks!
 end

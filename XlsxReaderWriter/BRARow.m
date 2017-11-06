@@ -11,11 +11,7 @@
 #import "BRAMergeCell.h"
 #import "BRAWorksheet.h"
 #import "BRAColumn.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
 #import "XMLDictionary.h"
-#endif
 
 @implementation BRARow
 

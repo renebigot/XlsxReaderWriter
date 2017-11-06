@@ -7,11 +7,7 @@
 //
 
 #import "BRAOfficeDocumentPackage.h"
-#if TARGET_OS_IPHONE
-@import SSZipArchive;
-#else
 #import "SSZipArchive.h"
-#endif
 #import "BRAContentTypes.h"
 #import "BRARelationships.h"
 

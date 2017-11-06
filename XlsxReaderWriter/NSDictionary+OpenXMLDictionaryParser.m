@@ -7,11 +7,7 @@
 //
 
 #import "NSDictionary+OpenXMLDictionaryParser.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
 #import "XMLDictionary.h"
-#endif
 
 @implementation NSDictionary (OpenXmlDictionaryParser)
 
