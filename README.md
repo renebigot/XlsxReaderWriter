@@ -2,6 +2,23 @@
 
 XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses and writes Excel OpenXml files (XLSX).
 
+
+## COCOAPODS is OUTDATED - IMPORTANT READ THIS:
+
+Cocoapods is outdated v 1.0.11, and apprently it is not possible to update it anymore:
+https://cocoapods.org/pods/XlsxReaderWriter
+
+if you want to fix it and use the latest version, add this to your PodFile (at the top)
+```
+source 'https://github.com/charlymr/XlsxReaderWriter-Podspecs.git' 
+```
+
+Then you can get the latest version 2.3.2 +
+```
+     pod 'XlsxReaderWriter', '~> 2.3.2'
+```
+
+
 ## Features
 
 XlsxReaderWriter is able to:
