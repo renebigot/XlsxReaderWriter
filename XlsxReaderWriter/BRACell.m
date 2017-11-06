@@ -13,7 +13,11 @@
 #import "BRAWorksheet.h"
 #import "BRADrawing.h"
 #import "BRACellFormat.h"
+#if TARGET_OS_IPHONE
 @import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 @implementation BRACell
 

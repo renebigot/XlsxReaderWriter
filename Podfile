@@ -4,16 +4,17 @@ source 'https://github.com/CocoaPods/Specs'
 def thridparty
     pod 'SSZipArchive', '~> 1.1'
     pod 'XMLDictionary', '~> 1.4.1'
-	use_frameworks!
 end
 
 target 'XlsxReaderWriter' do
     platform :ios, '7.0'
+	use_frameworks!
     thridparty
 end
 
 target 'XlsxReaderWriterTests' do
     platform :ios, '7.0'
+	use_frameworks!
     thridparty
 end
 

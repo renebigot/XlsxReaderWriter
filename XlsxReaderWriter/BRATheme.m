@@ -8,7 +8,11 @@
 
 #import "BRATheme.h"
 #import "NativeColor+HTML.h"
+#if TARGET_OS_IPHONE
 @import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 // It seems thats S01 & S00 have been switched compared to IEC 29500-1.
 // Don't know why !!!

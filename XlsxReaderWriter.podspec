@@ -6,13 +6,16 @@ Pod::Spec.new do |s|
   s.license            = "MIT"
   s.author             = "René Bigot"
   s.social_media_url   = "https://www.linkedin.com/in/renebigot"
-  s.platforms	 		= { :ios => "7.0", :osx => "10.8" }
+  s.ios.deployment_target  = '7.0'
+  s.osx.deployment_target  = '10.8'
   s.source             = { :git => "https://github.com/charlymr/XlsxReaderWriter.git", :tag => s.version.to_s }
   s.source_files       = "XlsxReaderWriter/*.{h,m}"
   s.exclude_files      = "ThirdParties"
+  
   s.frameworks     	   = "Foundation"
   s.ios.frameworks     = "UIKit"
   s.osx.frameworks     = "Cocoa"
+  
   s.requires_arc       = true
 
   s.dependency "SSZipArchive", "~> 1.1"
