@@ -96,7 +96,12 @@
     BRAContentTypesDefaultExtension *defaultExtension = [[BRAContentTypesDefaultExtension alloc] initWithExtension:extension];
     
     NSMutableArray *defaultExtensions = _defaultExtensions.mutableCopy;
-    [defaultExtensions addObject:defaultExtension];
+    if (defaultExtensions == nil) {
+        defaultExtensions = [[NSMutableArray alloc] init];
+    }
+    if (defaultExtension) {
+        [defaultExtensions addObject:defaultExtension];
+    }
     
     _defaultExtensions = defaultExtensions;
 }
