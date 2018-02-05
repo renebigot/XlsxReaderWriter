@@ -2,8 +2,8 @@ source 'https://github.com/CocoaPods/Specs'
 
 
 def thridparty
-    pod 'SSZipArchive', '~> 1.1'
-    pod 'XMLDictionary', '~> 1.4.1'
+    pod 'SSZipArchive', '~> 2.1'
+    pod 'XMLDictionary', '~> 1.4'
 end
 
 target 'XlsxReaderWriter' do

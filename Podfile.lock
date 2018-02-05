@@ -1,0 +1,15 @@
+PODS:
+  - SSZipArchive (2.1.1)
+  - XMLDictionary (1.4.1)
+
+DEPENDENCIES:
+  - SSZipArchive (~> 2.1)
+  - XMLDictionary (~> 1.4)
+
+SPEC CHECKSUMS:
+  SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
+  XMLDictionary: fa07b6ff422b3a91d47a5de9bc82e3fc04fbd167
+
+PODFILE CHECKSUM: 449dd89d88972d983522300a5aea3205ac1239ad
+
+COCOAPODS: 1.3.1
