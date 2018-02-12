@@ -13,9 +13,9 @@ if you want to fix it and use the latest version, add this to your PodFile (at t
 source 'https://github.com/charlymr/XlsxReaderWriter-Podspecs.git' 
 ```
 
-Then you can get the latest version 2.3.3 +
+Then you can get the latest version 2.3 +
 ```
-     pod 'XlsxReaderWriter', '~> 2.3.3'
+     pod 'XlsxReaderWriter', '~> 2.3'
 ```
 
 
