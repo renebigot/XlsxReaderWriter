@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import Pods_XlsxReaderWriter
 
 class SwiftTestCase: XCTestCase {
     
@@ -23,7 +24,7 @@ class SwiftTestCase: XCTestCase {
 
     func testSwiftOpenClose() {
         // This is an example of a functional test case.
-        let documentPath = NSBundle(forClass: self.classForCoder).pathForResource("testWorkbook", ofType: "xlsx")
+        let documentPath = Bundle(forClass: self.classForCoder).path(forResource: "testWorkbook", ofType: "xlsx")
         NSLog("%@", documentPath!)
         
         let odp: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(documentPath)
@@ -34,10 +35,10 @@ class SwiftTestCase: XCTestCase {
         let worksheet: BRAWorksheet = odp.workbook.worksheets[0] as! BRAWorksheet;
         XCTAssertNotNil(worksheet, "Worksheet should not be nil")
 
-        let paths: Array = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as Array
+        let paths: Array = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true) as Array
         let fullPath: String = paths[0].stringByAppendingString("/testSwiftOpenClose.xlsx")
         odp.saveAs(fullPath)
-        XCTAssert(NSFileManager.defaultManager().fileExistsAtPath(fullPath), "No file exists at %@", file: fullPath)
+        XCTAssert(FileManager.default.fileExists(atPath: fullPath), "No file exists at %@", file: fullPath)
     }
 
 }
