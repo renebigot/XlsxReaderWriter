@@ -140,10 +140,10 @@
 - (BRANativeColor *)_darkHorizontalPatternedColor {
   
    return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-     CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+     CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
      CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
      
-     CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+     CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
      CGContextFillRect(context, CGRectMake(0., 0., 4., 2.));
    }];
 }
@@ -151,10 +151,10 @@
 - (BRANativeColor *)_darkVerticalPatternedColor {
   
   return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-      CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+      CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
       CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
       
-      CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+      CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
       CGContextFillRect(context, CGRectMake(0., 0., 2., 4.));
     }];
 }
@@ -162,10 +162,10 @@
 - (BRANativeColor *)_darkDownPatternedColor {
   
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 2.);
     CGContextMoveToPoint(context, -2., -1.);
     CGContextAddLineToPoint(context, 6., 7.);
@@ -180,10 +180,10 @@
 - (BRANativeColor *)_darkUpPatternedColor {
 
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 2.);
     CGContextMoveToPoint(context, 6., -2.);
     CGContextAddLineToPoint(context, -2., 6.);
@@ -197,10 +197,10 @@
 
 - (BRANativeColor *)_darkGridPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
     
-    CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 2., 2.));
     CGContextFillRect(context, CGRectMake(2., 2., 2., 2.));
   }];
@@ -208,10 +208,10 @@
 
 - (BRANativeColor *)_darkTrellisPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 2.);
     CGContextMoveToPoint(context, 6., -2.);
     CGContextAddLineToPoint(context, -2., 6.);
@@ -233,10 +233,10 @@
 
 - (BRANativeColor *)_lightHorizontalPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
     
-    CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 4., 1.));
   }];
 }
@@ -244,10 +244,10 @@
 - (BRANativeColor *)_lightVerticalPatternedColor {
   
   return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
     
-    CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 1., 4.));
   }];
 }
@@ -255,10 +255,10 @@
 - (BRANativeColor *)_lightDownPatternedColor {
   
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 1.);
     CGContextMoveToPoint(context, -2., -1.);
     CGContextAddLineToPoint(context, 6., 7.);
@@ -272,10 +272,10 @@
 
 - (BRANativeColor *)_lightUpPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 1.);
     CGContextMoveToPoint(context, 6., -2.);
     CGContextAddLineToPoint(context, -2., 6.);
@@ -289,10 +289,10 @@
 
 - (BRANativeColor *)_lightGridPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(4, 4) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 4., 4.));
     
-    CGContextSetFillColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 1., 4.));
     CGContextFillRect(context, CGRectMake(0., 3., 4., 1.));
   }];
@@ -300,10 +300,10 @@
 
 - (BRANativeColor *)_lightTrellisPatternedColor {
   return [self nativeColorWithSize:CGSizeMake(6, 6) drawingOperations:^(CGContextRef context){
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, CGRectMake(0., 0., 6., 6.));
     
-    CGContextSetStrokeColorWithColor(context, _backgroundColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self->_backgroundColor.CGColor);
     CGContextSetLineWidth(context, 1.);
     CGContextMoveToPoint(context, 6., -2.);
     CGContextAddLineToPoint(context, -2., 6.);
@@ -326,10 +326,10 @@
 - (BRANativeColor *)__grayPatternedColorWithGrayLevel:(CGFloat)grayLevel {
   return [self nativeColorWithSize:CGSizeMake(4, 2) drawingOperations:^(CGContextRef context){
     CGRect patternBounds = CGRectMake(0., 0., 4., 2.);
-    CGContextSetFillColorWithColor(context, _foregroundColor.CGColor);
+    CGContextSetFillColorWithColor(context, self->_foregroundColor.CGColor);
     CGContextFillRect(context, patternBounds);
     
-    CGContextSetFillColorWithColor(context, [_backgroundColor colorWithAlphaComponent:grayLevel].CGColor);
+    CGContextSetFillColorWithColor(context, [self->_backgroundColor colorWithAlphaComponent:grayLevel].CGColor);
     CGContextFillRect(context, patternBounds);
   }];
 }

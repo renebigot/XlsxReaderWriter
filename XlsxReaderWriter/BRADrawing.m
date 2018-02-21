@@ -96,7 +96,7 @@
 - (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -128,7 +128,7 @@
     
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -166,7 +166,7 @@
 - (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -199,7 +199,7 @@
     
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {

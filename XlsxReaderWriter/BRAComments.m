@@ -49,7 +49,7 @@
 - (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_comments) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAComment *comment in _comments) {
+            for (BRAComment *comment in self->_comments) {
                 
                 NSInteger commentRowIndex = [BRARow rowIndexForCellReference:comment.reference];
                 
@@ -67,7 +67,7 @@
     
     @synchronized(_comments) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAComment *comment in _comments) {
+            for (BRAComment *comment in self->_comments) {
                 
                 NSInteger commentRowIndex = [BRARow rowIndexForCellReference:comment.reference];
                 
@@ -92,7 +92,7 @@
 - (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_comments) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAComment *comment in _comments) {
+            for (BRAComment *comment in self->_comments) {
                 
                 NSInteger commentColumnIndex = [BRAColumn columnIndexForCellReference:comment.reference];
                 
@@ -110,7 +110,7 @@
 
     @synchronized(_comments) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAComment *comment in _comments) {
+            for (BRAComment *comment in self->_comments) {
                 
                 NSInteger commentColumnIndex = [BRAColumn columnIndexForCellReference:comment.reference];
                 
