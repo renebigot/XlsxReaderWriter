@@ -91,7 +91,7 @@
 - (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_cells) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRACalcChainCell *cell in _cells) {
+            for (BRACalcChainCell *cell in self->_cells) {
                 
                 NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
                 
@@ -109,7 +109,7 @@
     
     @synchronized(_cells) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRACalcChainCell *cell in _cells) {
+            for (BRACalcChainCell *cell in self->_cells) {
                 
                 NSInteger cellColumnIndex = [BRAColumn columnIndexForCellReference:cell.reference];
                 
