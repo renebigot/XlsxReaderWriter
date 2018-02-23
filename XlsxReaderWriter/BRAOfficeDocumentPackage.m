@@ -7,14 +7,18 @@
 //
 
 #import "BRAOfficeDocumentPackage.h"
+#if TARGET_OS_IPHONE
+@import SSZipArchive;
+#else
 #import "SSZipArchive.h"
+#endif
 #import "BRAContentTypes.h"
 #import "BRARelationships.h"
 
 /*!
  * @brief BRADocumentPackage is the OPC package representation. OpenXml documents are OPC (Open Packaging Convention) packages which uses the ZIP archive format.
- * @brief Files types contained in the packages are discribed by the [Content-Types].xml file.
- * @brief The set of explicit relationships for a given package as a whole are stored in _rels/.rels file.
+ *  Files types contained in the packages are discribed by the [Content-Types].xml file.
+ *  The set of explicit relationships for a given package as a whole are stored in _rels/.rels file.
  */
 @implementation BRAOfficeDocumentPackage
 
@@ -53,7 +57,7 @@
         //Unpack the OPC package
         NSString *subCacheDirectory = [@"fr.brae.spreadsheetdocument" stringByAppendingPathComponent:[filePath lastPathComponent]];
         self.cacheDirectory = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:subCacheDirectory];
-        
+        [[NSFileManager defaultManager] createDirectoryAtPath:self.cacheDirectory withIntermediateDirectories:YES attributes:nil error:NULL];
         [SSZipArchive unzipFileAtPath:filePath toDestination:self.cacheDirectory];
         
         

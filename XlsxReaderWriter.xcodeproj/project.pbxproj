@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */; };
+		123069AC7E69983D542C251E /* Pods_XlsxReaderWriter_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */; };
 		22156D601C46B5DB00BB5779 /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E26C1A15063800288A78 /* XMLDictionary.m */; };
 		22156D611C46B5DB00BB5779 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */; };
 		22156D621C46B5DB00BB5779 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
@@ -142,6 +144,7 @@
 		45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBCA1BB212A2002ACC9C /* BRAComments.m */; };
 		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
 		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
+		682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,11 +205,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac.release.xcconfig"; sourceTree = "<group>"; };
 		22156D581C46B42500BB5779 /* XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22156D5C1C46B42500BB5779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22156DB21C46B7EC00BB5779 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		22225F2D1C47F60600256993 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
+		31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.release.xcconfig"; sourceTree = "<group>"; };
+		3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-swift-bridge.h"; sourceTree = "<group>"; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
@@ -303,6 +310,12 @@
 		45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRACalcChainCell.m; sourceTree = "<group>"; };
 		45D6FBD61BB27970002ACC9C /* BRAComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAComment.h; sourceTree = "<group>"; };
 		45D6FBD71BB279A5002ACC9C /* BRAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAComment.m; sourceTree = "<group>"; };
+		75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.debug.xcconfig"; sourceTree = "<group>"; };
+		7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
+		8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +326,7 @@
 				22225F2E1C47F60600256993 /* libz.1.dylib in Frameworks */,
 				22225F231C47EC4B00256993 /* libSSZipArchive.a in Frameworks */,
 				22156DB31C46B7EC00BB5779 /* Cocoa.framework in Frameworks */,
+				123069AC7E69983D542C251E /* Pods_XlsxReaderWriter_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +336,7 @@
 			files = (
 				45B6E30D1A1512F700288A78 /* Foundation.framework in Frameworks */,
 				45B6E3051A15111800288A78 /* libSSZipArchive.a in Frameworks */,
+				682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,12 +349,26 @@
 				45B6E30A1A1512DD00288A78 /* Foundation.framework in Frameworks */,
 				45B6E3071A1511A000288A78 /* libz.dylib in Frameworks */,
 				45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */,
+				01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B04EB28382D2870FA5A8288 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */,
+				36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */,
+				E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */,
+				1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */,
+				31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */,
+				7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		22156D591C46B42500BB5779 /* XlsxReaderWriter Mac */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +423,8 @@
 				22156D591C46B42500BB5779 /* XlsxReaderWriter Mac */,
 				45B6E3081A15125300288A78 /* External Frameworks */,
 				45B6E23B1A148F7500288A78 /* Products */,
+				0B04EB28382D2870FA5A8288 /* Pods */,
+				88B4873AAB91B2D6EEA26BE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -882,6 +913,17 @@
 			name = "Sub Elements";
 			sourceTree = "<group>";
 		};
+		88B4873AAB91B2D6EEA26BE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */,
+				8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */,
+				3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */,
+				CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -942,10 +984,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22156D5D1C46B42500BB5779 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter Mac" */;
 			buildPhases = (
+				A55AC71266FC73857073A3AA /* [CP] Check Pods Manifest.lock */,
 				22156D531C46B42500BB5779 /* Sources */,
 				22156D541C46B42500BB5779 /* Frameworks */,
 				22156D551C46B42500BB5779 /* Headers */,
 				22156D561C46B42500BB5779 /* Resources */,
+				15DD33693E1C5B4E00D3349D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -961,9 +1005,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45B6E24E1A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter" */;
 			buildPhases = (
+				335BF6412430415C2CC82921 /* [CP] Check Pods Manifest.lock */,
 				45B6E2361A148F7500288A78 /* Sources */,
 				45B6E2371A148F7500288A78 /* Frameworks */,
 				45B6E2381A148F7500288A78 /* CopyFiles */,
+				EACD85C7846BA4929E964E35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -979,9 +1025,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */;
 			buildPhases = (
+				C6DF150C9DEBE1C7A81263C9 /* [CP] Check Pods Manifest.lock */,
 				45B6E2411A148F7500288A78 /* Sources */,
 				45B6E2421A148F7500288A78 /* Frameworks */,
 				45B6E2431A148F7500288A78 /* Resources */,
+				4A5EB0A3431F08D104E6FFBF /* [CP] Embed Pods Frameworks */,
+				A51AC808C3C1D62378C13644 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1011,7 +1060,7 @@
 					};
 					45B6E2441A148F7500288A78 = {
 						CreatedOnToolsVersion = 6.1;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -1082,6 +1131,128 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15DD33693E1C5B4E00D3349D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		335BF6412430415C2CC82921 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A5EB0A3431F08D104E6FFBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive-iOS/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/XMLDictionary-iOS/XMLDictionary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLDictionary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A51AC808C3C1D62378C13644 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A55AC71266FC73857073A3AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriter Mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6DF150C9DEBE1C7A81263C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EACD85C7846BA4929E964E35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22156D531C46B42500BB5779 /* Sources */ = {
@@ -1208,6 +1379,7 @@
 /* Begin XCBuildConfiguration section */
 		22156D5E1C46B42500BB5779 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1229,7 +1401,7 @@
 				INFOPLIST_FILE = "XlsxReaderWriter Mac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
@@ -1241,6 +1413,7 @@
 		};
 		22156D5F1C46B42500BB5779 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1262,7 +1435,7 @@
 				INFOPLIST_FILE = "XlsxReaderWriter Mac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
@@ -1305,7 +1478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1340,7 +1513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1351,6 +1524,7 @@
 		};
 		45B6E24F1A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1368,6 +1542,7 @@
 		};
 		45B6E2501A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1385,6 +1560,7 @@
 		};
 		45B6E2521A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1404,12 +1580,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		45B6E2531A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1428,7 +1606,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.brae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

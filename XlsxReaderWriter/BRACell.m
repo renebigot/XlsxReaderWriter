@@ -13,6 +13,11 @@
 #import "BRAWorksheet.h"
 #import "BRADrawing.h"
 #import "BRACellFormat.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 @implementation BRACell
 
@@ -316,7 +321,12 @@
         return [[NSAttributedString alloc] initWithString:[df stringFromDate:_dateValue] attributes:attributedTextAttributes];
         
     } else if (_type == BRACellContentTypeString) {
-        return [[NSAttributedString alloc] initWithString:_value attributes:attributedTextAttributes];
+        @try {
+            return [[NSAttributedString alloc] initWithString:_value attributes:attributedTextAttributes];
+        }
+        @catch (NSException * e) {
+            return [[NSAttributedString alloc] initWithString:@"" attributes:attributedTextAttributes];
+        }
         
     } else if (_type == BRACellContentTypeInlineString) {
 // TODO : Not Implemented

@@ -6,7 +6,12 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import "NSDictionary+OpenXmlDictionaryParser.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 @implementation NSDictionary (OpenXmlDictionaryParser)
 

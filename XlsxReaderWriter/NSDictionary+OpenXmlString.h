@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMLDictionary.h"
 
 @interface NSDictionary (OpenXmlString)
 

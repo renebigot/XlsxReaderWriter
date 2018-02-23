@@ -11,6 +11,11 @@
 #import "BRARow.h"
 #import "BRARelationships.h"
 #import "BRAPlatformSpecificDefines.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 @implementation BRAWorksheet
 

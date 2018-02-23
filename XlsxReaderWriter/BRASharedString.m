@@ -7,6 +7,11 @@
 //
 
 #import "BRASharedString.h"
+#if TARGET_OS_IPHONE
+@import XMLDictionary;
+#else
+#import "XMLDictionary.h"
+#endif
 
 @implementation BRASharedString
 
