@@ -1,6 +1,6 @@
 # XlsxReaderWriter
 
-[![Build Status](https://travis-ci.org/charlymr/XlsxReaderWriter-Podspecs.svg?branch=travis)](https://travis-ci.org/charlymr/XlsxReaderWriter)
+[![Build Status](https://travis-ci.org/charlymr/XlsxReaderWriter-Podspecs.svg?branch=master)](https://travis-ci.org/charlymr/XlsxReaderWriter)
 
 XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses and writes Excel OpenXml files (XLSX).
 
