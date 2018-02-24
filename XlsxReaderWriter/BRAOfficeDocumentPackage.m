@@ -124,6 +124,9 @@
     //Save relationships
     [self.relationships save];
     
+    //Create the target directory (If it doesn't exist)
+    [[NSFileManager defaultManager] createDirectoryAtPath:[self.target stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+
     //Save OPC Package
     [SSZipArchive createZipFileAtPath:self.target withContentsOfDirectory:self.cacheDirectory];
     
