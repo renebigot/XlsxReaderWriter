@@ -10,11 +10,7 @@
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRAContentTypesOverride.h"
 #import "BRADrawing.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRARelationships
 
@@ -25,7 +21,7 @@
     
     _relationshipsArray = @[].mutableCopy;
     
-    NSArray *relationshipArray = [attributes arrayValueForKeyPath:@"Relationship"];
+    NSArray *relationshipArray = [attributes xlsxReaderArrayValueForKeyPath:@"Relationship"];
     
     for (NSDictionary *attributesDict in relationshipArray) {
         [self createRelationshipWithAttributes:attributesDict];

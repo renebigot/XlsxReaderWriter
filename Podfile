@@ -3,7 +3,6 @@ source 'https://github.com/CocoaPods/Specs'
 
 def thridparty
     pod 'SSZipArchive', '~> 2.1'
-    pod 'XMLDictionary', '~> 1.4'
 end
 
 target 'XlsxReaderWriter' do

@@ -10,11 +10,7 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAComments
 
@@ -35,7 +31,7 @@
     
     NSDictionary *openXmlAttributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
-    NSArray *commentsArray = [openXmlAttributes arrayValueForKeyPath:@"commentList.comment"];
+    NSArray *commentsArray = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"commentList.comment"];
     
     NSMutableArray *comments = @[].mutableCopy;
     

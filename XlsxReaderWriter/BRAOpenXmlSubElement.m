@@ -8,11 +8,7 @@
 
 #import "BRAOpenXmlSubElement.h"
 #import "BRAStyles.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAOpenXmlSubElement
 

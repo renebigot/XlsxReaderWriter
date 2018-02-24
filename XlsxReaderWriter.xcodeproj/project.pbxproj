@@ -140,6 +140,9 @@
 		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
 		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
 		682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */; };
+		8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; };
+		8265BC322041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
+		8265BC332041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,6 +272,8 @@
 		45D6FBD71BB279A5002ACC9C /* BRAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAComment.m; sourceTree = "<group>"; };
 		75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.debug.xcconfig"; sourceTree = "<group>"; };
 		7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
+		8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XlsxReaderXMLDictionary.h; path = XlsxReaderWriter/XlsxReaderXMLDictionary.h; sourceTree = "<group>"; };
+		8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XlsxReaderXMLDictionary.m; path = XlsxReaderWriter/XlsxReaderXMLDictionary.m; sourceTree = "<group>"; };
 		8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -459,6 +464,8 @@
 		45B6E2741A1506A300288A78 /* NSDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */,
+				8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */,
 				4580C6CD1A15171B00790ED5 /* NSDictionary+DeepCopy.h */,
 				4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */,
 				4580C6CF1A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.h */,
@@ -859,6 +866,7 @@
 			files = (
 				22156D881C46B62900BB5779 /* NSDictionary+DeepCopy.h in Headers */,
 				22156D891C46B62900BB5779 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */,
+				8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */,
 				455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */,
 				22156D8A1C46B62900BB5779 /* NSDictionary+OpenXmlString.h in Headers */,
 				22156D8B1C46B62900BB5779 /* NativeFont+BoldItalic.h in Headers */,
@@ -1067,12 +1075,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive-iOS/SSZipArchive.framework",
-				"${BUILT_PRODUCTS_DIR}/XMLDictionary-iOS/XMLDictionary.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLDictionary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1178,6 +1184,7 @@
 				22156D781C46B5DC00BB5779 /* BRAVmlDrawing.m in Sources */,
 				22156D791C46B5DC00BB5779 /* BRASheet.m in Sources */,
 				22156D7A1C46B5DC00BB5779 /* BRAOfficeDocument.m in Sources */,
+				8265BC332041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */,
 				22156D7B1C46B5DC00BB5779 /* BRACell.m in Sources */,
 				22156D7C1C46B5DC00BB5779 /* BRARow.m in Sources */,
 				22156D7D1C46B5DC00BB5779 /* BRAColumn.m in Sources */,
@@ -1223,6 +1230,7 @@
 				455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */,
 				45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */,
 				4580C6C81A15170900790ED5 /* NativeColor+HTML.m in Sources */,
+				8265BC322041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */,
 				4580C6811A1515CB00790ED5 /* BRAOpenXmlSubElement.m in Sources */,
 				45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */,
 				4580C6D41A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */,

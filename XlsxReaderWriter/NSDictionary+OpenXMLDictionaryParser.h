@@ -1,5 +1,5 @@
 //
-//  NSDictionary+OpenXmlDictionaryParser.h
+//  NSDictionary+OpenXMLDictionaryParser.h
 //  BRAXlsxReaderWriter
 //
 //  Created by René BIGOT on 19/06/2014.
@@ -10,7 +10,7 @@
 
 @class NSXMLParser;
 
-@interface NSDictionary (OpenXmlDictionaryParser)
+@interface NSDictionary (OpenXMLDictionaryParser)
 
 + (NSDictionary *)dictionaryWithOpenXmlParser:(NSXMLParser *)parser;
 + (NSDictionary *)dictionaryWithOpenXmlData:(NSData *)data;

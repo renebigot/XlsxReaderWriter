@@ -11,11 +11,7 @@
 #import "BRARow.h"
 #import "BRARelationships.h"
 #import "BRAPlatformSpecificDefines.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAWorksheet
 
@@ -44,12 +40,12 @@
     _dimension = [[BRACellRange alloc] initWithRangeReference:rangeReference];
     
     //Create merge cells
-    NSArray *mergeCellsArray = [openXmlAttributes arrayValueForKeyPath:@"mergeCells.mergeCell"];
+    NSArray *mergeCellsArray = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"mergeCells.mergeCell"];
     if (mergeCellsArray) {
         _mergeCells = [[NSMutableArray alloc] initWithCapacity:[mergeCellsArray count]];
 
         for (NSDictionary *mergeCellDict in mergeCellsArray) {
-            NSString *ref = mergeCellDict.attributes[@"ref"];
+            NSString *ref = mergeCellDict.xlsxReaderAttributes[@"ref"];
             BRAMergeCell *mergeCell = [[BRAMergeCell alloc] initWithRangeReference:ref];
             
             if (mergeCell) {
@@ -67,7 +63,7 @@
         openXmlAttributes[@"cols"][@"col"] = @[];
     }
     
-    NSArray *sheetColumns = [openXmlAttributes arrayValueForKeyPath:@"cols.col"];
+    NSArray *sheetColumns = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"cols.col"];
     
     _columns = [[NSMutableArray alloc] initWithCapacity:[sheetColumns count]];
 
@@ -84,7 +80,7 @@
         openXmlAttributes[@"sheetData"][@"row"] = @[];
     }
     
-    NSArray *sheetRows = [openXmlAttributes arrayValueForKeyPath:@"sheetData.row"];
+    NSArray *sheetRows = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"sheetData.row"];
     
     NSInteger rowsCount = [sheetRows count];
     

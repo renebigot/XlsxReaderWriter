@@ -11,11 +11,7 @@
 #import "BRASharedStrings.h"
 #import "BRAWorksheet.h"
 #import "BRASheet.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAOfficeDocument
 
@@ -50,7 +46,7 @@
     NSMutableArray *sheets = @[].mutableCopy;
     NSDictionary *dictionaryRepresentation = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
-    for (NSDictionary *openXmlAttributes in [dictionaryRepresentation arrayValueForKeyPath:@"sheets.sheet"]) {
+    for (NSDictionary *openXmlAttributes in [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"sheets.sheet"]) {
         [sheets addObject:[[BRASheet alloc] initWithOpenXmlAttributes:openXmlAttributes]];
     }
     

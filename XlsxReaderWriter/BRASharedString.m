@@ -7,11 +7,7 @@
 //
 
 #import "BRASharedString.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRASharedString
 
@@ -38,7 +34,7 @@
     //String can be a text (t) or a run (r)
     if (dictionaryRepresentation[@"r"]) {
         
-        NSArray *runs = [dictionaryRepresentation arrayValueForKeyPath:@"r"];
+        NSArray *runs = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"r"];
         
         //Run (r)
         for (NSDictionary *textDict in runs) {
@@ -61,7 +57,7 @@
     if ([dictionary[@"t"] isKindOfClass:[NSString class]]) {
         retVal = dictionary[@"t"];
     } else if ([dictionary[@"t"] isKindOfClass:[NSDictionary class]]) {
-        retVal = [dictionary[@"t"] innerText];
+        retVal = [dictionary[@"t"] xlsxReaderInnerText];
     } else {
         retVal = @"";
     }

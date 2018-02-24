@@ -62,7 +62,11 @@ XlsxReaderWriter can't create a SpreadsheetML (XLSX) file from scratch. You have
 Third parties are included in this repository, not linked as git submodules.
 
 * SSZipArchive: Compression/decompression library
+
+## Third parties (Modified)
+
 * XMLDictionary: Converts XML to NSDictionary and NSDictionary to XML
+	The Library is [Deprecated](https://github.com/nicklockwood/XMLDictionary), for this reason the code has been integrated and refactored to avoid Name collision
 
 ## Linking (Objective-C)
 

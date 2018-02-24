@@ -9,11 +9,7 @@
 #import "BRACellFormat.h"
 #import "BRAStyles.h"
 #import "BRACellFill.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRACellFormat
 
@@ -23,7 +19,7 @@
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
     
     //Text alignment
-    if (![dictionaryRepresentation.attributes[@"applyAlignment"] isEqual:@"0"]) {
+    if (![dictionaryRepresentation.xlsxReaderAttributes[@"applyAlignment"] isEqual:@"0"]) {
         NSString *horizontalAlignment = [dictionaryRepresentation valueForKeyPath:@"alignment._horizontal"];
         
         if ([horizontalAlignment isEqual:@"center"]) {
@@ -40,8 +36,8 @@
     }
     
     //Cell fill
-    if ([dictionaryRepresentation.attributes[@"applyFill"] boolValue] && dictionaryRepresentation.attributes[@"fillId"] != nil) {
-        _cellFill = _styles.cellFills[[dictionaryRepresentation.attributes[@"fillId"] integerValue]];
+    if ([dictionaryRepresentation.xlsxReaderAttributes[@"applyFill"] boolValue] && dictionaryRepresentation.xlsxReaderAttributes[@"fillId"] != nil) {
+        _cellFill = _styles.cellFills[[dictionaryRepresentation.xlsxReaderAttributes[@"fillId"] integerValue]];
     }
 
     //String attributes
@@ -50,8 +46,8 @@
     
     NSMutableDictionary *attributedStringAttributes = nil;
     
-    if (dictionaryRepresentation.attributes[@"fontId"] != nil && [dictionaryRepresentation.attributes[@"fontId"] integerValue] != NSNotFound) {
-        _stylesTextsAttributes = _styles.textsAttributes[[dictionaryRepresentation.attributes[@"fontId"] integerValue]];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"fontId"] != nil && [dictionaryRepresentation.xlsxReaderAttributes[@"fontId"] integerValue] != NSNotFound) {
+        _stylesTextsAttributes = _styles.textsAttributes[[dictionaryRepresentation.xlsxReaderAttributes[@"fontId"] integerValue]];
 
         attributedStringAttributes = @{
                                        NSParagraphStyleAttributeName: paragraphStyle
@@ -62,20 +58,20 @@
     }
     
     //Number format
-    if (dictionaryRepresentation.attributes[@"applyNumberFormat"] && ![dictionaryRepresentation.attributes[@"applyNumberFormat"] isEqual:@"0"]) {
-        _numberFormat = _styles.numberFormats[dictionaryRepresentation.attributes[@"numFmtId"]];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"applyNumberFormat"] && ![dictionaryRepresentation.xlsxReaderAttributes[@"applyNumberFormat"] isEqual:@"0"]) {
+        _numberFormat = _styles.numberFormats[dictionaryRepresentation.xlsxReaderAttributes[@"numFmtId"]];
     } else {
         //General format
         _numberFormat = _styles.numberFormats[@"0"];
     }
     
     //Protection
-    _protected = [dictionaryRepresentation.attributes[@"applyProtection"] boolValue];
+    _protected = [dictionaryRepresentation.xlsxReaderAttributes[@"applyProtection"] boolValue];
     
     //cellXfs xf entries may have a reference to an existing cellStyleXfs xf entry
-    if (dictionaryRepresentation.attributes[@"xfId"] == nil) {
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"xfId"] == nil) {
         _isCellStyleXf = YES;
-        _cellStyleFormat = _styles.cellStyleFormats[[dictionaryRepresentation.attributes[@"xfId"] integerValue]];
+        _cellStyleFormat = _styles.cellStyleFormats[[dictionaryRepresentation.xlsxReaderAttributes[@"xfId"] integerValue]];
     }
 }
 

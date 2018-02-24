@@ -10,11 +10,7 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 #define ONE_CELL_ANCHOR @"xdr:oneCellAnchor"
 #define TWO_CELL_ANCHOR @"xdr:twoCellAnchor"
@@ -48,7 +44,7 @@
     NSMutableArray *worksheetDrawings = [_worksheetDrawings mutableCopy];
     NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
 
-    NSArray *wsDrArray = [attributes arrayValueForKeyPath:anchorType];
+    NSArray *wsDrArray = [attributes xlsxReaderArrayValueForKeyPath:anchorType];
     
     for (NSDictionary *wsDrDict in wsDrArray) {
         [worksheetDrawings addObject:[[BRAWorksheetDrawing alloc] initWithOpenXmlAttributes:wsDrDict]];

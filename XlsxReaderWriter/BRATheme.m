@@ -8,11 +8,7 @@
 
 #import "BRATheme.h"
 #import "NativeColor+HTML.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 // It seems thats S01 & S00 have been switched compared to IEC 29500-1.
 // Don't know why !!!
@@ -46,7 +42,7 @@
 - (void)loadXmlContents {
     [super loadXmlContents];
     
-    NSDictionary *colorsScheme = [[NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation] dictionaryValueForKeyPath:@"a:themeElements.a:clrScheme"];
+    NSDictionary *colorsScheme = [[NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation] xlsxReaderDictionaryValueForKeyPath:@"a:themeElements.a:clrScheme"];
     
     _colors = @[
                 [self colorNamed:S00 inColorScheme:colorsScheme],
@@ -65,10 +61,10 @@
 }
 
 - (BRANativeColor *)colorNamed:(NSString *)colorName inColorScheme:(NSDictionary *)colorsScheme {
-    NSString *colorValue = [colorsScheme dictionaryValueForKeyPath:[colorName stringByAppendingString:@".a:sysClr"]][@"_lastClr"];
+    NSString *colorValue = [colorsScheme xlsxReaderDictionaryValueForKeyPath:[colorName stringByAppendingString:@".a:sysClr"]][@"_lastClr"];
     
     if (!colorValue) {
-        colorValue = [colorsScheme dictionaryValueForKeyPath:[colorName stringByAppendingString:@".a:srgbClr"]][@"_val"];
+        colorValue = [colorsScheme xlsxReaderDictionaryValueForKeyPath:[colorName stringByAppendingString:@".a:srgbClr"]][@"_val"];
     }
     
     //Do not replace this 'if' with an 'else' or 'else if' !!!

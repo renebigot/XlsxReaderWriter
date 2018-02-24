@@ -8,11 +8,7 @@
 
 #import "BRAContentTypesOverride.h"
 #import "BRARelationship.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAContentTypesOverride
 
@@ -30,8 +26,8 @@
 - (void)loadAttributes {
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
 
-    self.contentType = dictionaryRepresentation.attributes[@"ContentType"];
-    self.partName = dictionaryRepresentation.attributes[@"PartName"];
+    self.contentType = dictionaryRepresentation.xlsxReaderAttributes[@"ContentType"];
+    self.partName = dictionaryRepresentation.xlsxReaderAttributes[@"PartName"];
 }
 
 - (NSString *)description {

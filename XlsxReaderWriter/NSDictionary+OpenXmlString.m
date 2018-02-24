@@ -7,11 +7,7 @@
 //
 
 #import "NSDictionary+OpenXmlString.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation NSDictionary (OpenXmlString)
 
@@ -247,11 +243,11 @@
 - (NSString *)openXmlInnerXMLInNodeNamed:(NSString *)nodeName {
     NSMutableArray *nodes = [NSMutableArray array];
     
-    for (NSString *comment in [self comments]) {
-        [nodes addObject:[NSString stringWithFormat:@"<!--%@-->", [comment XMLEncodedString]]];
+    for (NSString *comment in [self xlsxReaderComments]) {
+        [nodes addObject:[NSString stringWithFormat:@"<!--%@-->", [comment xlsxReaderXMLEncodedString]]];
     }
     
-    NSDictionary *childNodes = [self childNodes];
+    NSDictionary *childNodes = [self xlsxReaderChildNodes];
     NSMutableArray *allKeys = [childNodes allKeys].mutableCopy;
     
     if ([NSDictionary openXmlOrderedKeys][nodeName]) {
@@ -269,14 +265,14 @@
     
     NSString *text = [self openXmlInnerText];
     if (text) {
-        [nodes addObject:[text XMLEncodedString]];
+        [nodes addObject:[text xlsxReaderXMLEncodedString]];
     }
     
     return [nodes componentsJoinedByString:@""];
 }
 
 - (id)openXmlInnerText {
-    id text = self[XMLDictionaryTextKey];
+    id text = self[XlsxReaderXMLDictionaryTextKey];
     if ([text isKindOfClass:[NSArray class]]) {
         return [text componentsJoinedByString:@"\r\n"];
     } else {
@@ -296,7 +292,7 @@
         
         
     } else if ([node isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *attributes = [(NSDictionary *)node attributes];
+        NSDictionary *attributes = [(NSDictionary *)node xlsxReaderAttributes];
         NSMutableString *attributeString = [NSMutableString string];
         
         NSMutableArray *allKeys = [attributes allKeys].mutableCopy;
@@ -305,7 +301,7 @@
         if ([NSDictionary openXmlOrderedKeys][nodeName]) {
             for (NSString *key in [NSDictionary openXmlOrderedKeys][nodeName]) {
                 if (attributes[key]) {
-                    [attributeString appendFormat:@" %@=\"%@\"", [[key description] XMLEncodedString], [[attributes[key] description] XMLEncodedString]];
+                    [attributeString appendFormat:@" %@=\"%@\"", [[key description] xlsxReaderXMLEncodedString], [[attributes[key] description] xlsxReaderXMLEncodedString]];
                     [allKeys removeObject:key];
                 }
             }
@@ -313,7 +309,7 @@
         
         //then all others
         for (NSString *key in allKeys) {
-            [attributeString appendFormat:@" %@=\"%@\"", [[key description] XMLEncodedString], [[attributes[key] description] XMLEncodedString]];
+            [attributeString appendFormat:@" %@=\"%@\"", [[key description] xlsxReaderXMLEncodedString], [[attributes[key] description] xlsxReaderXMLEncodedString]];
         }
         
         NSString *innerXML = [node openXmlInnerXMLInNodeNamed:nodeName];
@@ -326,7 +322,7 @@
         
         
     } else {
-        return [NSString stringWithFormat:@"<%1$@>%2$@</%1$@>", nodeName, [[node description] XMLEncodedString]];
+        return [NSString stringWithFormat:@"<%1$@>%2$@</%1$@>", nodeName, [[node description] xlsxReaderXMLEncodedString]];
     }
 }
 

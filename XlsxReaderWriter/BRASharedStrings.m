@@ -9,11 +9,7 @@
 #import "BRASharedStrings.h"
 #import "BRAStyles.h"
 #import "BRASharedString.h"
-#if TARGET_OS_IPHONE
-@import XMLDictionary;
-#else
-#import "XMLDictionary.h"
-#endif
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRASharedStrings
 
@@ -34,7 +30,7 @@
     
     NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
 
-    NSArray *siArray = [attributes arrayValueForKeyPath:@"si"];
+    NSArray *siArray = [attributes xlsxReaderArrayValueForKeyPath:@"si"];
     
     //Create shared strings
     NSMutableArray *sharedStringsArray = [[NSMutableArray alloc] initWithCapacity:[siArray count]];
