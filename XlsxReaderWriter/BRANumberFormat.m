@@ -607,6 +607,8 @@
                         ++exponentLength;
                     }
                 } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"e" withString:@"e+"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"E" withString:@"E+"];
 
