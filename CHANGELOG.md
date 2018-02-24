@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+- As of this version, the minimum system requirement are iOS 8.0, macOS 10.9 
 - Added Travis for automatic testing
 - Merged [Liquidsoul fork](https://github.com/Liquidsoul/XlsxReaderWriter) as he fixed Testing 
 - Merged [brvignesh PullRequest #94](https://github.com/renebigot/XlsxReaderWriter/pull/94)
