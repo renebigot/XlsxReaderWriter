@@ -466,7 +466,7 @@
     [[worksheet cellForCellReference:@"Y26"] setNumberFormat:@"mm/dd/yy"];
 
     [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setFormulaString:@"1/0"];
-    [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setError:@"#DIV/0!"];
+    [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setStringValue:@"#DIV/0!"];
 
     
     //Try to read those values
