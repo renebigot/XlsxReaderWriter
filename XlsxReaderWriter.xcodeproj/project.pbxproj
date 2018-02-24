@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */; };
-		123069AC7E69983D542C251E /* Pods_XlsxReaderWriter_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */; };
 		22156D611C46B5DB00BB5779 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */; };
 		22156D621C46B5DB00BB5779 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
 		22156D631C46B5DB00BB5779 /* NSDictionary+OpenXmlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D21A15171B00790ED5 /* NSDictionary+OpenXmlString.m */; };
@@ -139,10 +137,97 @@
 		45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBCA1BB212A2002ACC9C /* BRAComments.m */; };
 		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
 		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
-		682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */; };
+		5743CFFF3FBE4C27537827FC /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7934BC8001D68396E5F835A /* Pods_XlsxReaderWriter.framework */; };
 		8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; };
 		8265BC322041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
 		8265BC332041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
+		8289AA672041D9F900E00603 /* XlsxReaderWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8289AA652041D9F900E00603 /* XlsxReaderWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA6B2041DA4800E00603 /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
+		8289AA6C2041DA4800E00603 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */; };
+		8289AA6D2041DA4800E00603 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
+		8289AA6E2041DA4800E00603 /* NSDictionary+OpenXmlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D21A15171B00790ED5 /* NSDictionary+OpenXmlString.m */; };
+		8289AA6F2041DA4800E00603 /* NativeFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */; };
+		8289AA702041DA4800E00603 /* NativeColor+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6C51A15170900790ED5 /* NativeColor+HTML.m */; };
+		8289AA712041DA4800E00603 /* NativeColor+OpenXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6C71A15170900790ED5 /* NativeColor+OpenXML.m */; };
+		8289AA722041DA4800E00603 /* BRAOfficeDocumentPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D71A15176A00790ED5 /* BRAOfficeDocumentPackage.m */; };
+		8289AA732041DA4800E00603 /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
+		8289AA742041DA4800E00603 /* BRACalcChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C68C1A15160C00790ED5 /* BRACalcChain.m */; };
+		8289AA752041DA4800E00603 /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
+		8289AA762041DA4800E00603 /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBCA1BB212A2002ACC9C /* BRAComments.m */; };
+		8289AA772041DA4800E00603 /* BRAContentTypesOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6BF1A1516EA00790ED5 /* BRAContentTypesOverride.m */; };
+		8289AA782041DA4800E00603 /* BRAContentTypesDefaultExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6BC1A1516E200790ED5 /* BRAContentTypesDefaultExtension.m */; };
+		8289AA792041DA4800E00603 /* BRAContentTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6B91A1516D000790ED5 /* BRAContentTypes.m */; };
+		8289AA7A2041DA4800E00603 /* BRAWorksheetDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6891A1515F700790ED5 /* BRAWorksheetDrawing.m */; };
+		8289AA7B2041DA4800E00603 /* BRADrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6861A1515EE00790ED5 /* BRADrawing.m */; };
+		8289AA7C2041DA4800E00603 /* BRAImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6831A1515E100790ED5 /* BRAImage.m */; };
+		8289AA7D2041DA4800E00603 /* BRASharedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6AD1A1516A500790ED5 /* BRASharedString.m */; };
+		8289AA7E2041DA4800E00603 /* BRASharedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6AF1A1516A500790ED5 /* BRASharedStrings.m */; };
+		8289AA7F2041DA4800E00603 /* BRACellFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6A41A15167D00790ED5 /* BRACellFormat.m */; };
+		8289AA802041DA4800E00603 /* BRANumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6A71A15168900790ED5 /* BRANumberFormat.m */; };
+		8289AA812041DA4800E00603 /* BRACellFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6A11A15167400790ED5 /* BRACellFill.m */; };
+		8289AA822041DA4800E00603 /* BRAStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6AA1A15169100790ED5 /* BRAStyles.m */; };
+		8289AA832041DA4800E00603 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
+		8289AA842041DA4800E00603 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */; };
+		8289AA852041DA4800E00603 /* BRASheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6B31A1516B900790ED5 /* BRASheet.m */; };
+		8289AA862041DA4800E00603 /* BRAOfficeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6B61A1516BF00790ED5 /* BRAOfficeDocument.m */; };
+		8289AA872041DA4800E00603 /* BRACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C69E1A15165D00790ED5 /* BRACell.m */; };
+		8289AA882041DA4800E00603 /* BRARow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C69B1A15165100790ED5 /* BRARow.m */; };
+		8289AA892041DA4800E00603 /* BRAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6981A15164600790ED5 /* BRAColumn.m */; };
+		8289AA8A2041DA4800E00603 /* BRAMergeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6951A15163A00790ED5 /* BRAMergeCell.m */; };
+		8289AA8B2041DA4800E00603 /* BRACellRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6921A15162D00790ED5 /* BRACellRange.m */; };
+		8289AA8C2041DA4800E00603 /* BRAWorksheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C68F1A15161A00790ED5 /* BRAWorksheet.m */; };
+		8289AA8D2041DA4800E00603 /* BRAOpenXmlSubElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67F1A1515CB00790ED5 /* BRAOpenXmlSubElement.m */; };
+		8289AA8E2041DA4800E00603 /* BRAOpenXmlElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67D1A1515CB00790ED5 /* BRAOpenXmlElement.m */; };
+		8289AA8F2041DA4800E00603 /* BRAElementWithRelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67A1A1515AB00790ED5 /* BRAElementWithRelationships.m */; };
+		8289AA902041DA4800E00603 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
+		8289AA912041DA4800E00603 /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6761A15157100790ED5 /* BRARelationships.m */; };
+		8289AA922041DA8D00E00603 /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; };
+		8289AA932041DA8D00E00603 /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; };
+		8289AA942041DA8D00E00603 /* NSDictionary+DeepCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CD1A15171B00790ED5 /* NSDictionary+DeepCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA952041DA8D00E00603 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CF1A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA962041DA8D00E00603 /* NSDictionary+OpenXmlString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6D11A15171B00790ED5 /* NSDictionary+OpenXmlString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA972041DA8D00E00603 /* NativeFont+BoldItalic.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CA1A15171100790ED5 /* NativeFont+BoldItalic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA982041DA8D00E00603 /* NativeColor+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6C41A15170900790ED5 /* NativeColor+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA992041DA8D00E00603 /* NativeColor+OpenXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6C61A15170900790ED5 /* NativeColor+OpenXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9A2041DA8D00E00603 /* XlsxReaderWriter-swift-bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9B2041DA8D00E00603 /* BRAOfficeDocumentPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6D61A15176A00790ED5 /* BRAOfficeDocumentPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9C2041DA8D00E00603 /* BRACalcChainCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D6FBD21BB27801002ACC9C /* BRACalcChainCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9D2041DA8D00E00603 /* BRACalcChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C68B1A15160C00790ED5 /* BRACalcChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9E2041DA8D00E00603 /* BRAComment.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D6FBD61BB27970002ACC9C /* BRAComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA9F2041DA8D00E00603 /* BRAComments.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D6FBD01BB2777C002ACC9C /* BRAComments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA02041DA8D00E00603 /* BRAContentTypesOverride.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6BE1A1516EA00790ED5 /* BRAContentTypesOverride.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA12041DA8D00E00603 /* BRAContentTypesDefaultExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6BB1A1516E200790ED5 /* BRAContentTypesDefaultExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA22041DA8D00E00603 /* BRAContentTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6B81A1516D000790ED5 /* BRAContentTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA32041DA8D00E00603 /* BRAWorksheetDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6881A1515F700790ED5 /* BRAWorksheetDrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA42041DA8D00E00603 /* BRADrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6851A1515EE00790ED5 /* BRADrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA52041DA8D00E00603 /* BRAImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6821A1515E100790ED5 /* BRAImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA62041DA8D00E00603 /* BRASharedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6AC1A1516A500790ED5 /* BRASharedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA72041DA8D00E00603 /* BRASharedStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6AE1A1516A500790ED5 /* BRASharedStrings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA82041DA8D00E00603 /* BRACellFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6A31A15167D00790ED5 /* BRACellFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAA92041DA8D00E00603 /* BRANumberFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6A61A15168900790ED5 /* BRANumberFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAA2041DA8D00E00603 /* BRACellFill.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6A01A15167400790ED5 /* BRACellFill.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAB2041DA8D00E00603 /* BRAStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6A91A15169100790ED5 /* BRAStyles.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAC2041DA8D00E00603 /* BRATheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D49FB1B4B27E40053CD86 /* BRATheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAD2041DA8D00E00603 /* BRAVmlDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 455C23B71BB908DF00CEE3A2 /* BRAVmlDrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAE2041DA8D00E00603 /* BRASheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6B21A1516B900790ED5 /* BRASheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAAF2041DA8D00E00603 /* BRAOfficeDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6B51A1516BF00790ED5 /* BRAOfficeDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB02041DA8D00E00603 /* BRACell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C69D1A15165D00790ED5 /* BRACell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB12041DA8D00E00603 /* BRARow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C69A1A15165100790ED5 /* BRARow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB22041DA8D00E00603 /* BRAColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6971A15164600790ED5 /* BRAColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB32041DA8D00E00603 /* BRAMergeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6941A15163A00790ED5 /* BRAMergeCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB42041DA8D00E00603 /* BRACellRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6911A15162D00790ED5 /* BRACellRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB52041DA8D00E00603 /* BRAWorksheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C68E1A15161A00790ED5 /* BRAWorksheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB62041DA8E00E00603 /* BRARelatedToColumnAndRowProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D6FBCE1BB275F3002ACC9C /* BRARelatedToColumnAndRowProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB72041DA8E00E00603 /* BRAOpenXmlSubElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C67E1A1515CB00790ED5 /* BRAOpenXmlSubElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB82041DA8E00E00603 /* BRAOpenXmlElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C67C1A1515CB00790ED5 /* BRAOpenXmlElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAB92041DA8E00E00603 /* BRAElementWithRelationships.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6791A1515AB00790ED5 /* BRAElementWithRelationships.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AABA2041DA8E00E00603 /* BRARelationship.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6731A15157100790ED5 /* BRARelationship.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AABB2041DA8E00E00603 /* BRARelationships.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6751A15157100790ED5 /* BRARelationships.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AAC02041DBE600E00603 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8289AABF2041DBE600E00603 /* ZipArchive.framework */; };
+		8289AAC32041E86900E00603 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8289AABD2041DAD500E00603 /* ZipArchive.framework */; };
+		8289AAC72041E8B500E00603 /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8289AAC62041E8B500E00603 /* libz.1.tbd */; };
+		8289AAC82041E8BC00E00603 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E30E1A15132200288A78 /* UIKit.framework */; };
+		F715C38CD360D343BB5A0A40 /* Pods_XlsxReaderWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C10BE487F398AD13E5463EF /* Pods_XlsxReaderWriterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,15 +253,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter Mac.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac.release.xcconfig"; sourceTree = "<group>"; };
 		22156D581C46B42500BB5779 /* XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22156D5C1C46B42500BB5779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22156DB21C46B7EC00BB5779 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		22225F2D1C47F60600256993 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
 		22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
-		31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.debug.xcconfig"; sourceTree = "<group>"; };
-		36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.release.xcconfig"; sourceTree = "<group>"; };
-		3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C10BE487F398AD13E5463EF /* Pods_XlsxReaderWriterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450E98F71B9783D500177B4A /* XlsxReaderWriter-swift-bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-swift-bridge.h"; sourceTree = "<group>"; };
 		454D49FB1B4B27E40053CD86 /* BRATheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATheme.h; sourceTree = "<group>"; };
 		454D49FC1B4B27E40053CD86 /* BRATheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRATheme.m; sourceTree = "<group>"; };
@@ -270,15 +352,22 @@
 		45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRACalcChainCell.m; sourceTree = "<group>"; };
 		45D6FBD61BB27970002ACC9C /* BRAComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAComment.h; sourceTree = "<group>"; };
 		45D6FBD71BB279A5002ACC9C /* BRAComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAComment.m; sourceTree = "<group>"; };
-		75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.debug.xcconfig"; sourceTree = "<group>"; };
-		7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
 		8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XlsxReaderXMLDictionary.h; path = XlsxReaderWriter/XlsxReaderXMLDictionary.h; sourceTree = "<group>"; };
 		8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XlsxReaderXMLDictionary.m; path = XlsxReaderWriter/XlsxReaderXMLDictionary.m; sourceTree = "<group>"; };
 		8289AA5C2041CD4A00E00603 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac.debug.xcconfig"; sourceTree = "<group>"; };
+		8289AA5D2041D98C00E00603 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		8289AA632041D9F900E00603 /* XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8289AA652041D9F900E00603 /* XlsxReaderWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XlsxReaderWriter.h; sourceTree = "<group>"; };
+		8289AA662041D9F900E00603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8289AABD2041DAD500E00603 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = "../../fsipframework-excel-import/Carthage/Build/iOS/ZipArchive.framework"; sourceTree = "<group>"; };
+		8289AABF2041DBE600E00603 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = Carthage/Build/Mac/ZipArchive.framework; sourceTree = SOURCE_ROOT; };
+		8289AAC42041E8A900E00603 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8289AAC62041E8B500E00603 /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		9D696E6D8789816F5AD56DDB /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
+		B629C1D1A78EFCF049CF9F1E /* Pods-XlsxReaderWriterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BBCDA53CCC07B1F17D2B6C1E /* Pods-XlsxReaderWriter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.release.xcconfig"; sourceTree = "<group>"; };
+		BE88C1C46260286743BF39E1 /* Pods-XlsxReaderWriter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.debug.xcconfig"; sourceTree = "<group>"; };
+		F7934BC8001D68396E5F835A /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,8 +376,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				22225F2E1C47F60600256993 /* libz.1.dylib in Frameworks */,
+				8289AAC02041DBE600E00603 /* ZipArchive.framework in Frameworks */,
 				22156DB31C46B7EC00BB5779 /* Cocoa.framework in Frameworks */,
-				123069AC7E69983D542C251E /* Pods_XlsxReaderWriter_Mac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B6E30D1A1512F700288A78 /* Foundation.framework in Frameworks */,
-				682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */,
+				5743CFFF3FBE4C27537827FC /* Pods_XlsxReaderWriter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,33 +399,31 @@
 				45B6E30A1A1512DD00288A78 /* Foundation.framework in Frameworks */,
 				45B6E3071A1511A000288A78 /* libz.dylib in Frameworks */,
 				45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */,
-				01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */,
+				F715C38CD360D343BB5A0A40 /* Pods_XlsxReaderWriterTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8289AA5F2041D9F900E00603 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8289AAC82041E8BC00E00603 /* UIKit.framework in Frameworks */,
+				8289AAC72041E8B500E00603 /* libz.1.tbd in Frameworks */,
+				8289AAC32041E86900E00603 /* ZipArchive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B04EB28382D2870FA5A8288 /* Pods */ = {
+		22156D591C46B42500BB5779 /* XlsxReaderWriter-Mac */ = {
 			isa = PBXGroup;
 			children = (
-				75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */,
-				36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */,
-				E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */,
-				1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */,
-				31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */,
-				7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		22156D591C46B42500BB5779 /* XlsxReaderWriter Mac */ = {
-			isa = PBXGroup;
-			children = (
+				8289AABF2041DBE600E00603 /* ZipArchive.framework */,
 				22156D5C1C46B42500BB5779 /* Info.plist */,
 				22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */,
 			);
-			path = "XlsxReaderWriter Mac";
+			path = "XlsxReaderWriter-Mac";
 			sourceTree = "<group>";
 		};
 		22156DB01C46B7CA00BB5779 /* Mac */ = {
@@ -378,14 +465,17 @@
 		45B6E2311A148F7500288A78 = {
 			isa = PBXGroup;
 			children = (
+				455542A21C48DE4D00EAB8FE /* README.md */,
+				8289AA5D2041D98C00E00603 /* CHANGELOG.md */,
 				455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */,
 				45B6E23C1A148F7500288A78 /* XlsxReaderWriter */,
 				45B6E2491A148F7500288A78 /* XlsxReaderWriterTests */,
-				22156D591C46B42500BB5779 /* XlsxReaderWriter Mac */,
+				22156D591C46B42500BB5779 /* XlsxReaderWriter-Mac */,
+				8289AA642041D9F900E00603 /* XlsxReaderWriter-iOS */,
 				45B6E3081A15125300288A78 /* External Frameworks */,
 				45B6E23B1A148F7500288A78 /* Products */,
-				0B04EB28382D2870FA5A8288 /* Pods */,
-				88B4873AAB91B2D6EEA26BE2 /* Frameworks */,
+				8289AAC12041E85800E00603 /* Frameworks */,
+				5A6BA663BF881B066E09FB04 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,6 +485,7 @@
 				45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */,
 				45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */,
 				22156D581C46B42500BB5779 /* XlsxReaderWriter.framework */,
+				8289AA632041D9F900E00603 /* XlsxReaderWriter.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -402,7 +493,6 @@
 		45B6E23C1A148F7500288A78 /* XlsxReaderWriter */ = {
 			isa = PBXGroup;
 			children = (
-				455542A21C48DE4D00EAB8FE /* README.md */,
 				455542A31C48DE4D00EAB8FE /* XlsxReaderWriter.podspec */,
 				8289AA5C2041CD4A00E00603 /* Cartfile */,
 				45B6E2711A15068500288A78 /* Additions */,
@@ -848,13 +938,34 @@
 			name = "Sub Elements";
 			sourceTree = "<group>";
 		};
-		88B4873AAB91B2D6EEA26BE2 /* Frameworks */ = {
+		5A6BA663BF881B066E09FB04 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */,
-				8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */,
-				3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */,
-				CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */,
+				BE88C1C46260286743BF39E1 /* Pods-XlsxReaderWriter.debug.xcconfig */,
+				BBCDA53CCC07B1F17D2B6C1E /* Pods-XlsxReaderWriter.release.xcconfig */,
+				B629C1D1A78EFCF049CF9F1E /* Pods-XlsxReaderWriterTests.debug.xcconfig */,
+				9D696E6D8789816F5AD56DDB /* Pods-XlsxReaderWriterTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8289AA642041D9F900E00603 /* XlsxReaderWriter-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8289AABD2041DAD500E00603 /* ZipArchive.framework */,
+				8289AA652041D9F900E00603 /* XlsxReaderWriter.h */,
+				8289AA662041D9F900E00603 /* Info.plist */,
+			);
+			path = "XlsxReaderWriter-iOS";
+			sourceTree = "<group>";
+		};
+		8289AAC12041E85800E00603 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8289AAC62041E8B500E00603 /* libz.1.tbd */,
+				8289AAC42041E8A900E00603 /* libz.tbd */,
+				F7934BC8001D68396E5F835A /* Pods_XlsxReaderWriter.framework */,
+				3C10BE487F398AD13E5463EF /* Pods_XlsxReaderWriterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -912,25 +1023,73 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8289AA602041D9F900E00603 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8289AA672041D9F900E00603 /* XlsxReaderWriter.h in Headers */,
+				8289AA942041DA8D00E00603 /* NSDictionary+DeepCopy.h in Headers */,
+				8289AA952041DA8D00E00603 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */,
+				8289AA962041DA8D00E00603 /* NSDictionary+OpenXmlString.h in Headers */,
+				8289AA972041DA8D00E00603 /* NativeFont+BoldItalic.h in Headers */,
+				8289AA982041DA8D00E00603 /* NativeColor+HTML.h in Headers */,
+				8289AA992041DA8D00E00603 /* NativeColor+OpenXML.h in Headers */,
+				8289AA9A2041DA8D00E00603 /* XlsxReaderWriter-swift-bridge.h in Headers */,
+				8289AA9B2041DA8D00E00603 /* BRAOfficeDocumentPackage.h in Headers */,
+				8289AA9C2041DA8D00E00603 /* BRACalcChainCell.h in Headers */,
+				8289AA9D2041DA8D00E00603 /* BRACalcChain.h in Headers */,
+				8289AA9E2041DA8D00E00603 /* BRAComment.h in Headers */,
+				8289AA9F2041DA8D00E00603 /* BRAComments.h in Headers */,
+				8289AAA02041DA8D00E00603 /* BRAContentTypesOverride.h in Headers */,
+				8289AAA12041DA8D00E00603 /* BRAContentTypesDefaultExtension.h in Headers */,
+				8289AAA22041DA8D00E00603 /* BRAContentTypes.h in Headers */,
+				8289AAA32041DA8D00E00603 /* BRAWorksheetDrawing.h in Headers */,
+				8289AAA42041DA8D00E00603 /* BRADrawing.h in Headers */,
+				8289AAA52041DA8D00E00603 /* BRAImage.h in Headers */,
+				8289AAA62041DA8D00E00603 /* BRASharedString.h in Headers */,
+				8289AAA72041DA8D00E00603 /* BRASharedStrings.h in Headers */,
+				8289AAA82041DA8D00E00603 /* BRACellFormat.h in Headers */,
+				8289AAA92041DA8D00E00603 /* BRANumberFormat.h in Headers */,
+				8289AAAA2041DA8D00E00603 /* BRACellFill.h in Headers */,
+				8289AAAB2041DA8D00E00603 /* BRAStyles.h in Headers */,
+				8289AAAC2041DA8D00E00603 /* BRATheme.h in Headers */,
+				8289AAAD2041DA8D00E00603 /* BRAVmlDrawing.h in Headers */,
+				8289AAAE2041DA8D00E00603 /* BRASheet.h in Headers */,
+				8289AAAF2041DA8D00E00603 /* BRAOfficeDocument.h in Headers */,
+				8289AAB02041DA8D00E00603 /* BRACell.h in Headers */,
+				8289AAB12041DA8D00E00603 /* BRARow.h in Headers */,
+				8289AAB22041DA8D00E00603 /* BRAColumn.h in Headers */,
+				8289AAB32041DA8D00E00603 /* BRAMergeCell.h in Headers */,
+				8289AAB42041DA8D00E00603 /* BRACellRange.h in Headers */,
+				8289AAB52041DA8D00E00603 /* BRAWorksheet.h in Headers */,
+				8289AAB62041DA8E00E00603 /* BRARelatedToColumnAndRowProtocol.h in Headers */,
+				8289AAB72041DA8E00E00603 /* BRAOpenXmlSubElement.h in Headers */,
+				8289AAB82041DA8E00E00603 /* BRAOpenXmlElement.h in Headers */,
+				8289AAB92041DA8E00E00603 /* BRAElementWithRelationships.h in Headers */,
+				8289AABA2041DA8E00E00603 /* BRARelationship.h in Headers */,
+				8289AABB2041DA8E00E00603 /* BRARelationships.h in Headers */,
+				8289AA922041DA8D00E00603 /* BRAPlatformSpecificDefines.h in Headers */,
+				8289AA932041DA8D00E00603 /* XlsxReaderXMLDictionary.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		22156D571C46B42500BB5779 /* XlsxReaderWriter Mac */ = {
+		22156D571C46B42500BB5779 /* XlsxReaderWriter-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 22156D5D1C46B42500BB5779 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter Mac" */;
+			buildConfigurationList = 22156D5D1C46B42500BB5779 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter-Mac" */;
 			buildPhases = (
-				A55AC71266FC73857073A3AA /* [CP] Check Pods Manifest.lock */,
 				22156D531C46B42500BB5779 /* Sources */,
 				22156D541C46B42500BB5779 /* Frameworks */,
 				22156D551C46B42500BB5779 /* Headers */,
 				22156D561C46B42500BB5779 /* Resources */,
-				15DD33693E1C5B4E00D3349D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "XlsxReaderWriter Mac";
+			name = "XlsxReaderWriter-Mac";
 			productName = "XlsxReaderWriter Mac";
 			productReference = 22156D581C46B42500BB5779 /* XlsxReaderWriter.framework */;
 			productType = "com.apple.product-type.framework";
@@ -975,6 +1134,24 @@
 			productReference = 45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8289AA622041D9F900E00603 /* XlsxReaderWriter-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8289AA682041D9F900E00603 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter-iOS" */;
+			buildPhases = (
+				8289AA5E2041D9F900E00603 /* Sources */,
+				8289AA5F2041D9F900E00603 /* Frameworks */,
+				8289AA602041D9F900E00603 /* Headers */,
+				8289AA612041D9F900E00603 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "XlsxReaderWriter-iOS";
+			productName = "XlsxReaderWriter-iOS";
+			productReference = 8289AA632041D9F900E00603 /* XlsxReaderWriter.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -995,6 +1172,10 @@
 						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0920;
 					};
+					8289AA622041D9F900E00603 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 45B6E2351A148F7500288A78 /* Build configuration list for PBXProject "XlsxReaderWriter" */;
@@ -1011,7 +1192,8 @@
 			targets = (
 				45B6E2391A148F7500288A78 /* XlsxReaderWriter */,
 				45B6E2441A148F7500288A78 /* XlsxReaderWriterTests */,
-				22156D571C46B42500BB5779 /* XlsxReaderWriter Mac */,
+				22156D571C46B42500BB5779 /* XlsxReaderWriter-Mac */,
+				8289AA622041D9F900E00603 /* XlsxReaderWriter-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -1033,24 +1215,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		15DD33693E1C5B4E00D3349D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
+		8289AA612041D9F900E00603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
 		335BF6412430415C2CC82921 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1076,7 +1250,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SSZipArchive-iOS/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1100,24 +1274,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A55AC71266FC73857073A3AA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriter Mac-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C6DF150C9DEBE1C7A81263C9 /* [CP] Check Pods Manifest.lock */ = {
@@ -1257,6 +1413,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8289AA5E2041D9F900E00603 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8289AA6B2041DA4800E00603 /* XlsxReaderXMLDictionary.m in Sources */,
+				8289AA6C2041DA4800E00603 /* NSDictionary+DeepCopy.m in Sources */,
+				8289AA6D2041DA4800E00603 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */,
+				8289AA6E2041DA4800E00603 /* NSDictionary+OpenXmlString.m in Sources */,
+				8289AA6F2041DA4800E00603 /* NativeFont+BoldItalic.m in Sources */,
+				8289AA702041DA4800E00603 /* NativeColor+HTML.m in Sources */,
+				8289AA712041DA4800E00603 /* NativeColor+OpenXML.m in Sources */,
+				8289AA722041DA4800E00603 /* BRAOfficeDocumentPackage.m in Sources */,
+				8289AA732041DA4800E00603 /* BRACalcChainCell.m in Sources */,
+				8289AA742041DA4800E00603 /* BRACalcChain.m in Sources */,
+				8289AA752041DA4800E00603 /* BRAComment.m in Sources */,
+				8289AA762041DA4800E00603 /* BRAComments.m in Sources */,
+				8289AA772041DA4800E00603 /* BRAContentTypesOverride.m in Sources */,
+				8289AA782041DA4800E00603 /* BRAContentTypesDefaultExtension.m in Sources */,
+				8289AA792041DA4800E00603 /* BRAContentTypes.m in Sources */,
+				8289AA7A2041DA4800E00603 /* BRAWorksheetDrawing.m in Sources */,
+				8289AA7B2041DA4800E00603 /* BRADrawing.m in Sources */,
+				8289AA7C2041DA4800E00603 /* BRAImage.m in Sources */,
+				8289AA7D2041DA4800E00603 /* BRASharedString.m in Sources */,
+				8289AA7E2041DA4800E00603 /* BRASharedStrings.m in Sources */,
+				8289AA7F2041DA4800E00603 /* BRACellFormat.m in Sources */,
+				8289AA802041DA4800E00603 /* BRANumberFormat.m in Sources */,
+				8289AA812041DA4800E00603 /* BRACellFill.m in Sources */,
+				8289AA822041DA4800E00603 /* BRAStyles.m in Sources */,
+				8289AA832041DA4800E00603 /* BRATheme.m in Sources */,
+				8289AA842041DA4800E00603 /* BRAVmlDrawing.m in Sources */,
+				8289AA852041DA4800E00603 /* BRASheet.m in Sources */,
+				8289AA862041DA4800E00603 /* BRAOfficeDocument.m in Sources */,
+				8289AA872041DA4800E00603 /* BRACell.m in Sources */,
+				8289AA882041DA4800E00603 /* BRARow.m in Sources */,
+				8289AA892041DA4800E00603 /* BRAColumn.m in Sources */,
+				8289AA8A2041DA4800E00603 /* BRAMergeCell.m in Sources */,
+				8289AA8B2041DA4800E00603 /* BRACellRange.m in Sources */,
+				8289AA8C2041DA4800E00603 /* BRAWorksheet.m in Sources */,
+				8289AA8D2041DA4800E00603 /* BRAOpenXmlSubElement.m in Sources */,
+				8289AA8E2041DA4800E00603 /* BRAOpenXmlElement.m in Sources */,
+				8289AA8F2041DA4800E00603 /* BRAElementWithRelationships.m in Sources */,
+				8289AA902041DA4800E00603 /* BRARelationship.m in Sources */,
+				8289AA912041DA4800E00603 /* BRARelationships.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1270,7 +1472,6 @@
 /* Begin XCBuildConfiguration section */
 		22156D5E1C46B42500BB5779 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1281,30 +1482,33 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/XlsxReaderWriter/MacOnly",
 					"$(SRCROOT)/XlsxReaderWriter",
-					"$(SRCROOT)/ThirdParties/SSZipArchive/SSZipArchive",
-					"$(SRCROOT)/ThirdParties/SSZipArchive/SSZipArchive/minizip",
 				);
-				INFOPLIST_FILE = "XlsxReaderWriter Mac/Info.plist";
+				INFOPLIST_FILE = "XlsxReaderWriter-Mac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charlymr.XlsxReaderWriter-Mac";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				XLSX_PROJECT_BASE_CONFIG = 1;
 			};
 			name = Debug;
 		};
 		22156D5F1C46B42500BB5779 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A1326A638ADF2951319EC08 /* Pods-XlsxReaderWriter Mac.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1315,24 +1519,28 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/XlsxReaderWriter/MacOnly",
 					"$(SRCROOT)/XlsxReaderWriter",
-					"$(SRCROOT)/ThirdParties/SSZipArchive/SSZipArchive",
-					"$(SRCROOT)/ThirdParties/SSZipArchive/SSZipArchive/minizip",
 				);
-				INFOPLIST_FILE = "XlsxReaderWriter Mac/Info.plist";
+				INFOPLIST_FILE = "XlsxReaderWriter-Mac/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charlymr.XlsxReaderWriter-Mac";
 				PRODUCT_NAME = XlsxReaderWriter;
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				XLSX_PROJECT_BASE_CONFIG = 1;
 			};
 			name = Release;
 		};
@@ -1370,7 +1578,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
@@ -1405,7 +1613,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
@@ -1415,7 +1623,7 @@
 		};
 		45B6E24F1A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */;
+			baseConfigurationReference = BE88C1C46260286743BF39E1 /* Pods-XlsxReaderWriter.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1433,7 +1641,7 @@
 		};
 		45B6E2501A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36919FCC0C90EE5B4E7E1B46 /* Pods-XlsxReaderWriter.release.xcconfig */;
+			baseConfigurationReference = BBCDA53CCC07B1F17D2B6C1E /* Pods-XlsxReaderWriter.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1451,7 +1659,7 @@
 		};
 		45B6E2521A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */;
+			baseConfigurationReference = B629C1D1A78EFCF049CF9F1E /* Pods-XlsxReaderWriterTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1475,7 +1683,7 @@
 		};
 		45B6E2531A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */;
+			baseConfigurationReference = 9D696E6D8789816F5AD56DDB /* Pods-XlsxReaderWriterTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1496,10 +1704,102 @@
 			};
 			name = Release;
 		};
+		8289AA692041D9F900E00603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "XlsxReaderWriter-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charlymr.XlsxReaderWriter-iOS";
+				PRODUCT_NAME = XlsxReaderWriter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XLSX_PROJECT_BASE_CONFIG = 1;
+			};
+			name = Debug;
+		};
+		8289AA6A2041D9F900E00603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "XlsxReaderWriter-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.charlymr.XlsxReaderWriter-iOS";
+				PRODUCT_NAME = XlsxReaderWriter;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				XLSX_PROJECT_BASE_CONFIG = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		22156D5D1C46B42500BB5779 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter Mac" */ = {
+		22156D5D1C46B42500BB5779 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22156D5E1C46B42500BB5779 /* Debug */,
@@ -1531,6 +1831,15 @@
 			buildConfigurations = (
 				45B6E2521A148F7500288A78 /* Debug */,
 				45B6E2531A148F7500288A78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8289AA682041D9F900E00603 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8289AA692041D9F900E00603 /* Debug */,
+				8289AA6A2041D9F900E00603 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

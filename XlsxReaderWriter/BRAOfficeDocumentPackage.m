@@ -8,7 +8,12 @@
 
 #import "BRAOfficeDocumentPackage.h"
 
+#if COCOAPODS
 @import SSZipArchive;
+#else
+@import ZipArchive;
+#endif
+
 
 #import "BRAContentTypes.h"
 #import "BRARelationships.h"

@@ -16,9 +16,3 @@ target 'XlsxReaderWriterTests' do
 	use_frameworks!
     thridparty
 end
-
-target 'XlsxReaderWriter Mac' do
-    platform :osx, '10.9'
-    thridparty
-    use_frameworks!
-end

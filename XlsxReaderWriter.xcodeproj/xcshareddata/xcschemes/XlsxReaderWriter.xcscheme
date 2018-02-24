@@ -28,7 +28,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82B3941F2031A5B900FBC08B"
+               BlueprintIdentifier = "45B6E2441A148F7500288A78"
                BuildableName = "XlsxReaderWriterTests.xctest"
                BlueprintName = "XlsxReaderWriterTests"
                ReferencedContainer = "container:XlsxReaderWriter.xcodeproj">
@@ -48,7 +48,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82B3941F2031A5B900FBC08B"
+               BlueprintIdentifier = "45B6E2441A148F7500288A78"
                BuildableName = "XlsxReaderWriterTests.xctest"
                BlueprintName = "XlsxReaderWriterTests"
                ReferencedContainer = "container:XlsxReaderWriter.xcodeproj">
