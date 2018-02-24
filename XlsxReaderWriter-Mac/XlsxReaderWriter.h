@@ -16,6 +16,7 @@ FOUNDATION_EXPORT const unsigned char XlsxReaderWriter_macOSVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <XlsxReaderWriter/PublicHeader.h>
 
+
 #ifndef BRAXlsxReaderWriter_h
 #define BRAXlsxReaderWriter_h
 
@@ -32,5 +33,6 @@ FOUNDATION_EXPORT const unsigned char XlsxReaderWriter_macOSVersionString[];
 #import "BRAVmlDrawing.h"
 #import "BRASheet.h"
 #import "XlsxReaderWriter-swift-bridge.h"
+#import "XlsxReaderXMLDictionary.h"
 
 #endif /* BRAXlsxReaderWriter_h */

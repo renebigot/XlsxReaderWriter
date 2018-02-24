@@ -33,6 +33,7 @@ FOUNDATION_EXPORT const unsigned char XlsxReaderWriter_iOSVersionString[];
 #import "BRAVmlDrawing.h"
 #import "BRASheet.h"
 #import "XlsxReaderWriter-swift-bridge.h"
+#import "XlsxReaderXMLDictionary.h"
 
 
 #endif /* BRAXlsxReaderWriter_h */
