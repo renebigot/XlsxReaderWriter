@@ -36,9 +36,9 @@ build/
 *.dat
 *.dep
 
-*.xcodeproj/
+*.xcodeproj/xcuserdata
 !*.xcodeproj/project.pbxproj
-
+Pods
 
 
 *.xcuserstate
