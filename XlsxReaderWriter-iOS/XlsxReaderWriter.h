@@ -1,3 +1,22 @@
+//
+//  XlsxReaderWriter.h
+//  XlsxReaderWriter
+//
+//  Created by Denis Martin on 24/02/2018.
+//  Copyright © 2018 BRAE. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+//! Project version number for XlsxReaderWriter.
+FOUNDATION_EXPORT double XlsxReaderWriter_iOSVersionNumber;
+
+//! Project version string for XlsxReaderWriter.
+FOUNDATION_EXPORT const unsigned char XlsxReaderWriter_iOSVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <XlsxReaderWriter/PublicHeader.h>
+
+
 #ifndef BRAXlsxReaderWriter_h
 #define BRAXlsxReaderWriter_h
 
@@ -11,6 +30,9 @@
 #import "BRARow.h"
 #import "BRACell.h"
 
+#import "BRAVmlDrawing.h"
+#import "BRASheet.h"
+#import "XlsxReaderWriter-swift-bridge.h"
 
 
 #endif /* BRAXlsxReaderWriter_h */
