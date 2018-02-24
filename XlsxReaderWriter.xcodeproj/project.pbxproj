@@ -274,6 +274,7 @@
 		7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
 		8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XlsxReaderXMLDictionary.h; path = XlsxReaderWriter/XlsxReaderXMLDictionary.h; sourceTree = "<group>"; };
 		8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XlsxReaderXMLDictionary.m; path = XlsxReaderWriter/XlsxReaderXMLDictionary.m; sourceTree = "<group>"; };
+		8289AA5C2041CD4A00E00603 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -403,6 +404,7 @@
 			children = (
 				455542A21C48DE4D00EAB8FE /* README.md */,
 				455542A31C48DE4D00EAB8FE /* XlsxReaderWriter.podspec */,
+				8289AA5C2041CD4A00E00603 /* Cartfile */,
 				45B6E2711A15068500288A78 /* Additions */,
 				45B6E2871A1506EA00288A78 /* Document */,
 			);

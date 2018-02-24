@@ -5,9 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## 2.4.0 - Unreleased
-- Version 0.3 is introducing an important dependency change
+- Version 02.4 is introducing an important dependency change
 	- The Library XMLDictionary is [Deprecated](https://github.com/nicklockwood/XMLDictionary), for this reason the code has been integrated and refactored to avoid Name collision
 	- WARNING: XMLDictionary is no longer a dependency of this project, if you depend on it, import it by another mean or 
+- Carthage integration
 
 ## Unreleased
 - As of this version, the minimum system requirement are iOS 8.0, macOS 10.9 

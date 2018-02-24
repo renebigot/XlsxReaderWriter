@@ -1,8 +1,34 @@
 # XlsxReaderWriter
 
 [![Build Status](https://travis-ci.org/charlymr/XlsxReaderWriter.svg?branch=master)](https://travis-ci.org/charlymr/XlsxReaderWriter)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses and writes Excel OpenXml files (XLSX).
+
+
+## Integrate using Carthage
+
+Install [Carthage](https://github.com/Carthage/Carthage#installing-carthage) if not already available 
+
+Change to the directory of your Xcode project, and Create and Edit your CartFile and add XlsxReaderWriter:
+
+``` bash
+$ cd /path/to/MyProject
+$ touch CartFile
+$ edit CartFile
+
+github "charlymr/XlsxReaderWriter" ~> 2.4
+```
+
+Save and run:
+``` bash
+$ carthage update
+```
+
+Drop the Carthage/Build/iOS .framework in your project.
+
+For more details on Cartage and how to use it, check the [Carthage Github](https://github.com/Carthage/Carthage) documentation
+
 
 
 ## COCOAPODS is OUTDATED - IMPORTANT READ THIS:
