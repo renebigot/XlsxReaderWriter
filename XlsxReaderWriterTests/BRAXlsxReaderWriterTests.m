@@ -664,4 +664,19 @@
     [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testFillColor.xlsx"]];
 }
 
+- (void)testCellContentReadingEmptyCell {
+    // fixed in commit 803e1b97ae420ecdb6bde7e4b85592e3f4a1ee31 / 23 February 2018 at 13:31:39 CET - Vignesh Renganathan
+    // When reading the empty cell. the app crashes
+
+    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRACell *cell = [worksheet cellForCellReference:@"B12"];
+    XCTAssertNotNil(cell, "Formatted cell B12 should should not be NIL");
+
+    //Forcing cell to BRACellContentTypeString as I am not sure how to get there from excel as I am getting BRACellContentTypeUnknown.??
+    cell.type = BRACellContentTypeString;
+
+    // Testing the fix
+    XCTAssertNoThrow([[worksheet cellForCellReference:@"B12"] attributedStringValue], "Not Handling empty cell B12 of Type BRACellContentTypeString");
+}
+
 @end
