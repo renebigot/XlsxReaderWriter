@@ -1,5 +1,7 @@
 # XlsxReaderWriter
 
+[![Build Status](https://travis-ci.org/charlymr/XlsxReaderWriter.svg?branch=master)](https://travis-ci.org/charlymr/XlsxReaderWriter)
+
 XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses and writes Excel OpenXml files (XLSX).
 
 
@@ -7,15 +9,14 @@ XlsxReaderWriter is an Objective-C library for iPhone / iPad and Mac. It parses 
 
 Cocoapods is outdated v 1.0.11, and apprently it is not possible to update it anymore:
 https://cocoapods.org/pods/XlsxReaderWriter
+if you want to fix it and use the latest version
 
-if you want to fix it and use the latest version, add this to your PodFile (at the top)
 ```
+## Add this to your PodFile (at the top)
 source 'https://github.com/charlymr/XlsxReaderWriter-Podspecs.git' 
-```
 
-Then you can get the latest version 2.3 +
-```
-     pod 'XlsxReaderWriter', '~> 2.3'
+## Then you can get the latest version 2.3 +
+    pod 'XlsxReaderWriter', '~> 2.3'
 ```
 
 
@@ -40,13 +41,17 @@ XlsxReaderWriter is able to:
 * Change cell fill
 * ... many other things
 
-Todo:
+
+
+## TODO:
 
 * Add/remove columns in sheets
 * Create spreadsheet document from scratch
 * Improve number formatting
 * Borders
 * Add better support for comments (add, remove, read)
+
+
 
 ## Limitation
 
@@ -424,6 +429,8 @@ XLSX files are OPC packages (see ECMA-376 for more information). Below is a simp
 Files have relationships, files are relationships... Have a look at this picture each time you want to change something in the library.
 
 ## License	
+
+Copyright (c) 2017 Denis Martin-Bruillot (Trying to keep it working)
 
 Copyright (c) 2014-2016 Ren&eacute; BIGOT.
 

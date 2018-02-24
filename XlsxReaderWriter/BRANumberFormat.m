@@ -587,7 +587,7 @@
             //if scientific format, reformat exponent
             NSInteger exponentLength = 0;
             if (formatData.isScientific) {
-                if ([formattedNumber rangeOfString:@"0e-"].location != NSNotFound || [formattedNumber rangeOfString:@"0E-"].location != NSNotFound) {
+                if ([formattedNumber rangeOfString:@"e-"].location != NSNotFound || [formattedNumber rangeOfString:@"E-"].location != NSNotFound) {
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e-" withString:@"e-"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E-" withString:@"E-"];
                     
@@ -596,12 +596,24 @@
                         formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"-" withString:@"-0"];
                         ++exponentLength;
                     }
-                } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                } else if ([formattedNumber rangeOfString:@"e+"].location != NSNotFound || [formattedNumber rangeOfString:@"E+"].location != NSNotFound) {
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e+"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E+"];
                     
                     exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
                     
+                    while (exponentLength < formatData.exponentLength) {
+                        formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
+                        ++exponentLength;
+                    }
+                } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"e" withString:@"e+"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"E" withString:@"E+"];
+
+                    exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
+
                     while (exponentLength < formatData.exponentLength) {
                         formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
                         ++exponentLength;

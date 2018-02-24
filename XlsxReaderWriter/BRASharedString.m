@@ -97,7 +97,7 @@
     [_attributedString enumerateAttributesInRange:NSMakeRange(0, _attributedString.length)
                                          options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
                                              //Text string
-                                             NSString *subString = [[_attributedString string] substringWithRange:range];
+                                             NSString *subString = [[self->_attributedString string] substringWithRange:range];
                                              NSMutableDictionary *subAttributes = @{
                                                                                     @"__text": subString,
                                                                                     }.mutableCopy;
@@ -112,7 +112,7 @@
                                              if (value[NSForegroundColorAttributeName]) {
                                                  BRANativeColor *color = value[NSForegroundColorAttributeName];
                                                  
-                                                 [runPropertiesDictionary setValue:[_styles openXmlAttributesWithColor:color] forKeyPath:@"color"];
+                                                 [runPropertiesDictionary setValue:[self->_styles openXmlAttributesWithColor:color] forKeyPath:@"color"];
                                              }
                                              
                                              //Font name & size

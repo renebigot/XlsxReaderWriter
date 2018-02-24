@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F443BE2DF0C026A19A678A9 /* Pods_XlsxReaderWriterTests.framework */; };
 		123069AC7E69983D542C251E /* Pods_XlsxReaderWriter_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */; };
 		22156D611C46B5DB00BB5779 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CE1A15171B00790ED5 /* NSDictionary+DeepCopy.m */; };
 		22156D621C46B5DB00BB5779 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
@@ -92,6 +93,7 @@
 		454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
 		455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; };
 		455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */; };
+		457B68821B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B68811B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift */; };
 		4580C6771A15157100790ED5 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
 		4580C6781A15157100790ED5 /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6761A15157100790ED5 /* BRARelationships.m */; };
 		4580C67B1A1515AB00790ED5 /* BRAElementWithRelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67A1A1515AB00790ED5 /* BRAElementWithRelationships.m */; };
@@ -125,19 +127,23 @@
 		4580C6D41A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D01A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.m */; };
 		4580C6D51A15171B00790ED5 /* NSDictionary+OpenXmlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D21A15171B00790ED5 /* NSDictionary+OpenXmlString.m */; };
 		4580C6D81A15176A00790ED5 /* BRAOfficeDocumentPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6D71A15176A00790ED5 /* BRAOfficeDocumentPackage.m */; };
+		45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */; };
+		45B6E2FC1A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 45B6E2F91A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg */; };
+		45B6E2FD1A15099000288A78 /* testWorkbook.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 45B6E2FA1A15099000288A78 /* testWorkbook.xlsx */; };
+		45B6E2FE1A15099000288A78 /* BRAXlsxReaderWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E2FB1A15099000288A78 /* BRAXlsxReaderWriterTests.m */; };
+		45B6E3071A1511A000288A78 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E3061A1511A000288A78 /* libz.dylib */; };
+		45B6E30A1A1512DD00288A78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E3091A1512DD00288A78 /* Foundation.framework */; };
+		45B6E30C1A1512E700288A78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E30B1A1512E700288A78 /* CoreGraphics.framework */; };
 		45B6E30D1A1512F700288A78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E3091A1512DD00288A78 /* Foundation.framework */; };
+		45B6E30F1A15132200288A78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E30E1A15132200288A78 /* UIKit.framework */; };
 		45D6FBCF1BB27747002ACC9C /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBCA1BB212A2002ACC9C /* BRAComments.m */; };
 		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
 		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
 		682238F71074463D05381757 /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */; };
-		82B394252031A5BA00FBC08B /* libXlsxReaderWriter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */; };
-		82B3942C2031A5E500FBC08B /* XlsxReaderWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3942B2031A5E500FBC08B /* XlsxReaderWriterTests.swift */; };
-		82B3942F2031A63200FBC08B /* SwiftTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B3942D2031A63200FBC08B /* SwiftTestCase.swift */; };
-		82B394302031A63200FBC08B /* BRAXlsxReaderWriterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82B3942E2031A63200FBC08B /* BRAXlsxReaderWriterTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		82B394262031A5BA00FBC08B /* PBXContainerItemProxy */ = {
+		45B6E2471A148F7500288A78 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 45B6E2321A148F7500288A78 /* Project object */;
 			proxyType = 1;
@@ -177,6 +183,7 @@
 		455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAVmlDrawing.m; sourceTree = "<group>"; };
 		455C23B71BB908DF00CEE3A2 /* BRAVmlDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRAVmlDrawing.h; sourceTree = "<group>"; };
 		457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriterTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		457B68811B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XlsxReaderWriterTests.swift; sourceTree = "<group>"; };
 		4580C6731A15157100790ED5 /* BRARelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationship.h; sourceTree = "<group>"; };
 		4580C6741A15157100790ED5 /* BRARelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRARelationship.m; sourceTree = "<group>"; };
 		4580C6751A15157100790ED5 /* BRARelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRARelationships.h; sourceTree = "<group>"; };
@@ -244,8 +251,11 @@
 		4580C6D61A15176A00790ED5 /* BRAOfficeDocumentPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAOfficeDocumentPackage.h; sourceTree = "<group>"; };
 		4580C6D71A15176A00790ED5 /* BRAOfficeDocumentPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAOfficeDocumentPackage.m; sourceTree = "<group>"; };
 		45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXlsxReaderWriter.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XlsxReaderWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B6E24B1A148F7500288A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B6E2F91A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "photo-1415226481302-c40f24f4d45e.jpeg"; sourceTree = "<group>"; };
 		45B6E2FA1A15099000288A78 /* testWorkbook.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = testWorkbook.xlsx; sourceTree = "<group>"; };
+		45B6E2FB1A15099000288A78 /* BRAXlsxReaderWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAXlsxReaderWriterTests.m; sourceTree = "<group>"; };
 		45B6E3061A1511A000288A78 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		45B6E3091A1512DD00288A78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45B6E30B1A1512E700288A78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -260,11 +270,6 @@
 		75D21306253893EAF77AEEE1 /* Pods-XlsxReaderWriter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter/Pods-XlsxReaderWriter.debug.xcconfig"; sourceTree = "<group>"; };
 		7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests.release.xcconfig"; sourceTree = "<group>"; };
 		8290BBBF1FB0A800009E3E14 /* XMLDictionary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82B394202031A5B900FBC08B /* XlsxReaderWriterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XlsxReaderWriterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82B394242031A5BA00FBC08B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82B3942B2031A5E500FBC08B /* XlsxReaderWriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XlsxReaderWriterTests.swift; sourceTree = "<group>"; };
-		82B3942D2031A63200FBC08B /* SwiftTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTestCase.swift; sourceTree = "<group>"; };
-		82B3942E2031A63200FBC08B /* BRAXlsxReaderWriterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAXlsxReaderWriterTests.m; sourceTree = "<group>"; };
 		8910173EF9BC0089DE7E6696 /* Pods_XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDBA91DE7A5641623813C35 /* Pods_XlsxReaderWriter_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XlsxReaderWriter_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93E525DAE3A0611B93F21DD /* Pods-XlsxReaderWriter Mac.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XlsxReaderWriter Mac.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XlsxReaderWriter Mac/Pods-XlsxReaderWriter Mac.debug.xcconfig"; sourceTree = "<group>"; };
@@ -290,11 +295,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82B3941D2031A5B900FBC08B /* Frameworks */ = {
+		45B6E2421A148F7500288A78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B394252031A5BA00FBC08B /* libXlsxReaderWriter.a in Frameworks */,
+				45B6E30F1A15132200288A78 /* UIKit.framework in Frameworks */,
+				45B6E30C1A1512E700288A78 /* CoreGraphics.framework in Frameworks */,
+				45B6E30A1A1512DD00288A78 /* Foundation.framework in Frameworks */,
+				45B6E3071A1511A000288A78 /* libz.dylib in Frameworks */,
+				45B6E2461A148F7500288A78 /* libXlsxReaderWriter.a in Frameworks */,
+				01A6983C22AB40090E8E97A8 /* Pods_XlsxReaderWriterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,9 +374,9 @@
 			children = (
 				455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */,
 				45B6E23C1A148F7500288A78 /* XlsxReaderWriter */,
+				45B6E2491A148F7500288A78 /* XlsxReaderWriterTests */,
 				22156D591C46B42500BB5779 /* XlsxReaderWriter Mac */,
 				45B6E3081A15125300288A78 /* External Frameworks */,
-				82B394212031A5BA00FBC08B /* XlsxReaderWriterTests */,
 				45B6E23B1A148F7500288A78 /* Products */,
 				0B04EB28382D2870FA5A8288 /* Pods */,
 				88B4873AAB91B2D6EEA26BE2 /* Frameworks */,
@@ -377,8 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */,
+				45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */,
 				22156D581C46B42500BB5779 /* XlsxReaderWriter.framework */,
-				82B394202031A5B900FBC08B /* XlsxReaderWriterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -392,6 +402,27 @@
 				45B6E2871A1506EA00288A78 /* Document */,
 			);
 			path = XlsxReaderWriter;
+			sourceTree = "<group>";
+		};
+		45B6E2491A148F7500288A78 /* XlsxReaderWriterTests */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E2F91A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg */,
+				45B6E2FA1A15099000288A78 /* testWorkbook.xlsx */,
+				45B6E2FB1A15099000288A78 /* BRAXlsxReaderWriterTests.m */,
+				457B68811B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift */,
+				45B6E24A1A148F7500288A78 /* Supporting Files */,
+				457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */,
+			);
+			path = XlsxReaderWriterTests;
+			sourceTree = "<group>";
+		};
+		45B6E24A1A148F7500288A78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45B6E24B1A148F7500288A78 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		45B6E2711A15068500288A78 /* Additions */ = {
@@ -808,20 +839,6 @@
 			name = "Sub Elements";
 			sourceTree = "<group>";
 		};
-		82B394212031A5BA00FBC08B /* XlsxReaderWriterTests */ = {
-			isa = PBXGroup;
-			children = (
-				82B3942E2031A63200FBC08B /* BRAXlsxReaderWriterTests.m */,
-				82B3942D2031A63200FBC08B /* SwiftTestCase.swift */,
-				82B3942B2031A5E500FBC08B /* XlsxReaderWriterTests.swift */,
-				45B6E2F91A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg */,
-				45B6E2FA1A15099000288A78 /* testWorkbook.xlsx */,
-				457B68801B9DE8FB0096E1D1 /* XlsxReaderWriterTests-Bridging-Header.h */,
-				82B394242031A5BA00FBC08B /* Info.plist */,
-			);
-			path = XlsxReaderWriterTests;
-			sourceTree = "<group>";
-		};
 		88B4873AAB91B2D6EEA26BE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,22 +944,25 @@
 			productReference = 45B6E23A1A148F7500288A78 /* libXlsxReaderWriter.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		82B3941F2031A5B900FBC08B /* XlsxReaderWriterTests */ = {
+		45B6E2441A148F7500288A78 /* XlsxReaderWriterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82B394282031A5BA00FBC08B /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */;
+			buildConfigurationList = 45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */;
 			buildPhases = (
-				82B3941C2031A5B900FBC08B /* Sources */,
-				82B3941D2031A5B900FBC08B /* Frameworks */,
-				82B3941E2031A5B900FBC08B /* Resources */,
+				C6DF150C9DEBE1C7A81263C9 /* [CP] Check Pods Manifest.lock */,
+				45B6E2411A148F7500288A78 /* Sources */,
+				45B6E2421A148F7500288A78 /* Frameworks */,
+				45B6E2431A148F7500288A78 /* Resources */,
+				4A5EB0A3431F08D104E6FFBF /* [CP] Embed Pods Frameworks */,
+				A51AC808C3C1D62378C13644 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				82B394272031A5BA00FBC08B /* PBXTargetDependency */,
+				45B6E2481A148F7500288A78 /* PBXTargetDependency */,
 			);
 			name = XlsxReaderWriterTests;
 			productName = XlsxReaderWriterTests;
-			productReference = 82B394202031A5B900FBC08B /* XlsxReaderWriterTests.xctest */;
+			productReference = 45B6E2451A148F7500288A78 /* XlsxReaderWriterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -951,7 +971,7 @@
 		45B6E2321A148F7500288A78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = BRAE;
 				TargetAttributes = {
@@ -961,10 +981,9 @@
 					45B6E2391A148F7500288A78 = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					82B3941F2031A5B900FBC08B = {
-						CreatedOnToolsVersion = 9.2;
+					45B6E2441A148F7500288A78 = {
+						CreatedOnToolsVersion = 6.1;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -981,8 +1000,8 @@
 			projectRoot = "";
 			targets = (
 				45B6E2391A148F7500288A78 /* XlsxReaderWriter */,
+				45B6E2441A148F7500288A78 /* XlsxReaderWriterTests */,
 				22156D571C46B42500BB5779 /* XlsxReaderWriter Mac */,
-				82B3941F2031A5B900FBC08B /* XlsxReaderWriterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -995,10 +1014,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82B3941E2031A5B900FBC08B /* Resources */ = {
+		45B6E2431A148F7500288A78 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B6E2FD1A15099000288A78 /* testWorkbook.xlsx in Resources */,
+				45B6E2FC1A15099000288A78 /* photo-1415226481302-c40f24f4d45e.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,6 +1059,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4A5EB0A3431F08D104E6FFBF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive-iOS/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/XMLDictionary-iOS/XMLDictionary.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLDictionary.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A51AC808C3C1D62378C13644 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XlsxReaderWriterTests/Pods-XlsxReaderWriterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A55AC71266FC73857073A3AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1050,6 +1106,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriter Mac-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6DF150C9DEBE1C7A81263C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XlsxReaderWriterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1164,23 +1238,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82B3941C2031A5B900FBC08B /* Sources */ = {
+		45B6E2411A148F7500288A78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B394302031A63200FBC08B /* BRAXlsxReaderWriterTests.m in Sources */,
-				82B3942C2031A5E500FBC08B /* XlsxReaderWriterTests.swift in Sources */,
-				82B3942F2031A63200FBC08B /* SwiftTestCase.swift in Sources */,
+				45B6E2FE1A15099000288A78 /* BRAXlsxReaderWriterTests.m in Sources */,
+				457B68821B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		82B394272031A5BA00FBC08B /* PBXTargetDependency */ = {
+		45B6E2481A148F7500288A78 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 45B6E2391A148F7500288A78 /* XlsxReaderWriter */;
-			targetProxy = 82B394262031A5BA00FBC08B /* PBXContainerItemProxy */;
+			targetProxy = 45B6E2471A148F7500288A78 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1286,7 +1359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1321,7 +1394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
@@ -1366,72 +1439,50 @@
 			};
 			name = Release;
 		};
-		82B394292031A5BA00FBC08B /* Debug */ = {
+		45B6E2521A148F7500288A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31AF8EDACC70EC8ECDB9F329 /* Pods-XlsxReaderWriterTests.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.denismartin.XlsxReaderWriterTests;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.brae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		82B3942A2031A5BA00FBC08B /* Release */ = {
+		45B6E2531A148F7500288A78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D76A6D51AD7957B6CAD11BE /* Pods-XlsxReaderWriterTests.release.xcconfig */;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XlsxReaderWriterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.denismartin.XlsxReaderWriterTests;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.brae.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OBJC_BRIDGING_HEADER = "XlsxReaderWriterTests/XlsxReaderWriterTests-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1465,11 +1516,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82B394282031A5BA00FBC08B /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */ = {
+		45B6E2511A148F7500288A78 /* Build configuration list for PBXNativeTarget "XlsxReaderWriterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82B394292031A5BA00FBC08B /* Debug */,
-				82B3942A2031A5BA00FBC08B /* Release */,
+				45B6E2521A148F7500288A78 /* Debug */,
+				45B6E2531A148F7500288A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

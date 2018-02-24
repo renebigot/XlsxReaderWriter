@@ -130,7 +130,7 @@
         [dictionaryRepresentation setValue:@"1" forKey:@"_applyNumberFormat"];
         NSString __block *numFmtId = @"0";
         [_styles.numberFormats enumerateKeysAndObjectsUsingBlock:^(NSString *key, BRANumberFormat *obj, BOOL *stop) {
-            if ([obj isEqual:_numberFormat]) {
+            if ([obj isEqual:self->_numberFormat]) {
                 numFmtId = key;
                 *stop = YES;
             }
