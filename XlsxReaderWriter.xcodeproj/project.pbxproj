@@ -89,7 +89,7 @@
 		22225F301C47F75000256993 /* XlsxReaderWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 22225F2F1C47F72B00256993 /* XlsxReaderWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22225F351C481E2500256993 /* NativeFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6CB1A15171100790ED5 /* NativeFont+BoldItalic.m */; };
 		454D49FD1B4B27E40053CD86 /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 454D49FC1B4B27E40053CD86 /* BRATheme.m */; };
-		455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; };
+		455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		455C23B61BB908D300CEE3A2 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 455C23B51BB908D300CEE3A2 /* BRAVmlDrawing.m */; };
 		457B68821B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457B68811B9DE8FC0096E1D1 /* XlsxReaderWriterTests.swift */; };
 		4580C6771A15157100790ED5 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
@@ -138,7 +138,7 @@
 		45D6FBD41BB27833002ACC9C /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD31BB27833002ACC9C /* BRACalcChainCell.m */; };
 		45D6FBD81BB279A5002ACC9C /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D6FBD71BB279A5002ACC9C /* BRAComment.m */; };
 		5743CFFF3FBE4C27537827FC /* Pods_XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7934BC8001D68396E5F835A /* Pods_XlsxReaderWriter.framework */; };
-		8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; };
+		8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8265BC322041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
 		8265BC332041C4BE004A2A7D /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265BC302041C4BE004A2A7D /* XlsxReaderXMLDictionary.m */; };
 		8289AA672041D9F900E00603 /* XlsxReaderWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 8289AA652041D9F900E00603 /* XlsxReaderWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -181,8 +181,8 @@
 		8289AA8F2041DA4800E00603 /* BRAElementWithRelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C67A1A1515AB00790ED5 /* BRAElementWithRelationships.m */; };
 		8289AA902041DA4800E00603 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6741A15157100790ED5 /* BRARelationship.m */; };
 		8289AA912041DA4800E00603 /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C6761A15157100790ED5 /* BRARelationships.m */; };
-		8289AA922041DA8D00E00603 /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; };
-		8289AA932041DA8D00E00603 /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; };
+		8289AA922041DA8D00E00603 /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 455542A61C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8289AA932041DA8D00E00603 /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 8265BC2F2041C4BE004A2A7D /* XlsxReaderXMLDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		8289AA942041DA8D00E00603 /* NSDictionary+DeepCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CD1A15171B00790ED5 /* NSDictionary+DeepCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8289AA952041DA8D00E00603 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6CF1A15171B00790ED5 /* NSDictionary+OpenXMLDictionaryParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8289AA962041DA8D00E00603 /* NSDictionary+OpenXmlString.h in Headers */ = {isa = PBXBuildFile; fileRef = 4580C6D11A15171B00790ED5 /* NSDictionary+OpenXmlString.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -979,8 +979,6 @@
 			files = (
 				22156D881C46B62900BB5779 /* NSDictionary+DeepCopy.h in Headers */,
 				22156D891C46B62900BB5779 /* NSDictionary+OpenXMLDictionaryParser.h in Headers */,
-				8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */,
-				455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */,
 				22156D8A1C46B62900BB5779 /* NSDictionary+OpenXmlString.h in Headers */,
 				22156D8B1C46B62900BB5779 /* NativeFont+BoldItalic.h in Headers */,
 				22156D8C1C46B62900BB5779 /* NativeColor+HTML.h in Headers */,
@@ -1018,7 +1016,9 @@
 				22156DAC1C46B62B00BB5779 /* BRAOpenXmlElement.h in Headers */,
 				22156DAD1C46B62B00BB5779 /* BRAElementWithRelationships.h in Headers */,
 				22225F301C47F75000256993 /* XlsxReaderWriter.h in Headers */,
+				455542A71C492C6A00EAB8FE /* BRAPlatformSpecificDefines.h in Headers */,
 				22156DAE1C46B62C00BB5779 /* BRARelationship.h in Headers */,
+				8265BC312041C4BE004A2A7D /* XlsxReaderXMLDictionary.h in Headers */,
 				22156DAF1C46B62C00BB5779 /* BRARelationships.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
