@@ -260,7 +260,7 @@ worksheet.cellForCellReference("Z23", shouldCreate: true).floatValue = 12.3
 worksheet.cellForCellReference("Z23").numberFormat = "0.000"
 ```
 #### Write cells content: boolean
-#####Objective-C
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"Z21" shouldCreate:YES] setBoolValue:NO];
 ```
@@ -293,7 +293,7 @@ UIColor *cellFillColor = [[worksheet cellForCellReference:@"A35"] cellFillColor]
 var cellFillColor: UIColor = worksheet.cellForCellReference("A35").cellFillColor()
 ```
 #### Change cell fill
-#####Objective-C
+##### Objective-C
 ```objective-c
 [[worksheet cellForCellReference:@"A36" shouldCreate:YES] setCellFillWithForegroundColor:[UIColor yellowColor] backgroundColor:[UIColor blackColor] andPatternType:kBRACellFillPatternTypeDarkTrellis];
 ```
