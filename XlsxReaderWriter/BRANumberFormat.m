@@ -86,7 +86,7 @@
 //        _formatCode = GENERAL_NUMBER_FORMAT_CODE;
     }
     
-    NSMutableArray *numberFormats = @[].mutableCopy;
+    NSMutableArray *numberFormats = [[NSMutableArray alloc] init];
     
     //Get format code for number value
     NSArray *sections = [_formatCode componentsSeparatedByString:@";"];
@@ -446,7 +446,7 @@
  */
 - (NSAttributedString *)formatNumber:(CGFloat)number {
     NSString *stringToFormat = @"";
-    NSMutableDictionary *attributedStringAttributes = @{}.mutableCopy;
+    NSMutableDictionary *attributedStringAttributes = [[NSMutableDictionary alloc] init];
 
     if ([_formatCode isEqual:@"@"]) {
         // If general formating (code "@") we display the shortest possible decimal value

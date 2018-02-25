@@ -68,7 +68,7 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
     
-    NSMutableArray *sharedStringsArray = @[].mutableCopy;
+    NSMutableArray *sharedStringsArray = [[NSMutableArray alloc] init];
     
     for (BRASharedString *sharedString in _sharedStrings) {
         [sharedStringsArray addObject:[sharedString dictionaryRepresentation]];

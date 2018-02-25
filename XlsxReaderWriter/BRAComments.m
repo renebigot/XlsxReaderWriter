@@ -34,7 +34,7 @@
     
     NSArray *commentsArray = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"commentList.comment"];
     
-    NSMutableArray *comments = @[].mutableCopy;
+    NSMutableArray *comments = [[NSMutableArray alloc] init];
     
     for (NSDictionary *comment in commentsArray) {
         [comments addObject:[[BRAComment alloc] initWithOpenXmlAttributes:comment]];
@@ -135,7 +135,7 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
     
-    NSMutableArray *commentsArray = @[].mutableCopy;
+    NSMutableArray *commentsArray = [[NSMutableArray alloc] init];
     
     for (BRAComment *comment in _comments) {
         [commentsArray addObject:[comment dictionaryRepresentation]];

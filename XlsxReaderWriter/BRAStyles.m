@@ -74,7 +74,7 @@
     
     //Read Fills
     NSArray *fillsArray = [_attributes xlsxReaderArrayValueForKeyPath:@"fills.fill"];
-    NSMutableArray *cellFills = @[].mutableCopy;
+    NSMutableArray *cellFills = [[NSMutableArray alloc] init];
     if (fillsArray) {
         for (NSDictionary *fillDict in fillsArray) {
             BRACellFill *fill = [[BRACellFill alloc] initWithOpenXmlAttributes:fillDict inStyles:self];
@@ -89,7 +89,7 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell style formatting records (cellStyleXfs) /!\ Must be read before cellXfs
-    NSMutableArray *cellStyleFormats = @[].mutableCopy;
+    NSMutableArray *cellStyleFormats = [[NSMutableArray alloc] init];
     NSArray *cellStyleXfArray = [_attributes xlsxReaderArrayValueForKeyPath:@"cellStyleXfs.xf"];
     
     if (cellStyleXfArray) {
@@ -105,7 +105,7 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell formatting records (cellXfs)
-    NSMutableArray *cellFormats = @[].mutableCopy;
+    NSMutableArray *cellFormats = [[NSMutableArray alloc] init];
     NSArray *cellXfArray = [_attributes xlsxReaderArrayValueForKeyPath:@"cellXfs.xf"];
     
     if (cellXfArray) {
@@ -122,7 +122,7 @@
     
     //Read Fonts
     NSArray *fontsArray = [_attributes xlsxReaderArrayValueForKeyPath:@"fonts.font"];
-    NSMutableArray *textsAttributes = @[].mutableCopy;
+    NSMutableArray *textsAttributes = [[NSMutableArray alloc] init];
     if (fontsArray) {
         for (NSDictionary *fontDict in fontsArray) {
             [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
@@ -321,7 +321,7 @@
     
     //Indexed colors
     if (![_indexedColors isEqual:[BRANativeColor defaultIndexedColors]]) {
-        NSMutableArray *indexedColorsArray = @[].mutableCopy;
+        NSMutableArray *indexedColorsArray = [[NSMutableArray alloc] init];
         
         for (BRANativeColor *color in _indexedColors) {
             [indexedColorsArray addObject:[self rgbColorValueForColor:color]];
@@ -337,7 +337,7 @@
     }
     
     //Number formats
-    NSMutableArray *numFormatsArray = @[].mutableCopy;
+    NSMutableArray *numFormatsArray = [[NSMutableArray alloc] init];
     NSArray *formatKeys = [_numberFormats allKeys];
     
     for (NSString *key in formatKeys) {
@@ -363,7 +363,7 @@
     
     for (NSInteger i = oldFontsCount; i < _textsAttributes.count; i++) {
         NSDictionary *textAttributes = _textsAttributes[i];
-        NSMutableDictionary *fontOpenXmlAttributes = @{}.mutableCopy;
+        NSMutableDictionary *fontOpenXmlAttributes = [[NSMutableDictionary alloc] init];
         
         //Font + Size + Bold + Italic
         if (textAttributes[NSFontAttributeName]) {

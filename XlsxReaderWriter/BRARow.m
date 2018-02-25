@@ -44,7 +44,7 @@
 }
 
 - (void)loadAttributes {
-    _cells = @[].mutableCopy;
+    _cells = [[NSMutableArray alloc] init];
     
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
     
@@ -113,7 +113,7 @@
     }];
     
     
-    NSMutableArray *cells = @[].mutableCopy;
+    NSMutableArray *cells = [[NSMutableArray alloc] init];
     for (BRACell *cell in _cells) {
         [cells addObject:[cell dictionaryRepresentation]];
     }

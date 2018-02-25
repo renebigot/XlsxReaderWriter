@@ -245,9 +245,9 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
 
-    NSMutableArray *oneCellAnchoredXdr = @[].mutableCopy;
-    NSMutableArray *twoCellAnchoredXdr = @[].mutableCopy;
-    NSMutableArray *absoluteAnchoredXdr = @[].mutableCopy;
+    NSMutableArray *oneCellAnchoredXdr = [[NSMutableArray alloc] init];
+    NSMutableArray *twoCellAnchoredXdr = [[NSMutableArray alloc] init];
+    NSMutableArray *absoluteAnchoredXdr = [[NSMutableArray alloc] init];
     
     for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
         if ([worksheetDrawing.anchor isKindOfClass:[BRAAbsoluteAnchor class]]) {
@@ -274,7 +274,7 @@
     BRADrawing *copy = [super copy];
     
     copy.worksheetDrawings = @[];
-    copy.relationships.relationshipsArray = @[].mutableCopy;
+    copy.relationships.relationshipsArray = [[NSMutableArray alloc] init];
     
     for (BRAWorksheetDrawing *wsDr in self.worksheetDrawings) {
         // We create a new image file when duplicating image, so we create a new relationship

@@ -20,14 +20,14 @@
     
     NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
-    NSMutableArray *defaultExtensions = @[].mutableCopy;
+    NSMutableArray *defaultExtensions = [[NSMutableArray alloc] init];
     for (NSDictionary *attributesDict in attributes[@"Default"]) {
         [defaultExtensions addObject:[[BRAContentTypesDefaultExtension alloc] initWithOpenXmlAttributes:attributesDict]];
     }
     
     self.defaultExtensions = defaultExtensions;
     
-    NSMutableArray *overrides = @[].mutableCopy;
+    NSMutableArray *overrides = [[NSMutableArray alloc] init];
     for (NSDictionary *attributesDict in attributes[@"Override"]) {
         [overrides addObject:[[BRAContentTypesOverride alloc] initWithOpenXmlAttributes:attributesDict]];
     }
@@ -37,12 +37,12 @@
 
 
 - (NSString *)xmlRepresentation {
-    NSMutableArray *defaultExtensions = @[].mutableCopy;
+    NSMutableArray *defaultExtensions = [[NSMutableArray alloc] init];
     for (BRAContentTypesDefaultExtension *extension in _defaultExtensions) {
         [defaultExtensions addObject:[extension dictionaryRepresentation]];
     }
     
-    NSMutableArray *overrides = @[].mutableCopy;
+    NSMutableArray *overrides = [[NSMutableArray alloc] init];
     for (BRAContentTypesOverride *override in _overrides) {
         [overrides addObject:[override dictionaryRepresentation]];
     }

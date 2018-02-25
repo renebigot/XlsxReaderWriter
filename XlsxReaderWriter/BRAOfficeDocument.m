@@ -50,7 +50,7 @@
     _calcChain = [self.relationships anyRelationshipWithType:[BRACalcChain fullRelationshipType]];
     
     //Sheets
-    NSMutableArray *sheets = @[].mutableCopy;
+    NSMutableArray *sheets = [[NSMutableArray alloc] init];
     NSDictionary *dictionaryRepresentation = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
     
     for (NSDictionary *openXmlAttributes in [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"sheets.sheet"]) {
@@ -150,7 +150,7 @@
 }
 
 - (NSArray *)worksheets {
-    NSMutableArray *worksheets = @[].mutableCopy;
+    NSMutableArray *worksheets = [[NSMutableArray alloc] init];
     
     for (BRASheet *sheet in _sheets) {
         BRAWorksheet *worksheet = [self.relationships relationshipWithId:sheet.identifier];
@@ -184,7 +184,7 @@
         return [obj1.identifier compare:obj2.identifier];
     }];
     
-    NSMutableArray *sheetsArray = @[].mutableCopy;
+    NSMutableArray *sheetsArray = [[NSMutableArray alloc] init];
     
     for (BRASheet *sheet in sheets) {
         [sheetsArray addObject:[sheet dictionaryRepresentation]];

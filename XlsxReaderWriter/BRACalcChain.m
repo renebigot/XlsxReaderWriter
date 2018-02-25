@@ -35,7 +35,7 @@
     
     NSArray *calcChainCellArray = [openXmlAttributes xlsxReaderArrayValueForKeyPath:@"c"];
     
-    NSMutableArray *cells = @[].mutableCopy;
+    NSMutableArray *cells = [[NSMutableArray alloc] init];
     
     for (NSDictionary *calcChainCellDict in calcChainCellArray) {
         [cells addObject:[[BRACalcChainCell alloc] initWithOpenXmlAttributes:calcChainCellDict]];
@@ -135,7 +135,7 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
     
-    NSMutableArray *cellsArray = @[].mutableCopy;
+    NSMutableArray *cellsArray = [[NSMutableArray alloc] init];
     
     for (BRACalcChainCell *cell in _cells) {
         [cellsArray addObject:[cell dictionaryRepresentation]];

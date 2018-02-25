@@ -71,7 +71,7 @@
 
     //Create columns
     if (!openXmlAttributes[@"cols"]) {
-        openXmlAttributes[@"cols"] = @{}.mutableCopy;
+        openXmlAttributes[@"cols"] = [[NSMutableDictionary alloc] init];
     }
     if (!openXmlAttributes[@"cols"][@"col"]) {
         openXmlAttributes[@"cols"][@"col"] = @[];
@@ -88,7 +88,7 @@
     
     //Create cells and rows
     if (!openXmlAttributes[@"sheetData"]) {
-        openXmlAttributes[@"sheetData"] = @{}.mutableCopy;
+        openXmlAttributes[@"sheetData"] = [[NSMutableDictionary alloc] init];
     }
     if (!openXmlAttributes[@"sheetData"][@"row"]) {
         openXmlAttributes[@"sheetData"][@"row"] = @[];
@@ -99,7 +99,7 @@
     NSInteger rowsCount = [sheetRows count];
     
     _rows = [[NSMutableArray alloc] initWithCapacity:rowsCount];
-    _cells = @[].mutableCopy;
+    _cells = [[NSMutableArray alloc] init];
 
     for (NSDictionary *rowDict in sheetRows) {
         BRARow *row = [[BRARow alloc] initWithOpenXmlAttributes:rowDict inWorksheet:self];
@@ -126,7 +126,7 @@
     dictionaryRepresentation[@"dimension"] = [self.dimension dictionaryRepresentation];
 
     //Merge Cells
-    NSMutableArray *mergeCells = @[].mutableCopy;
+    NSMutableArray *mergeCells = _mergeCells.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_mergeCells.count];
     for (BRAMergeCell *mergeCell in _mergeCells) {
         [mergeCells addObject:[mergeCell dictionaryRepresentation]];
     }
@@ -138,7 +138,7 @@
     }
 
     //Columns
-    NSMutableArray *columns = @[].mutableCopy;
+    NSMutableArray *columns = _columns.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_columns.count];
     for (BRAColumn *column in _columns) {
         [columns addObject:[column dictionaryRepresentation]];
     }
@@ -152,7 +152,7 @@
     }
 
     //Rows
-    NSMutableArray *rows = @[].mutableCopy;
+    NSMutableArray *rows = _rows.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_rows.count];
     for (BRARow *row in _rows) {
         [rows addObject:[row dictionaryRepresentation]];
     }
@@ -403,7 +403,7 @@
     //-----Add cells and rows
     BRARow *currentRow = nil;
     NSArray *currentRowCells = nil;
-    NSMutableArray *newRows = @[].mutableCopy;
+    NSMutableArray *newRows = [[NSMutableArray alloc] init];
     BRARow *newRow = nil;
     BRACell *newCell = nil;
     NSInteger maxRowIndex = 0;
@@ -487,7 +487,7 @@
     //-----Adjust worksheet dimension
     _dimension.bottomRowIndex -= numberOfRowsToRemove;
     
-    NSMutableArray *mergeCellsToBeRemoved = @[].mutableCopy;
+    NSMutableArray *mergeCellsToBeRemoved = [[NSMutableArray alloc] init];
     
     //-----Adjust mergeCells
     for (BRAMergeCell *mergeCell in _mergeCells) {

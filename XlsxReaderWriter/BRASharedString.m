@@ -87,8 +87,8 @@
         return dictionaryRepresentation;
     }
     
-    dictionaryRepresentation = @{}.mutableCopy;
-    NSMutableArray *attributesArray = @[].mutableCopy;
+    dictionaryRepresentation = [[NSMutableDictionary alloc] init];
+    NSMutableArray *attributesArray = [[NSMutableArray alloc] init];
     
     BOOL __block runHasProperties = NO;
     
@@ -104,7 +104,7 @@
                                                  subAttributes[@"_xml:space"] = @"preserve";
                                              }
                                              
-                                             NSMutableDictionary *runPropertiesDictionary = @{}.mutableCopy;
+                                             NSMutableDictionary *runPropertiesDictionary = [[NSMutableDictionary alloc] init];
                                              
                                              //Font color
                                              if (value[NSForegroundColorAttributeName]) {
