@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added Travis for automatic testing
 - Merged [Liquidsoul fork](https://github.com/Liquidsoul/XlsxReaderWriter) as he fixed Testing 
 - Merged [brvignesh PullRequest #94](https://github.com/renebigot/XlsxReaderWriter/pull/94)
+- Merged [bryant1410 PullRequest #77](https://github.com/renebigot/XlsxReaderWriter/pull/77)
 
 ## 2.3.3 - 2018-02-12
 - Updated Specs to use the latest version of SSZipArchive  '~> 2.1'
