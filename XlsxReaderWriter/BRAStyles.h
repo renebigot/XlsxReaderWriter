@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import "BRARelationship.h"
-#import "BRACellFill.h"
-#import "BRACellFormat.h"
-#import "BRANumberFormat.h"
-#import "BRATheme.h"
+@import Foundation;
 #import "BRAPlatformSpecificDefines.h"
+
+#import "BRARelationship.h"
+
+@class BRATheme, BRANumberFormat;
 
 @interface BRAStyles : BRARelationship {
     NSDictionary *_attributes;

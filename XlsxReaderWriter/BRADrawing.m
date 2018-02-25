@@ -10,6 +10,11 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
+#import "BRARelationships.h"
+#import "BRAImage.h"
+#import "BRAWorksheetDrawing.h"
+
+#import "NSDictionary+OpenXmlString.h"
 #import "XlsxReaderXMLDictionary.h"
 
 #define ONE_CELL_ANCHOR @"xdr:oneCellAnchor"

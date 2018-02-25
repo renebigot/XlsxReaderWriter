@@ -9,7 +9,6 @@
 #import "BRARelationship.h"
 #import "BRARelationships.h"
 #import "BRARelatedToColumnAndRowProtocol.h"
-#import "BRAComment.h"
 
 /** This class does not change the comments content.
  * It just handles rows and columns deletions / additions */

@@ -6,16 +6,10 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
+@import Foundation;
 #import "BRARelationship.h"
-#import "BRACell.h"
-#import "BRACellRange.h"
-#import "BRAMergeCell.h"
-#import "BRAStyles.h"
-#import "BRADrawing.h"
-#import "BRAImage.h"
-#import "BRACalcChain.h"
-#import "BRASharedStrings.h"
-#import "BRAComments.h"
+
+@class BRAMergeCell, BRACell, BRAImage, BRAWorksheetDrawing, BRACellRange, BRADrawing, BRAComments, BRASharedStrings, BRAStyles, BRACalcChain;
 
 @interface BRAWorksheet : BRARelationship {
     BRACellRange *_dimension;

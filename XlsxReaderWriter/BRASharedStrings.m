@@ -10,6 +10,8 @@
 #import "BRAStyles.h"
 #import "BRASharedString.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+DeepCopy.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRASharedStrings
 

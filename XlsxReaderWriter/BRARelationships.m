@@ -11,6 +11,7 @@
 #import "BRAContentTypesOverride.h"
 #import "BRADrawing.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRARelationships
 

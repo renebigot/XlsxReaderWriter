@@ -10,6 +10,8 @@
 #import <stdio.h>
 
 #import "BRAOfficeDocumentPackage.h"
+#import "BRAOfficeDocument.h"
+#import "BRAWorksheetDrawing.h"
 #import "BRAWorksheet.h"
 #import "BRANumberFormat.h"
 #import "BRARelationships.h"
@@ -18,6 +20,9 @@
 #import "BRAColumn.h"
 #import "BRARow.h"
 #import "BRACell.h"
+#import "BRAVmlDrawing.h"
+#import "BRASheet.h"
+#import "BRAStyles.h"
 
 #define NUMBER_FORMAT(X) [[BRANumberFormat alloc] initWithOpenXmlAttributes:@{@"_formatCode": X} inStyles:self.spreadsheet.workbook.styles]
 

@@ -8,6 +8,10 @@
 
 #import "BRAContentTypes.h"
 #import "BRARelationship.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
+#import "BRAContentTypesDefaultExtension.h"
+#import "BRAContentTypesOverride.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRAContentTypes
 

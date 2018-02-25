@@ -8,6 +8,8 @@
 
 #import "BRAOpenXmlElement.h"
 #import "BRAOfficeDocumentPackage.h"
+#import "BRARelationship.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
 
 @implementation BRAOpenXmlElement
 

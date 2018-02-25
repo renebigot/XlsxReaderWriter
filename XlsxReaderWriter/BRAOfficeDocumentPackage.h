@@ -6,14 +6,11 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
 #import "BRAElementWithRelationships.h"
-#import "BRAOfficeDocument.h"
-#import "BRAContentTypes.h"
-#import "BRAWorksheet.h"
-#import "BRARow.h"
-#import "BRAColumn.h"
-#import "BRACell.h"
+
+@class BRAContentTypes, BRAOfficeDocument;
 
 @interface BRAOfficeDocumentPackage : BRAElementWithRelationships
 

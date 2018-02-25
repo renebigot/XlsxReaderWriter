@@ -9,7 +9,12 @@
 #import "BRAStyles.h"
 #import "BRACellFill.h"
 #import "BRACellFormat.h"
+#import "BRANumberFormat.h"
+#import "BRATheme.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+DeepCopy.h"
+#import "NSDictionary+OpenXmlString.h"
+#import "NativeFont+BoldItalic.h"
 
 @implementation BRAStyles
 

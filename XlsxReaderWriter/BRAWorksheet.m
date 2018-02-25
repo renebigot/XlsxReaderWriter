@@ -7,11 +7,25 @@
 //
 
 #import "BRAWorksheet.h"
+#import "BRACell.h"
+#import "BRACellRange.h"
 #import "BRAColumn.h"
 #import "BRARow.h"
 #import "BRARelationships.h"
 #import "BRAPlatformSpecificDefines.h"
+#import "BRARelationships.h"
+#import "BRAImage.h"
+#import "BRAWorksheetDrawing.h"
+#import "BRAMergeCell.h"
+#import "BRAStyles.h"
+#import "BRADrawing.h"
+#import "BRAImage.h"
+#import "BRACalcChain.h"
+#import "BRASharedStrings.h"
+#import "BRAComments.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+DeepCopy.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRAWorksheet
 

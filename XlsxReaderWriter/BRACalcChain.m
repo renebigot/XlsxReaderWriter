@@ -7,10 +7,12 @@
 //
 
 #import "BRACalcChain.h"
+#import "BRACalcChainCell.h"
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRACalcChain
 

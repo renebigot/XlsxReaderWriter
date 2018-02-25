@@ -10,6 +10,9 @@
 #import "BRACell.h"
 #import "BRAColumn.h"
 #import "BRARow.h"
+#import "BRAImage.h"
+
+#import "NSDictionary+DeepCopy.h"
 
 @implementation BRAAnchor
 

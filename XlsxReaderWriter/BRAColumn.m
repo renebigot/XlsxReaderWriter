@@ -7,6 +7,8 @@
 //
 
 #import "BRAColumn.h"
+@import CoreGraphics;
+
 #import "XlsxReaderXMLDictionary.h"
 
 #define TRUNCATE(X) floor(X)

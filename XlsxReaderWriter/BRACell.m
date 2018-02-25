@@ -13,6 +13,12 @@
 #import "BRAWorksheet.h"
 #import "BRADrawing.h"
 #import "BRACellFormat.h"
+#import "BRASharedString.h"
+#import "BRANumberFormat.h"
+#import "BRACellFill.h"
+#import "BRAStyles.h"
+#import "BRASharedString.h"
+#import "BRASharedStrings.h"
 #import "XlsxReaderXMLDictionary.h"
 
 @implementation BRACell

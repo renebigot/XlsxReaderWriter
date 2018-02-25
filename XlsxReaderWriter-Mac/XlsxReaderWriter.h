@@ -29,9 +29,9 @@ FOUNDATION_EXPORT const unsigned char XlsxReaderWriter_macOSVersionString[];
 #import "BRAColumn.h"
 #import "BRARow.h"
 #import "BRACell.h"
-
 #import "BRAVmlDrawing.h"
 #import "BRASheet.h"
+
 #import "XlsxReaderWriter-swift-bridge.h"
 #import "XlsxReaderXMLDictionary.h"
 

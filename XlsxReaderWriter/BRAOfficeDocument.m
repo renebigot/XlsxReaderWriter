@@ -11,7 +11,14 @@
 #import "BRASharedStrings.h"
 #import "BRAWorksheet.h"
 #import "BRASheet.h"
+#import "BRANumberFormat.h"
+#import "BRATheme.h"
+#import "BRAStyles.h"
+#import "BRACalcChain.h"
+#import "BRAComments.h"
+#import "BRAOpenXmlSubElement.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRAOfficeDocument
 

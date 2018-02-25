@@ -7,6 +7,8 @@
 //
 
 #import "BRASharedString.h"
+#import "BRAOfficeDocument.h"
+#import "BRAStyles.h"
 #import "XlsxReaderXMLDictionary.h"
 
 @implementation BRASharedString

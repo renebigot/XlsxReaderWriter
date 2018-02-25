@@ -7,6 +7,13 @@
 //
 
 #import "BRAOfficeDocumentPackage.h"
+#import "BRAOfficeDocument.h"
+#import "BRARelationships.h"
+#import "BRAContentTypes.h"
+#import "BRAWorksheet.h"
+#import "BRARow.h"
+#import "BRAColumn.h"
+#import "BRACell.h"
 
 #if COCOAPODS
 @import SSZipArchive;
@@ -14,9 +21,6 @@
 @import ZipArchive;
 #endif
 
-
-#import "BRAContentTypes.h"
-#import "BRARelationships.h"
 
 /*!
  * @brief BRADocumentPackage is the OPC package representation. OpenXml documents are OPC (Open Packaging Convention) packages which uses the ZIP archive format.

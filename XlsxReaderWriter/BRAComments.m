@@ -5,12 +5,13 @@
 //  Created by René BIGOT on 23/09/2015.
 //  Copyright © 2015 BRAE. All rights reserved.
 //
-
 #import "BRAComments.h"
+#import "BRAComment.h"
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
 #import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+OpenXmlString.h"
 
 @implementation BRAComments
 

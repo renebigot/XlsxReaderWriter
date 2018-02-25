@@ -6,13 +6,7 @@
 //  Copyright (c) 2015 René Bigot. All rights reserved.
 //
 
-#import "XlsxReaderXMLDictionary.h"
-#import "NativeFont+BoldItalic.h"
-#import "NativeColor+OpenXML.h"
-#import "NativeColor+HTML.h"
-#import "NSDictionary+OpenXmlString.h"
-#import "NSDictionary+OpenXMLDictionaryParser.h"
-#import "NSDictionary+DeepCopy.h"
+// XlsxReaderWriter
 #import "BRAWorksheetDrawing.h"
 #import "BRAWorksheet.h"
 #import "BRATheme.h"
@@ -41,3 +35,12 @@
 #import "BRACellFill.h"
 #import "BRACell.h"
 #import "BRACalcChain.h"
+
+// Addition
+#import "XlsxReaderXMLDictionary.h"
+#import "NativeFont+BoldItalic.h"
+#import "NativeColor+OpenXML.h"
+#import "NativeColor+HTML.h"
+#import "NSDictionary+OpenXmlString.h"
+#import "NSDictionary+OpenXMLDictionaryParser.h"
+#import "NSDictionary+DeepCopy.h"
