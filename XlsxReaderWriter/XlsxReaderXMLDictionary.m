@@ -407,14 +407,8 @@
 	return [[[XlsxReaderXMLDictionaryParser sharedInstance] copy] dictionaryWithFile:path];
 }
 
-static NSMutableDictionary<NSString *, NSString *> *XlsxReaderXMLDictionaryShortKeyCache;
-
 - (nullable NSDictionary<NSString *, NSString *> *)xlsxReaderAttributes
 {
-    if (XlsxReaderXMLDictionaryShortKeyCache == nil) {
-        XlsxReaderXMLDictionaryShortKeyCache = [NSMutableDictionary new];
-    }
-    
     NSDictionary<NSString *, NSString *> *attributes = self[XlsxReaderXMLDictionaryAttributesKey];
     if (attributes)
     {
@@ -429,11 +423,7 @@ static NSMutableDictionary<NSString *, NSString *> *XlsxReaderXMLDictionaryShort
             [filteredDict removeObjectForKey:key];
             if ([key hasPrefix:XlsxReaderXMLDictionaryAttributePrefix])
             {
-                if (XlsxReaderXMLDictionaryShortKeyCache[key] == nil)
-                {
-                    XlsxReaderXMLDictionaryShortKeyCache[key] = [key substringFromIndex:XlsxReaderXMLDictionaryAttributePrefix.length];
-                }
-                filteredDict[XlsxReaderXMLDictionaryShortKeyCache[key]] = self[key];
+                filteredDict[[key substringFromIndex:XlsxReaderXMLDictionaryAttributePrefix.length]] = self[key];
             }
         }
         return filteredDict.count? filteredDict: nil;
