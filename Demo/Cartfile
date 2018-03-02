@@ -1,0 +1,2 @@
+github "ZipArchive/ZipArchive" ~> 2.1
+git "../../XlsxReaderWriter" "2.4.0-beta.2"
