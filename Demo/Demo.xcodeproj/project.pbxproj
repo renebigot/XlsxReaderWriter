@@ -12,12 +12,57 @@
 		826068772049437A00116455 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 826068752049437A00116455 /* Main.storyboard */; };
 		826068792049437B00116455 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 826068782049437A00116455 /* Assets.xcassets */; };
 		8260687C2049437B00116455 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8260687A2049437B00116455 /* LaunchScreen.storyboard */; };
-		82904D3C2049479200760D35 /* XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D3A2049479200760D35 /* XlsxReaderWriter.framework */; };
-		82904D3D2049479200760D35 /* XlsxReaderWriter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D3A2049479200760D35 /* XlsxReaderWriter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82904D3E2049479200760D35 /* ZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D3B2049479200760D35 /* ZipArchive.framework */; };
 		82904D3F2049479200760D35 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D3B2049479200760D35 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82904D432049483500760D35 /* testWorkbook.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 82904D422049483500760D35 /* testWorkbook.xlsx */; };
+		82904D6820494D0C00760D35 /* XlsxReaderWriter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D6520494CFC00760D35 /* XlsxReaderWriter.framework */; };
+		82904D6920494D0C00760D35 /* XlsxReaderWriter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82904D6520494CFC00760D35 /* XlsxReaderWriter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		82904D5E20494CFC00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B6E23A1A148F7500288A78;
+			remoteInfo = XlsxReaderWriter;
+		};
+		82904D6020494CFC00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45B6E2451A148F7500288A78;
+			remoteInfo = XlsxReaderWriterTests;
+		};
+		82904D6220494CFC00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22156D581C46B42500BB5779;
+			remoteInfo = "XlsxReaderWriter-Mac";
+		};
+		82904D6420494CFC00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8289AA632041D9F900E00603;
+			remoteInfo = "XlsxReaderWriter-iOS";
+		};
+		82904D6620494CFC00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8289AAD620420FFC00E00603;
+			remoteInfo = "XlsxReaderWriter-WatchOS";
+		};
+		82904D6A20494D0C00760D35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8289AA622041D9F900E00603;
+			remoteInfo = "XlsxReaderWriter-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		82904D292049451500760D35 /* Embed Frameworks */ = {
@@ -26,8 +71,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				82904D3D2049479200760D35 /* XlsxReaderWriter.framework in Embed Frameworks */,
 				82904D3F2049479200760D35 /* ZipArchive.framework in Embed Frameworks */,
+				82904D6920494D0C00760D35 /* XlsxReaderWriter.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,9 +87,9 @@
 		826068782049437A00116455 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8260687B2049437B00116455 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8260687D2049437B00116455 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82904D3A2049479200760D35 /* XlsxReaderWriter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XlsxReaderWriter.framework; path = Carthage/Build/iOS/XlsxReaderWriter.framework; sourceTree = "<group>"; };
 		82904D3B2049479200760D35 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = Carthage/Build/iOS/ZipArchive.framework; sourceTree = "<group>"; };
 		82904D422049483500760D35 /* testWorkbook.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = testWorkbook.xlsx; sourceTree = "<group>"; };
+		82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XlsxReaderWriter.xcodeproj; path = ../XlsxReaderWriter.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82904D3C2049479200760D35 /* XlsxReaderWriter.framework in Frameworks */,
 				82904D3E2049479200760D35 /* ZipArchive.framework in Frameworks */,
+				82904D6820494D0C00760D35 /* XlsxReaderWriter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				82904D422049483500760D35 /* testWorkbook.xlsx */,
-				82904D3A2049479200760D35 /* XlsxReaderWriter.framework */,
+				82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */,
 				82904D3B2049479200760D35 /* ZipArchive.framework */,
 				826068702049437A00116455 /* Demo */,
 				8260686F2049437A00116455 /* Products */,
@@ -92,6 +137,18 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		82904D5720494CFB00760D35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82904D5F20494CFC00760D35 /* libXlsxReaderWriter.a */,
+				82904D6120494CFC00760D35 /* XlsxReaderWriterTests.xctest */,
+				82904D6320494CFC00760D35 /* XlsxReaderWriter.framework */,
+				82904D6520494CFC00760D35 /* XlsxReaderWriter.framework */,
+				82904D6720494CFC00760D35 /* XlsxReaderWriter.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -107,6 +164,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				82904D6B20494D0C00760D35 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -140,12 +198,56 @@
 			mainGroup = 826068652049437A00116455;
 			productRefGroup = 8260686F2049437A00116455 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 82904D5720494CFB00760D35 /* Products */;
+					ProjectRef = 82904D5620494CFB00760D35 /* XlsxReaderWriter.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8260686D2049437A00116455 /* Demo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		82904D5F20494CFC00760D35 /* libXlsxReaderWriter.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libXlsxReaderWriter.a;
+			remoteRef = 82904D5E20494CFC00760D35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82904D6120494CFC00760D35 /* XlsxReaderWriterTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XlsxReaderWriterTests.xctest;
+			remoteRef = 82904D6020494CFC00760D35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82904D6320494CFC00760D35 /* XlsxReaderWriter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XlsxReaderWriter.framework;
+			remoteRef = 82904D6220494CFC00760D35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82904D6520494CFC00760D35 /* XlsxReaderWriter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XlsxReaderWriter.framework;
+			remoteRef = 82904D6420494CFC00760D35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82904D6720494CFC00760D35 /* XlsxReaderWriter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XlsxReaderWriter.framework;
+			remoteRef = 82904D6620494CFC00760D35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8260686C2049437A00116455 /* Resources */ = {
@@ -172,6 +274,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		82904D6B20494D0C00760D35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XlsxReaderWriter-iOS";
+			targetProxy = 82904D6A20494D0C00760D35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		826068752049437A00116455 /* Main.storyboard */ = {
