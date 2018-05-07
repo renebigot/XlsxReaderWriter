@@ -96,7 +96,7 @@
                                  @"min", @"max", @"width", @"bestFit", @"style", @"customWidth"
                                  ],
                          @"row": @[
-                                 @"r", @"ht", @"customHeight", @"customFormat", @"x14ac:dyDescent", @"spans", @"thickTop", @"s"
+                                 @"r", @"ht", @"customHeight", @"customFormat", @"spans", @"x14ac:dyDescent", @"thickTop", @"s"
                                  ],
                          @"alignment": @[
                                  @"horizontal", @"vertical", @"wrapText"
