@@ -33,7 +33,7 @@
                                  @"name", @"sheetId", @"state", @"r:id"
                                  ],
                          @"styleSheet": @[
-                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"xmlns:x16r2", @"xmlns:xr", @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
                                  ],
                          @"fonts": @[
                                  @"count", @"x14ac:knownFonts"
@@ -57,7 +57,7 @@
                                  @"font", @"numFmt", @"fill", @"alignment", @"border", @"protection", @"extLst"
                                  ],
                          @"worksheet": @[
-                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"sheetPr", @"dimension", @"sheetViews", @"sheetFormatPr", @"cols", @"sheetData", @"sheetCalcPr", @"sheetProtection", @"protectedRanges", @"scenarios", @"autoFilter", @"sortState", @"dataConsolidate", @"customSheetViews", @"mergeCells", @"phoneticPr", @"conditionalFormatting", @"dataValidations", @"hyperlinks", @"printOptions", @"pageMargins", @"pageSetup", @"headerFooter", @"rowBreaks", @"colBreaks", @"customProperties", @"cellWatches", @"ignoredErrors", @"smartTags", @"drawing", @"legacyDrawing", @"legacyDrawingHF", @"drawingHf", @"picture", @"oleObjects", @"controls", @"webPublishItems", @"tableParts", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"xmlns:x16r2", @"xmlns:xr", @"sheetPr", @"dimension", @"sheetViews", @"sheetFormatPr", @"cols", @"sheetData", @"sheetCalcPr", @"sheetProtection", @"protectedRanges", @"scenarios", @"autoFilter", @"sortState", @"dataConsolidate", @"customSheetViews", @"mergeCells", @"phoneticPr", @"conditionalFormatting", @"dataValidations", @"hyperlinks", @"printOptions", @"pageMargins", @"pageSetup", @"headerFooter", @"rowBreaks", @"colBreaks", @"customProperties", @"cellWatches", @"ignoredErrors", @"smartTags", @"drawing", @"legacyDrawing", @"legacyDrawingHF", @"drawingHf", @"picture", @"oleObjects", @"controls", @"webPublishItems", @"tableParts", @"extLst"
                                  ],
                          @"sst": @[
                                  @"xmlns", @"count", @"uniqueCount"
@@ -211,6 +211,9 @@
                                  ],
                          @"x15ac:absPath": @[
                                  @"url", @"xmlns:x15ac"
+                                 ],
+                         @"x16r2:absPath": @[
+                                 @"url", @"xmlns:x16r2"
                                  ],
                          @"a:ln": @[
                                  @"w", @"cap", @"a:solidFill", @"a:prstDash", @"a:miter", @"a:headEnd", @"a:tailEnd"
