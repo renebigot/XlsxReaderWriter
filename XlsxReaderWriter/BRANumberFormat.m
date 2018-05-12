@@ -503,7 +503,7 @@
             if (time) {
                 //Here time is converted to seconds
                 //some loss of precision will occur
-                seconds = (NSInteger)(time * 86400);
+                seconds = (NSInteger)((time * 86400) + 0.5); // Ceil, otherwise you loose a second sometimes
             }
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
