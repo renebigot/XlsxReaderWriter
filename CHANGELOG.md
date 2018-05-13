@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 2.4.0.Beta.1 - Unreleased
+## 2.4.0.Beta.3 - Unreleased
 - Version 2.4 is introducing an important dependency changes
 	- The Library XMLDictionary is [Deprecated](https://github.com/nicklockwood/XMLDictionary), for this reason the code
           has been integrated and refactored to avoid Name collision
