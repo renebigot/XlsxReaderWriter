@@ -86,7 +86,6 @@
         
         // Fixing LF to CRFL
         NSString *representation = [[[self xmlRepresentation] copy] stringByReplacingOccurrencesOfString:@"\r\n" withString:@"---TEMPMARK---"];
-        
         representation = [representation  stringByReplacingOccurrencesOfString:@"\n" withString:@"\r\n"];
         representation = [representation  stringByReplacingOccurrencesOfString:@"---TEMPMARK---" withString:@"\r\n"];
         
@@ -94,9 +93,6 @@
         if ([[representation substringFromIndex:representation.length-2] isEqualToString:@"\r\n"]) {
             representation = [representation substringToIndex:representation.length-2];
         }
-        
-        // Fix &quot;
-        representation = [representation stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
         
         [representation writeToFile:fullFilePath atomically:YES encoding:NSUTF8StringEncoding error:&error];
     } else {

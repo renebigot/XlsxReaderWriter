@@ -126,7 +126,7 @@
     dictionaryRepresentation[@"dimension"] = [self.dimension dictionaryRepresentation];
 
     //Merge Cells
-    NSMutableArray *mergeCells = _mergeCells.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_mergeCells.count];
+    NSMutableArray *mergeCells = [[NSMutableArray alloc] initWithCapacity:_mergeCells.count+1];
     for (BRAMergeCell *mergeCell in _mergeCells) {
         [mergeCells addObject:[mergeCell dictionaryRepresentation]];
     }
@@ -138,7 +138,7 @@
     }
 
     //Columns
-    NSMutableArray *columns = _columns.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_columns.count];
+    NSMutableArray *columns = [[NSMutableArray alloc] initWithCapacity:_columns.count+1];
     for (BRAColumn *column in _columns) {
         [columns addObject:[column dictionaryRepresentation]];
     }
@@ -152,7 +152,7 @@
     }
 
     //Rows
-    NSMutableArray *rows = _rows.count == 0 ? nil : [[NSMutableArray alloc] initWithCapacity:_rows.count];
+    NSMutableArray *rows = [[NSMutableArray alloc] initWithCapacity:_rows.count];
     for (BRARow *row in _rows) {
         [rows addObject:[row dictionaryRepresentation]];
     }
