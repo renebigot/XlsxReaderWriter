@@ -7,6 +7,9 @@
 //
 
 #import "BRAColumn.h"
+@import CoreGraphics;
+
+#import "XlsxReaderXMLDictionary.h"
 
 #define TRUNCATE(X) floor(X)
 
@@ -72,15 +75,15 @@
 - (void)loadAttributes {
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
 
-    _maximum = [dictionaryRepresentation.attributes[@"max"] integerValue];
-    _minimum = [dictionaryRepresentation.attributes[@"min"] integerValue];
+    _maximum = [dictionaryRepresentation.xlsxReaderAttributes[@"max"] integerValue];
+    _minimum = [dictionaryRepresentation.xlsxReaderAttributes[@"min"] integerValue];
 
-    if (dictionaryRepresentation.attributes[@"customWidth"]) {
-        _customWidth = [dictionaryRepresentation.attributes[@"customWidth"] boolValue];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"customWidth"]) {
+        _customWidth = [dictionaryRepresentation.xlsxReaderAttributes[@"customWidth"] boolValue];
     }
 
-    if (dictionaryRepresentation.attributes[@"width"]) {
-        _width = [dictionaryRepresentation.attributes[@"width"] floatValue];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"width"]) {
+        _width = [dictionaryRepresentation.xlsxReaderAttributes[@"width"] floatValue];
     }
 }
 

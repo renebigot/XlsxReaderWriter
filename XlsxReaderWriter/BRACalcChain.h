@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
+@import Foundation;
 #import "BRARelationship.h"
 #import "BRARelatedToColumnAndRowProtocol.h"
-#import "BRACalcChainCell.h"
 
 @interface BRACalcChain : BRARelationship <BRARelatedToColumnAndRowProtocol>
 

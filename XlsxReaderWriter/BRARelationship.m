@@ -8,6 +8,7 @@
 
 #import "BRARelationship.h"
 #import "BRARelationships.h"
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRARelationship
 

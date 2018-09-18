@@ -1,8 +1,7 @@
-#import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 #define BRANativeMakeSize CGSizeMake
 #define BRANativeColor UIColor
@@ -28,8 +27,7 @@ NS_INLINE BRANativeImage* BRANativeGraphicsGetImageFromContext(CGContextRef cont
 
 #else
 
-
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 #define BRANativeMakeSize NSMakeSize
 #define BRANativeColor NSColor

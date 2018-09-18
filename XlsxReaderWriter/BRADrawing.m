@@ -10,6 +10,12 @@
 #import "BRARow.h"
 #import "BRACell.h"
 #import "BRAColumn.h"
+#import "BRARelationships.h"
+#import "BRAImage.h"
+#import "BRAWorksheetDrawing.h"
+
+#import "NSDictionary+OpenXmlString.h"
+#import "XlsxReaderXMLDictionary.h"
 
 #define ONE_CELL_ANCHOR @"xdr:oneCellAnchor"
 #define TWO_CELL_ANCHOR @"xdr:twoCellAnchor"
@@ -43,7 +49,7 @@
     NSMutableArray *worksheetDrawings = [_worksheetDrawings mutableCopy];
     NSDictionary *attributes = [NSDictionary dictionaryWithOpenXmlString:_xmlRepresentation];
 
-    NSArray *wsDrArray = [attributes arrayValueForKeyPath:anchorType];
+    NSArray *wsDrArray = [attributes xlsxReaderArrayValueForKeyPath:anchorType];
     
     for (NSDictionary *wsDrDict in wsDrArray) {
         [worksheetDrawings addObject:[[BRAWorksheetDrawing alloc] initWithOpenXmlAttributes:wsDrDict]];
@@ -91,7 +97,7 @@
 - (void)didAddRowsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -123,7 +129,7 @@
     
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -161,7 +167,7 @@
 - (void)didAddColumnsAtIndexes:(NSIndexSet *)indexes {
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -194,7 +200,7 @@
     
     @synchronized(_worksheetDrawings) {
         [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
-            for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
+            for (BRAWorksheetDrawing *worksheetDrawing in self->_worksheetDrawings) {
                 
                 //Change top left reference if necessary
                 if ([worksheetDrawing.anchor respondsToSelector:@selector(topLeftCellReference)]) {
@@ -239,9 +245,9 @@
     
     NSString *xmlHeader = @"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n";
 
-    NSMutableArray *oneCellAnchoredXdr = @[].mutableCopy;
-    NSMutableArray *twoCellAnchoredXdr = @[].mutableCopy;
-    NSMutableArray *absoluteAnchoredXdr = @[].mutableCopy;
+    NSMutableArray *oneCellAnchoredXdr = [[NSMutableArray alloc] init];
+    NSMutableArray *twoCellAnchoredXdr = [[NSMutableArray alloc] init];
+    NSMutableArray *absoluteAnchoredXdr = [[NSMutableArray alloc] init];
     
     for (BRAWorksheetDrawing *worksheetDrawing in _worksheetDrawings) {
         if ([worksheetDrawing.anchor isKindOfClass:[BRAAbsoluteAnchor class]]) {
@@ -268,7 +274,7 @@
     BRADrawing *copy = [super copy];
     
     copy.worksheetDrawings = @[];
-    copy.relationships.relationshipsArray = @[].mutableCopy;
+    copy.relationships.relationshipsArray = [[NSMutableArray alloc] init];
     
     for (BRAWorksheetDrawing *wsDr in self.worksheetDrawings) {
         // We create a new image file when duplicating image, so we create a new relationship

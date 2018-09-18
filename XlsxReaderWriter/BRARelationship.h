@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "XMLDictionary.h"
+@import Foundation;
 #import "NativeColor+OpenXML.h"
 #import "BRAElementWithRelationships.h"
 

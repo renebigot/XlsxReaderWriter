@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+OpenXmlString.h"
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation NSDictionary (OpenXmlString)
 
@@ -32,7 +33,7 @@
                                  @"name", @"sheetId", @"state", @"r:id"
                                  ],
                          @"styleSheet": @[
-                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"xmlns:x16r2", @"xmlns:xr", @"numFmts", @"fonts", @"fills", @"borders", @"cellStyleXfs", @"cellXfs", @"cellStyles", @"dxfs", @"tableStyles", @"colors", @"extLst"
                                  ],
                          @"fonts": @[
                                  @"count", @"x14ac:knownFonts"
@@ -56,7 +57,7 @@
                                  @"font", @"numFmt", @"fill", @"alignment", @"border", @"protection", @"extLst"
                                  ],
                          @"worksheet": @[
-                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"sheetPr", @"dimension", @"sheetViews", @"sheetFormatPr", @"cols", @"sheetData", @"sheetCalcPr", @"sheetProtection", @"protectedRanges", @"scenarios", @"autoFilter", @"sortState", @"dataConsolidate", @"customSheetViews", @"mergeCells", @"phoneticPr", @"conditionalFormatting", @"dataValidations", @"hyperlinks", @"printOptions", @"pageMargins", @"pageSetup", @"headerFooter", @"rowBreaks", @"colBreaks", @"customProperties", @"cellWatches", @"ignoredErrors", @"smartTags", @"drawing", @"legacyDrawing", @"legacyDrawingHF", @"drawingHf", @"picture", @"oleObjects", @"controls", @"webPublishItems", @"tableParts", @"extLst"
+                                 @"xmlns", @"xmlns:r", @"xmlns:mc", @"mc:Ignorable", @"xmlns:x14ac", @"xmlns:x16r2", @"xmlns:xr", @"sheetPr", @"dimension", @"sheetViews", @"sheetFormatPr", @"cols", @"sheetData", @"sheetCalcPr", @"sheetProtection", @"protectedRanges", @"scenarios", @"autoFilter", @"sortState", @"dataConsolidate", @"customSheetViews", @"mergeCells", @"phoneticPr", @"conditionalFormatting", @"dataValidations", @"hyperlinks", @"printOptions", @"pageMargins", @"pageSetup", @"headerFooter", @"rowBreaks", @"colBreaks", @"customProperties", @"cellWatches", @"ignoredErrors", @"smartTags", @"drawing", @"legacyDrawing", @"legacyDrawingHF", @"drawingHf", @"picture", @"oleObjects", @"controls", @"webPublishItems", @"tableParts", @"extLst"
                                  ],
                          @"sst": @[
                                  @"xmlns", @"count", @"uniqueCount"
@@ -95,7 +96,7 @@
                                  @"min", @"max", @"width", @"bestFit", @"style", @"customWidth"
                                  ],
                          @"row": @[
-                                 @"r", @"ht", @"customHeight", @"customFormat", @"x14ac:dyDescent", @"spans", @"thickTop", @"s"
+                                 @"r", @"ht", @"customHeight", @"customFormat", @"spans", @"x14ac:dyDescent", @"thickTop", @"s"
                                  ],
                          @"alignment": @[
                                  @"horizontal", @"vertical", @"wrapText"
@@ -211,6 +212,9 @@
                          @"x15ac:absPath": @[
                                  @"url", @"xmlns:x15ac"
                                  ],
+                         @"x16r2:absPath": @[
+                                 @"url", @"xmlns:x16r2"
+                                 ],
                          @"a:ln": @[
                                  @"w", @"cap", @"a:solidFill", @"a:prstDash", @"a:miter", @"a:headEnd", @"a:tailEnd"
                                  ],
@@ -242,11 +246,11 @@
 - (NSString *)openXmlInnerXMLInNodeNamed:(NSString *)nodeName {
     NSMutableArray *nodes = [NSMutableArray array];
     
-    for (NSString *comment in [self comments]) {
-        [nodes addObject:[NSString stringWithFormat:@"<!--%@-->", [comment XMLEncodedString]]];
+    for (NSString *comment in [self xlsxReaderComments]) {
+        [nodes addObject:[NSString stringWithFormat:@"<!--%@-->", [comment xlsxReaderXMLEncodedString]]];
     }
     
-    NSDictionary *childNodes = [self childNodes];
+    NSDictionary *childNodes = [self xlsxReaderChildNodes];
     NSMutableArray *allKeys = [childNodes allKeys].mutableCopy;
     
     if ([NSDictionary openXmlOrderedKeys][nodeName]) {
@@ -264,14 +268,14 @@
     
     NSString *text = [self openXmlInnerText];
     if (text) {
-        [nodes addObject:[text XMLEncodedString]];
+        [nodes addObject:[text xlsxReaderXMLEncodedString]];
     }
     
     return [nodes componentsJoinedByString:@""];
 }
 
 - (id)openXmlInnerText {
-    id text = self[XMLDictionaryTextKey];
+    id text = self[XlsxReaderXMLDictionaryTextKey];
     if ([text isKindOfClass:[NSArray class]]) {
         return [text componentsJoinedByString:@"\r\n"];
     } else {
@@ -291,7 +295,7 @@
         
         
     } else if ([node isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *attributes = [(NSDictionary *)node attributes];
+        NSDictionary *attributes = [(NSDictionary *)node xlsxReaderAttributes];
         NSMutableString *attributeString = [NSMutableString string];
         
         NSMutableArray *allKeys = [attributes allKeys].mutableCopy;
@@ -300,7 +304,7 @@
         if ([NSDictionary openXmlOrderedKeys][nodeName]) {
             for (NSString *key in [NSDictionary openXmlOrderedKeys][nodeName]) {
                 if (attributes[key]) {
-                    [attributeString appendFormat:@" %@=\"%@\"", [[key description] XMLEncodedString], [[attributes[key] description] XMLEncodedString]];
+                    [attributeString appendFormat:@" %@=\"%@\"", [[key description] xlsxReaderXMLEncodedString], [[attributes[key] description] xlsxReaderXMLEncodedString]];
                     [allKeys removeObject:key];
                 }
             }
@@ -308,7 +312,7 @@
         
         //then all others
         for (NSString *key in allKeys) {
-            [attributeString appendFormat:@" %@=\"%@\"", [[key description] XMLEncodedString], [[attributes[key] description] XMLEncodedString]];
+            [attributeString appendFormat:@" %@=\"%@\"", [[key description] xlsxReaderXMLEncodedString], [[attributes[key] description] xlsxReaderXMLEncodedString]];
         }
         
         NSString *innerXML = [node openXmlInnerXMLInNodeNamed:nodeName];
@@ -321,7 +325,7 @@
         
         
     } else {
-        return [NSString stringWithFormat:@"<%1$@>%2$@</%1$@>", nodeName, [[node description] XMLEncodedString]];
+        return [NSString stringWithFormat:@"<%1$@>%2$@</%1$@>", nodeName, [[node description] xlsxReaderXMLEncodedString]];
     }
 }
 

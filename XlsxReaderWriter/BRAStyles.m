@@ -9,6 +9,12 @@
 #import "BRAStyles.h"
 #import "BRACellFill.h"
 #import "BRACellFormat.h"
+#import "BRANumberFormat.h"
+#import "BRATheme.h"
+#import "XlsxReaderXMLDictionary.h"
+#import "NSDictionary+DeepCopy.h"
+#import "NSDictionary+OpenXmlString.h"
+#import "NativeFont+BoldItalic.h"
 
 @implementation BRAStyles
 
@@ -32,7 +38,7 @@
     //Read indexed colors
     NSMutableArray *indexedColors = [BRANativeColor defaultIndexedColors].mutableCopy;
     
-    NSArray *colorsArray = [_attributes arrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
+    NSArray *colorsArray = [_attributes xlsxReaderArrayValueForKeyPath:@"colors.indexedColors.rgbColor"];
     if (colorsArray) {
         NSInteger index = 0;
         for (NSDictionary *indexedColorDict in colorsArray) {
@@ -46,10 +52,10 @@
     //Read number formats
     NSMutableDictionary *numberFormats = [self defaultNumberFormats].mutableCopy;
     
-    NSArray *numFmtArray = [_attributes arrayValueForKeyPath:@"numFmts.numFmt"];
+    NSArray *numFmtArray = [_attributes xlsxReaderArrayValueForKeyPath:@"numFmts.numFmt"];
     if (numFmtArray) {
         for (NSDictionary *formatCodeDict in numFmtArray) {
-            numberFormats[formatCodeDict.attributes[@"numFmtId"]] = [[BRANumberFormat alloc] initWithOpenXmlAttributes:formatCodeDict inStyles:self];
+            numberFormats[formatCodeDict.xlsxReaderAttributes[@"numFmtId"]] = [[BRANumberFormat alloc] initWithOpenXmlAttributes:formatCodeDict inStyles:self];
         }
     }
     _numberFormats = numberFormats;
@@ -67,8 +73,8 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read Fills
-    NSArray *fillsArray = [_attributes arrayValueForKeyPath:@"fills.fill"];
-    NSMutableArray *cellFills = @[].mutableCopy;
+    NSArray *fillsArray = [_attributes xlsxReaderArrayValueForKeyPath:@"fills.fill"];
+    NSMutableArray *cellFills = [[NSMutableArray alloc] init];
     if (fillsArray) {
         for (NSDictionary *fillDict in fillsArray) {
             BRACellFill *fill = [[BRACellFill alloc] initWithOpenXmlAttributes:fillDict inStyles:self];
@@ -83,8 +89,8 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell style formatting records (cellStyleXfs) /!\ Must be read before cellXfs
-    NSMutableArray *cellStyleFormats = @[].mutableCopy;
-    NSArray *cellStyleXfArray = [_attributes arrayValueForKeyPath:@"cellStyleXfs.xf"];
+    NSMutableArray *cellStyleFormats = [[NSMutableArray alloc] init];
+    NSArray *cellStyleXfArray = [_attributes xlsxReaderArrayValueForKeyPath:@"cellStyleXfs.xf"];
     
     if (cellStyleXfArray) {
         for (NSDictionary *formattingRecord in cellStyleXfArray) {
@@ -99,8 +105,8 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read cell formatting records (cellXfs)
-    NSMutableArray *cellFormats = @[].mutableCopy;
-    NSArray *cellXfArray = [_attributes arrayValueForKeyPath:@"cellXfs.xf"];
+    NSMutableArray *cellFormats = [[NSMutableArray alloc] init];
+    NSArray *cellXfArray = [_attributes xlsxReaderArrayValueForKeyPath:@"cellXfs.xf"];
     
     if (cellXfArray) {
         for (NSDictionary *formattingRecord in cellXfArray) {
@@ -115,8 +121,8 @@
     // Theme colors are not already loaded when loadXmlContents is executed
     
     //Read Fonts
-    NSArray *fontsArray = [_attributes arrayValueForKeyPath:@"fonts.font"];
-    NSMutableArray *textsAttributes = @[].mutableCopy;
+    NSArray *fontsArray = [_attributes xlsxReaderArrayValueForKeyPath:@"fonts.font"];
+    NSMutableArray *textsAttributes = [[NSMutableArray alloc] init];
     if (fontsArray) {
         for (NSDictionary *fontDict in fontsArray) {
             [textsAttributes addObject:[self attributedStringAttributesFromOpenXmlAttributes:fontDict]];
@@ -315,7 +321,7 @@
     
     //Indexed colors
     if (![_indexedColors isEqual:[BRANativeColor defaultIndexedColors]]) {
-        NSMutableArray *indexedColorsArray = @[].mutableCopy;
+        NSMutableArray *indexedColorsArray = [[NSMutableArray alloc] init];
         
         for (BRANativeColor *color in _indexedColors) {
             [indexedColorsArray addObject:[self rgbColorValueForColor:color]];
@@ -331,7 +337,7 @@
     }
     
     //Number formats
-    NSMutableArray *numFormatsArray = @[].mutableCopy;
+    NSMutableArray *numFormatsArray = [[NSMutableArray alloc] init];
     NSArray *formatKeys = [_numberFormats allKeys];
     
     for (NSString *key in formatKeys) {
@@ -352,12 +358,12 @@
     //Fonts
     //We won't change old fonts to preserve full properties
     //So we just add the new ones
-    NSMutableArray *fontsArray = [dictionaryRepresentation arrayValueForKeyPath:@"fonts.font"].mutableCopy;
+    NSMutableArray *fontsArray = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"fonts.font"].mutableCopy;
     NSInteger oldFontsCount = [fontsArray count];
     
     for (NSInteger i = oldFontsCount; i < _textsAttributes.count; i++) {
         NSDictionary *textAttributes = _textsAttributes[i];
-        NSMutableDictionary *fontOpenXmlAttributes = @{}.mutableCopy;
+        NSMutableDictionary *fontOpenXmlAttributes = [[NSMutableDictionary alloc] init];
         
         //Font + Size + Bold + Italic
         if (textAttributes[NSFontAttributeName]) {
@@ -403,7 +409,7 @@
     //Fills
     //We won't change old fills to preserve full properties
     //So we just add the new ones
-    NSMutableArray *fillsArray = [dictionaryRepresentation arrayValueForKeyPath:@"fills.fill"].mutableCopy;
+    NSMutableArray *fillsArray = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"fills.fill"].mutableCopy;
     NSInteger oldFillsCount = [fillsArray count];
     
     for (NSInteger i = oldFillsCount; i < _cellFills.count; i++) {
@@ -420,7 +426,7 @@
     //Read cell style formatting records (cellStyleXfs)
     //We won't change old styles formatting records to preserve full properties
     //So we just add the new ones
-    NSMutableArray *stylesFormattingRecordsArray = [dictionaryRepresentation arrayValueForKeyPath:@"cellStyleXfs.xf"].mutableCopy;
+    NSMutableArray *stylesFormattingRecordsArray = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"cellStyleXfs.xf"].mutableCopy;
     NSInteger oldStylesFormattingRecordsCount = [stylesFormattingRecordsArray count];
     
     for (NSInteger i = oldStylesFormattingRecordsCount; i < _cellStyleFormats.count; i++) {
@@ -435,7 +441,7 @@
     //Read cell style formatting records (cellXfs)
     //We won't change old formatting records to preserve full properties
     //So we just add the new ones
-    NSMutableArray *formattingRecordsArray = [dictionaryRepresentation arrayValueForKeyPath:@"cellXfs.xf"].mutableCopy;
+    NSMutableArray *formattingRecordsArray = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"cellXfs.xf"].mutableCopy;
     NSInteger oldFormatingRecordsCount = [formattingRecordsArray count];
     
     for (NSInteger i = oldFormatingRecordsCount; i < _cellFormats.count; i++) {

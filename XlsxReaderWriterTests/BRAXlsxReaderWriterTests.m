@@ -10,6 +10,8 @@
 #import <stdio.h>
 
 #import "BRAOfficeDocumentPackage.h"
+#import "BRAOfficeDocument.h"
+#import "BRAWorksheetDrawing.h"
 #import "BRAWorksheet.h"
 #import "BRANumberFormat.h"
 #import "BRARelationships.h"
@@ -18,12 +20,15 @@
 #import "BRAColumn.h"
 #import "BRARow.h"
 #import "BRACell.h"
+#import "BRAVmlDrawing.h"
+#import "BRASheet.h"
+#import "BRAStyles.h"
 
-#define NUMBER_FORMAT(X) [[BRANumberFormat alloc] initWithOpenXmlAttributes:@{@"_formatCode": X} inStyles:_spreadsheet.workbook.styles]
+#define NUMBER_FORMAT(X) [[BRANumberFormat alloc] initWithOpenXmlAttributes:@{@"_formatCode": X} inStyles:self.spreadsheet.workbook.styles]
 
-@interface BRAXlsxReaderWriterTests : XCTestCase {
-    BRAOfficeDocumentPackage *_spreadsheet;
-}
+@interface BRAXlsxReaderWriterTests : XCTestCase
+
+@property (strong, readwrite) BRAOfficeDocumentPackage *spreadsheet;
 
 @end
 
@@ -37,7 +42,7 @@
     [super setUp];
 
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
-    _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+    self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
 }
 
 + (void)tearDown {
@@ -47,21 +52,21 @@
 }
 
 - (void)testReadSpreadsheetDocument {
-    XCTAssertNotNil(_spreadsheet, @"Spreadsheet document can't be read");
+    XCTAssertNotNil(self.spreadsheet, @"Spreadsheet document can't be read");
 }
 
 - (void)testWorksheet {
-    XCTAssertNotNil(_spreadsheet.workbook.worksheets, @"Wokbook should have worksheet(s)");
-    XCTAssertEqualObjects([_spreadsheet.workbook.worksheets[0] class], [BRAWorksheet class], @"Worksheet should be a BRAWorksheet instance");
+    XCTAssertNotNil(self.spreadsheet.workbook.worksheets, @"Wokbook should have worksheet(s)");
+    XCTAssertEqualObjects([self.spreadsheet.workbook.worksheets[0] class], [BRAWorksheet class], @"Worksheet should be a BRAWorksheet instance");
 }
 
 - (void)testWorksheetNamed {
-    XCTAssertNotNil([_spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Feuil1 not found");
-    XCTAssertEqualObjects([[_spreadsheet.workbook worksheetNamed:@"Feuil1"] class], [BRAWorksheet class], @"Feuil1 should be a BRAWorksheet instance");
+    XCTAssertNotNil([self.spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Feuil1 not found");
+    XCTAssertEqualObjects([[self.spreadsheet.workbook worksheetNamed:@"Feuil1"] class], [BRAWorksheet class], @"Feuil1 should be a BRAWorksheet instance");
 }
 
 - (void)testCellContentBoolean {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
 
@@ -88,7 +93,7 @@
 }
 
 - (void)testCellContentNumber {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
     
@@ -115,7 +120,7 @@
 }
 
 - (void)testCellContentString {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
 
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B6"] stringValue], @"shared string", @"B6 should contain @\"shared string\"");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"C6"] stringValue], @"shared string with color", @"C6 should contain @\"shared string with color\"");
@@ -123,7 +128,7 @@
 }
 
 - (void)testCellContentAttributedString {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentLeft;
@@ -152,21 +157,21 @@
 }
 
 - (void)testCellContentError {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     XCTAssert([[worksheet cellForCellReference:@"B2"] hasError], @"B2 should contain an error");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B2"] stringValue], @"#DIV/0!", @"B2 should have a #DIV/0! error");
 }
 
 - (void)testCellContentFormula {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     XCTAssertNotNil([[worksheet cellForCellReference:@"B4"] formulaString], @"B4 should contain a formula");
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"B4"] formulaString], @"CONCATENATE(\"concatenated\",\" \",\"string\")", @"B4 does not contain the expected formula");
 }
 
 - (void)testThemeColor {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"F3"] cellFillColor], [UIColor colorWithRed:247./255. green:150./255. blue:70./255. alpha:1]);
 }
@@ -285,7 +290,7 @@
 }
 
 - (void)testDrawing {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
 
     BRADrawing *drawing = [worksheet.relationships anyRelationshipWithType:[BRADrawing fullRelationshipType]];
     XCTAssertEqual(drawing.worksheetDrawings.count, 2, @"This worksheet should contain 2 drawings");
@@ -302,7 +307,7 @@
 }
 
 - (void)testImage {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     BRADrawing *drawing = [worksheet.relationships anyRelationshipWithType:[BRADrawing fullRelationshipType]];
     BRAImage *image = [drawing.relationships relationshipWithId:@"rId1"];
@@ -315,7 +320,7 @@
 - (void)testSaveAs {
     [self measureBlock:^{
         NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testSaveAs.xlsx"];
-        [_spreadsheet saveAs:fullPath];
+        [self.spreadsheet saveAs:fullPath];
         XCTAssert([[NSFileManager defaultManager] fileExistsAtPath:fullPath], @"No file exists at %@", fullPath);
     }];
 }
@@ -324,8 +329,8 @@
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         NSInteger rowsCount = worksheet.rows.count;
         [worksheet addRowAt:18];
@@ -336,15 +341,15 @@
         XCTAssertEqual([[worksheet cellForCellReference:@"D20"] integerValue], 19, @"D20 should be contain 19 (D19 old value)");
     }];
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1Row.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1Row.xlsx"]];
 }
 
 - (void)testAdd1000Rows {
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         NSInteger rowsCount = worksheet.rows.count;
         [worksheet addRowsAt:18 count:1000];
@@ -355,15 +360,15 @@
         XCTAssertEqual([[worksheet cellForCellReference:@"D1019"] integerValue], 19, @"D1019 should be contain 19 (D19 old value)");
     }];
 
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1000Rows.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAdd1000Rows.xlsx"]];
 }
 
 - (void)testRemove1Row {
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
         NSInteger rowsCount = worksheet.rows.count;
@@ -374,15 +379,15 @@
         XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A17"], @"The new A17 should have the same content as the old one");
     }];
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1Row.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1Row.xlsx"]];
 }
 
 - (void)testRemove1RowAndKeepMergeCellContent {
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
         NSInteger rowsCount = worksheet.rows.count;
@@ -393,15 +398,15 @@
         XCTAssertEqualObjects(firstCell, [worksheet cellForCellReference:@"A16"], @"The new A16 should have the same content as the old A17");
     }];
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAndKeepMergeCellContent.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAndKeepMergeCellContent.xlsx"]];
 }
 
 - (void)testRemove1RowAboveAMergedCellAndKeepMergeCellContent {
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         NSInteger rowsCount = worksheet.rows.count;
         
@@ -411,16 +416,16 @@
         XCTAssertEqualObjects([[worksheet cellForCellReference:@"A16"] stringValue], @"Merged cell 2", @"The new A16 should contain \"Grouped cell\"");
     }];
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAboveAMergedCellAndKeepMergeCellContent.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove1RowAboveAMergedCellAndKeepMergeCellContent.xlsx"]];
 }
 
 - (void)testRemove4Rows {
     NSString *documentPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testWorkbook" ofType:@"xlsx"];
     
     [self measureBlock:^{
-        _spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
+        self.spreadsheet = [BRAOfficeDocumentPackage open:documentPath];
         
-        BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+        BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
         
         BRACell *firstCell = [worksheet cellForCellReference:@"A17"];
         NSInteger rowsCount = worksheet.rows.count;
@@ -430,7 +435,7 @@
         XCTAssertEqualObjects([firstCell value], [[worksheet cellForCellReference:@"A16"] value], @"The new A16 should have the same content as the old A17");
     }];
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove4Rows.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemove4Rows.xlsx"]];
 }
 
 - (void)testWriteCellContent {
@@ -441,7 +446,7 @@
                                        NSForegroundColorAttributeName: [UIColor greenColor]
                                        };
     
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     NSString *savePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testWriteCellContent.xlsx"];
     
     //Write some values
@@ -466,7 +471,7 @@
     [[worksheet cellForCellReference:@"Y26"] setNumberFormat:@"mm/dd/yy"];
 
     [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setFormulaString:@"1/0"];
-    [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setError:@"#DIV/0!"];
+    [[worksheet cellForCellReference:@"Y27" shouldCreate:YES] setStringValue:@"#DIV/0!"];
 
     
     //Try to read those values
@@ -483,12 +488,12 @@
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"Z24"] attributedStringValue],
                           [[NSAttributedString alloc] initWithString:@"GREEN" attributes:stringAttributes], @"Z24 should be \"GREEN\" with green color");
     
-    [_spreadsheet saveAs:savePath];
-    _spreadsheet = nil;
+    [self.spreadsheet saveAs:savePath];
+    self.spreadsheet = nil;
     
     //Reopen the saved workbook
-    _spreadsheet = [BRAOfficeDocumentPackage open:savePath];
-    worksheet = _spreadsheet.workbook.worksheets[0];
+    self.spreadsheet = [BRAOfficeDocumentPackage open:savePath];
+    worksheet = self.spreadsheet.workbook.worksheets[0];
 
     //Try to read (again) the values
     XCTAssertEqual([[worksheet cellForCellReference:@"Y21"] boolValue], YES, @"Y21 should be TRUE");
@@ -518,7 +523,7 @@
 }
 
 - (void)testAddFormatCode {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     NSInteger numberFormatsCount = worksheet.styles.numberFormats.count;
     
@@ -527,7 +532,7 @@
 }
 
 - (void)testColumnPointWidth {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
 
     BRAColumn *col = worksheet.columns[0];
     col.width = 3;
@@ -538,11 +543,11 @@
     col.pointWidth = 61;
     XCTAssertEqual([col width], 8, @"Col width should be 8 characters");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testColumnPointWidth.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testColumnPointWidth.xlsx"]];
 }
 
 - (void)testMergeCell {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
 
     XCTAssertEqualObjects([worksheet cellOrFirstCellInMergeCellForCellReference:@"C10"], [worksheet cellForCellReference:@"A9"], @"cellOrFirstCellInMergeCellForCellReference: for C10 should be A9");
     XCTAssertEqualObjects([worksheet cellOrFirstCellInMergeCellForCellReference:@"A9"], [worksheet cellForCellReference:@"A9"], @"cellOrFirstCellInMergeCellForCellReference: for A9 should be A9");
@@ -550,67 +555,67 @@
 }
 
 - (void)testCreateNewWorksheet {
-    BRAWorksheet *worksheet = [_spreadsheet.workbook createWorksheetNamed:@"Foo"];
+    BRAWorksheet *worksheet = [self.spreadsheet.workbook createWorksheetNamed:@"Foo"];
     
     XCTAssertNotNil(worksheet, @"worksheet should not be nil");
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
     
     [[worksheet cellForCellReference:@"A10" shouldCreate:YES] setStringValue:@"Bar"];
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"A10"] stringValue], @"Bar", @"Bar not set in A10 ?");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testCreateNewWorksheet.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testCreateNewWorksheet.xlsx"]];
 }
 
 - (void)testCreateNewWorksheetByCopying {
-    BRAWorksheet *worksheetToCopy = _spreadsheet.workbook.worksheets[0];
-    BRAWorksheet *worksheet = [_spreadsheet.workbook createWorksheetNamed:@"Foo" byCopyingWorksheet:worksheetToCopy];
+    BRAWorksheet *worksheetToCopy = self.spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = [self.spreadsheet.workbook createWorksheetNamed:@"Foo" byCopyingWorksheet:worksheetToCopy];
     
     XCTAssertNotNil(worksheet, @"worksheet should not be nil");
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
     
     [[worksheet cellForCellReference:@"A10" shouldCreate:YES] setStringValue:@"Bar"];
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"A10"] stringValue], @"Bar", @"Bar not set in A10 ?");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testCreateNewWorksheetByCopying.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testCreateNewWorksheetByCopying.xlsx"]];
 }
 
 - (void)testRemoveWorksheet1 {
-    BRAWorksheet *worksheet = [_spreadsheet.workbook createWorksheetNamed:@"Foo"];
+    BRAWorksheet *worksheet = [self.spreadsheet.workbook createWorksheetNamed:@"Foo"];
     
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
     
     [[worksheet cellForCellReference:@"A10" shouldCreate:YES] setStringValue:@"Bar"];
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"A10"] stringValue], @"Bar", @"Bar not set in A10 ?");
     
-    XCTAssertNotNil([_spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook should have a worksheet named Feuil1");
+    XCTAssertNotNil([self.spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook should have a worksheet named Feuil1");
     
-    [_spreadsheet.workbook removeWorksheetNamed:@"Feuil1"];
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 1, @"Workbook should contain 1 worksheet");
+    [self.spreadsheet.workbook removeWorksheetNamed:@"Feuil1"];
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 1, @"Workbook should contain 1 worksheet");
     
-    XCTAssertNil([_spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook doesn't have a worksheet named Feuil1 anymore");
-    XCTAssertNotNil([_spreadsheet.workbook worksheetNamed:@"Foo"], @"Workbook should still have a worksheet named Foo");
+    XCTAssertNil([self.spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook doesn't have a worksheet named Feuil1 anymore");
+    XCTAssertNotNil([self.spreadsheet.workbook worksheetNamed:@"Foo"], @"Workbook should still have a worksheet named Foo");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemoveWorksheet1.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemoveWorksheet1.xlsx"]];
 }
 
 - (void)testRemoveWorksheet2 {
     //In this test, calcChain will be removed
-    [_spreadsheet.workbook createWorksheetNamed:@"Foo"];
+    [self.spreadsheet.workbook createWorksheetNamed:@"Foo"];
     
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 2, @"Workbook should contain 2 worksheets");
     
-    [_spreadsheet.workbook removeWorksheetNamed:@"Foo"];
-    XCTAssertEqual(_spreadsheet.workbook.worksheets.count, 1, @"Workbook should contain 1 worksheet");
+    [self.spreadsheet.workbook removeWorksheetNamed:@"Foo"];
+    XCTAssertEqual(self.spreadsheet.workbook.worksheets.count, 1, @"Workbook should contain 1 worksheet");
     
-    XCTAssertNil([_spreadsheet.workbook worksheetNamed:@"Foo"], @"Workbook doesn't have a worksheet named Feuil1 anymore");
-    XCTAssertNotNil([_spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook should still have a worksheet named Foo");
+    XCTAssertNil([self.spreadsheet.workbook worksheetNamed:@"Foo"], @"Workbook doesn't have a worksheet named Feuil1 anymore");
+    XCTAssertNotNil([self.spreadsheet.workbook worksheetNamed:@"Feuil1"], @"Workbook should still have a worksheet named Foo");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemoveWorksheet2.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testRemoveWorksheet2.xlsx"]];
 }
 
 - (void)testAddOneCellAnchoredImage {
     //Need to test more things. Only used to generate an XLSX file
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"photo-1415226481302-c40f24f4d45e" ofType:@"jpeg"]];
 
@@ -622,12 +627,12 @@
     
     XCTAssertNotNil(drawing, @"No drawing created");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAddOnceCellAnchoredImage.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAddOnceCellAnchoredImage.xlsx"]];
 }
 
 - (void)testAddTwoCellAnchoredImage {
     //Need to test more things. Only used to generate an XLSX file
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"photo-1415226481302-c40f24f4d45e" ofType:@"jpeg"]];
     BRAWorksheetDrawing *drawing = [worksheet addImage:image betweenCellsReferenced:@"G2" and:@"I10"
@@ -638,12 +643,12 @@
     XCTAssertNotNil(drawing, @"No drawing created");
     
     NSString *savePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAddTwoCellAnchoredImage.xlsx"];
-    [_spreadsheet saveAs:savePath];
+    [self.spreadsheet saveAs:savePath];
 }
 
 - (void)testAddAbsoluteAnchoredImage {
     //Need to test more things. Only used to generate an XLSX file
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
     
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"photo-1415226481302-c40f24f4d45e" ofType:@"jpeg"]];
     BRAWorksheetDrawing *drawing = [worksheet addImage:image inFrame:CGRectMake(10. * 12700., 10. * 12700., 1024. * 12700., 768. * 12700.)
@@ -651,17 +656,32 @@
     
     XCTAssertNotNil(drawing, @"No drawing created");
     
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAddAbsoluteAnchoredImage.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testAddAbsoluteAnchoredImage.xlsx"]];
 }
 
 - (void)testFillColor {
-    BRAWorksheet *worksheet = _spreadsheet.workbook.worksheets[0];
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
 
     XCTAssertEqualObjects([[worksheet cellForCellReference:@"A35"] cellFillColor], [UIColor redColor], @"A35 fill should be plain red");
     
     [[worksheet cellForCellReference:@"A36" shouldCreate:YES] setCellFillWithForegroundColor:[UIColor yellowColor] backgroundColor:[UIColor blackColor] andPatternType:kBRACellFillPatternTypeDarkTrellis];
 
-    [_spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testFillColor.xlsx"]];
+    [self.spreadsheet saveAs:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"testFillColor.xlsx"]];
+}
+
+- (void)testCellContentReadingEmptyCell {
+    // fixed in commit 803e1b97ae420ecdb6bde7e4b85592e3f4a1ee31 / 23 February 2018 at 13:31:39 CET - Vignesh Renganathan
+    // When reading the empty cell. the app crashes
+
+    BRAWorksheet *worksheet = self.spreadsheet.workbook.worksheets[0];
+    BRACell *cell = [worksheet cellForCellReference:@"B12"];
+    XCTAssertNotNil(cell, "Formatted cell B12 should should not be NIL");
+
+    //Forcing cell to BRACellContentTypeString as I am not sure how to get there from excel as I am getting BRACellContentTypeUnknown.??
+    cell.type = BRACellContentTypeString;
+
+    // Testing the fix
+    XCTAssertNoThrow([[worksheet cellForCellReference:@"B12"] attributedStringValue], "Not Handling empty cell B12 of Type BRACellContentTypeString");
 }
 
 @end

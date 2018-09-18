@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
+@import Foundation;
 #import "BRARelationship.h"
-#import "BRASharedString.h"
 
-@class BRAStyles;
+@class BRAStyles, BRASharedString;
 
 @interface BRASharedStrings : BRARelationship
 

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import "BRAPlatformSpecificDefines.h"
+@import Foundation;
 #import "NativeColor+HTML.h"
 
 @interface BRANativeColor (OpenXml)

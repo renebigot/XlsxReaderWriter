@@ -8,6 +8,7 @@
 
 #import "BRAContentTypesDefaultExtension.h"
 #import "BRARelationship.h"
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRAContentTypesDefaultExtension
 
@@ -43,8 +44,8 @@
 - (void)loadAttributes {
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
 
-    self.extension = dictionaryRepresentation.attributes[@"Extension"];
-    self.contentType = dictionaryRepresentation.attributes[@"ContentType"];
+    self.extension = dictionaryRepresentation.xlsxReaderAttributes[@"Extension"];
+    self.contentType = dictionaryRepresentation.xlsxReaderAttributes[@"ContentType"];
 }
 
 @end

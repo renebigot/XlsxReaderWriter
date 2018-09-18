@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "NSDictionary+OpenXMLDictionaryParser.h"
+@import Foundation;
 
 #define NOT_IMPLEMENTED NSAssert2(NO, @"%s is not implemented in %@", __PRETTY_FUNCTION__, [super class]);
 

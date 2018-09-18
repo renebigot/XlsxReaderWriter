@@ -5,9 +5,12 @@
 //  Created by René BIGOT on 22/10/2014.
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
+
+@import Foundation;
 #import "BRAPlatformSpecificDefines.h"
 #import "BRAOpenXmlSubElement.h"
-#import "BRAImage.h"
+
+@class BRAImage;
 
 @interface BRAAnchor : NSObject
 

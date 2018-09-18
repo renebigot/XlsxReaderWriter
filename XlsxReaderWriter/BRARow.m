@@ -11,6 +11,7 @@
 #import "BRAMergeCell.h"
 #import "BRAWorksheet.h"
 #import "BRAColumn.h"
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRARow
 
@@ -43,23 +44,23 @@
 }
 
 - (void)loadAttributes {
-    _cells = @[].mutableCopy;
+    _cells = [[NSMutableArray alloc] init];
     
     NSDictionary *dictionaryRepresentation = [super dictionaryRepresentation];
     
-    if (dictionaryRepresentation.attributes[@"r"]) {
-        _rowIndex = [dictionaryRepresentation.attributes[@"r"] integerValue];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"r"]) {
+        _rowIndex = [dictionaryRepresentation.xlsxReaderAttributes[@"r"] integerValue];
     }
     
-    if (dictionaryRepresentation.attributes[@"ht"]) {
-        _height = [dictionaryRepresentation.attributes[@"ht"] integerValue];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"ht"]) {
+        _height = [dictionaryRepresentation.xlsxReaderAttributes[@"ht"] integerValue];
     }
     
-    if (dictionaryRepresentation.attributes[@"customHeight"]) {
-        _customHeight = [dictionaryRepresentation.attributes[@"customHeight"] boolValue];
+    if (dictionaryRepresentation.xlsxReaderAttributes[@"customHeight"]) {
+        _customHeight = [dictionaryRepresentation.xlsxReaderAttributes[@"customHeight"] boolValue];
     }
     
-    NSArray *cellsDict = [dictionaryRepresentation arrayValueForKeyPath:@"c"];
+    NSArray *cellsDict = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"c"];
     
     for (NSDictionary *cellDict in cellsDict) {
         BRACell *cell = [[BRACell alloc] initWithOpenXmlAttributes:cellDict inWorksheet:_worksheet];
@@ -112,7 +113,7 @@
     }];
     
     
-    NSMutableArray *cells = @[].mutableCopy;
+    NSMutableArray *cells = [[NSMutableArray alloc] init];
     for (BRACell *cell in _cells) {
         [cells addObject:[cell dictionaryRepresentation]];
     }

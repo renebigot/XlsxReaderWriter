@@ -86,7 +86,7 @@
 //        _formatCode = GENERAL_NUMBER_FORMAT_CODE;
     }
     
-    NSMutableArray *numberFormats = @[].mutableCopy;
+    NSMutableArray *numberFormats = [[NSMutableArray alloc] init];
     
     //Get format code for number value
     NSArray *sections = [_formatCode componentsSeparatedByString:@";"];
@@ -446,7 +446,7 @@
  */
 - (NSAttributedString *)formatNumber:(CGFloat)number {
     NSString *stringToFormat = @"";
-    NSMutableDictionary *attributedStringAttributes = @{}.mutableCopy;
+    NSMutableDictionary *attributedStringAttributes = [[NSMutableDictionary alloc] init];
 
     if ([_formatCode isEqual:@"@"]) {
         // If general formating (code "@") we display the shortest possible decimal value
@@ -503,7 +503,7 @@
             if (time) {
                 //Here time is converted to seconds
                 //some loss of precision will occur
-                seconds = (NSInteger)(time * 86400);
+                seconds = (NSInteger)((time * 86400) + 0.5); // Ceil, otherwise you loose a second sometimes
             }
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -587,7 +587,7 @@
             //if scientific format, reformat exponent
             NSInteger exponentLength = 0;
             if (formatData.isScientific) {
-                if ([formattedNumber rangeOfString:@"0e-"].location != NSNotFound || [formattedNumber rangeOfString:@"0E-"].location != NSNotFound) {
+                if ([formattedNumber rangeOfString:@"e-"].location != NSNotFound || [formattedNumber rangeOfString:@"E-"].location != NSNotFound) {
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e-" withString:@"e-"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E-" withString:@"E-"];
                     
@@ -596,12 +596,24 @@
                         formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"-" withString:@"-0"];
                         ++exponentLength;
                     }
-                } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                } else if ([formattedNumber rangeOfString:@"e+"].location != NSNotFound || [formattedNumber rangeOfString:@"E+"].location != NSNotFound) {
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e+"];
                     formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E+"];
                     
                     exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
                     
+                    while (exponentLength < formatData.exponentLength) {
+                        formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
+                        ++exponentLength;
+                    }
+                } else if ([formattedNumber rangeOfString:@"e"].location != NSNotFound || [formattedNumber rangeOfString:@"E"].location != NSNotFound) {
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0e" withString:@"e"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"0E" withString:@"E"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"e" withString:@"e+"];
+                    formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"E" withString:@"E+"];
+
+                    exponentLength = formattedNumber.length - [formattedNumber rangeOfString:@"+"].location - 1;
+
                     while (exponentLength < formatData.exponentLength) {
                         formattedNumber = [formattedNumber stringByReplacingOccurrencesOfString:@"+" withString:@"+0"];
                         ++exponentLength;

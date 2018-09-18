@@ -1,0 +1,8 @@
+# ZipArchive depency
+github "ZipArchive/ZipArchive" ~> 2.1
+
+# Local (Using Branch Name)
+git "../../XlsxReaderWriter" "2.4.0.Beta.3"
+
+# From Github (Using Tag for sementic versioning)
+# git "../../XlsxReaderWriter" "2.4.0-beta.3"

@@ -6,8 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
-
-#import "BRAOfficeDocument.h"
+@import Foundation;
 #import "BRAOpenXmlSubElement.h"
 
 @interface BRASharedString : BRAOpenXmlSubElementWithStyle {

@@ -7,6 +7,9 @@
 //
 
 #import "BRASharedString.h"
+#import "BRAOfficeDocument.h"
+#import "BRAStyles.h"
+#import "XlsxReaderXMLDictionary.h"
 
 @implementation BRASharedString
 
@@ -33,7 +36,7 @@
     //String can be a text (t) or a run (r)
     if (dictionaryRepresentation[@"r"]) {
         
-        NSArray *runs = [dictionaryRepresentation arrayValueForKeyPath:@"r"];
+        NSArray *runs = [dictionaryRepresentation xlsxReaderArrayValueForKeyPath:@"r"];
         
         //Run (r)
         for (NSDictionary *textDict in runs) {
@@ -56,7 +59,7 @@
     if ([dictionary[@"t"] isKindOfClass:[NSString class]]) {
         retVal = dictionary[@"t"];
     } else if ([dictionary[@"t"] isKindOfClass:[NSDictionary class]]) {
-        retVal = [dictionary[@"t"] innerText];
+        retVal = [dictionary[@"t"] xlsxReaderInnerText];
     } else {
         retVal = @"";
     }
@@ -84,15 +87,15 @@
         return dictionaryRepresentation;
     }
     
-    dictionaryRepresentation = @{}.mutableCopy;
-    NSMutableArray *attributesArray = @[].mutableCopy;
+    dictionaryRepresentation = [[NSMutableDictionary alloc] init];
+    NSMutableArray *attributesArray = [[NSMutableArray alloc] init];
     
     BOOL __block runHasProperties = NO;
     
     [_attributedString enumerateAttributesInRange:NSMakeRange(0, _attributedString.length)
                                          options:0 usingBlock:^(id value, NSRange range, BOOL *stop) {
                                              //Text string
-                                             NSString *subString = [[_attributedString string] substringWithRange:range];
+                                             NSString *subString = [[self->_attributedString string] substringWithRange:range];
                                              NSMutableDictionary *subAttributes = @{
                                                                                     @"__text": subString,
                                                                                     }.mutableCopy;
@@ -101,13 +104,13 @@
                                                  subAttributes[@"_xml:space"] = @"preserve";
                                              }
                                              
-                                             NSMutableDictionary *runPropertiesDictionary = @{}.mutableCopy;
+                                             NSMutableDictionary *runPropertiesDictionary = [[NSMutableDictionary alloc] init];
                                              
                                              //Font color
                                              if (value[NSForegroundColorAttributeName]) {
                                                  BRANativeColor *color = value[NSForegroundColorAttributeName];
                                                  
-                                                 [runPropertiesDictionary setValue:[_styles openXmlAttributesWithColor:color] forKeyPath:@"color"];
+                                                 [runPropertiesDictionary setValue:[self->_styles openXmlAttributesWithColor:color] forKeyPath:@"color"];
                                              }
                                              
                                              //Font name & size

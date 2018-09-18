@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 René Bigot. All rights reserved.
 //
 
+@import Foundation;
 #import "BRAPlatformSpecificDefines.h"
 
 static const NSString *kBRAFontNameRegular = @"regular";

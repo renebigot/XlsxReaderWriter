@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 BRAE. All rights reserved.
 //
 
+@import Foundation;
 #import "BRARelationship.h"
 
 @interface BRATheme : BRARelationship
